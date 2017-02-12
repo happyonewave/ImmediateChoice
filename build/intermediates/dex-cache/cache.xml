@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a55327e017f167d0d648dfefe129f16dfd6f29d0">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_a4767c5ea4754e2625cf29dccdd552b3631cf76d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="3e87c28f662e63720d02078328b2f9f76410426a">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\instant-run_76ab7c47e0969dc01ab200eab4da3ab330a10226.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.0\support-v4-19.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-v4-19.0.0_a57c79a3bd075d353386bf95e8c8c29db2c65b07.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.0\support-v4-19.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-v4-19.0.0_a57c79a3bd075d353386bf95e8c8c29db2c65b07.jar" />
+    </item>
+
+</items>

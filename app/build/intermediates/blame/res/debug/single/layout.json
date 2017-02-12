@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\discoveryfragment_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\discoveryfragment_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\discoveryfragment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\discoveryfragment.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\userfragment_item_lift.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\userfragment_item_lift.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\userfragment_item_right.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\userfragment_item_right.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\functionfragment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\functionfragment.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\userfragment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\userfragment.xml"
+    }
+]

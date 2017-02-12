@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<com.loopj.android.image.SmartImageView
+	    android:id="@+id/siv_item"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/ic_launcher"
+	    android:layout_alignParentRight="true"
+	    />
+	<RelativeLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/siv_item"
+	    >
+	<Button 
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="第一个"
+	    android:id="@+id/bt_share"
+	    />
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="第二个"
+			android:id="@+id/bt_great"
+			android:layout_alignParentTop="true"
+			android:layout_toRightOf="@id/bt_share"
+			android:layout_toEndOf="@id/bt_share" />
+		<TextView
+			android:id="@+id/tv_date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="日期"
+			android:layout_alignParentRight="true"
+			android:layout_alignBottom="@id/bt_great"
+			/>
+
+	<EditText 
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/tv_date"
+	    />
+
+
+	</RelativeLayout>
+	<TextView 
+	    android:id="@+id/tv_student"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="学生"
+	    android:lines="2"
+	    />
+</RelativeLayout>

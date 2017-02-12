@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="serverurl">http://123.207.31.213/info.json</string>
+    <string name="serverurl_conversation">http://123.207.31.213/conversation.json</string>
+
+    
+</resources>

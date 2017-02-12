@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<com.loopj.android.image.SmartImageView
+	    android:id="@+id/siv_portrait"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:src="@drawable/ic_launcher"
+	    />
+	
+	<TextView 
+	    android:id="@+id/tv_content"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="content"
+	    android:lines="2"
+	    android:layout_toRightOf="@id/siv_portrait"
+	    />
+	
+	<TextView 
+	    android:id="@+id/tv_addresser"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="addresser"
+	    android:layout_below="@id/siv_portrait"
+	    />
+	<TextView 
+	    android:id="@+id/tv_addressee"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="addressee"
+	    android:lines="2"
+	    android:layout_alignParentRight="true"
+	    android:layout_below="@id/siv_portrait"
+	    />
+</RelativeLayout>
