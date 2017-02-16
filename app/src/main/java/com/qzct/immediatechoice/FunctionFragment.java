@@ -15,6 +15,7 @@ import com.qzct.immediatechoice.domain.info;
 import com.qzct.immediatechoice.util.StreamTools;
 
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -49,7 +50,15 @@ public class FunctionFragment extends baseFragment {
 
 			@Override
 			public boolean isViewFromObject(View view, Object object) {
-				return false;
+				return view == object;
+			}
+
+			@Override
+			public Object instantiateItem(ViewGroup container, int position) {
+				TextView tv = new TextView(context);
+				tv.setText("1");
+				container.addView(tv);
+				return tv;
 			}
 		});
 		return v;

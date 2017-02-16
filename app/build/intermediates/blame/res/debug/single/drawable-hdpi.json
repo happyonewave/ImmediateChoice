@@ -20,12 +20,16 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\discovery.png"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home.png",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\home.png"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\my_press.png",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\my_press.png"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home.png",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\home.png"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\discovery_press.png",

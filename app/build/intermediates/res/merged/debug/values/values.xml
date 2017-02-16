@@ -4,7 +4,7 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <string name="action_settings">Settings</string>
-    <string name="app_name">ImmediateChoice</string>
+    <string name="app_name">无厘投</string>
     <string name="hello_world">Hello world!</string>
     <string name="serverurl">http://123.207.31.213/info.json</string>
     <string name="serverurl_conversation">http://123.207.31.213/conversation.json</string>

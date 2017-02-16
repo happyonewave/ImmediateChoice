@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Feb 11 13:52:29 CST 2017
+#Thu Feb 16 16:28:58 CST 2017
 22.set=ANDROID_RESOURCE
 8.set=ANDROID_RESOURCE
 11.set=ANDROID_RESOURCE
@@ -31,7 +31,7 @@ count=25
 16.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\bt_my_bg.xml
 6.set=ANDROID_RESOURCE
 16.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-8.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\ic_launcher.png
+8.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_launcher.png
 8.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 17.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\bt_discovery_bg.xml
 17.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
