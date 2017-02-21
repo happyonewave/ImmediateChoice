@@ -8,7 +8,9 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="24dp"
-        android:background="@color/apporange"/>
+        android:background="@color/apporange"
+        android:contentDescription=""
+        tools:ignore="ContentDescription" />
     <FrameLayout
         android:layout_weight="8"
         android:id="@+id/fl"

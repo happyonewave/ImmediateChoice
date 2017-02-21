@@ -30,45 +30,79 @@ public final class R {
         public static final int message=0x7f020009;
         public static final int my=0x7f02000a;
         public static final int my_press=0x7f02000b;
-        public static final int seting=0x7f02000c;
+        public static final int qq=0x7f02000c;
+        public static final int seting=0x7f02000d;
+        public static final int wechat=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f090010;
-        public static final int bt_discovery=0x7f090002;
-        public static final int bt_function=0x7f090001;
-        public static final int bt_great=0x7f090007;
-        public static final int bt_share=0x7f090006;
-        public static final int bt_user=0x7f090003;
-        public static final int fl=0x7f090000;
-        public static final int lv=0x7f090004;
-        public static final int lv_chat=0x7f09000b;
-        public static final int siv_item=0x7f090005;
-        public static final int siv_portrait=0x7f09000c;
-        public static final int tv_addressee=0x7f09000f;
-        public static final int tv_addresser=0x7f09000e;
-        public static final int tv_content=0x7f09000d;
-        public static final int tv_date=0x7f090008;
-        public static final int tv_student=0x7f090009;
-        public static final int vp_home=0x7f09000a;
+        public static final int action_settings=0x7f09001f;
+        public static final int bt_Login=0x7f090014;
+        public static final int bt_discovery=0x7f090009;
+        public static final int bt_function=0x7f090008;
+        public static final int bt_great=0x7f09000e;
+        public static final int bt_share=0x7f09000d;
+        public static final int bt_user=0x7f09000a;
+        public static final int email=0x7f090003;
+        public static final int email_login_form=0x7f090002;
+        public static final int email_sign_in_button=0x7f090006;
+        public static final int et_password=0x7f090013;
+        public static final int et_username=0x7f090012;
+        public static final int fl=0x7f090007;
+        public static final int iv_qq=0x7f090017;
+        public static final int iv_wechat=0x7f090018;
+        public static final int login=0x7f090005;
+        public static final int login_form=0x7f090001;
+        public static final int login_progress=0x7f090000;
+        public static final int lv=0x7f09000b;
+        public static final int lv_chat=0x7f09001a;
+        public static final int password=0x7f090004;
+        public static final int siv_item=0x7f09000c;
+        public static final int siv_portrait=0x7f09001b;
+        public static final int tv_addressee=0x7f09001e;
+        public static final int tv_addresser=0x7f09001d;
+        public static final int tv_content=0x7f09001c;
+        public static final int tv_date=0x7f09000f;
+        public static final int tv_forgot_password=0x7f090015;
+        public static final int tv_register=0x7f090016;
+        public static final int tv_student=0x7f090010;
+        public static final int tv_touch_login=0x7f090019;
+        public static final int vp_home=0x7f090011;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int discoveryfragment=0x7f030001;
-        public static final int discoveryfragment_item=0x7f030002;
-        public static final int functionfragment=0x7f030003;
-        public static final int userfragment=0x7f030004;
-        public static final int userfragment_item_lift=0x7f030005;
-        public static final int userfragment_item_right=0x7f030006;
+        public static final int activity_login=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int discoveryfragment=0x7f030002;
+        public static final int discoveryfragment_item=0x7f030003;
+        public static final int functionfragment=0x7f030004;
+        public static final int login=0x7f030005;
+        public static final int userfragment=0x7f030006;
+        public static final int userfragment_item_lift=0x7f030007;
+        public static final int userfragment_item_right=0x7f030008;
     }
     public static final class menu {
         public static final int main=0x7f080000;
     }
     public static final class string {
         public static final int action_settings=0x7f070000;
-        public static final int app_name=0x7f070001;
-        public static final int hello_world=0x7f070002;
-        public static final int serverurl=0x7f070003;
-        public static final int serverurl_conversation=0x7f070004;
+        public static final int action_sign_in=0x7f070001;
+        public static final int action_sign_in_short=0x7f070002;
+        public static final int app_name=0x7f070003;
+        public static final int error_field_required=0x7f070004;
+        public static final int error_incorrect_password=0x7f070005;
+        public static final int error_invalid_email=0x7f070006;
+        public static final int error_invalid_password=0x7f070007;
+        public static final int forgot_password_text=0x7f070008;
+        public static final int hello_world=0x7f070009;
+        public static final int login_text=0x7f07000a;
+        public static final int permission_rationale=0x7f07000b;
+        public static final int prompt_email=0x7f07000c;
+        public static final int prompt_password=0x7f07000d;
+        public static final int register_text=0x7f07000e;
+        public static final int serverurl=0x7f07000f;
+        public static final int serverurl_conversation=0x7f070010;
+        public static final int title_activity_login=0x7f070011;
+        public static final int touch_login_text=0x7f070012;
+        public static final int username_hint=0x7f070013;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 

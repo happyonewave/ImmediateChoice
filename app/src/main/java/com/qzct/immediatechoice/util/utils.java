@@ -1,17 +1,16 @@
 package com.qzct.immediatechoice.util;
 
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
+import android.os.Message;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.net.Uri;
-import android.os.Message;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class utils {
 	private static JSONObject obj;
@@ -77,5 +76,23 @@ public class utils {
 		
 		return jsonArray;
 		
+	}
+
+	public static String getTextFromStream(InputStream is){
+		int len =0;
+		byte[] b = new byte[1024];
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		try {
+			while ((len = is.read(b))!=-1) {
+				bos.write(b, 0, len);
+			}
+			String text = new String(bos.toByteArray());
+			return text;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+
 	}
 }
