@@ -18,6 +18,10 @@
         <item name="android:windowNoTitle">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    <style name="info_style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
 
     <style name="bt_style">
         <item name="android:layout_width">0dip</item>

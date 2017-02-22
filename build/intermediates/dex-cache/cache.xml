@@ -7,8 +7,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="c0c55e2002da5d973eb5aff57e93d44a7f5330dc">
+        sha1="71b4d5ea4939c696ec0111a182baeed172572ef8">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_a4767c5ea4754e2625cf29dccdd552b3631cf76d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_a54be36fecf79b883d57dec741584116a89fa05f.jar" />
     </item>
     <item
         is-multidex="false"
@@ -16,26 +25,26 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="4798d4eafbdd5705860b9a2e8b49a4e4f8830199">
+        sha1="43c1adfe1c7adb7c515c98b003cd5547e8babcdd">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\instant-run_76ab7c47e0969dc01ab200eab4da3ab330a10226.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.0\support-v4-19.0.0.jar"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-v4-19.0.0_a57c79a3bd075d353386bf95e8c8c29db2c65b07.jar" />
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0_08b16856724fa3fb4e27eb337c3e2a21cf114629.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-v4\19.0.0\support-v4-19.0.0.jar"
-        jumboMode="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="afee690af14bd2c32d400cdf78e746fd45c386fa">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-v4-19.0.0_a57c79a3bd075d353386bf95e8c8c29db2c65b07.jar" />
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.0_1f07a6acb7058fc64a1b8bd00316ae1e6a4d94e4.jar" />
     </item>
 
 </items>

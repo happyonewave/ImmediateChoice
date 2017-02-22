@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -18,27 +19,29 @@
         android:drawableBottom="@drawable/seting"
         android:background="@color/apporange"
         android:layout_alignParentRight="true"
-        />
+            tools:ignore="RtlHardcoded" />
         <Button
             android:layout_width="40sp"
             android:layout_height="40sp"
             android:drawableBottom="@drawable/message"
             android:background="@color/apporange"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            tools:ignore="RtlHardcoded" />
         <ImageView
         android:layout_width="80sp"
         android:layout_height="80sp"
         android:layout_centerInParent="true"
         android:src="@drawable/bt_discovery_bg"
-        />
+            tools:ignore="ContentDescription" />
 
     </RelativeLayout>
-    <ListView 
+    <GridView
         android:layout_weight="5"
         android:id="@+id/lv_chat"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        ></ListView>
+        android:numColumns="auto_fit"
+        ></GridView>
     <!--<RelativeLayout -->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="0dp"-->

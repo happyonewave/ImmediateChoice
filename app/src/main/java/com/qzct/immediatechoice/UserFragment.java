@@ -1,26 +1,24 @@
 package com.qzct.immediatechoice;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridView;
+
+import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.adpter.UserAdpter;
+import com.qzct.immediatechoice.domain.conversation;
+import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.itheima.immediatechoice.R;
-import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.domain.conversation;
-import com.qzct.immediatechoice.util.utils;
-
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserFragment extends baseFragment {
 	
@@ -32,6 +30,14 @@ public class UserFragment extends baseFragment {
 	@Override
 	public View initview() {
 		v =  v.inflate(context, R.layout.userfragment, null);
+		Button bt_setting = (Button) v.findViewById(R.id.bt_setting);
+		bt_setting.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(context,SettingActivity.class);
+				startActivity(intent);
+			}
+		});
 ////	ll = new LinearLayout(context);
 ////	lv = new ListView(context);
 //		ll.addView(lv);
@@ -56,7 +62,7 @@ public class UserFragment extends baseFragment {
 
 			// TODO Auto-generated method stub
 				//通过资源id拿到listview对象
-			 ListView lv =(ListView) v.findViewById(R.id.lv_chat);
+			 GridView lv =(GridView) v.findViewById(R.id.lv_chat);
 				try {
 					//new一个info数组
 					conversationlist = new ArrayList<conversation>();
@@ -77,18 +83,17 @@ public class UserFragment extends baseFragment {
 					}
 					
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				//设置适配器
-				lv.setAdapter(new MyAdpter());
+				lv.setAdapter(new UserAdpter(context,conversationlist));
 		}
 	};
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//拿到json
-		GetJsonarray(getString(R.string.serverurl_conversation));
+		GetJsonarray(getString(R.string.url_user));
 	}
 					
 	private void GetJsonarray(final String spec) {
@@ -103,68 +108,7 @@ public class UserFragment extends baseFragment {
 		}.start();
 	}
 
-	class MyAdpter extends BaseAdapter{
 
-
-		@Override
-		public int getCount() {
-			return conversationlist.size();
-		}
-		
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			View v = null ; 
-			conversation conversation = conversationlist.get(position);		
-			if(convertView == null){
-//				v =  new LinearLayout(context);
-//				v.setOrientation(LinearLayout.VERTICAL);
-				if(conversation.getAddresser().equals( "小王")){
-					v =  v.inflate(context, R.layout.userfragment_item_lift, null);
-				}else{
-					v =  v.inflate(context, R.layout.userfragment_item_right, null);
-				}
-				System.out.println("调用：" + position);
-			}else{
-				v =  convertView;
-			}
-				
-
-//			SmartImageView siv = new SmartImageView(context);
-//			TextView tv_content = new TextView(context);
-//			TextView tv_addresser = new TextView(context);
-//			TextView tv_addressee = new TextView(context);
-//			siv.setRight(0);
-
-			SmartImageView siv =(SmartImageView) v.findViewById(R.id.siv_portrait);
-			TextView tv_content = (TextView) v.findViewById(R.id.tv_content);
-			TextView tv_addresser = (TextView) v.findViewById(R.id.tv_addresser);
-			TextView tv_addressee = (TextView) v.findViewById(R.id.tv_addressee);
-							//拿到一个info对象
-				
-			tv_content.setText(conversation.getContent());	
-			tv_addresser.setText(conversation.getAddresser());	
-			tv_addressee.setText(conversation.getAddressee());	
-			System.out.println(conversation.getPortraiturl());
-			siv.setImageUrl(conversation.getPortraiturl());
-//			v.addView(siv);
-//			v.addView(tv_content);
-//			v.addView(tv_addresser);
-//			v.addView(tv_addressee);
-			return v;
-		}
-
-		@Override
-		public Object getItem(int position) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
-	}
 
 	
 }

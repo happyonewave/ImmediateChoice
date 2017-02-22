@@ -1,26 +1,25 @@
 package com.qzct.immediatechoice;
 
-import java.util.ArrayList;
-import java.util.List;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.adpter.DiscoveryAdpter;
+import com.qzct.immediatechoice.domain.info;
+import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.itheima.immediatechoice.R;
-import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.domain.info;
-import com.qzct.immediatechoice.util.utils;
-
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DiscoveryFragment extends baseFragment {
 
@@ -63,20 +62,43 @@ public class DiscoveryFragment extends baseFragment {
 					}
 					
 				} catch (JSONException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				//设置适配器
-				lv.setAdapter(new MyAdpter());
+				lv.setAdapter(new DiscoveryAdpter(context,infolist));
 		}
 	};
-
-
 
 	@Override
 	public View initview() {
 		v = View.inflate(getActivity(), R.layout.discoveryfragment, null);
+		final SwipeRefreshLayout swipe_refresh = (SwipeRefreshLayout)v.findViewById(R.id.swipe_refresh);
+		final TextView tv_swipe_refresh = (TextView)v.findViewById(R.id.tv_swipe_refresh);
+		swipe_refresh.setColorSchemeColors(R.color.apporange,Color.BLUE);
+		swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				tv_swipe_refresh.setVisibility(View.VISIBLE);
+				tv_swipe_refresh.setText(R.string.swipe_refreshing);
+				GetJsonarray(getString(R.string.url_Discovery));
+				new Handler().postDelayed(new Runnable() {
 
+					@Override
+					public void run() {
+					tv_swipe_refresh.setText(R.string.swipe_refresh_finish);
+						new Handler().postDelayed(new Runnable() {
+							@Override
+							public void run() {
+								tv_swipe_refresh.setVisibility(View.GONE);
+							}
+						},1000);
+					swipe_refresh.setRefreshing(false);
+
+//					tv_swipe_refresh.setText(R.string.tv_swipe_refresh_text);
+					}
+				},1500);
+			}
+		});
 		return v;
 	}
 	
@@ -84,11 +106,10 @@ public class DiscoveryFragment extends baseFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//拿到json
-		GetJsonarray(getString(R.string.serverurl));
+		GetJsonarray(getString(R.string.url_Discovery));
 	}
 
-
-	private void GetJsonarray(final String spec) { 														
+	private void GetJsonarray(final String spec) {
 		// TODO Auto-generated method stub
 		//开一个子线程
 		new Thread(){
@@ -102,49 +123,6 @@ public class DiscoveryFragment extends baseFragment {
 		}.start();
 	}
 
-	class MyAdpter extends BaseAdapter{
 
-
-		@Override
-		public int getCount() {
-			// TODO Auto-generated method stub
-			return infolist.size();
-		}
-		
-		@Override
-		public View getView(int position, View convertView, ViewGroup parent) {
-			// TODO Auto-generated method stub
-			View v = null ; 
-			if(convertView == null){
-				v = View.inflate(getActivity(), R.layout.discoveryfragment_item, null);//将fragment01_item填充成一个View
-				System.out.println("调用：" + position);
-			}else{
-				v = convertView;
-			}
-				
-				
-			TextView tv_student =  (TextView) v.findViewById(R.id.tv_student);	//拿到相应的View对象
-			TextView tv_date =  (TextView) v.findViewById(R.id.tv_date);
-			SmartImageView siv_item =   (SmartImageView) v.findViewById(R.id.siv_item);
-
-			info i = infolist.get(position);									//拿到一个info对象
-				
-			tv_student.setText(i.getStudent());									//设置相应的信息
-			tv_date.setText(i.getDate());
-			System.out.println(i.getImageurl());
-			siv_item.setImageUrl(i.getImageurl());
-			return v;
-		}
-
-		@Override
-		public Object getItem(int position) {
-			return null;
-		}
-
-		@Override
-		public long getItemId(int position) {
-			return 0;
-		}
-	}
 
 }

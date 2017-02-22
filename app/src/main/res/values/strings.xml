@@ -9,19 +9,22 @@
     <string name="forgot_password_text">忘记密码？| </string>
     <string name="register_text"> 立即注册</string>
     <string name="touch_login_text">一键登入</string>
-    <string name="title_activity_login">Sign in</string>
-
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-
-</resources>
+    <string name="tv_swipe_refresh_text">下拉刷新</string>
+    <string name="swipe_refreshing">正在刷新</string>
+    <string name="swipe_refresh_finish">刷新完成</string>
+    <string name="username">用户名</string>
+    <string name="info_vote">投票  98|   </string>
+    <string name="info_fans">    粉丝  2|    </string>
+    <string name="info_attention">    关注  9</string>
+    <string name="my_post">我的发帖</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="seting">设置</string>
+    <string name="push">推送消息</string>
+    <string name="economy">省流量模式</string>
+    <string name="night_model">夜间模式</string>
+    <string name="clean_cache">清除缓存</string>
+    <string name="look_update">检查更新</string>
+    <string name="appraise">给我评分</string>
+    <string name="user_protocol">用户协议</string>
+    <string name="privacy_statement">隐私权声明</string>
+    <string name="logout">退出登入</string></resources>

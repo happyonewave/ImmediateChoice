@@ -11,14 +11,7 @@
                     "endOffset": 96
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 208,
-                        "endColumn": 45,
-                        "endOffset": 249
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml"
                 }
             },
             {
@@ -30,14 +23,7 @@
                     "endOffset": 154
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 92,
-                        "endColumn": 57,
-                        "endOffset": 145
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml"
                 }
             },
             {
@@ -49,14 +35,7 @@
                     "endOffset": 210
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 151,
-                        "endColumn": 55,
-                        "endOffset": 202
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\dimens.xml"
                 }
             },
             {
@@ -68,14 +47,7 @@
                     "endOffset": 263
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 101,
-                        "endColumn": 52,
-                        "endOffset": 149
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
@@ -83,112 +55,77 @@
                     "startLine": 6,
                     "startColumn": 4,
                     "startOffset": 268,
-                    "endColumn": 62,
-                    "endOffset": 326
+                    "endColumn": 40,
+                    "endOffset": 304
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 675,
-                        "endColumn": 62,
-                        "endOffset": 733
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 7,
                     "startColumn": 4,
-                    "startOffset": 331,
+                    "startOffset": 309,
                     "endColumn": 56,
-                    "endOffset": 383
+                    "endOffset": 361
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 739,
-                        "endColumn": 56,
-                        "endOffset": 791
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 8,
                     "startColumn": 4,
-                    "startOffset": 388,
-                    "endColumn": 40,
-                    "endOffset": 424
+                    "startOffset": 366,
+                    "endColumn": 52,
+                    "endOffset": 414
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 59,
-                        "endColumn": 40,
-                        "endOffset": 95
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 429,
-                    "endColumn": 71,
-                    "endOffset": 496
+                    "startOffset": 419,
+                    "endColumn": 43,
+                    "endOffset": 458
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 1036,
-                        "endColumn": 71,
-                        "endOffset": 1103
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 10,
                     "startColumn": 4,
-                    "startOffset": 501,
-                    "endColumn": 79,
-                    "endOffset": 576
+                    "startOffset": 463,
+                    "endColumn": 47,
+                    "endOffset": 506
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 955,
-                        "endColumn": 79,
-                        "endOffset": 1030
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 11,
                     "startColumn": 4,
-                    "startOffset": 581,
-                    "endColumn": 77,
-                    "endOffset": 654
+                    "startOffset": 511,
+                    "endColumn": 53,
+                    "endOffset": 560
                 },
                 "from": {
                     "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 18,
+                        "startLine": 13,
                         "startColumn": 4,
-                        "startOffset": 797,
-                        "endColumn": 77,
-                        "endOffset": 870
+                        "startOffset": 570,
+                        "endColumn": 53,
+                        "endOffset": 619
                     }
                 }
             },
@@ -196,18 +133,18 @@
                 "to": {
                     "startLine": 12,
                     "startColumn": 4,
-                    "startOffset": 659,
-                    "endColumn": 77,
-                    "endOffset": 732
+                    "startOffset": 565,
+                    "endColumn": 49,
+                    "endOffset": 610
                 },
                 "from": {
                     "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 19,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 876,
-                        "endColumn": 77,
-                        "endOffset": 949
+                        "startOffset": 519,
+                        "endColumn": 49,
+                        "endOffset": 564
                     }
                 }
             },
@@ -215,293 +152,111 @@
                 "to": {
                     "startLine": 13,
                     "startColumn": 4,
-                    "startOffset": 737,
-                    "endColumn": 56,
-                    "endOffset": 789
+                    "startOffset": 615,
+                    "endColumn": 49,
+                    "endOffset": 660
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 305,
-                        "endColumn": 56,
-                        "endOffset": 357
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 794,
-                    "endColumn": 52,
-                    "endOffset": 842
+                    "startOffset": 665,
+                    "endColumn": 54,
+                    "endOffset": 715
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 155,
-                        "endColumn": 52,
-                        "endOffset": 203
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 847,
-                    "endColumn": 43,
-                    "endOffset": 886
+                    "startOffset": 720,
+                    "endColumn": 91,
+                    "endOffset": 807
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 260,
-                        "endColumn": 43,
-                        "endOffset": 299
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\config.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 891,
-                    "endLine": 18,
-                    "endColumn": 13,
-                    "endOffset": 1015
+                    "startOffset": 812,
+                    "endColumn": 83,
+                    "endOffset": 891
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 1109,
-                        "endLine": 24,
-                        "endColumn": 13,
-                        "endOffset": 1235
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\config.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 896,
+                    "endColumn": 81,
+                    "endOffset": 973
+                },
+                "from": {
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\config.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 978,
+                    "endColumn": 49,
+                    "endOffset": 1023
+                },
+                "from": {
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 19,
                     "startColumn": 4,
-                    "startOffset": 1020,
-                    "endColumn": 46,
-                    "endOffset": 1062
+                    "startOffset": 1028,
+                    "endLine": 21,
+                    "endColumn": 12,
+                    "endOffset": 1106
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 562,
-                        "endColumn": 46,
-                        "endOffset": 604
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 20,
-                    "startColumn": 4,
-                    "startOffset": 1067,
-                    "endColumn": 63,
-                    "endOffset": 1126
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 610,
-                        "endColumn": 63,
-                        "endOffset": 669
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 21,
-                    "startColumn": 4,
-                    "startOffset": 1131,
-                    "endColumn": 47,
-                    "endOffset": 1174
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 363,
-                        "endColumn": 47,
-                        "endOffset": 406
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 1179,
-                    "endColumn": 69,
-                    "endOffset": 1244
+                    "startOffset": 1111,
+                    "endLine": 26,
+                    "endColumn": 12,
+                    "endOffset": 1242
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\config.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 57,
-                        "endColumn": 69,
-                        "endOffset": 122
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 23,
-                    "startColumn": 4,
-                    "startOffset": 1249,
-                    "endColumn": 90,
-                    "endOffset": 1335
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\config.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 128,
-                        "endColumn": 90,
-                        "endOffset": 214
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 24,
-                    "startColumn": 4,
-                    "startOffset": 1340,
-                    "endColumn": 56,
-                    "endOffset": 1392
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 463,
-                        "endColumn": 56,
-                        "endOffset": 515
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 25,
-                    "startColumn": 4,
-                    "startOffset": 1397,
-                    "endColumn": 49,
-                    "endOffset": 1442
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 412,
-                        "endColumn": 49,
-                        "endOffset": 457
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 26,
-                    "startColumn": 4,
-                    "startOffset": 1447,
-                    "endColumn": 49,
-                    "endOffset": 1492
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 209,
-                        "endColumn": 49,
-                        "endOffset": 254
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml"
                 }
             },
             {
                 "to": {
                     "startLine": 27,
                     "startColumn": 4,
-                    "startOffset": 1497,
-                    "endLine": 33,
-                    "endColumn": 12,
-                    "endOffset": 1783
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 192,
-                        "endLine": 12,
-                        "endColumn": 12,
-                        "endOffset": 484
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 34,
-                    "startColumn": 4,
-                    "startOffset": 1788,
+                    "startOffset": 1247,
                     "endLine": 38,
                     "endColumn": 12,
-                    "endOffset": 2019
+                    "endOffset": 1890
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 525,
-                        "endLine": 19,
-                        "endColumn": 12,
-                        "endOffset": 761
-                    }
-                }
-            },
-            {
-                "to": {
-                    "startLine": 39,
-                    "startColumn": 4,
-                    "startOffset": 2024,
-                    "endLine": 50,
-                    "endColumn": 12,
-                    "endOffset": 2667
-                },
-                "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 769,
-                        "endLine": 32,
-                        "endColumn": 12,
-                        "endOffset": 1423
-                    }
+                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values\\styles.xml"
                 }
             }
         ]
