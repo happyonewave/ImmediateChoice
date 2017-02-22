@@ -27,4 +27,8 @@
     <string name="appraise">给我评分</string>
     <string name="user_protocol">用户协议</string>
     <string name="privacy_statement">隐私权声明</string>
-    <string name="logout">退出登入</string></resources>
+    <string name="logout">退出登入</string>
+    <string name="home_title_image_text">图文</string>
+    <string name="home_title_video">视频</string>
+    <string name="home_title_attention">关注</string>
+</resources>
