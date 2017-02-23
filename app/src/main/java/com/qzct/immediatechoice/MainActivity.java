@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 
 import com.itheima.immediatechoice.R;
 
@@ -22,6 +23,7 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fl = (FrameLayout) findViewById(R.id.fl);
+        ImageView iv_status_bar = (ImageView) findViewById(R.id.status_bar);
         //支持4.4以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
@@ -32,6 +34,7 @@ public class MainActivity extends FragmentActivity {
             //是否为系统 View 预留出空间, 当设置为 true 时,会预留出状态栏的空间.
 //			title.setFitsSystemWindows(true);
             //title.setClipToOutline(true);
+            iv_status_bar.setVisibility(View.VISIBLE);
         }
 
         Fragment fragment = (Fragment) Adapter.instantiateItem(fl, 0);
