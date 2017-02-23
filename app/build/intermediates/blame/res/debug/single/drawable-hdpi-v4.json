@@ -12,6 +12,10 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\bt_my_bg.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bt_home_title_textcolor.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\bt_home_title_textcolor.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\bt_discovery_bg.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\drawable-hdpi\\bt_discovery_bg.xml"
     }

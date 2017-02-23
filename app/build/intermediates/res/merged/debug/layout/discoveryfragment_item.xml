@@ -39,11 +39,11 @@
 			android:layout_alignBottom="@id/bt_great"
 			/>
 
-	<EditText 
-	    android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_below="@id/tv_date"
-	    />
+	<!--<EditText -->
+	    <!--android:layout_width="match_parent"-->
+		<!--android:layout_height="wrap_content"-->
+		<!--android:layout_below="@id/tv_date"-->
+	    <!--/>-->
 
 
 	</RelativeLayout>
