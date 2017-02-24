@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	>
+
+
+	<TextView
+		android:id="@+id/tv_question"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/question_content"
+		android:textSize="30dp"
+		android:layout_margin="25dp"
+		/>
+
+	<RelativeLayout
+		android:layout_below="@id/tv_question"
+		android:layout_centerHorizontal="true"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<com.loopj.android.image.SmartImageView
+			android:id="@+id/image_text_item_img1"
+			android:layout_width="400dp"
+			android:layout_height="150dp"
+			android:src="@drawable/ic_launcher"
+			android:layout_alignParentLeft="true"
+			/>
+		<com.loopj.android.image.SmartImageView
+			android:id="@+id/image_text_item_img2"
+			android:layout_width="70dp"
+			android:layout_height="150dp"
+			android:src="@drawable/ic_launcher"
+			android:layout_alignParentRight="true"
+			/>
+
+	</RelativeLayout>
+
+</RelativeLayout>

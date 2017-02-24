@@ -23,6 +23,15 @@
         <item name="android:textSize">20dp</item>
     </style>
 
+    <style name="top_style">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+    <style name="register_nav_style">
+        <item name="android:textColor">@color/bright_foreground_light_disabled</item>
+        <item name="android:textSize">15dp</item>
+        <item name="android:gravity">center</item>
+    </style>
     <style name="bt_style">
         <item name="android:layout_width">0dip</item>
         <item name="android:layout_height">wrap_content</item>

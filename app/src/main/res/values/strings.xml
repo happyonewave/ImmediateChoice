@@ -31,4 +31,25 @@
     <string name="home_title_image_text">图文</string>
     <string name="home_title_video">视频</string>
     <string name="home_title_attention">关注</string>
+    <string name="question_content">你更喜欢冬天还是夏天</string>
+    <string name="push_vote">发起投票</string>
+    <string name="questionnaire_push">问卷调查</string>
+    <string name="register">注册</string>
+    <string name="et_vote_content_hint">请输入您的话题...</string>
+    <string name="words_number">0</string>
+    <string name="words_number_limit">/50</string>
+    <string name="questionnaire_words_number_limit">/2000</string>
+    <string name="push_add">添加项目</string>
+    <string name="push_scale">缩放图片</string>
+    <string name="push_move">移动图片</string>
+    <string name="push_location">发布位置</string>
+    <string name="push_topic">选择话题</string>
+    <string name="push_timing">定时选择</string>
+    <string name="fill_tel">输入手机号</string>
+    <string name="fill_verification_code">输入验证码</string>
+    <string name="set_password">设置密码</string>
+    <string name="fill_tel_hint">请输入你的手机号</string>
+    <string name="fill_tel_protocol_agree_hint">注册即表示同意</string>
+    <string name="protocol_name">《隐私权声明》</string>
+
 </resources>

@@ -4,20 +4,22 @@
     android:layout_height="50dp"
     android:background="@color/apporange"
     android:paddingLeft="10dp"
+    android:paddingRight="10dp"
     >
-    <ImageView
-        android:id="@+id/seting_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:src="@drawable/back"
-        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/seting"
-        style="@style/info_style"/>
+        android:text="@string/register"
+        style="@style/top_style"/>
+
+    <ImageView
+        android:id="@+id/iv_questionnaire_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/back"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
