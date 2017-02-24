@@ -6,7 +6,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.itheima.immediatechoice"
-        minSdkVersion 14
+        minSdkVersion 17
         targetSdkVersion 19
         vectorDrawables.useSupportLibrary = true
     }
