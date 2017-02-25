@@ -13,6 +13,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.fragment.DiscoveryFragment;
+import com.qzct.immediatechoice.fragment.HomeFragment;
+import com.qzct.immediatechoice.fragment.UserFragment;
+import com.qzct.immediatechoice.fragment.baseFragment;
 
 public class MainActivity extends FragmentActivity {
 
@@ -76,7 +80,7 @@ public class MainActivity extends FragmentActivity {
             baseFragment baseFragment = null;
             switch (arg0) {
                 case 0:
-                    baseFragment = new FunctionFragment();
+                    baseFragment = new HomeFragment();
                     break;
                 case 1:
                     baseFragment = new DiscoveryFragment();

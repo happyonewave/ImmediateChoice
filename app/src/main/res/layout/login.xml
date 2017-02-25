@@ -107,13 +107,13 @@
                 android:id="@+id/iv_qq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/qq"
+                android:src="@mipmap/qq"
                 android:layout_marginRight="30dp"/>
             <ImageView
                 android:id="@+id/iv_wechat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/wechat"/>
+                android:src="@mipmap/wechat"/>
         </LinearLayout>
         <TextView
             android:id="@+id/tv_touch_login"

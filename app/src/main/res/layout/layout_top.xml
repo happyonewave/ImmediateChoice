@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/back"
+        android:src="@mipmap/back"
         />
     <TextView
         android:layout_width="wrap_content"

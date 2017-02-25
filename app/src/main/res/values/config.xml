@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--<string name="serverurl">http://123.207.31.213/info.json</string>-->
+
     <string name="url_login">http://172.16.101.51:8080/Server/LoginServlet</string>
     <string name="url_Discovery">http://172.16.101.51:8080/Server/DiscoveryServlet</string>
-    <string name="url_user">http://172.16.101.51:8080/Server/UserServlet</string>
+    <string name="url_user">http://172.16.101.51:8080/Server/UserServlet</string>ring>
+    <string name="url_image_text">http://172.16.101.51:8080/Server/ImageTextServlet</string>
+    <string name="url_upload">http://172.16.101.51:8080/Server/UploadServlet</string>
     <!--<string name="serverurl_conversation">http://123.207.31.213/conversation.json</string>-->
 
     

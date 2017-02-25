@@ -17,14 +17,14 @@
             android:id="@+id/bt_setting"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:drawableBottom="@drawable/seting"
+            android:drawableBottom="@mipmap/seting"
             android:background="@color/apporange"
             android:layout_alignParentRight="true"
             tools:ignore="RtlHardcoded" />
         <Button
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:drawableBottom="@drawable/message"
+            android:drawableBottom="@mipmap/message"
             android:background="@color/apporange"
             android:layout_alignParentLeft="true"
             tools:ignore="RtlHardcoded" />

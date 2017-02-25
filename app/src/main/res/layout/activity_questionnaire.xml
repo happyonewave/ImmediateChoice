@@ -59,7 +59,9 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:padding="20dp"
-                android:src="@mipmap/push_img" />
+                android:clickable="true"
+                android:src="@mipmap/push_img"
+                />
 
             <ImageView
                 android:id="@+id/questionnaire_video_two"
@@ -97,7 +99,7 @@
                 android:id="@+id/questionnaire_bt_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@android:color/transparent"
                 android:drawableTop="@mipmap/push_add"
                 android:text="@string/push_add"
                 android:textSize="10dp" />
@@ -106,7 +108,7 @@
                 android:id="@+id/questionnaire_bt_scale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@android:color/transparent"
                 android:drawableTop="@mipmap/push_scale"
                 android:text="@string/push_scale"
                 android:textSize="10dp" />
@@ -115,7 +117,7 @@
                 android:id="@+id/questionnaire_bt_move"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@android:color/transparent"
                 android:drawableTop="@mipmap/push_move"
                 android:text="@string/push_move"
                 android:textSize="10dp" />
@@ -131,7 +133,7 @@
                 android:id="@+id/questionnaire_bt_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
+                android:background="@android:color/transparent"
                 android:drawableLeft="@mipmap/push_location"
                 android:text="@string/push_location" />
         </RelativeLayout>

@@ -12,7 +12,6 @@ import com.itheima.immediatechoice.R;
 
 public class SettingActivity extends Activity {
 
-    private FrameLayout fl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

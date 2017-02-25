@@ -2,8 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/status_bar"
@@ -12,43 +13,45 @@
         android:background="@color/apporange"
         android:visibility="gone"
         tools:ignore="ContentDescription" />
-    <FrameLayout
-        android:layout_weight="8"
-        android:id="@+id/fl"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+
+<FrameLayout
+    android:id="@+id/fl"
+    android:layout_weight="14"
+    android:layout_width="match_parent"
+    android:layout_height="0dp">
+
+</FrameLayout>
 
     <RadioGroup
+        android:layout_marginTop="2dp"
+        android:id="@+id/rg"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom"
+        android:gravity="bottom"
         android:background="@android:color/white"
-        >
+        android:orientation="horizontal">
 
         <!--android:text="首页"-->
-    <RadioButton
-        android:id="@+id/bt_function"
-        android:onClick="click"
-        style="@style/bt_style"
-        android:drawableTop="@drawable/bt_home_bg"
-        />
+        <RadioButton
+            android:id="@+id/bt_function"
+            style="@style/bt_style"
+            android:drawableTop="@drawable/bt_home_bg"
+            android:onClick="click" />
 
         <!--android:text="发现"-->
-    <RadioButton
-        android:id="@+id/bt_discovery"
-        android:onClick="click"
-        style="@style/bt_style"
-        android:drawableTop="@drawable/bt_discovery_bg"
-        />
+        <RadioButton
+            android:id="@+id/bt_discovery"
+            style="@style/bt_style"
+            android:drawableTop="@drawable/bt_discovery_bg"
+            android:onClick="click" />
 
         <!--android:text="我的"-->
-    <RadioButton
-        android:id="@+id/bt_user"
-        android:onClick="click"
-        style="@style/bt_style"
-        android:drawableTop="@drawable/bt_my_bg"
-        />
+        <RadioButton
+            android:id="@+id/bt_user"
+            style="@style/bt_style"
+            android:drawableTop="@drawable/bt_my_bg"
+            android:onClick="click" />
     </RadioGroup>
+
 </LinearLayout>
