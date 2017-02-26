@@ -3,21 +3,39 @@
 
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.0.0_176a845c66e08a86aca02029b162090f296ee64e.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
         <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.0.0_726325044e613d1acd273f5b42ec90603c8d7cef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpcore-4.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8dfd6286d04ad9dbf26cdf7d4ef5c8fad430cf30">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpcore-4.3_511d2049b932528ddee0bd3183b8cf8d2aaa2f2a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_bd79acf4d56aa022bf16af296e981a57f79aaa8a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.0.0_176a845c66e08a86aca02029b162090f296ee64e.jar" />
     </item>
     <item
         is-multidex="false"
@@ -93,15 +111,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpcore-4.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8dfd6286d04ad9dbf26cdf7d4ef5c8fad430cf30">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpcore-4.3_511d2049b932528ddee0bd3183b8cf8d2aaa2f2a.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.github.yavski\fab-speed-dial\1.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -162,15 +171,6 @@
         revision="25.0.0"
         sha1="546eee25fa025a455040bbf1708b0c0490c2311b">
         <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpclient-cache-4.3.1_24d21fd90cf59822f291df538a405c3e957e6744.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_bd79acf4d56aa022bf16af296e981a57f79aaa8a.jar" />
     </item>
 
 </items>

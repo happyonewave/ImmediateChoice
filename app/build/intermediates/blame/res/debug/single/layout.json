@@ -96,6 +96,10 @@
         "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_start.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fill_password.xml",
+        "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fill_password.xml"
+    },
+    {
         "merged": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_menu_item_end.xml",
         "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_end.xml"
     },
@@ -248,6 +252,10 @@
         "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\setting.xml"
     },
     {
+        "merged": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
+        "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.0\\res\\layout\\abc_screen_toolbar.xml"
     },
@@ -314,10 +322,6 @@
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\discoveryfragment.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\discoveryfragment.xml"
-    },
-    {
-        "merged": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\login.xml",
-        "source": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\login.xml"
     },
     {
         "merged": "E:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.itheima.immediatechoice.R;
@@ -41,12 +42,22 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.activity_login);
         System.out.println("oncreate");
+        TextView tv_register = (TextView) findViewById(R.id.tv_register);
+        tv_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
     public void login(View v) {
-        System.out.println("login");
+        System.out.println("activity_login");
         EditText et_username = (EditText) findViewById(R.id.et_username);
         EditText et_password = (EditText) findViewById(R.id.et_password);
 

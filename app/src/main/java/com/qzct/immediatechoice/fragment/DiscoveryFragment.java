@@ -37,7 +37,7 @@ public class DiscoveryFragment extends baseFragment {
         showFromJsonArrayTask.execute();
         final SwipeRefreshLayout swipe_refresh = (SwipeRefreshLayout) v.findViewById(R.id.swipe_refresh);
         final TextView tv_swipe_refresh = (TextView) v.findViewById(R.id.tv_swipe_refresh);
-        swipe_refresh.setColorSchemeColors(R.color.apporange, Color.BLUE);
+        swipe_refresh.setColorSchemeColors(getResources().getColor(R.color.apporange), Color.BLUE);
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

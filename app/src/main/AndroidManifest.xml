@@ -10,7 +10,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <!-- To auto-complete the email text field in the activity_login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -40,6 +40,7 @@
         <activity android:name="com.qzct.immediatechoice.SettingActivity"></activity>
         <activity android:name="com.qzct.immediatechoice.PushActivity"></activity>
         <activity android:name="com.qzct.immediatechoice.QuestionnaireActivity"></activity>
+        <activity android:name="com.qzct.immediatechoice.RegisterActivity"></activity>
     </application>
 
 </manifest>

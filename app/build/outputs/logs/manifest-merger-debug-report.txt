@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-45:12
+ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:3:5-42
 		INJECTED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml
@@ -66,7 +66,7 @@ ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest
 	android:name
 		ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:20:30-85
 application
-ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:23:5-43:19
+ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:23:5-44:19
 MERGED from [io.github.yavski:fab-speed-dial:1.0.1] E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.github.yavski\fab-speed-dial\1.0.1\AndroidManifest.xml:26:5-30:19
 MERGED from [com.android.support:support-v4:25.1.0] E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.2.0] E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\AndroidManifest.xml:25:5-20
@@ -124,3 +124,7 @@ activity#com.qzct.immediatechoice.QuestionnaireActivity
 ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:42:9-92
 	android:name
 		ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:42:19-80
+activity#com.qzct.immediatechoice.RegisterActivity
+ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:43:9-87
+	android:name
+		ADDED from E:\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:43:19-75

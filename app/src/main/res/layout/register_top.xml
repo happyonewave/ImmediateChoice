@@ -15,7 +15,7 @@
         style="@style/top_style"/>
 
     <ImageView
-        android:id="@+id/iv_questionnaire_back"
+        android:id="@+id/iv_register_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
