@@ -12,7 +12,7 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
@@ -44,6 +44,7 @@ public class MainActivity extends FragmentActivity {
         Fragment fragment = (Fragment) Adapter.instantiateItem(fl, 0);
         Adapter.setPrimaryItem(fl, 0, fragment);
         Adapter.finishUpdate(fl);
+
     }
 
     public void click(View v) {

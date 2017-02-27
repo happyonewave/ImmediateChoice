@@ -1,7 +1,10 @@
 package com.qzct.immediatechoice;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -25,6 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LoginActivity extends Activity {
+
+    User user;
 //    Handler handler = new Handler() {
 //        public void handleMessage(android.os.Message msg) {
 //            String returned = (String) msg.obj;
@@ -48,7 +54,7 @@ public class LoginActivity extends Activity {
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this,RegisterActivity.class);
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
 
             }
@@ -63,8 +69,9 @@ public class LoginActivity extends Activity {
 
         String username = et_username.getText().toString();
         String password = et_password.getText().toString();
+        user = new User(username, password);
 
-        LoginTask loginTask = new LoginTask(getString(R.string.url_login), username, password);
+        LoginTask loginTask = new LoginTask(getString(R.string.url_login), user);
         loginTask.execute();
 
 //        Thread t = new Thread() {
@@ -118,10 +125,10 @@ public class LoginActivity extends Activity {
         String username;
         String password;
 
-        public LoginTask(String url, String username, String password) {
+        public LoginTask(String url, User user) {
             this.url = url;
-            this.username = username;
-            this.password = password;
+            this.username = user.getUsername();
+            this.password = user.getPassword();
         }
 
         @Override
@@ -162,6 +169,9 @@ public class LoginActivity extends Activity {
                     break;
 
                 case "1":
+
+                   MyApplication myApplication = (MyApplication) getApplication();
+                    myApplication.setUser(user);
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);
                     startActivity(intent);

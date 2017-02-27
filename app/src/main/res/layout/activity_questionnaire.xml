@@ -55,28 +55,17 @@
 
             <ImageView
                 android:id="@+id/questionnaire_img_two"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="20dp"
-                android:clickable="true"
-                android:src="@mipmap/push_img"
-                />
+                style="@style/questionnaire_style"
+                android:src="@mipmap/push_img" />
 
             <ImageView
                 android:id="@+id/questionnaire_video_two"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="20dp"
+                style="@style/questionnaire_style"
                 android:src="@mipmap/push_video" />
 
             <ImageView
                 android:id="@+id/questionnaire_link_two"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:padding="20dp"
+                style="@style/questionnaire_style"
                 android:src="@mipmap/push_link" />
         </LinearLayout>
 

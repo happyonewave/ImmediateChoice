@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.question;
 import com.qzct.immediatechoice.fragment.RegisterFinallyFragment;
 import com.qzct.immediatechoice.fragment.RegisterFirstFragment;

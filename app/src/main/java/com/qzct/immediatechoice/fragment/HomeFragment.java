@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.PushActivity;
 import com.qzct.immediatechoice.QuestionnaireActivity;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
@@ -91,13 +91,13 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             @Override
             public void onRefresh() {
 
-                Toast.makeText(context,"正在刷新",Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "正在刷新", Toast.LENGTH_SHORT).show();
                 new ShowFromJsonArrayTask(context, lv_home, getString(R.string.url_image_text)).execute();
                 new Handler().postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
-                        Toast.makeText(context,"刷新完成",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
                         home_swipe_refresh.setRefreshing(false);
 
                     }
@@ -105,8 +105,6 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             }
         });
     }
-
-
 
 
     class ShowFromJsonArrayTask extends AsyncTask<String, String, JSONArray> {
@@ -137,14 +135,14 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject temp = jsonArray.getJSONObject(i);
                     //读取相应内容
-                    String question_content= temp.getString("question_content");
-                    String image_left= temp.getString("image_left");
-                    String image_right= temp.getString("image_right");
-                    String quizzer_name= temp.getString("quizzer_name");
-                    int share_count= temp.getInt("share_count");
-                    int comment_count= temp.getInt("comment_count");
-                    String comment= temp.getString("comment");
-                    question question = new question(question_content,image_left,image_right,quizzer_name,share_count,comment_count,comment);
+                    String question_content = temp.getString("question_content");
+                    String image_left = temp.getString("image_left");
+                    String image_right = temp.getString("image_right");
+                    String quizzer_name = temp.getString("quizzer_name");
+                    int share_count = temp.getInt("share_count");
+                    int comment_count = temp.getInt("comment_count");
+                    String comment = temp.getString("comment");
+                    question question = new question(question_content, image_left, image_right, quizzer_name, share_count, comment_count, comment, null);
                     System.out.println(question.toString());
                     questionlist.add(question);
                 }

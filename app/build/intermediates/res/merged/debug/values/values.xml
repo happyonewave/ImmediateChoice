@@ -470,6 +470,8 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
     <dimen name="cardview_default_elevation">2dp</dimen>
     <dimen name="cardview_default_radius">2dp</dimen>
@@ -668,12 +670,16 @@
         <item name="android:windowExitAnimation">@anim/design_bottom_sheet_slide_out</item>
     </style>
     <style name="AppBaseTheme" parent="android:Theme.Light">
-        
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
     </style>
     <style name="AppTheme" parent="AppBaseTheme">
-        
+        <!-- 无标题 -->
         <item name="android:windowNoTitle">true</item>
-        
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     <style name="Base.AlertDialog.AppCompat" parent="android:Widget">
         <item name="android:layout">@layout/abc_alert_dialog_material</item>
@@ -2225,6 +2231,29 @@
     <style name="info_style">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20dp</item>
+    </style>
+    <style name="push_style">
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_weight="1"-->
+        <!--android:padding="20dp"-->
+        <!--android:background="@drawable/iv_push_bg"-->
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/iv_push_bg</item>
+    </style>
+    <style name="questionnaire_style">
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--android:padding="20dp"-->
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/iv_push_bg</item>
     </style>
     <style name="register_nav_style">
         <item name="android:textColor">@color/bright_foreground_light_disabled</item>

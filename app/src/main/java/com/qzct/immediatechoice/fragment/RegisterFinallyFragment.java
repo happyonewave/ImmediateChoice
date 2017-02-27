@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.LoginActivity;
 import com.qzct.immediatechoice.RegisterActivity;
 import com.qzct.immediatechoice.util.utils;

@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.RegisterActivity;
 
 /**

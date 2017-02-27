@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.domain.conversation;
 
@@ -41,9 +41,9 @@ public 	class UserAdpter extends BaseAdapter {
 //				v =  new LinearLayout(context);
 //				v.setOrientation(LinearLayout.VERTICAL);
             if(conversation.getAddresser().equals( "小梨子")){
-                v =  v.inflate(context, R.layout.userfragment_item_lift, null);
+                v =  v.inflate(context, R.layout.fragment_user_item_lift, null);
             }else{
-                v =  v.inflate(context, R.layout.userfragment_item_right, null);
+                v =  v.inflate(context, R.layout.ragment_userf_item_right, null);
             }
             System.out.println("调用：" + position);
         }else{

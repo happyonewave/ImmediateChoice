@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.DiscoveryAdpter;
 import com.qzct.immediatechoice.domain.info;
 import com.qzct.immediatechoice.util.utils;

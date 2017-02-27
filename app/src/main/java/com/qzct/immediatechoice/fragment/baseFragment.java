@@ -8,12 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.qzct.immediatechoice.MyApplication;
+
 public abstract class baseFragment extends Fragment {
     Activity context;
-
+    MyApplication myApplication;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         context = getActivity();
+        myApplication = (MyApplication) context.getApplication();
         super.onCreate(savedInstanceState);
     }
 

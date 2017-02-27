@@ -13,12 +13,29 @@
         android:layout_weight="2"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/push_question_content"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"
-            android:hint="@string/et_vote_content_hint" />
+            android:layout_weight="5"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/push_question_content"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="4"
+                android:hint="@string/et_vote_content_hint" />
+
+            <TextView
+                android:id="@+id/location_hint"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="位置信息"/>
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -43,7 +60,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:layout_weight="5">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -59,26 +76,17 @@
 
                 <ImageView
                     android:id="@+id/push_img_left"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_img" />
 
                 <ImageView
                     android:id="@+id/push_video_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_video" />
 
                 <ImageView
                     android:id="@+id/push_link_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_link" />
             </LinearLayout>
 
@@ -92,26 +100,17 @@
 
                 <ImageView
                     android:id="@+id/push_img_right"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_img" />
 
                 <ImageView
                     android:id="@+id/push_video_two"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_video" />
 
                 <ImageView
                     android:id="@+id/push_link_two"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:padding="20dp"
+                    style="@style/push_style"
                     android:src="@mipmap/push_link" />
             </LinearLayout>
         </LinearLayout>
@@ -125,80 +124,77 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="center"
-            android:padding="2dp"
-                >
+            android:padding="2dp">
+
             <Button
                 android:id="@+id/puish_bt_add"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/push_add"
                 android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_add"
                 android:text="@string/push_add"
-                android:textSize="10dp"
-                />
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/push_bt_scale"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/push_scale"
                 android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_scale"
                 android:text="@string/push_scale"
-                android:textSize="10dp"
-                />
+                android:textSize="10dp" />
+
             <Button
                 android:id="@+id/push_bt_move"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableTop="@mipmap/push_move"
                 android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_move"
                 android:text="@string/push_move"
-                android:textSize="10dp"
-                />
+                android:textSize="10dp" />
         </LinearLayout>
 
         <RelativeLayout
-            android:padding="10dp"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
 
             <Button
                 android:id="@+id/bt_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/push_location"
                 android:background="@android:color/transparent"
-                android:text="@string/push_location"
-                />
+                android:drawableLeft="@mipmap/push_location"
+                android:text="@string/push_location" />
+
             <Button
                 android:id="@+id/bt_topic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/push_topic"
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:text="@string/push_topic"
-                />
+                android:drawableLeft="@mipmap/push_topic"
+                android:text="@string/push_topic" />
         </RelativeLayout>
+
         <LinearLayout
-            android:padding="10dp"
-            android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
 
             <Button
                 android:id="@+id/bt_timing"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableLeft="@mipmap/push_topic"
-                android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:text="@string/push_timing"
-                />
+                android:drawableLeft="@mipmap/push_topic"
+                android:text="@string/push_timing" />
         </LinearLayout>
 
     </LinearLayout>

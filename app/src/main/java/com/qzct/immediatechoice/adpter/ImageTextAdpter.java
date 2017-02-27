@@ -7,7 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.domain.info;
 import com.qzct.immediatechoice.domain.question;

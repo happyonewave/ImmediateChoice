@@ -7,10 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.TextView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
+import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.domain.conversation;
 import com.qzct.immediatechoice.util.utils;
 
@@ -29,7 +31,7 @@ public class UserFragment extends baseFragment {
 
     @Override
     public View initview() {
-        v = v.inflate(context, R.layout.userfragment, null);
+        v = v.inflate(context, R.layout.fragment_user, null);
 ////	ll = new LinearLayout(context);
 ////	lv = new ListView(context);
 //		ll.addView(lv);
@@ -43,6 +45,10 @@ public class UserFragment extends baseFragment {
 
     @Override
     public void initdata() {
+
+        User user = myApplication.getUser();
+        TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
+        tv_username.setText(user.getUsername());
         final GridView lv = (GridView) v.findViewById(R.id.gv_user);
         ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, getString(R.string.url_user));
         ShowConversationFromJsonArrayTask.execute();
@@ -55,9 +61,6 @@ public class UserFragment extends baseFragment {
             }
         });
     }
-
-
-
 
 
     class ShowConversationFromJsonArrayTask extends AsyncTask<String, String, JSONArray> {
@@ -104,9 +107,9 @@ public class UserFragment extends baseFragment {
                 e.printStackTrace();
             }
 
-            Log.i("空1",context.toString());
+            Log.i("空1", context.toString());
 
-            Log.i("空2",listView.toString());
+            Log.i("空2", listView.toString());
             //设置适配器
             listView.setAdapter(new UserAdpter(context, conversationlist));
         }

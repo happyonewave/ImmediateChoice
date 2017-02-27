@@ -1,12 +1,11 @@
 apply plugin: 'com.android.application'
-
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.itheima.immediatechoice"
-        minSdkVersion 17
+        applicationId "com.qzct.immediatechoice"
+        minSdkVersion 9
         targetSdkVersion 19
         vectorDrawables.useSupportLibrary = true
     }
@@ -14,12 +13,12 @@ android {
     packagingOptions {
         exclude 'META-INF/DEPENDENCIES.txt'
         exclude 'META-INF/LICENSE.txt'
-        exclude 'META-INF/NOTICE.txt'
-        exclude 'META-INF/NOTICE'
+        exclude 'META-INFTICE.txt'
+        exclude 'META-INFTICE'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/DEPENDENCIES'
-        exclude 'META-INF/notice.txt'
-        exclude 'META-INF/license.txt'
+        exclude 'META-INFtice.txt'
+        exclude 'META-INFcense.txt'
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
@@ -29,6 +28,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['libs']
+//        }
+//    }
+
 }
 
 dependencies {
@@ -41,4 +47,5 @@ dependencies {
     compile files('src/main/libs/httpmime-4.3.1.jar')
     compile files('src/main/libs/httpclient-cache-4.3.1.jar')
     compile files('src/main/libs/httpcore-4.3.jar')
+    compile files('src/main/libs/BaiduLBS_Android.jar')
 }

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.itheima.immediatechoice.R;
+import com.qzct.immediatechoice.R;
 
 public class QuestionnaireActivity extends Activity {
 
