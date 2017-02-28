@@ -135,7 +135,7 @@ public class LoginActivity extends Activity {
         protected String doInBackground(String... params) {
 
             HttpClient hc = new DefaultHttpClient();
-            String url = getString(R.string.url_login);
+//            String url = getString(R.string.url_login);
             HttpPost httpPost = new HttpPost(url);
             try {
                 List<NameValuePair> parameters = new ArrayList<NameValuePair>();

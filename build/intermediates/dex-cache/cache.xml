@@ -147,6 +147,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-2.1.0_5d807cf47dea75171976f0a2e6cf3196d1036726.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"

@@ -30,10 +30,15 @@ import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.io.File;
 import java.io.InputStream;
+import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -372,32 +377,37 @@ public class PushActivity extends Activity implements View.OnClickListener {
             HttpClient hc = new DefaultHttpClient();
 //            String url = getString(R.string.url_image_text);
             HttpPost httpPost = new HttpPost(url);
+
+//                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+//                BasicNameValuePair pair1 = new BasicNameValuePair("username", username);
+//                BasicNameValuePair pair2 = new BasicNameValuePair("question_content", question_content);
+//                BasicNameValuePair pair3 = new BasicNameValuePair("image_left_path", image_left_path);
+//                BasicNameValuePair pair4 = new BasicNameValuePair("image_right_path", image_right_path);
+//                BasicNameValuePair pair5 = new BasicNameValuePair("locations", locationDescribe);
+//                parameters.add(pair1);
+//                parameters.add(pair2);
+//                parameters.add(pair3);
+//                parameters.add(pair4);
+//                parameters.add(pair5);
             try {
-                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-                BasicNameValuePair pair1 = new BasicNameValuePair("username", username);
-                BasicNameValuePair pair2 = new BasicNameValuePair("question_content", question_content);
-                BasicNameValuePair pair3 = new BasicNameValuePair("image_left_path", image_left_path);
-                BasicNameValuePair pair4 = new BasicNameValuePair("image_right_path", image_right_path);
-                BasicNameValuePair pair5 = new BasicNameValuePair("locations", locationDescribe);
-                parameters.add(pair1);
-                parameters.add(pair2);
-                parameters.add(pair3);
-                parameters.add(pair4);
-                parameters.add(pair5);
+                Charset charset = Charset.forName("utf-8");
+                MultipartEntity entity = new MultipartEntity();
+                FileBody image_left = new FileBody(new File(image_left_path));
+                FileBody image_right = new FileBody(new File(image_right_path));
+                String image_left_name = image_left.getFilename();
+                String image_right_name = image_right.getFilename();
+                entity.addPart("username", new StringBody(username, charset));
+                entity.addPart("question_content", new StringBody(question_content, charset));
+                entity.addPart("image_left_name", new StringBody(image_left_name, charset));
+                entity.addPart("image_right_name", new StringBody(image_right_name, charset));
+                entity.addPart("locations", new StringBody(locationDescribe, charset));
+                entity.addPart("image_left", image_left);
+                entity.addPart("image_right", image_right);
 
-
-//                FileBody image_left = new FileBody(new File(image_left_path));
-//                FileBody image_right = new FileBody(new File(image_right_path));
-//                MultipartEntity reqEntity = new MultipartEntity();
-//                reqEntity.addPart("username", new StringBody(username) );
-//                reqEntity.addPart("question_content", new StringBody(question_content));
-//                reqEntity.addPart("image_left_path", new StringBody(image_left_path));
-//                reqEntity.addPart("image_right_path", new StringBody(image_right_path));
-//                reqEntity.addPart("image_left", image_left);
-//                reqEntity.addPart("image_right", image_left);
-
-                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
+//                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
                 httpPost.setEntity(entity);
+
+
                 HttpResponse hr = hc.execute(httpPost);
                 if (hr.getStatusLine().getStatusCode() == 200) {
                     InputStream is = hr.getEntity().getContent();

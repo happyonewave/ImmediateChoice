@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Feb 27 21:03:26 CST 2017
+#Wed Mar 01 01:47:32 CST 2017
 20.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 143.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 340.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v13\\select_dialog_singlechoice_material.xml
@@ -238,7 +238,7 @@
 252.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 146.set=ANDROID_RESOURCE
 285.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-132.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png
+132.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png
 303.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\discoveryfragment.xml
 16.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 165.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\design_bottom_sheet_slide_out.xml
@@ -933,7 +933,7 @@
 156.set=ANDROID_RESOURCE
 100.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\sex_press.png
 286.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-133.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png
+133.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png
 304.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_tint_default.xml
 166.file=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\share.png
 149.base=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
