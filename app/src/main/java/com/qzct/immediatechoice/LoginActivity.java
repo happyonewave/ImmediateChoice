@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,6 +24,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -124,6 +128,9 @@ public class LoginActivity extends Activity {
         String url;
         String username;
         String password;
+        String phone_number;
+        String sex;
+        String portrait_path;
 
         public LoginTask(String url, User user) {
             this.url = url;
@@ -163,26 +170,50 @@ public class LoginActivity extends Activity {
 
         @Override
         protected void onPostExecute(String text) {
+            Log.e("text", text);
+
             switch (text) {
                 case "0":
                     Toast.makeText(LoginActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
                     break;
 
-                case "1":
-
-                   MyApplication myApplication = (MyApplication) getApplication();
-                    myApplication.setUser(user);
-                    Intent intent = new Intent();
-                    intent.setClass(getBaseContext(), MainActivity.class);
-                    startActivity(intent);
-                    break;
+//                case "1":
+//
+//                   MyApplication myApplication = (MyApplication) getApplication();
+//                    myApplication.setUser(user);
+//                    Intent intent = new Intent();
+//                    intent.setClass(getBaseContext(), MainActivity.class);
+//                    startActivity(intent);
+//                    break;
 
                 case "2":
                     Toast.makeText(LoginActivity.this, "连接网站失败", Toast.LENGTH_SHORT).show();
                     break;
 
-
                 default:
+
+                    try {
+                        JSONObject json = new JSONObject(text);
+                         phone_number = json.getString("phone_number");
+                         sex = json.getString("sex");
+                         portrait_path = json.getString("portrait_path");
+//                        user_all.setPhone_number(phone_number);
+//                        user_all.setSex(sex);
+//                        user_all.setPortrait_path(portrait_path);
+                        Log.i("user", user.toString());
+
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    MyApplication myApplication = (MyApplication) getApplication();
+                    User user_all = new User(username,password,phone_number,portrait_path,sex);
+                    myApplication.setUser(user_all);
+                    Intent intent = new Intent();
+                    intent.setClass(getBaseContext(), MainActivity.class);
+                    startActivity(intent);
+
+
                     break;
             }
 

@@ -28,17 +28,23 @@
             android:background="@color/apporange"
             android:layout_alignParentLeft="true"
             tools:ignore="RtlHardcoded" />
-        <de.hdodenhof.circleimageview.CircleImageView
+
+        <!--<de.hdodenhof.circleimageview.CircleImageView-->
+            <!--android:id="@+id/user_portrait"-->
+            <!--android:layout_width="120dp"-->
+            <!--android:layout_height="120dp"-->
+            <!--android:layout_marginTop="20dp"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:src="@mipmap/ic_launcher"/>-->
+
+
+        <com.loopj.android.image.SmartImageView
             android:id="@+id/user_portrait"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:layout_marginTop="20dp"
             android:layout_centerHorizontal="true"
             android:src="@mipmap/ic_launcher"/>
-
-
-
-
         <TextView
             android:id="@+id/user_tv_username"
             android:layout_width="wrap_content"

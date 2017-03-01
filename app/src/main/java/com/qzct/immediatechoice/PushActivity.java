@@ -22,6 +22,7 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.domain.question;
 import com.qzct.immediatechoice.util.utils;
 
@@ -285,10 +286,10 @@ public class PushActivity extends Activity implements View.OnClickListener {
         }
     }
 
-    private String getPathFromActivityResult(Intent data) {
+    public String getPathFromActivityResult(Intent data) {
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
         if (data != null) {
-            ContentResolver resolver = getContentResolver();
+//            ContentResolver resolver = getContentResolver();
             Uri originalUri = data.getData();        //获得图片的uri
             String path = utils.getImageAbsolutePath(this, originalUri);
             Toast.makeText(this, "Uri:" + originalUri + "path:" + path, Toast.LENGTH_LONG).show();
@@ -309,7 +310,10 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 vote.setImage_left(image_left_path);
                 vote.setImage_right(image_right_path);
                 vote.setQuestion_content(question_content);
-                vote.setQuizzer_name("NAME");
+                MyApplication myApplication = (MyApplication)getApplication();
+                User user = myApplication.getUser();
+                String quizzer_name = user.getUsername();
+                vote.setQuizzer_name(quizzer_name);
                 vote.setLocation(locationDescribe);
                 UploadTask uploadTask = new UploadTask(getString(R.string.url_upload), vote);
                 uploadTask.execute();
@@ -361,6 +365,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
         String question_content;
         String username;
         String locationDescribe;
+        String quizzer_name;
 
         public UploadTask(String url, question vote) {
             this.url = url;
@@ -369,6 +374,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
             this.image_left_path = vote.getImage_left();
             this.image_right_path = vote.getImage_right();
             this.locationDescribe = vote.getLocation();
+            this.quizzer_name = vote.getQuizzer_name();
         }
 
         @Override
@@ -396,10 +402,11 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 FileBody image_right = new FileBody(new File(image_right_path));
                 String image_left_name = image_left.getFilename();
                 String image_right_name = image_right.getFilename();
-                entity.addPart("username", new StringBody(username, charset));
+//                entity.addPart("username", new StringBody(username, charset));
                 entity.addPart("question_content", new StringBody(question_content, charset));
                 entity.addPart("image_left_name", new StringBody(image_left_name, charset));
                 entity.addPart("image_right_name", new StringBody(image_right_name, charset));
+                entity.addPart("quizzer_name", new StringBody(quizzer_name, charset));
                 entity.addPart("locations", new StringBody(locationDescribe, charset));
                 entity.addPart("image_left", image_left);
                 entity.addPart("image_right", image_right);
