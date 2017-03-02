@@ -25,4 +25,12 @@ import com.qzct.immediatechoice.domain.User;
         user = new User();
         super.onCreate();
     }
+
+    public void updateUserPortrait(User user){
+
+
+
+
+
+    }
 }

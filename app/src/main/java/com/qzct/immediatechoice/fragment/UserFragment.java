@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 
+import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
@@ -22,6 +23,8 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserFragment extends baseFragment {
 
@@ -48,6 +51,9 @@ public class UserFragment extends baseFragment {
 
         User user = myApplication.getUser();
         TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
+//        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
+        SmartImageView  user_portrait = (SmartImageView)v.findViewById(R.id.user_portrait);
+        user_portrait.setImageUrl(user.getPortrait_path());
         tv_username.setText(user.getUsername());
         final GridView lv = (GridView) v.findViewById(R.id.gv_user);
         ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, getString(R.string.url_user));

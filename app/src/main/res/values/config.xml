@@ -2,12 +2,12 @@
 <resources>
     <!--<string name="serverurl">http://123.207.31.213/info.json</string>-->
 
-    <string name="url_login">http://172.16.101.51:8080/Server/LoginServlet</string>
-    <string name="url_Discovery">http://172.16.101.51:8080/Server/DiscoveryServlet</string>
-    <string name="url_user">http://172.16.101.51:8080/Server/UserServlet</string>
-    <string name="url_image_text">http://172.16.101.51:8080/Server/ImageTextServlet</string>
-    <string name="url_upload">http://172.16.101.51:8080/Server/UploadServlet</string>
-    <string name="url_register">http://172.16.101.51:8080/Server/RegisterServlet</string>
+    <string name="url_login">http://123.207.31.213/ImmediateChoice_service/LoginServlet</string>
+    <string name="url_Discovery">http://123.207.31.213/ImmediateChoice_service/DiscoveryServlet</string>
+    <string name="url_user">http://123.207.31.213/ImmediateChoice_service/UserServlet</string>
+    <string name="url_image_text">http://123.207.31.213/ImmediateChoice_service/ImageTextServlet</string>
+    <string name="url_upload">http://123.207.31.213/ImmediateChoice_service/UploadServlet</string>
+    <string name="url_register">http://123.207.31.213/ImmediateChoice_service/RegisterServlet</string>
     <!--<string name="serverurl_conversation">http://123.207.31.213/conversation.json</string>-->
 
     
