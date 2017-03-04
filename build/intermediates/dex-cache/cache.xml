@@ -21,12 +21,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.bingoogolapple\bga-banner\2.1.7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9d8074399470c272f12c4d5cbab415dc64d277d9">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\cn.bingoogolapple-bga-banner-2.1.7_54db2bbb963fd1e4a00beca5dadc1aca59d80dbc.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
         <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_d988873fd6b12b49740da7590b5baf5585084607.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c791dfbf18191e004e32d7b06e2eae56d045fcc6">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\org.xutils-xutils-3.3.42_f57c8be5e9f637d0c3c77a37c6ccd9039e3791b1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -54,6 +72,15 @@
         revision="25.0.0"
         sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
         <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_854d465b47a543701128d0e6f997c8c7ad4a6628.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b.jar" />
     </item>
     <item
         is-multidex="false"

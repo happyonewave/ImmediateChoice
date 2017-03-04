@@ -3,7 +3,9 @@ package com.qzct.immediatechoice.fragment;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -56,7 +58,7 @@ public class RegisterFinallyFragment extends baseFragment {
     }
 
     @Override
-    public View initview() {
+    public View initview(LayoutInflater inflater, ViewGroup container) {
         RegisterActivity registerActivity = (RegisterActivity) getActivity();
         registerActivity.setTitleColor(1);
         final View v = View.inflate(context, R.layout.fill_password, null);

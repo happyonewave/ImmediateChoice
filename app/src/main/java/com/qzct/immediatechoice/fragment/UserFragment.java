@@ -4,9 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
@@ -20,6 +23,8 @@ import com.qzct.immediatechoice.util.utils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +38,7 @@ public class UserFragment extends baseFragment {
 
 
     @Override
-    public View initview() {
+    public View initview(LayoutInflater inflater, ViewGroup container) {
         v = v.inflate(context, R.layout.fragment_user, null);
 ////	ll = new LinearLayout(context);
 ////	lv = new ListView(context);
@@ -53,12 +58,14 @@ public class UserFragment extends baseFragment {
         TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
 //        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
         SmartImageView  user_portrait = (SmartImageView)v.findViewById(R.id.user_portrait);
-        user_portrait.setImageUrl(user.getPortrait_path());
+//        user_portrait.setImageUrl(user.getPortrait_path());
+        ImageOptions options = new ImageOptions.Builder().setCircular(true).build();
+        x.image().bind(user_portrait,user.getPortrait_path(),options);
         tv_username.setText(user.getUsername());
         final GridView lv = (GridView) v.findViewById(R.id.gv_user);
         ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, getString(R.string.url_user));
         ShowConversationFromJsonArrayTask.execute();
-        Button bt_setting = (Button) v.findViewById(R.id.bt_setting);
+        ImageView bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
         bt_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -1,16 +1,19 @@
 package com.qzct.immediatechoice;
 
 
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
@@ -27,17 +30,19 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fl = (FrameLayout) findViewById(R.id.fl);
-        ImageView iv_status_bar = (ImageView) findViewById(R.id.status_bar);
+        ImageView iv_status_bar = (ImageView) findViewById(R.id.iv_status_bar);
+//        ImageView status_bar = (ImageView) LayoutInflater.from(this).inflate(R.layout.stasus_bar,null);
         //支持4.4以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             //设置状态栏背景透明
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             //设置导航栏透明
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
             //是否为系统 View 预留出空间, 当设置为 true 时,会预留出状态栏的空间.
 //			title.setFitsSystemWindows(true);
             //title.setClipToOutline(true);
+//            fl.addView(status_bar);
             iv_status_bar.setVisibility(View.VISIBLE);
         }
 

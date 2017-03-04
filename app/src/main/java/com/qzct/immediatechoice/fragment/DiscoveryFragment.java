@@ -5,9 +5,14 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.DiscoveryAdpter;
@@ -17,26 +22,58 @@ import com.qzct.immediatechoice.util.utils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.Event;
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import cn.bingoogolapple.bgabanner.BGABanner;
+import cn.bingoogolapple.bgabanner.BGABannerUtil;
+
+
+@ContentView(R.layout.fragment_discovery)
 public class DiscoveryFragment extends baseFragment {
 
     private View v;
+    @ViewInject(R.id.discovery_banner)
+    private BGABanner banner;
+    @ViewInject(R.id.discovery_search)
+    private EditText discovery_search;
+    @ViewInject(R.id.discovery_scan)
+    private ImageView discovery_scan;
+
 
     @Override
-    public View initview() {
-        v = View.inflate(getActivity(), R.layout.discoveryfragment, null);
+    public View initview(LayoutInflater inflater, ViewGroup container) {
+
+//        v = View.inflate(getActivity(), R.layout.fragment_discovery, null);
+        v = x.view().inject(this, inflater, container);
         return v;
     }
 
     @Override
     public void initdata() {
+        List<View> views = new ArrayList<>();
+        views.add(BGABannerUtil.getItemImageView(context, R.mipmap.carousel_1));
+        views.add(BGABannerUtil.getItemImageView(context, R.mipmap.carousel_2));
+        views.add(BGABannerUtil.getItemImageView(context, R.mipmap.carousel_3));
+        views.add(BGABannerUtil.getItemImageView(context, R.mipmap.carousel_4));
+        banner.setData(views);
+        banner.setDelegate(new BGABanner.Delegate() {
+            @Override
+            public void onBannerItemClick(BGABanner banner, View itemView, Object model, int position) {
+                Toast.makeText(banner.getContext(), "点击了" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
         final ListView lv = (ListView) v.findViewById(R.id.lv);
         ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, getString(R.string.url_Discovery));
         showFromJsonArrayTask.execute();
         final SwipeRefreshLayout swipe_refresh = (SwipeRefreshLayout) v.findViewById(R.id.swipe_refresh);
         final TextView tv_swipe_refresh = (TextView) v.findViewById(R.id.tv_swipe_refresh);
+
         swipe_refresh.setColorSchemeColors(getResources().getColor(R.color.apporange), Color.BLUE);
         swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -67,7 +104,10 @@ public class DiscoveryFragment extends baseFragment {
         });
 
     }
-
+    @Event(R.id.discovery_scan)
+    private  void  click(View v) {
+        Toast.makeText(context, "点击了discovery_scan", Toast.LENGTH_SHORT).show();
+    }
 
     class ShowFromJsonArrayTask extends AsyncTask<String, String, JSONArray> {
 

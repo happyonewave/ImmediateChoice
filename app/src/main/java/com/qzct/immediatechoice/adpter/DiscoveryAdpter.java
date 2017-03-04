@@ -36,7 +36,7 @@ public 	class DiscoveryAdpter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = null ;
         if(convertView == null){
-            v = View.inflate(context, R.layout.discoveryfragment_item, null);//将fragment01_item填充成一个View
+            v = View.inflate(context, R.layout.fragment_discovery_item, null);//将fragment01_item填充成一个View
             System.out.println("调用：" + position);
         }else{
             v = convertView;

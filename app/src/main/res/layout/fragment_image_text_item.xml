@@ -26,16 +26,18 @@
 			android:id="@+id/image_text_item_img_left"
 			android:layout_weight="1"
 			android:layout_width="0dp"
-			android:layout_height="150dp"
+			android:layout_height="match_parent"
 			android:src="@mipmap/ic_launcher"
 			android:layout_marginRight="5dp"
+			android:scaleType="center"
 			/>
 		<com.loopj.android.image.SmartImageView
 			android:id="@+id/image_text_item_img_right"
 			android:layout_weight="1"
 			android:layout_width="0dp"
-			android:layout_height="150dp"
+			android:layout_height="match_parent"
 			android:src="@mipmap/ic_launcher"
+			android:scaleType="center"
 			/>
 
 	</LinearLayout>

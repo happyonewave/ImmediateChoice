@@ -22,6 +22,7 @@
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
             <View
+                android:id="@+id/home_image_text_line"
                 android:layout_width="80dp"
                 android:layout_height="2dp"
                 android:background="@color/apporange"
@@ -50,8 +51,10 @@
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
             <View
+                android:id="@+id/home_video_line"
                 android:layout_width="80dp"
                 android:layout_height="2dp"
+                android:visibility="gone"
                 android:background="@color/apporange"
                 android:layout_gravity="center_horizontal"
                 />
@@ -77,19 +80,21 @@
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
             <View
+                android:id="@+id/home_attention_line"
                 android:layout_width="80dp"
                 android:layout_height="2dp"
+                android:visibility="gone"
                 android:background="@color/apporange"
                 android:layout_gravity="center_horizontal"
                 />
         </LinearLayout>
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="@android:color/black"
-        android:layout_gravity="center_horizontal"
-        />
+    <!--<View-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="2dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--/>-->
 
 </LinearLayout>

@@ -5,7 +5,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.qzct.immediatechoice"
-        minSdkVersion 9
+        minSdkVersion 14
         targetSdkVersion 19
         vectorDrawables.useSupportLibrary = true
     }
@@ -44,6 +44,10 @@ dependencies {
     compile 'com.android.support:design:25.0.0'
     compile 'io.github.yavski:fab-speed-dial:1.0.1'
     compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'org.xutils:xutils:3.3.42'
+    compile 'com.nineoldandroids:library:2.4.0'
+//    compile 'com.android.support:support-v4:latestVersion'
+    compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
     compile files('src/main/libs/httpclient-4.3.1.jar')
     compile files('src/main/libs/httpmime-4.3.1.jar')
     compile files('src/main/libs/httpclient-cache-4.3.1.jar')

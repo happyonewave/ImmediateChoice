@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="@string/tv_swipe_refresh_text"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </ScrollView>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+
+        <cn.bingoogolapple.bgabanner.BGABanner
+            android:id="@+id/discovery_banner"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </cn.bingoogolapple.bgabanner.BGABanner>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <EditText
+                android:id="@+id/discovery_search"
+                android:paddingLeft="5dp"
+                android:layout_weight="8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@mipmap/search"
+                android:hint="搜索话题/帖子/用户"
+                android:textColorHint="@android:color/white"
+                android:background="#60eb633b" />
+
+            <ImageView
+                android:id="@+id/discovery_scan"
+                android:paddingLeft="20dp"
+                android:layout_weight="2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/scan"
+                />
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3">
+
+        <ListView
+            android:id="@+id/lv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

@@ -11,20 +11,21 @@
     android:layout_height="0dp"
     android:layout_weight="4"
     android:background="@color/apporange"
+        android:padding="10dp"
     >
 
-        <Button
+        <ImageView
             android:id="@+id/bt_setting"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:drawableBottom="@mipmap/seting"
+            android:src="@mipmap/seting"
             android:background="@color/apporange"
             android:layout_alignParentRight="true"
             tools:ignore="RtlHardcoded" />
-        <Button
+        <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:drawableBottom="@mipmap/message"
+            android:src="@mipmap/message"
             android:background="@color/apporange"
             android:layout_alignParentLeft="true"
             tools:ignore="RtlHardcoded" />

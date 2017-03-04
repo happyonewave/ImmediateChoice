@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.bingoogolapple.bgabanner.BGABanner xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/carousel_banner"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+</cn.bingoogolapple.bgabanner.BGABanner>

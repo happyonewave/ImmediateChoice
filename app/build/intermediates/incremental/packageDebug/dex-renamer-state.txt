@@ -1,4 +1,4 @@
-#Thu Mar 02 11:50:59 CST 2017
+#Sun Mar 05 05:11:15 CST 2017
 base.0=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=E\:\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex

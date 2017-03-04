@@ -58,6 +58,9 @@ public class ImageTextAdpter extends BaseAdapter {
 
         tv_question.setText(i.getQuestion_content());
         image_text_item_img_left.setImageUrl(i.getImage_left());
+//        ViewGroup.LayoutParams para = image_text_item_img_left.getLayoutParams();
+//        para.height= image_text_item_img_left.getHeight();
+//        image_text_item_img_right.setLayoutParams(para);
         image_text_item_img_right.setImageUrl(i.getImage_right());                                    //设置相应的信息
         item_username.setText(i.getQuizzer_name());
         comment_icon.setText(i.getComment_count() + "");
