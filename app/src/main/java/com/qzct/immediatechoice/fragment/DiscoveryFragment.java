@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.DiscoveryAdpter;
 import com.qzct.immediatechoice.domain.info;
@@ -69,7 +70,7 @@ public class DiscoveryFragment extends baseFragment {
             }
         });
         final ListView lv = (ListView) v.findViewById(R.id.lv);
-        ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, getString(R.string.url_Discovery));
+        ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, MyApplication.url_Discovery);
         showFromJsonArrayTask.execute();
         final SwipeRefreshLayout swipe_refresh = (SwipeRefreshLayout) v.findViewById(R.id.swipe_refresh);
         final TextView tv_swipe_refresh = (TextView) v.findViewById(R.id.tv_swipe_refresh);
@@ -80,7 +81,7 @@ public class DiscoveryFragment extends baseFragment {
             public void onRefresh() {
 
                 tv_swipe_refresh.setVisibility(View.VISIBLE);
-                ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, getString(R.string.url_Discovery));
+                ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, MyApplication.url_Discovery);
                 showFromJsonArrayTask.execute();
                 tv_swipe_refresh.setText(R.string.swipe_refreshing);
 

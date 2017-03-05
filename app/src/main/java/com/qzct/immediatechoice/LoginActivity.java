@@ -75,7 +75,7 @@ public class LoginActivity extends Activity {
         String password = et_password.getText().toString();
         user = new User(username, password);
 
-        LoginTask loginTask = new LoginTask(getString(R.string.url_login), user);
+        LoginTask loginTask = new LoginTask(MyApplication.url_login, user);
         loginTask.execute();
 
 //        Thread t = new Thread() {
@@ -212,6 +212,7 @@ public class LoginActivity extends Activity {
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);
                     startActivity(intent);
+                    LoginActivity.this.finish();
 
 
                     break;

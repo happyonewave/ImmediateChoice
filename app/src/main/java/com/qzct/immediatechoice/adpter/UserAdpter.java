@@ -9,7 +9,10 @@ import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.domain.conversation;
+import com.qzct.immediatechoice.domain.question;
+
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 import java.util.List;
 
@@ -17,37 +20,39 @@ import java.util.List;
  * Created by qin on 2017/2/21.
  */
 
-public 	class UserAdpter extends BaseAdapter {
+public class UserAdpter extends BaseAdapter {
 
-    String ListviewName ;
-    List<conversation> conversationlist;
-    Context context ;
-    public UserAdpter(Context centext ,List<conversation> conversationlist) {
-        this.conversationlist = conversationlist;
+    String ListviewName;
+    List<question> questionList;
+    Context context;
+
+    public UserAdpter(Context centext, List<question> questionList) {
+        this.questionList = questionList;
         this.context = centext;
     }
 
     @Override
     public int getCount() {
-        return conversationlist.size();
+        return questionList.size();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = null ;
-        Log.i("now","getView");
-        conversation conversation = conversationlist.get(position);
-        if(convertView == null){
+        View v = null;
+        Log.i("now", "getView");
+        question question = questionList.get(position);
+        if (convertView == null) {
 //				v =  new LinearLayout(context);
 //				v.setOrientation(LinearLayout.VERTICAL);
-            if(conversation.getAddresser().equals( "小梨子")){
-                v =  v.inflate(context, R.layout.fragment_user_item_lift, null);
-            }else{
-                v =  v.inflate(context, R.layout.ragment_userf_item_right, null);
-            }
+//            if(conversation.getAddresser().equals( "小梨子")){
+//                v =  v.inflate(context, R.layout.fragment_user_item_lift, null);
+//            }else{
+//                v =  v.inflate(context, R.layout.ragment_userf_item_right, null);
+//            }
+            v = v.inflate(context, R.layout.fragment_user_item, null);
             System.out.println("调用：" + position);
-        }else{
-            v =  convertView;
+        } else {
+            v = convertView;
         }
 
 
@@ -57,17 +62,18 @@ public 	class UserAdpter extends BaseAdapter {
 //			TextView tv_addressee = new TextView(context);
 //			siv.setRight(0);
 
-        SmartImageView siv =(SmartImageView) v.findViewById(R.id.siv_portrait);
-        TextView tv_content = (TextView) v.findViewById(R.id.tv_content);
-        TextView tv_addresser = (TextView) v.findViewById(R.id.tv_addresser);
-        TextView tv_addressee = (TextView) v.findViewById(R.id.tv_addressee);
+        SmartImageView user_item_img_left = (SmartImageView) v.findViewById(R.id.user_item_img_left);
+        SmartImageView user_item_img_right = (SmartImageView) v.findViewById(R.id.user_item_img_right);
+        TextView user_tv_question = (TextView) v.findViewById(R.id.user_tv_question);
         //拿到一个info对象
 
-        tv_content.setText(conversation.getContent());
-        tv_addresser.setText(conversation.getAddresser());
-        tv_addressee.setText(conversation.getAddressee());
-        System.out.println(conversation.getPortraiturl());
-        siv.setImageUrl(conversation.getPortraiturl());
+        user_tv_question.setText(question.getQuestion_content());
+        System.out.println(question.getQuestion_content());
+//        user_item_img_left.setImageUrl(question.getImage_left());
+        ImageOptions options = new ImageOptions.Builder().build();
+//                .setImageScaleType(ImageView.ScaleType.CENTER_CROP).build();
+        x.image().bind(user_item_img_left,question.getImage_left(),options);
+        user_item_img_right.setImageUrl(question.getImage_right());
 //			v.addView(siv);
 //			v.addView(tv_content);
 //			v.addView(tv_addresser);

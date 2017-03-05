@@ -13,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.LoginActivity;
+import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.RegisterActivity;
 import com.qzct.immediatechoice.domain.User;
@@ -173,7 +174,7 @@ public class RegisterFinallyFragment extends baseFragment {
         protected String doInBackground(String... params) {
 
             HttpClient hc = new DefaultHttpClient();
-            String url = getString(R.string.url_register);
+            String url = MyApplication.url_register;
             HttpPost httpPost = new HttpPost(url);
             try {
 //                List<NameValuePair> parameters = new ArrayList<NameValuePair>();

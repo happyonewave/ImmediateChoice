@@ -5,12 +5,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.domain.info;
 import com.qzct.immediatechoice.domain.question;
+
+import org.xutils.image.ImageOptions;
+import org.xutils.x;
 
 import java.util.List;
 
@@ -48,7 +52,8 @@ public class ImageTextAdpter extends BaseAdapter {
         TextView tv_question = (TextView) v.findViewById(R.id.tv_question);    //拿到相应的View对象
         SmartImageView image_text_item_img_left = (SmartImageView) v.findViewById(R.id.image_text_item_img_left);
         SmartImageView image_text_item_img_right = (SmartImageView) v.findViewById(R.id.image_text_item_img_right);
-        Button item_username = (Button) v.findViewById(R.id.item_username);
+        TextView item_username = (TextView) v.findViewById(R.id.item_username);
+        ImageView item_portrait = (ImageView) v.findViewById(R.id.item_portrait);
         Button comment_icon = (Button) v.findViewById(R.id.comment_icon);
         Button share_icon = (Button) v.findViewById(R.id.share_icon);
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
@@ -58,11 +63,19 @@ public class ImageTextAdpter extends BaseAdapter {
 
         tv_question.setText(i.getQuestion_content());
         image_text_item_img_left.setImageUrl(i.getImage_left());
-//        ViewGroup.LayoutParams para = image_text_item_img_left.getLayoutParams();
-//        para.height= image_text_item_img_left.getHeight();
-//        image_text_item_img_right.setLayoutParams(para);
-        image_text_item_img_right.setImageUrl(i.getImage_right());                                    //设置相应的信息
-        item_username.setText(i.getQuizzer_name());
+
+
+        if (i.getQuizzer_portrait() != null) {
+            image_text_item_img_right.setImageUrl(i.getImage_right());                                    //设置相应的信息
+            item_username.setText(i.getQuizzer_name());
+            ImageOptions.Builder builder = new ImageOptions.Builder();
+            builder.setCircular(true);
+            builder.setLoadingDrawableId(R.mipmap.default_portrait);//加载中默认显示图片
+            builder.setFailureDrawableId(R.mipmap.default_portrait);
+            builder.setSize(100, 100);
+            ImageOptions options = builder.build();
+            x.image().bind(item_portrait, i.getQuizzer_portrait(), options);
+        }
         comment_icon.setText(i.getComment_count() + "");
         share_icon.setText(i.getShare_count() + "");
         item_comment.setText(i.getComment());

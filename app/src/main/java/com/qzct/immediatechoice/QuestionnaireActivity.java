@@ -20,8 +20,7 @@ public class QuestionnaireActivity extends Activity {
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(QuestionnaireActivity.this, MainActivity.class);
-                startActivity(intent);
+                QuestionnaireActivity.this.finish();
             }
         });
     }

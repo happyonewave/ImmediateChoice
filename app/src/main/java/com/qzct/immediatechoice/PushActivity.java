@@ -89,8 +89,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PushActivity.this, MainActivity.class);
-                startActivity(intent);
+                PushActivity.this.finish();
             }
         });
 
@@ -310,12 +309,12 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 vote.setImage_left(image_left_path);
                 vote.setImage_right(image_right_path);
                 vote.setQuestion_content(question_content);
-                MyApplication myApplication = (MyApplication)getApplication();
+                MyApplication myApplication = (MyApplication) getApplication();
                 User user = myApplication.getUser();
                 String quizzer_name = user.getUsername();
                 vote.setQuizzer_name(quizzer_name);
                 vote.setLocation(locationDescribe);
-                UploadTask uploadTask = new UploadTask(getString(R.string.url_upload), vote);
+                UploadTask uploadTask = new UploadTask(MyApplication.url_upload, vote);
                 uploadTask.execute();
 
 
@@ -407,6 +406,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 entity.addPart("image_left_name", new StringBody(image_left_name, charset));
                 entity.addPart("image_right_name", new StringBody(image_right_name, charset));
                 entity.addPart("quizzer_name", new StringBody(quizzer_name, charset));
+                entity.addPart("quizzer_portrait", new StringBody(MyApplication.user.getPortrait_path(), charset));
                 entity.addPart("locations", new StringBody(locationDescribe, charset));
                 entity.addPart("image_left", image_left);
                 entity.addPart("image_right", image_right);

@@ -10,14 +10,24 @@ public class question {
     String image_left;
     String image_right;
     String quizzer_name;
+    String quizzer_portrait;
     int share_count;
     int comment_count;
     String comment;
     String location;
 
+    public String getQuizzer_portrait() {
+        return quizzer_portrait;
+    }
+
+    public void setQuizzer_portrait(String quizzer_portrait) {
+        this.quizzer_portrait = quizzer_portrait;
+    }
+
     public question() {
         super();
     }
+
 
     public question(String question_content, String image_left, String image_right, String quizzer_name, int share_count, int comment_count, String comment, String location) {
         this.question_content = question_content;
@@ -28,6 +38,29 @@ public class question {
         this.comment_count = comment_count;
         this.comment = comment;
         this.location = location;
+    }
+
+
+    public question(String question_content, String image_left, String image_right, String quizzer_name,
+                    String quizzer_portrait, int share_count, int comment_count, String comment, String location) {
+        this.question_content = question_content;
+        this.image_left = image_left;
+        this.image_right = image_right;
+        this.quizzer_name = quizzer_name;
+        this.quizzer_portrait = quizzer_portrait;
+        this.share_count = share_count;
+        this.comment_count = comment_count;
+        this.comment = comment;
+        this.location = location;
+    }
+
+
+
+    public question(String image_left, String image_right, String question_content) {
+        this.image_left = image_left;
+        this.image_right = image_right;
+        this.question_content = question_content;
+
     }
 
     public String getQuestion_content() {

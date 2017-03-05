@@ -10,9 +10,19 @@ import org.xutils.x;
  * Created by Administrator on 2017-02-27.
  */
 
- public class MyApplication extends Application {
+public class MyApplication extends Application {
 
-    static User user;
+
+//    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+    public static String url = "http://192.168.1.103:8080/Server/";
+
+    public static String url_login = url + "LoginServlet";
+    public static String url_Discovery = url + "DiscoveryServlet";
+    public static String url_user = url + "UserServlet";
+    public static String url_image_text = url + "ImageTextServlet";
+    public static String url_upload = url + "UploadServlet";
+    public static String url_register = url + "RegisterServlet";
+    public static User user;
 
     public static User getUser() {
         return user;
@@ -32,10 +42,7 @@ import org.xutils.x;
         x.Ext.setDebug(BuildConfig.DEBUG);
     }
 
-    public void updateUserPortrait(User user){
-
-
-
+    public void updateUserPortrait(User user) {
 
 
     }

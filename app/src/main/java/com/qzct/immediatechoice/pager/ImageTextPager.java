@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.MainActivity;
+import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.domain.question;
@@ -57,14 +59,14 @@ public class ImageTextPager extends BasePager {
         lv_home = (ListView) view.findViewById(R.id.lv_home);
         sendFabIsVisible(lv_home);
         home_swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.home_swipe_refresh);
-        new ShowFromJsonArrayTask(context, lv_home, context.getString(R.string.url_image_text)).execute();
+        new ShowFromJsonArrayTask(context, lv_home, MyApplication.url_image_text).execute();
         home_swipe_refresh.setColorSchemeColors(Color.YELLOW, Color.BLUE);
         home_swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
 
                 Toast.makeText(context, "正在刷新", Toast.LENGTH_SHORT).show();
-                new ShowFromJsonArrayTask(context, lv_home, context.getString(R.string.url_image_text)).execute();
+                new ShowFromJsonArrayTask(context, lv_home, MyApplication.url_image_text).execute();
                 new Handler().postDelayed(new Runnable() {
 
                     @Override
@@ -113,17 +115,19 @@ public class ImageTextPager extends BasePager {
                     String image_left = temp.getString("image_left");
                     String image_right = temp.getString("image_right");
                     String quizzer_name = temp.getString("quizzer_name");
+                    String quizzer_portrait = temp.getString("quizzer_portrait");
                     int share_count = temp.getInt("share_count");
                     int comment_count = temp.getInt("comment_count");
                     String comment = temp.getString("comment");
-                    question question = new question(question_content, image_left, image_right, quizzer_name, share_count, comment_count, comment, null);
-                    System.out.println(question.toString());
+                    question question = new question(question_content, image_left, image_right, quizzer_name,quizzer_portrait, share_count, comment_count, comment, null);
+                    System.out.println(question.getQuizzer_name());
                     questionlist.add(question);
                 }
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            Log.e("questionlist",questionlist.toString());
             //设置适配器
             listView.setAdapter(new ImageTextAdpter(context, questionlist));
             super.onPostExecute(jsonArray);
