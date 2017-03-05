@@ -47,6 +47,7 @@ public class VideoPager extends BasePager {
     @Override
     public void initData() {
         lv_home_video = (ListView) view.findViewById(R.id.lv_home_video);
+        sendFabIsVisible(lv_home_video);
         home_video_swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.home_video_swipe_refresh);
         new ShowFromJsonArrayTask(context, lv_home_video, context.getString(R.string.url_image_text)).execute();
         home_video_swipe_refresh.setColorSchemeColors(Color.YELLOW, Color.BLUE);

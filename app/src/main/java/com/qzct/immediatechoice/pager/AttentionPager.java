@@ -47,6 +47,7 @@ public class AttentionPager extends BasePager {
     @Override
     public void initData() {
         lv_home_attention = (ListView) view.findViewById(R.id.lv_home_attention);
+        sendFabIsVisible(lv_home_attention);
         home_attention_swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.home_attention_swipe_refresh);
         new ShowFromJsonArrayTask(context, lv_home_attention, context.getString(R.string.url_image_text)).execute();
         home_attention_swipe_refresh.setColorSchemeColors(Color.YELLOW, Color.BLUE);

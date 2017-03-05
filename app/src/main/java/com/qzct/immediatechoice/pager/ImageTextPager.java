@@ -1,18 +1,24 @@
 package com.qzct.immediatechoice.pager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AbsListView;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.MainActivity;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.domain.question;
+import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
@@ -45,9 +51,11 @@ public class ImageTextPager extends BasePager {
     //    @ViewInject(R.id.home_swipe_refresh)
     private SwipeRefreshLayout home_swipe_refresh;
 
+    //    int oldVisibleItem;
     @Override
     public void initData() {
         lv_home = (ListView) view.findViewById(R.id.lv_home);
+        sendFabIsVisible(lv_home);
         home_swipe_refresh = (SwipeRefreshLayout) view.findViewById(R.id.home_swipe_refresh);
         new ShowFromJsonArrayTask(context, lv_home, context.getString(R.string.url_image_text)).execute();
         home_swipe_refresh.setColorSchemeColors(Color.YELLOW, Color.BLUE);
