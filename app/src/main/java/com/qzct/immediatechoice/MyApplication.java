@@ -13,8 +13,8 @@ import org.xutils.x;
 public class MyApplication extends Application {
 
 
-//    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
-    public static String url = "http://192.168.1.103:8080/Server/";
+    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+//    public static String url = "http://192.168.1.103:8080/Server/";
 
     public static String url_login = url + "LoginServlet";
     public static String url_Discovery = url + "DiscoveryServlet";
