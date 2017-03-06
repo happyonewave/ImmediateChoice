@@ -13,7 +13,7 @@ import org.xutils.x;
 public class MyApplication extends Application {
 
 
-    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+        public static String url = "http://123.207.31.213/ImmediateChoice_service/";
 //    public static String url = "http://192.168.1.103:8080/Server/";
 
     public static String url_login = url + "LoginServlet";
@@ -24,13 +24,6 @@ public class MyApplication extends Application {
     public static String url_register = url + "RegisterServlet";
     public static User user;
 
-    public static User getUser() {
-        return user;
-    }
-
-    public static void setUser(User user) {
-        MyApplication.user = user;
-    }
 
     @Override
     public void onCreate() {
@@ -40,6 +33,7 @@ public class MyApplication extends Application {
         x.Ext.init(this);
         // 是否输出debug日志, 开启debug会影响性能.
         x.Ext.setDebug(BuildConfig.DEBUG);
+
     }
 
     public void updateUserPortrait(User user) {

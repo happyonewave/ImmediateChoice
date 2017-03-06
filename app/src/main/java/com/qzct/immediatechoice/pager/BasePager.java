@@ -6,7 +6,6 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.qzct.immediatechoice.fragment.HomeFragment;
 
@@ -60,13 +59,13 @@ public abstract class BasePager {
                     // 向上滑动
                     intent.putExtra("isvisible",false);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-                    Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
                 }
                 if (firstVisibleItem < oldVisibleItem) {
                     // 向下滑动
                     intent.putExtra("isvisible",true);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-                    Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
                 }
                 oldVisibleItem = firstVisibleItem;
             }

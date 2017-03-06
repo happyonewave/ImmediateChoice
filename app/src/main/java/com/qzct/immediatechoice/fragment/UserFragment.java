@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
+import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
@@ -27,34 +28,50 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.qzct.immediatechoice.MyApplication.user;
+
 public class UserFragment extends baseFragment {
 
     private View v;
     List<question> questionList;
-
+    GridView lv;
 
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = v.inflate(context, R.layout.fragment_user, null);
-
         return v;
     }
 
     @Override
     public void initdata() {
 
-        User user = myApplication.getUser();
+        User user = MyApplication.user;
         TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
 //        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
-        SmartImageView  user_portrait = (SmartImageView)v.findViewById(R.id.user_portrait);
+        SmartImageView user_portrait = (SmartImageView) v.findViewById(R.id.user_portrait);
         ImageOptions options = new ImageOptions.Builder().setCircular(true)
                 .setFailureDrawableId(R.mipmap.default_portrait).build();
-        x.image().bind(user_portrait,user.getPortrait_path(),options);
+        x.image().bind(user_portrait, user.getPortrait_path(), options);
         tv_username.setText(user.getUsername());
-        final GridView lv = (GridView) v.findViewById(R.id.gv_user);
+        lv = (GridView) v.findViewById(R.id.gv_user);
+        getMyPush();
 
+
+//        ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, MyApplication.url_user);
+//        ShowConversationFromJsonArrayTask.execute();
+        ImageView bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
+        bt_setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public  void getMyPush() {
         RequestParams entity = new RequestParams(myApplication.url_user);
-        entity.addBodyParameter("quizzer_name",user.getUsername());
+        entity.addBodyParameter("quizzer_name", user.getUsername());
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -86,7 +103,6 @@ public class UserFragment extends baseFragment {
                 Log.i("空2", lv.toString());
                 //设置适配器
                 lv.setAdapter(new UserAdpter(context, questionList));
-
             }
 
             @Override
@@ -105,16 +121,6 @@ public class UserFragment extends baseFragment {
             }
         });
 
-//        ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, MyApplication.url_user);
-//        ShowConversationFromJsonArrayTask.execute();
-        ImageView bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
-        bt_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, SettingActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
 
@@ -169,10 +175,6 @@ public class UserFragment extends baseFragment {
 //            listView.setAdapter(new UserAdpter(context, conversationlist));
 //        }
 //    }
-
-
-
-
 
 
 //	Handler handler =  new Handler(){

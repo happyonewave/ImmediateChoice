@@ -3,8 +3,8 @@ package com.qzct.immediatechoice;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.utils;
 
@@ -24,7 +23,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -65,7 +63,24 @@ public class LoginActivity extends Activity {
         });
 
     }
-
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) {
+        } else {
+            //如果仅仅是用来判断网络连接
+            //则可以使用 cm.getActiveNetworkInfo().isAvailable();
+            NetworkInfo[] info = cm.getAllNetworkInfo();
+            if (info != null) {
+                for (int i = 0; i < info.length; i++) {
+                    if (info[i].getState() == NetworkInfo.State.CONNECTED) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
     public void login(View v) {
         System.out.println("activity_login");
         EditText et_username = (EditText) findViewById(R.id.et_username);
@@ -74,9 +89,12 @@ public class LoginActivity extends Activity {
         String username = et_username.getText().toString();
         String password = et_password.getText().toString();
         user = new User(username, password);
-
+    if (isNetworkAvailable(getApplication())){
         LoginTask loginTask = new LoginTask(MyApplication.url_login, user);
         loginTask.execute();
+    }else{
+        Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();
+    }
 
 //        Thread t = new Thread() {
 //            public void run() {
@@ -162,10 +180,10 @@ public class LoginActivity extends Activity {
                     return "2";
                 }
             } catch (Exception e) {
-                System.out.println("异常");
                 e.printStackTrace();
+                Log.e("Exception","网络连接失败");
+                return "2";
             }
-            return null;
         }
 
         @Override
@@ -206,9 +224,8 @@ public class LoginActivity extends Activity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    MyApplication myApplication = (MyApplication) getApplication();
                     User user_all = new User(username,password,phone_number,portrait_path,sex);
-                    myApplication.setUser(user_all);
+                    MyApplication.user = user_all;
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);
                     startActivity(intent);

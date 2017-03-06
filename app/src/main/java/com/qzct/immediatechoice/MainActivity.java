@@ -1,23 +1,20 @@
 package com.qzct.immediatechoice;
 
 
-import android.graphics.Color;
+import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
@@ -26,11 +23,12 @@ import com.qzct.immediatechoice.fragment.baseFragment;
 public class MainActivity extends FragmentActivity {
 
     private FrameLayout fl;
-
+    public static Activity mainActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mainActivity = this;
         fl = (FrameLayout) findViewById(R.id.fl);
         ImageView iv_status_bar = (ImageView) findViewById(R.id.iv_status_bar);
 //        ImageView status_bar = (ImageView) LayoutInflater.from(this).inflate(R.layout.stasus_bar,null);

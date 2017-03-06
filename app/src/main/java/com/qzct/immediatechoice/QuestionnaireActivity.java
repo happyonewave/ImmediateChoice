@@ -2,16 +2,16 @@ package com.qzct.immediatechoice;
 
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.qzct.immediatechoice.R;
+import org.xutils.view.annotation.ViewInject;
 
 public class QuestionnaireActivity extends Activity {
 
-
+    @ViewInject(R.id.iv_questionnaire_back)
+    private  ImageView iv_back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

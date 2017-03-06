@@ -1,42 +1,18 @@
 package com.qzct.immediatechoice;
 
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.domain.question;
-import com.qzct.immediatechoice.fragment.RegisterFinallyFragment;
 import com.qzct.immediatechoice.fragment.RegisterFirstFragment;
-import com.qzct.immediatechoice.fragment.RegisterSecondFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
-import com.qzct.immediatechoice.util.utils;
-
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class RegisterActivity extends FragmentActivity {
 
@@ -54,7 +30,6 @@ public class RegisterActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
-
 
         Fragment fragment = (Fragment) Adapter.instantiateItem(fl_register, 0);
         Adapter.setPrimaryItem(fl_register, 0, fragment);

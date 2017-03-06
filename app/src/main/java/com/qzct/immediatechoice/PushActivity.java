@@ -2,7 +2,6 @@ package com.qzct.immediatechoice;
 
 
 import android.app.Activity;
-import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -24,36 +23,36 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.domain.question;
+import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
 
 public class PushActivity extends Activity implements View.OnClickListener {
 
     ImageView push_img_left;
     ImageView push_img_right;
     ImageView iv_push_go;
-    String image_left_path;
-    String image_right_path;
+    String image_left_path = "未添加图片";
+    String image_right_path = "未添加图片";
     Button bt_location;
     String locationDescribe;
     TextView location_hint;
     Handler handler;
+    private User user = MyApplication.user;
     final int IMAGE_LEFT_UPLOAD = 0;
     final int IMAGE_RIGHT_UPLOAD = 1;
     final int GET_LOCATION_SUCCESS = 2;
@@ -266,7 +265,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
+        //        super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode) {
             case IMAGE_LEFT_UPLOAD:
 
@@ -288,10 +287,10 @@ public class PushActivity extends Activity implements View.OnClickListener {
     public String getPathFromActivityResult(Intent data) {
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
         if (data != null) {
-//            ContentResolver resolver = getContentResolver();
+            //            ContentResolver resolver = getContentResolver();
             Uri originalUri = data.getData();        //获得图片的uri
             String path = utils.getImageAbsolutePath(this, originalUri);
-            Toast.makeText(this, "Uri:" + originalUri + "path:" + path, Toast.LENGTH_LONG).show();
+//            Toast.makeText(this, "Uri:" + originalUri + "path:" + path, Toast.LENGTH_LONG).show();
             return path;
         } else {
             return "";
@@ -305,21 +304,22 @@ public class PushActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.iv_push_go:
                 EditText et_push_question_content = (EditText) findViewById(R.id.push_question_content);
-                String question_content = et_push_question_content.getText().toString();
+                String question_content = null;
+                question_content = et_push_question_content.getText().toString();
+                String quizzer_name = user.getUsername();
                 vote.setImage_left(image_left_path);
                 vote.setImage_right(image_right_path);
                 vote.setQuestion_content(question_content);
-                MyApplication myApplication = (MyApplication) getApplication();
-                User user = myApplication.getUser();
-                String quizzer_name = user.getUsername();
                 vote.setQuizzer_name(quizzer_name);
                 vote.setLocation(locationDescribe);
-                UploadTask uploadTask = new UploadTask(MyApplication.url_upload, vote);
-                uploadTask.execute();
+                if (!("".equals(question_content))) {
+                    UploadTask uploadTask = new UploadTask(MyApplication.url_upload, vote);
+                    uploadTask.execute();
+                    PushActivity.this.finish();
+                } else {
+                    Toast.makeText(this, "您还没输入投票题目呢", Toast.LENGTH_SHORT).show();
+                }
 
-
-                intent = new Intent(PushActivity.this, MainActivity.class);
-                startActivity(intent);
 
                 break;
 
@@ -328,8 +328,8 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 intent = new Intent();
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                //                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                //                intent.addCategory(Intent.CATEGORY_OPENABLE);
                 startActivityForResult(intent, IMAGE_LEFT_UPLOAD);
                 break;
 
@@ -338,7 +338,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//              intent.addCategory(Intent.CATEGORY_OPENABLE);
+                //              intent.addCategory(Intent.CATEGORY_OPENABLE);
                 startActivityForResult(intent, IMAGE_RIGHT_UPLOAD);
 
                 break;
@@ -353,6 +353,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 break;
 
         }
+
 
     }
 
@@ -380,20 +381,20 @@ public class PushActivity extends Activity implements View.OnClickListener {
         protected String doInBackground(String... params) {
 
             HttpClient hc = new DefaultHttpClient();
-//            String url = getString(R.string.url_image_text);
+            //            String url = getString(R.string.url_image_text);
             HttpPost httpPost = new HttpPost(url);
 
-//                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-//                BasicNameValuePair pair1 = new BasicNameValuePair("username", username);
-//                BasicNameValuePair pair2 = new BasicNameValuePair("question_content", question_content);
-//                BasicNameValuePair pair3 = new BasicNameValuePair("image_left_path", image_left_path);
-//                BasicNameValuePair pair4 = new BasicNameValuePair("image_right_path", image_right_path);
-//                BasicNameValuePair pair5 = new BasicNameValuePair("locations", locationDescribe);
-//                parameters.add(pair1);
-//                parameters.add(pair2);
-//                parameters.add(pair3);
-//                parameters.add(pair4);
-//                parameters.add(pair5);
+            //                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+            //                BasicNameValuePair pair1 = new BasicNameValuePair("username", username);
+            //                BasicNameValuePair pair2 = new BasicNameValuePair("question_content", question_content);
+            //                BasicNameValuePair pair3 = new BasicNameValuePair("image_left_path", image_left_path);
+            //                BasicNameValuePair pair4 = new BasicNameValuePair("image_right_path", image_right_path);
+            //                BasicNameValuePair pair5 = new BasicNameValuePair("locations", locationDescribe);
+            //                parameters.add(pair1);
+            //                parameters.add(pair2);
+            //                parameters.add(pair3);
+            //                parameters.add(pair4);
+            //                parameters.add(pair5);
             try {
                 Charset charset = Charset.forName("utf-8");
                 MultipartEntity entity = new MultipartEntity();
@@ -401,7 +402,10 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 FileBody image_right = new FileBody(new File(image_right_path));
                 String image_left_name = image_left.getFilename();
                 String image_right_name = image_right.getFilename();
-//                entity.addPart("username", new StringBody(username, charset));
+                if (locationDescribe == null) {
+                    locationDescribe = "未获得定位";
+                }
+                //                entity.addPart("username", new StringBody(username, charset));
                 entity.addPart("question_content", new StringBody(question_content, charset));
                 entity.addPart("image_left_name", new StringBody(image_left_name, charset));
                 entity.addPart("image_right_name", new StringBody(image_right_name, charset));
@@ -411,7 +415,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
                 entity.addPart("image_left", image_left);
                 entity.addPart("image_right", image_right);
 
-//                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
+                //                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
                 httpPost.setEntity(entity);
 
 
@@ -426,29 +430,33 @@ public class PushActivity extends Activity implements View.OnClickListener {
             } catch (Exception e) {
                 System.out.println("异常");
                 e.printStackTrace();
+                Log.d(TAG, "doInBackground: " + e.toString());
             }
             return null;
         }
 
         @Override
         protected void onPostExecute(String text) {
-            switch (text) {
-                case "0":
-                    Toast.makeText(PushActivity.this, "发起投票失败", Toast.LENGTH_LONG).show();
-                    break;
+            if (text != null) {
+                switch (text) {
+                    case "0":
+                        Toast.makeText(PushActivity.this, "发起投票失败", Toast.LENGTH_LONG).show();
+                        break;
 
-                case "1":
-                    Toast.makeText(PushActivity.this, "发起投票成功", Toast.LENGTH_LONG).show();
+                    case "1":
+                        Toast.makeText(PushActivity.this, "发起投票成功", Toast.LENGTH_LONG).show();
+                        new UserFragment().getMyPush(); 
+                        break;
 
-                    break;
-
-                case "2":
-                    Toast.makeText(PushActivity.this, "连接网站失败", Toast.LENGTH_LONG).show();
-                    break;
+                    case "2":
+                        Toast.makeText(PushActivity.this, "连接网站失败", Toast.LENGTH_LONG).show();
+                        break;
 
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+
             }
 
         }

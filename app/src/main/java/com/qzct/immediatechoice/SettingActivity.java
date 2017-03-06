@@ -5,10 +5,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-
-import com.qzct.immediatechoice.R;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -44,6 +40,7 @@ public class SettingActivity extends Activity {
                 MyApplication.user = null;
                 Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                 startActivity(intent);
+              MainActivity.mainActivity.finish();
                 SettingActivity.this.finish();
 
                 break;

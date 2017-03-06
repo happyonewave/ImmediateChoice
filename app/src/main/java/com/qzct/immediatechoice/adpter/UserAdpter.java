@@ -7,12 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.question;
-
-import org.xutils.image.ImageOptions;
-import org.xutils.x;
 
 import java.util.List;
 
@@ -69,15 +66,10 @@ public class UserAdpter extends BaseAdapter {
 
         user_tv_question.setText(question.getQuestion_content());
         System.out.println(question.getQuestion_content());
-//        user_item_img_left.setImageUrl(question.getImage_left());
-        ImageOptions options = new ImageOptions.Builder().build();
-//                .setImageScaleType(ImageView.ScaleType.CENTER_CROP).build();
-        x.image().bind(user_item_img_left,question.getImage_left(),options);
+        user_item_img_left.setImageUrl(question.getImage_left());
+//        ImageOptions options = new ImageOptions.Builder().build();
+//        x.image().bind(user_item_img_left,question.getImage_left(),options);
         user_item_img_right.setImageUrl(question.getImage_right());
-//			v.addView(siv);
-//			v.addView(tv_content);
-//			v.addView(tv_addresser);
-//			v.addView(tv_addressee);
         return v;
     }
 
