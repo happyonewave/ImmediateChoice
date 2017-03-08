@@ -8,6 +8,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -70,6 +71,12 @@ public class DiscoveryFragment extends baseFragment {
             }
         });
         final ListView lv = (ListView) v.findViewById(R.id.lv);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(context, "点击了item：" + i, Toast.LENGTH_SHORT).show();
+            }
+        });
         ShowFromJsonArrayTask showFromJsonArrayTask = new ShowFromJsonArrayTask(context, lv, MyApplication.url_Discovery);
         showFromJsonArrayTask.execute();
         final SwipeRefreshLayout swipe_refresh = (SwipeRefreshLayout) v.findViewById(R.id.swipe_refresh);

@@ -8,9 +8,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.qzct.immediatechoice.R;
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.domain.info;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.question;
 
 import org.xutils.image.ImageOptions;
@@ -33,6 +32,12 @@ public class ImageTextAdpter extends BaseAdapter {
         this.questionlist = questionlist;
     }
 
+    public void onDataChange(List<question> questionlist) {
+        this.questionlist =questionlist;
+        this.notifyDataSetChanged();
+
+    }
+
     @Override
     public int getCount() {
         return questionlist.size();
@@ -43,7 +48,6 @@ public class ImageTextAdpter extends BaseAdapter {
         View v = null;
         if (convertView == null) {
             v = View.inflate(context, R.layout.fragment_image_text_item, null);//将fragment01_item填充成一个View
-            System.out.println("调用：" + position);
         } else {
             v = convertView;
         }

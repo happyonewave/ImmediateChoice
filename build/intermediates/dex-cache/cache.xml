@@ -3,219 +3,237 @@
 
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.0.0_176a845c66e08a86aca02029b162090f296ee64e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.0.0_726325044e613d1acd273f5b42ec90603c8d7cef.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.bingoogolapple\bga-banner\2.1.7\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9d8074399470c272f12c4d5cbab415dc64d277d9">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\cn.bingoogolapple-bga-banner-2.1.7_54db2bbb963fd1e4a00beca5dadc1aca59d80dbc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_d988873fd6b12b49740da7590b5baf5585084607.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c791dfbf18191e004e32d7b06e2eae56d045fcc6">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\org.xutils-xutils-3.3.42_f57c8be5e9f637d0c3c77a37c6ccd9039e3791b1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpclient-4.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0171c67fa04952e76bc9ee1e578fe629db35d769">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpclient-4.3.1_96e8283b915019977e5005bdfeab3347ee9eb47b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="aee64634871d88a419d59eb743c1258a60f19700">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_58a9c91dc22f5868f8f4172dc8fe81d0291e6163.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_854d465b47a543701128d0e6f997c8c7ad4a6628.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Administrator\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\library-2.4.0_dd460f45d27a359687729c3c169358b1eda3100b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpmime-4.3.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f49e2348b768a7199e021a97e951df25cd5fb714">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpmime-4.3.1_c5021bcc07da06e6c46ad40d444ab65a5516f77e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.2.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.2.0_4de763262a68611798a45ff834b0a5e5acaab25c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\BaiduLBS_Android.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="353245b63dc3edda95167f1ff6907a82638359cc">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android_0fda6bd753162b046ff94f6631897699ffb3bc58.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_1062b85b6641e1a4f80c56654674cfc2ade54609.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_c45ee6c05564049e0106a66de61146fc61bd13a6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpcore-4.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="8dfd6286d04ad9dbf26cdf7d4ef5c8fad430cf30">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpcore-4.3_511d2049b932528ddee0bd3183b8cf8d2aaa2f2a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.github.yavski\fab-speed-dial\1.0.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="260500718bdbc6b1abf35bd13746e4baa6ff17fd">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\io.github.yavski-fab-speed-dial-1.0.1_bb0f5cfbced1ffacb5d8ffaf7ffcf2dd24b6fd5c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_62cb8d7f8a7e62b45f761907e42dbc485d462783.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_763c023bde84e3506f57de62b53ab07da25d1cc9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_dbf8041be4d7272bdbcd5e82d1e74f0e15d8f669.jar" />
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_1a1205c3a22e9e6bf5c70a8e1c7ec5f06e196885.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-2.1.0_5d807cf47dea75171976f0a2e6cf3196d1036726.jar" />
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_c1d682fff9bdc63b6081574fcfc421714aaecb2c.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.2.0_7bb99d18f6b2dc46bc5b77b7e1cb9a5585ec53aa.jar" />
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_5d48f6da8e97f05320a7135b55d81c8ef5b87008.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.github.yavski\fab-speed-dial\1.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.0.0_ee24e3d0e947fd993ab736f5324a32eecccacb2b.jar" />
+        sha1="260500718bdbc6b1abf35bd13746e4baa6ff17fd">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\io.github.yavski-fab-speed-dial-1.0.1_0d037336a744d3ab9972bfc28fdc3de1830c485b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_ac98b6ece1610bfc5af64980508dbf5d0fb38cfc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\BaiduLBS_Android.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="353245b63dc3edda95167f1ff6907a82638359cc">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\BaiduLBS_Android_cdc972be5ba1da8d8787eaad5a692c62c2f152cb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpcore-4.3.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="8dfd6286d04ad9dbf26cdf7d4ef5c8fad430cf30">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpcore-4.3_1d5724ae0e254eb444e74ad1b7478f799f180978.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_cb31938be94bee5e3bdea20b887fa6963280d0c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_30f64a62097eb8c494ea5c502ef2f487c2fe4581.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.0.0_f13fa02767715797c3f7b42a24387d811dde9ff1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\qin\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\library-2.4.0_497dbf7e0b3236f77e7aed9ad1f8a5816a781de5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.0.0_b9efd8e17ecf11f1d40dad1849f167482f9df4e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_bd79acf4d56aa022bf16af296e981a57f79aaa8a.jar" />
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_37e3d5b4f657f99e63761436d9ce77d99c4e538b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="E:\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpclient-cache-4.3.1.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpclient-cache-4.3.1.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="546eee25fa025a455040bbf1708b0c0490c2311b">
-        <dex dex="E:\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpclient-cache-4.3.1_24d21fd90cf59822f291df538a405c3e957e6744.jar" />
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpclient-cache-4.3.1_9a7afee45037ee2931d6f40701046633183ee05b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.2.0_953db10fa7711747394acc94486d07cc59fc9ff7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_8d59cb211adfeca9fe41cd69b4bbd3e95745947a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.0.0_ba673e623e365ffea19d8309890e95a2a5413a3c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.2.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.2.0_b08ae81216d31d953bd96dcd76d3dfabacc304d4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-2.1.0_1c50db7acfe427d030fe7fb9fb7612ce4e9b829a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_00d4503652a8e1e0954f0a02fde391d9fac9dbd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="c791dfbf18191e004e32d7b06e2eae56d045fcc6">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\org.xutils-xutils-3.3.42_0a31da71ae5747d47d0e380dbfdadf83bdabd11f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpmime-4.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="f49e2348b768a7199e021a97e951df25cd5fb714">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpmime-4.3.1_ae40980f655b871456c2bfee4892f63df9e76471.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.wang.avi\library\1.0.1\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="4968500e276d051b8ed8135f1a0254120f6c600d">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.wang.avi-library-1.0.1_c46f4387eb8a040f36a77dc5d066b67c37865b99.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.bingoogolapple\bga-banner\2.1.7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="9d8074399470c272f12c4d5cbab415dc64d277d9">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\cn.bingoogolapple-bga-banner-2.1.7_dbd24cac4a19e39c259de1a552cbba3b49390879.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\libs\httpclient-4.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="0171c67fa04952e76bc9ee1e578fe629db35d769">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\httpclient-4.3.1_115895a870ce7109d69050e2d6a51b5add4a4746.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="ddfa3b26ad826d0d868160cf1ee4d58c60713983">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.lcodecorex-tkrefreshlayout-1.0.4_7e5b2df3b5e2e3319cbe42da1288263baebc34e9.jar" />
     </item>
 
 </items>

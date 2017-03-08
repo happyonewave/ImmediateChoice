@@ -6,6 +6,7 @@ import android.support.v4.content.LocalBroadcastManager;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.fragment.HomeFragment;
 
@@ -16,11 +17,10 @@ import com.qzct.immediatechoice.fragment.HomeFragment;
 public abstract class BasePager {
 
     public Context context;
-    public  View view;
+    public View view;
     int oldVisibleItem;
     public BasePager(Context context) {
         this.context = context;
-
         view = initView();
         initData();
     }
@@ -42,7 +42,6 @@ public abstract class BasePager {
 
     /**
      * 响应listview滑动事件 发送是否显示悬浮按钮广播
-     * @param listView
      */
     public void sendFabIsVisible(ListView listView){
 
@@ -59,13 +58,13 @@ public abstract class BasePager {
                     // 向上滑动
                     intent.putExtra("isvisible",false);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-//                    Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
                 }
                 if (firstVisibleItem < oldVisibleItem) {
                     // 向下滑动
                     intent.putExtra("isvisible",true);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-//                    Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
                 }
                 oldVisibleItem = firstVisibleItem;
             }

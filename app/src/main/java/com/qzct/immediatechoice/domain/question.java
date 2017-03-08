@@ -28,6 +28,9 @@ public class question {
         super();
     }
 
+    public question(String question_content) {
+        this.question_content = question_content;
+    }
 
     public question(String question_content, String image_left, String image_right, String quizzer_name, int share_count, int comment_count, String comment, String location) {
         this.question_content = question_content;
