@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.domain.question;
+import com.qzct.immediatechoice.domain.Question;
 
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
@@ -25,14 +25,14 @@ public class ImageTextAdpter extends BaseAdapter {
 
 
     Context context;
-    List<question> questionlist;
+    List<Question> questionlist;
 
-    public ImageTextAdpter(Context context, List<question> questionlist) {
+    public ImageTextAdpter(Context context, List<Question> questionlist) {
         this.context = context;
         this.questionlist = questionlist;
     }
 
-    public void onDataChange(List<question> questionlist) {
+    public void onDataChange(List<Question> questionlist) {
         this.questionlist =questionlist;
         this.notifyDataSetChanged();
 
@@ -63,7 +63,7 @@ public class ImageTextAdpter extends BaseAdapter {
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
 
 
-        question i = questionlist.get(position);                                    //拿到一个info对象
+        Question i = questionlist.get(position);                                    //拿到一个info对象
 
         tv_question.setText(i.getQuestion_content());
         image_text_item_img_left.setImageUrl(i.getImage_left());

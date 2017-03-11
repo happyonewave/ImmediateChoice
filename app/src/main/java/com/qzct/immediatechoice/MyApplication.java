@@ -3,6 +3,7 @@ package com.qzct.immediatechoice;
 import android.app.Application;
 
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.pager.ImageTextPager;
 
 import org.xutils.x;
 
@@ -14,7 +15,7 @@ import org.xutils.x;
 public class MyApplication extends Application {
 
 
-//    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+    //    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
     public static String url = "http://192.168.1.11:8080/Server/";
 
     public static String url_login = url + "LoginServlet";
@@ -23,8 +24,9 @@ public class MyApplication extends Application {
     public static String url_image_text = url + "ImageTextServlet";
     public static String url_upload = url + "UploadServlet";
     public static String url_register = url + "RegisterServlet";
+    public static String url_comment = url + "CommentServlet";
     public static User user;
-
+    public static ImageTextPager.ItemData itemData;
 
     @Override
     public void onCreate() {
@@ -41,4 +43,5 @@ public class MyApplication extends Application {
 
 
     }
+
 }

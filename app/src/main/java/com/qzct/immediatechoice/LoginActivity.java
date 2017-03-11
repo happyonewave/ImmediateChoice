@@ -1,12 +1,12 @@
 package com.qzct.immediatechoice;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -30,7 +30,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends AppCompatActivity {
 
     User user;
 //    Handler handler = new Handler() {

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_refreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     app:tr_head_height="100dp"
     app:tr_wave_height="180dp">
 
@@ -11,6 +11,10 @@
         android:id="@+id/lv_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:divider="@null"
+        android:scrollbars="none"
         >
 
     </ListView>

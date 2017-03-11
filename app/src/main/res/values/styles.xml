@@ -13,7 +13,7 @@
     </style>
 
     <!-- Application theme. -->
-    <style name="AppTheme" parent="AppBaseTheme">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- 无标题 -->
         <item name="android:windowNoTitle">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
@@ -72,5 +72,11 @@
         <item name="android:textColor">@drawable/bt_textcolor</item>
         <item name="android:textSize">14sp</item>
     </style>
-
+    <style name="comment_Dialog" parent="@android:style/Theme.Dialog">
+        <!--<item name="android:windowFrame">@null</item>-->
+        <item name="android:windowNoTitle">true</item>//无标题
+        <!--<item name="android:windowBackground">@null</item>//背景-->
+        <!--<item name="android:windowIsFloating">true</item>//悬浮-->
+        <!--<item name="android:windowContentOverlay">@null</item>-->
+    </style>
 </resources>

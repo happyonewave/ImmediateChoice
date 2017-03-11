@@ -1,14 +1,14 @@
 package com.qzct.immediatechoice;
 
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 
 import org.xutils.view.annotation.ViewInject;
 
-public class QuestionnaireActivity extends Activity {
+public class QuestionnaireActivity extends AppCompatActivity {
 
     @ViewInject(R.id.iv_questionnaire_back)
     private  ImageView iv_back;

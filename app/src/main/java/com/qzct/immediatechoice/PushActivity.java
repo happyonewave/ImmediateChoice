@@ -1,13 +1,13 @@
 package com.qzct.immediatechoice;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,8 +21,8 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.domain.question;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.util.utils;
 
@@ -41,7 +41,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-public class PushActivity extends Activity implements View.OnClickListener {
+public class PushActivity extends AppCompatActivity implements View.OnClickListener {
 
     ImageView push_img_left;
     ImageView push_img_right;
@@ -300,7 +300,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         Intent intent = null;
-        question vote = new question();
+        Question vote = new Question();
         switch (v.getId()) {
             case R.id.iv_push_go:
                 EditText et_push_question_content = (EditText) findViewById(R.id.push_question_content);
@@ -367,7 +367,7 @@ public class PushActivity extends Activity implements View.OnClickListener {
         String locationDescribe;
         String quizzer_name;
 
-        public UploadTask(String url, question vote) {
+        public UploadTask(String url, Question vote) {
             this.url = url;
             this.username = vote.getQuizzer_name();
             this.question_content = vote.getQuestion_content();

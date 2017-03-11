@@ -15,7 +15,7 @@ import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
-import com.qzct.immediatechoice.domain.question;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -50,7 +50,7 @@ public class VideoPager extends BasePager {
     private static final String url = MyApplication.url_image_text;
     private ListView lv_home_video;
     private TwinklingRefreshLayout home_video_refreshLayout;
-    private ArrayList<question> questionlist = new ArrayList<question>();
+    private ArrayList<Question> questionlist = new ArrayList<Question>();
     private ImageTextAdpter adpter;
     private int questiobId;
     private JSONArray jsonArray;
@@ -355,11 +355,11 @@ public class VideoPager extends BasePager {
                 int share_count = temp.getInt("share_count");
                 int comment_count = temp.getInt("comment_count");
                 String comment = temp.getString("comment");
-                question question = new question(question_content, image_left, image_right, quizzer_name, quizzer_portrait, share_count, comment_count, comment, null);
+                Question Question = new Question(question_content, image_left, image_right, quizzer_name, quizzer_portrait, share_count, comment_count, comment, null);
                 if (msg == REFRESH_QUESTION) {
-                    questionlist.add(0, question);
+                    questionlist.add(0, Question);
                 } else {
-                    questionlist.add(question);
+                    questionlist.add(Question);
                 }
             }
             adpter.onDataChange(questionlist);

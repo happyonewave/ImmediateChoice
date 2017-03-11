@@ -1,9 +1,9 @@
 package com.qzct.immediatechoice;
 
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import org.xutils.view.annotation.ContentView;
@@ -11,7 +11,7 @@ import org.xutils.view.annotation.Event;
 import org.xutils.x;
 
 @ContentView(R.layout.setting)
-public class SettingActivity extends Activity {
+public class SettingActivity extends AppCompatActivity {
 
 
     @Override

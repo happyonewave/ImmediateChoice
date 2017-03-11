@@ -4,8 +4,8 @@ package com.qzct.immediatechoice.domain;
  * Created by Administrator on 2017-02-26.
  */
 
-public class question {
-
+public class Question {
+    int question_id;
     String question_content;
     String image_left;
     String image_right;
@@ -16,6 +16,27 @@ public class question {
     String comment;
     String location;
 
+    public Question(int question_id, String question_content, String image_left, String image_right, String quizzer_name, String quizzer_portrait, int share_count, int comment_count, String comment, String location) {
+        this.question_id = question_id;
+        this.question_content = question_content;
+        this.image_left = image_left;
+        this.image_right = image_right;
+        this.quizzer_name = quizzer_name;
+        this.quizzer_portrait = quizzer_portrait;
+        this.share_count = share_count;
+        this.comment_count = comment_count;
+        this.comment = comment;
+        this.location = location;
+    }
+
+    public int getQuestion_id() {
+        return question_id;
+    }
+
+    public void setQuestion_id(int question_id) {
+        this.question_id = question_id;
+    }
+
     public String getQuizzer_portrait() {
         return quizzer_portrait;
     }
@@ -24,15 +45,15 @@ public class question {
         this.quizzer_portrait = quizzer_portrait;
     }
 
-    public question() {
+    public Question() {
         super();
     }
 
-    public question(String question_content) {
+    public Question(String question_content) {
         this.question_content = question_content;
     }
 
-    public question(String question_content, String image_left, String image_right, String quizzer_name, int share_count, int comment_count, String comment, String location) {
+    public Question(String question_content, String image_left, String image_right, String quizzer_name, int share_count, int comment_count, String comment, String location) {
         this.question_content = question_content;
         this.image_left = image_left;
         this.image_right = image_right;
@@ -44,7 +65,7 @@ public class question {
     }
 
 
-    public question(String question_content, String image_left, String image_right, String quizzer_name,
+    public Question(String question_content, String image_left, String image_right, String quizzer_name,
                     String quizzer_portrait, int share_count, int comment_count, String comment, String location) {
         this.question_content = question_content;
         this.image_left = image_left;
@@ -58,8 +79,7 @@ public class question {
     }
 
 
-
-    public question(String image_left, String image_right, String question_content) {
+    public Question(String image_left, String image_right, String question_content) {
         this.image_left = image_left;
         this.image_right = image_right;
         this.question_content = question_content;

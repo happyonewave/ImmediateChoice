@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.domain.question;
+import com.qzct.immediatechoice.domain.Question;
 
 import java.util.List;
 
@@ -20,10 +20,10 @@ import java.util.List;
 public class UserAdpter extends BaseAdapter {
 
     String ListviewName;
-    List<question> questionList;
+    List<Question> questionList;
     Context context;
 
-    public UserAdpter(Context centext, List<question> questionList) {
+    public UserAdpter(Context centext, List<Question> questionList) {
         this.questionList = questionList;
         this.context = centext;
     }
@@ -37,7 +37,7 @@ public class UserAdpter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = null;
         Log.i("now", "getView");
-        question question = questionList.get(position);
+        Question Question = questionList.get(position);
         if (convertView == null) {
 //				v =  new LinearLayout(context);
 //				v.setOrientation(LinearLayout.VERTICAL);
@@ -64,12 +64,12 @@ public class UserAdpter extends BaseAdapter {
         TextView user_tv_question = (TextView) v.findViewById(R.id.user_tv_question);
         //拿到一个info对象
 
-        user_tv_question.setText(question.getQuestion_content());
-        System.out.println(question.getQuestion_content());
-        user_item_img_left.setImageUrl(question.getImage_left());
+        user_tv_question.setText(Question.getQuestion_content());
+        System.out.println(Question.getQuestion_content());
+        user_item_img_left.setImageUrl(Question.getImage_left());
 //        ImageOptions options = new ImageOptions.Builder().build();
-//        x.image().bind(user_item_img_left,question.getImage_left(),options);
-        user_item_img_right.setImageUrl(question.getImage_right());
+//        x.image().bind(user_item_img_left,Question.getImage_left(),options);
+        user_item_img_right.setImageUrl(Question.getImage_right());
         return v;
     }
 

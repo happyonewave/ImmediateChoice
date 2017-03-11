@@ -319,10 +319,10 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 //
 //        @Override
 //        protected void onPostExecute(JSONArray jsonArray) {
-//            ArrayList<question> questionlist = null;
+//            ArrayList<Question> questionlist = null;
 //            try {
 //                //new一个info数组
-//                questionlist = new ArrayList<question>();
+//                questionlist = new ArrayList<Question>();
 //                //遍历传入的jsonArray
 //                for (int i = jsonArray.length() - 1; i > 0; i--) {
 //                    JSONObject temp = jsonArray.getJSONObject(i);
@@ -334,9 +334,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 //                    int share_count = temp.getInt("share_count");
 //                    int comment_count = temp.getInt("comment_count");
 //                    String comment = temp.getString("comment");
-//                    question question = new question(question_content, image_left, image_right, quizzer_name, share_count, comment_count, comment, null);
-//                    System.out.println(question.toString());
-//                    questionlist.add(question);
+//                    Question Question = new Question(question_content, image_left, image_right, quizzer_name, share_count, comment_count, comment, null);
+//                    System.out.println(Question.toString());
+//                    questionlist.add(Question);
 //                }
 //
 //            } catch (JSONException e) {

@@ -14,8 +14,8 @@ import com.qzct.immediatechoice.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.domain.question;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,7 +33,7 @@ import static com.qzct.immediatechoice.MyApplication.user;
 public class UserFragment extends baseFragment {
 
     private View v;
-    List<question> questionList;
+    List<Question> questionList;
     GridView lv;
 
     @Override
@@ -75,11 +75,11 @@ public class UserFragment extends baseFragment {
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-//                ArrayList<question> questionArrayList = null;
+//                ArrayList<Question> questionArrayList = null;
                 try {
                     JSONArray jsonArray = new JSONArray(result);
                     //new一个question数组
-                    questionList = new ArrayList<question>();
+                    questionList = new ArrayList<Question>();
                     //遍历传入的jsonArray
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject temp = jsonArray.getJSONObject(i);
@@ -88,9 +88,9 @@ public class UserFragment extends baseFragment {
                         String image_right = temp.getString("image_right");
                         String question_content = temp.getString("question_content");
 
-                        question question = new question(image_left, image_right, question_content);
-                        System.out.println(question.toString());
-                        questionList.add(question);
+                        Question Question = new Question(image_left, image_right, question_content);
+                        System.out.println(Question.toString());
+                        questionList.add(Question);
 
                     }
 
