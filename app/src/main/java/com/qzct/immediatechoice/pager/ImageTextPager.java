@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,7 +18,7 @@ import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.dialog.Comment_dialog;
@@ -45,7 +44,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.qzct.immediatechoice.MyApplication.itemData;
+import static com.qzct.immediatechoice.application.MyApplication.itemData;
 
 
 /**
@@ -75,7 +74,6 @@ public class ImageTextPager extends BasePager implements AdapterView.OnItemClick
 
     @Override
     public View initView() {
-        LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.view_image_text, null);
         return view;
     }

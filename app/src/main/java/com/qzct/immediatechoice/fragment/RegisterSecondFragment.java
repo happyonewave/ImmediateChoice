@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.RegisterActivity;
+import com.qzct.immediatechoice.activity.RegisterActivity;
 
 /**
  * Created by Administrator on 2017-02-26.

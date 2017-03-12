@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <ImageView
         android:id="@+id/iv_status_bar"
@@ -39,7 +39,7 @@
 
         <!--android:text="首页"-->
         <RadioButton
-            android:id="@+id/bt_function"
+            android:id="@+id/bt_home"
             style="@style/bt_style"
             android:drawableTop="@drawable/bt_home_bg"
             android:onClick="click" />

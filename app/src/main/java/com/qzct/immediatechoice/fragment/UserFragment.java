@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.SettingActivity;
+import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
@@ -28,7 +28,7 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.qzct.immediatechoice.MyApplication.user;
+import static com.qzct.immediatechoice.application.MyApplication.user;
 
 public class UserFragment extends baseFragment {
 

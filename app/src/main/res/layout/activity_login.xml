@@ -67,8 +67,7 @@
             android:layout_marginBottom="20dp">
 
             <Button
-                android:id="@+id/bt_Login"
-                android:onClick="login"
+                android:id="@+id/bt_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="5"

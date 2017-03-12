@@ -4,14 +4,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.domain.Question;
@@ -63,7 +62,6 @@ public class AttentionPager extends BasePager {
 
     @Override
     public View initView() {
-        LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.view_attention, null);
         return view;
     }

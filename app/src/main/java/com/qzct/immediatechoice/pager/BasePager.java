@@ -3,6 +3,7 @@ package com.qzct.immediatechoice.pager;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ListView;
@@ -18,9 +19,12 @@ public abstract class BasePager {
 
     public Context context;
     public View view;
+    public LayoutInflater inflater;
     int oldVisibleItem;
+
     public BasePager(Context context) {
         this.context = context;
+        inflater = LayoutInflater.from(context);
         view = initView();
         initData();
     }
@@ -29,21 +33,23 @@ public abstract class BasePager {
      * 构建ui
      */
     public abstract View initView();
+
     /**
      * 构建数据
      */
-    public abstract void  initData();
+    public abstract void initData();
+
     /**
      * 返回ui效果
      */
-    public View getRootView(){
-     return view;
+    public View getRootView() {
+        return view;
     }
 
     /**
      * 响应listview滑动事件 发送是否显示悬浮按钮广播
      */
-    public void sendFabIsVisible(ListView listView){
+    public void sendFabIsVisible(ListView listView) {
 
         listView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
@@ -56,13 +62,13 @@ public abstract class BasePager {
                 Intent intent = new Intent(HomeFragment.ACTION_SET_FAB_VISBILITY);
                 if (firstVisibleItem > oldVisibleItem) {
                     // 向上滑动
-                    intent.putExtra("isvisible",false);
+                    intent.putExtra("isvisible", false);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
                     Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
                 }
                 if (firstVisibleItem < oldVisibleItem) {
                     // 向下滑动
-                    intent.putExtra("isvisible",true);
+                    intent.putExtra("isvisible", true);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
                     Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
                 }
@@ -70,5 +76,7 @@ public abstract class BasePager {
             }
         });
 
-    };
+    }
+
+    ;
 }

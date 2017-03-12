@@ -14,9 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.qzct.immediatechoice.PushActivity;
-import com.qzct.immediatechoice.QuestionnaireActivity;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.PushActivity;
+import com.qzct.immediatechoice.activity.QuestionnaireActivity;
 import com.qzct.immediatechoice.pager.AttentionPager;
 import com.qzct.immediatechoice.pager.BasePager;
 import com.qzct.immediatechoice.pager.ImageTextPager;
@@ -37,7 +37,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private static final int ATTENTTION = 2;
     private View v;
     LinearLayout fab_push_vote__layout;
-    LinearLayout fab_questionfragment_layout;
+    LinearLayout fab_question_layout;
     private ViewPager vp_home;
     private PagerAdapter pagerAdapter = null;
     private List<BasePager> pagers = new ArrayList<BasePager>();
@@ -46,7 +46,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     View home_attention_line;
     FloatingActionButton fab_home;
     FloatingActionButton fab_push;
-    FloatingActionButton fab_questionfragment;
+    FloatingActionButton fab_question;
     public final static String ACTION_SET_FAB_VISBILITY = "ACTION_SET_FAB_VISBILITY";
 
     /**
@@ -54,29 +54,21 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      *
      * @return
      */
-
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
-//        v = View.inflate(getActivity(), R.layout.fragment_home, null);
         v = x.view().inject(this, inflater, container);
         vp_home = (ViewPager) v.findViewById(R.id.vp_home);
         fab_push_vote__layout = (LinearLayout) v.findViewById(R.id.fab_push_vote__layout);
-        fab_questionfragment_layout = (LinearLayout) v.findViewById(R.id.fab_questionfragment_layout);
+        fab_question_layout = (LinearLayout) v.findViewById(R.id.fab_question_layout);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
-//        Button bt_title_image = (Button) v.findViewById(R.id.bt_home_title_image);
-//        Button bt_title_video = (Button) v.findViewById(R.id.bt_home_title_video);
-//        Button bt_title_attention = (Button) v.findViewById(R.id.bt_home_title_attention);
-//        bt_title_image.setOnClickListener(this);
-//        bt_title_video.setOnClickListener(this);
-//        bt_title_attention.setOnClickListener(this);
         fab_home = (FloatingActionButton) v.findViewById(R.id.fab_home);
         fab_push = (FloatingActionButton) v.findViewById(R.id.fab_push);
-        fab_questionfragment = (FloatingActionButton) v.findViewById(R.id.fab_questionfragment);
+        fab_question = (FloatingActionButton) v.findViewById(R.id.fab_question);
         fab_home.setOnClickListener(this);
         fab_push.setOnClickListener(this);
-        fab_questionfragment.setOnClickListener(this);
+        fab_question.setOnClickListener(this);
         return v;
     }
 
@@ -84,18 +76,17 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      * 设置悬浮按钮的可见属性
      * @param isvisible 是否可见
      */
-
     public void setFabvisibility(boolean isvisible) {
 
         if (isvisible){
             fab_home.show();
             fab_push.show();
-            fab_questionfragment.show();
+            fab_question.show();
             Log.e("show","show");
         }else{
             fab_home.hide();
             fab_push.hide();
-            fab_questionfragment.hide();
+            fab_question.hide();
             Log.e("hide","hide");
 
 
@@ -110,7 +101,6 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      *
      * @param v 点击后返回的对应的对象
      */
-
     @Event({R.id.bt_home_title_image, R.id.bt_home_title_video, R.id.bt_home_title_attention})
     private void titleOnClick(View v) {
         reSetLine();
@@ -147,25 +137,32 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         home_attention_line.setVisibility(View.GONE);
     }
 
+    /**
+     * 点击事件监听
+     * @param v
+     */
     @Override
     public void onClick(View v) {
 
         switch (v.getId()) {
+            //主悬浮按钮
             case R.id.fab_home:
 
                 if (fab_push_vote__layout.getVisibility() == View.GONE) {
                     fab_push_vote__layout.setVisibility(View.VISIBLE);
-                    fab_questionfragment_layout.setVisibility(View.VISIBLE);
+                    fab_question_layout.setVisibility(View.VISIBLE);
                 } else {
                     fab_push_vote__layout.setVisibility(View.GONE);
-                    fab_questionfragment_layout.setVisibility(View.GONE);
+                    fab_question_layout.setVisibility(View.GONE);
                 }
                 break;
+            //发起
             case R.id.fab_push:
                 Intent intent = new Intent(context, PushActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.fab_questionfragment:
+            //问卷调查
+            case R.id.fab_question:
                 intent = new Intent(context, QuestionnaireActivity.class);
                 startActivity(intent);
                 break;
@@ -182,8 +179,6 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      */
     @Override
     public void initdata() {
-
-
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_SET_FAB_VISBILITY);

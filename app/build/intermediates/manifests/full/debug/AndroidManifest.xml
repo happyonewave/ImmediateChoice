@@ -37,17 +37,17 @@
 
     <!-- <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
     <application
-        android:name="com.qzct.immediatechoice.MyApplication"
+        android:name="com.qzct.immediatechoice.application.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.qzct.immediatechoice.MainActivity"
+            android:name="com.qzct.immediatechoice.activity.MainActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.qzct.immediatechoice.LoginActivity"
+            android:name="com.qzct.immediatechoice.activity.LoginActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,11 +55,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.qzct.immediatechoice.SettingActivity" />
-        <activity android:name="com.qzct.immediatechoice.PushActivity" />
-        <activity android:name="com.qzct.immediatechoice.QuestionnaireActivity" />
-        <activity android:name="com.qzct.immediatechoice.RegisterActivity" />
-        <activity android:name="com.qzct.immediatechoice.CommentActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.SettingActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.PushActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.RegisterActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.CommentActivity" />
 
         <service
             android:name="com.baidu.location.f"

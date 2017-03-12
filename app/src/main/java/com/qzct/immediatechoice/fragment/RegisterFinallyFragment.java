@@ -12,29 +12,24 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.LoginActivity;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.activity.LoginActivity;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.RegisterActivity;
+import com.qzct.immediatechoice.activity.RegisterActivity;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 
 import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.Charset;
-import java.util.ArrayList;
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

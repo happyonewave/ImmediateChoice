@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.domain.Comment;
@@ -34,6 +34,7 @@ import static android.content.ContentValues.TAG;
 
 /**
  * Created by qin on 2017/3/10.
+ * 评论
  */
 
 public class Comment_dialog extends Dialog implements View.OnClickListener, Callback.CommonCallback<String> {
@@ -46,7 +47,6 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
     ImageView item_portrait;
     Button comment_icon;
     Button share_icon;
-    TextView item_comment;
     List<Comment> commentList;
     CommentAdpter adpter;
     ListView lv_comment;
@@ -106,12 +106,15 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
         share_icon.setText(itemData.getShare_num());
         bt_add_comment.setOnClickListener(this);
         question_id = itemData.getQuestion_id();
-        getComentListfromServer();
+        getCommentListfromServer();
 
 
     }
 
-    private void getComentListfromServer() {
+    /**
+     * 从服务器获取commentList
+     */
+    private void getCommentListfromServer() {
         RequestParams entity = new RequestParams(MyApplication.url_comment);
         entity.addBodyParameter("msg", "1");
         entity.addBodyParameter("question_id", question_id + "");
@@ -231,7 +234,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
     public void onSuccess(String result) {
         if (result != null) {
             if (result.equals("1")) {
-                getComentListfromServer();
+                getCommentListfromServer();
                 Toast.makeText(getContext(), "评论成功", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(getContext(), "评论失败", Toast.LENGTH_SHORT).show();

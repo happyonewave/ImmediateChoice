@@ -4,15 +4,13 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
-import com.qzct.immediatechoice.MyApplication;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.domain.Question;
@@ -64,7 +62,6 @@ public class VideoPager extends BasePager {
 
     @Override
     public View initView() {
-        LayoutInflater inflater = LayoutInflater.from(context);
         view = inflater.inflate(R.layout.view_video, null);
         return view;
     }
@@ -76,8 +73,8 @@ public class VideoPager extends BasePager {
         sendFabIsVisible(lv_home_video);
 //        lv_home_video.setOnItemClickListener(this);
         home_video_refreshLayout = (TwinklingRefreshLayout) view.findViewById(R.id.home_video_refreshLayout);
-        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);
-        home_video_refreshLayout.setHeaderView(sinaRefreshView);
+//        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);
+//        home_video_refreshLayout.setHeaderView(sinaRefreshView);
         //监听下拉，上拉事件
         home_video_refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
 

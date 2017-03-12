@@ -47,7 +47,7 @@ public class ImageTextAdpter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = null;
         if (convertView == null) {
-            v = View.inflate(context, R.layout.fragment_image_text_item, null);//将fragment01_item填充成一个View
+            v = View.inflate(context, R.layout.view_image_text_item, null);//将fragment01_item填充成一个View
         } else {
             v = convertView;
         }

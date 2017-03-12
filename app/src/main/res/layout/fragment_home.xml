@@ -38,7 +38,7 @@
 
             <LinearLayout
 
-                android:id="@+id/fab_questionfragment_layout"
+                android:id="@+id/fab_question_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/fab_home"
@@ -52,7 +52,7 @@
                     android:text="@string/questionnaire_push" />
 
                 <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab_questionfragment"
+                    android:id="@+id/fab_question"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:src="@mipmap/fab" />
@@ -63,7 +63,7 @@
                 android:id="@+id/fab_push_vote__layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_above="@id/fab_questionfragment_layout"
+                android:layout_above="@id/fab_question_layout"
                 android:layout_alignRight="@id/fab_home"
                 android:visibility="gone">
 
