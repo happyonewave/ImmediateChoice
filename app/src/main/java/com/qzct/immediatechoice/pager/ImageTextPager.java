@@ -14,13 +14,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.R;
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.application.MyApplication;
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.dialog.Comment_dialog;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.utils;
@@ -140,7 +140,6 @@ public class ImageTextPager extends BasePager implements AdapterView.OnItemClick
      */
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
         itemData = getItemData(view);
         Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
         dialog.show();

@@ -116,7 +116,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
      */
     private void getCommentListfromServer() {
         RequestParams entity = new RequestParams(MyApplication.url_comment);
-        entity.addBodyParameter("msg", "1");
+        entity.addBodyParameter("msg", "2");
         entity.addBodyParameter("question_id", question_id + "");
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override

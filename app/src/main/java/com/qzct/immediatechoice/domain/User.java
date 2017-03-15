@@ -5,11 +5,29 @@ package com.qzct.immediatechoice.domain;
  */
 
 public class User {
+    int user_id;
     String username;
     String password;
     String phone_number;
     String portrait_path;
     String sex;
+
+    public User(int user_id, String username, String password, String phone_number, String portrait_path, String sex) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.phone_number = phone_number;
+        this.portrait_path = portrait_path;
+        this.sex = sex;
+    }
+
+    public int getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
+    }
 
     public User(String username, String password, String phone_number, String portrait_path, String sex) {
         this.username = username;

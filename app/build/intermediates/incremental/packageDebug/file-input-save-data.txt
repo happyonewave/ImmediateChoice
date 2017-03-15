@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Mar 12 17:35:17 CST 2017
+#Wed Mar 15 18:51:47 CST 2017
 20.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 143.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 340.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml

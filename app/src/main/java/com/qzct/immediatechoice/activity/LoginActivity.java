@@ -38,6 +38,7 @@ import java.util.List;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,11 +54,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     /**
      * 点击事件监听
+     *
      * @param v
      */
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             //登录
             case R.id.bt_login:
                 login();
@@ -77,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     /**
      * 判断网络连接
+     *
      * @param context
      * @return
      */
@@ -111,12 +114,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String password = et_password.getText().toString();
         user = new User(username, password);
         //判断网络连接
-    if (isNetworkAvailable(getApplication())){
-        LoginTask loginTask = new LoginTask(MyApplication.url_login, user);
-        loginTask.execute();
-    }else{
-        Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();
-    }
+        if (isNetworkAvailable(getApplication())) {
+            LoginTask loginTask = new LoginTask(MyApplication.url_login, user);
+            loginTask.execute();
+        } else {
+            Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**
@@ -124,6 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
      */
     class LoginTask extends AsyncTask<String, String, String> {
         String url;
+        int user_id;
         String username;
         String password;
         String phone_number;
@@ -135,6 +139,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             this.username = user.getUsername();
             this.password = user.getPassword();
         }
+
         //后台处理
         @Override
         protected String doInBackground(String... params) {
@@ -183,13 +188,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     try {
                         JSONObject json = new JSONObject(result);
                         //获取User信息
-                         phone_number = json.getString("phone_number");
-                         sex = json.getString("sex");
-                         portrait_path = json.getString("portrait_path");
+                        user_id = json.getInt("user_id");
+                        phone_number = json.getString("phone_number");
+                        sex = json.getString("sex");
+                        portrait_path = json.getString("portrait_path");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    User user_all = new User(username,password,phone_number,portrait_path,sex);
+                    User user_all = new User(user_id, username, password, phone_number, portrait_path, sex);
                     //存储User到Application
                     MyApplication.user = user_all;
                     //进入主界面
