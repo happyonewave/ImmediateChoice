@@ -70,7 +70,7 @@ public class AttentionPager extends BasePager {
     @Override
     public void initData() {
         lv_home_attention = (ListView) view.findViewById(R.id.lv_home_attention);
-        sendFabIsVisible(lv_home_attention);
+//        sendFabIsVisible(lv_home_attention);
 //        lv_home_attention.setOnItemClickListener(this);
         home_attention_refreshLayout = (TwinklingRefreshLayout) view.findViewById(R.id.home_attention_refreshLayout);
 //        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);

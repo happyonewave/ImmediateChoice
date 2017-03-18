@@ -183,6 +183,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\zrcListView\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="bf2746898bcf4e9876f65149b5535ad7ea92167e">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\ImmediateChoice-zrcListView-unspecified_b0999cee44b4468e2825ac81bb3c7bd464cf3342.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"

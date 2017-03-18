@@ -343,6 +343,7 @@
         </attr><attr format="dimension" name="dividerPadding"/></declare-styleable>
     <declare-styleable name="LinearLayoutCompat_Layout"><attr name="android:layout_width"/><attr name="android:layout_height"/><attr name="android:layout_weight"/><attr name="android:layout_gravity"/></declare-styleable>
     <declare-styleable name="ListPopupWindow"><attr name="android:dropDownVerticalOffset"/><attr name="android:dropDownHorizontalOffset"/></declare-styleable>
+    <declare-styleable name="ListView"><attr name="android:entries"/><attr name="android:divider"/><attr name="android:dividerHeight"/><attr name="android:headerDividersEnabled"/><attr name="android:footerDividersEnabled"/><attr name="android:overScrollHeader"/><attr name="android:overScrollFooter"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction">
             
@@ -463,6 +464,7 @@
             
             <flag name="mode_out" value="2"/>
         </attr></declare-styleable>
+    <declare-styleable name="ZrcAbsListView"><attr name="android:listSelector"/><attr name="android:drawSelectorOnTop"/><attr name="android:stackFromBottom"/><attr name="android:scrollingCache"/><attr name="android:transcriptMode"/><attr name="android:cacheColorHint"/><attr name="android:smoothScrollbar"/><attr name="android:choiceMode"/></declare-styleable>
     <declare-styleable name="download"><attr format="color" name="download_line_color"/><attr format="color" name="download_bg_line_color"/><attr format="color" name="download_text_color"/><attr format="integer" name="download_line_width"/><attr format="integer" name="download_bg_line_width"/><attr format="integer" name="download_text_size"/></declare-styleable>
     <declare-styleable name="play"><attr format="color" name="play_line_color"/><attr format="color" name="play_bg_line_color"/><attr format="integer" name="play_line_width"/><attr format="integer" name="play_bg_line_width"/></declare-styleable>
     <dimen name="abc_action_bar_content_inset_material">16dp</dimen>

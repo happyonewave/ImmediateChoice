@@ -48,6 +48,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     FloatingActionButton fab_push;
     FloatingActionButton fab_question;
     public final static String ACTION_SET_FAB_VISBILITY = "ACTION_SET_FAB_VISBILITY";
+    private LinearLayout home_title;
 
     /**
      * 填充view
@@ -63,6 +64,8 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
+
+        home_title = (LinearLayout) v.findViewById(R.id.home_title);
         fab_home = (FloatingActionButton) v.findViewById(R.id.fab_home);
         fab_push = (FloatingActionButton) v.findViewById(R.id.fab_push);
         fab_question = (FloatingActionButton) v.findViewById(R.id.fab_question);
@@ -74,20 +77,23 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
     /**
      * 设置悬浮按钮的可见属性
+     *
      * @param isvisible 是否可见
      */
     public void setFabvisibility(boolean isvisible) {
 
-        if (isvisible){
+        if (isvisible) {
             fab_home.show();
             fab_push.show();
             fab_question.show();
-            Log.e("show","show");
-        }else{
+            home_title.setVisibility(View.VISIBLE);
+            Log.e("show", "show");
+        } else {
             fab_home.hide();
             fab_push.hide();
             fab_question.hide();
-            Log.e("hide","hide");
+            home_title.setVisibility(View.GONE);
+            Log.e("hide", "hide");
 
 
         }
@@ -139,6 +145,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
     /**
      * 点击事件监听
+     *
      * @param v
      */
     @Override
@@ -189,9 +196,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             public void onReceive(Context context, Intent intent) {
                 //信息处理
 
-                Log.e("isvisible", String.valueOf(intent.getBooleanExtra("isvisible",true)));
+                Log.e("isvisible", String.valueOf(intent.getBooleanExtra("isvisible", true)));
 
-                setFabvisibility(intent.getBooleanExtra("isvisible",true));
+                setFabvisibility(intent.getBooleanExtra("isvisible", true));
 
 
             }

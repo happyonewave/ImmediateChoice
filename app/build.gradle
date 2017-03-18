@@ -96,5 +96,6 @@ dependencies {
     //百度定位sdk
     compile files('libs/BaiduLBS_Android.jar')
     //视频播放器（IJKplayer）
-//    compile(name:'GSYVideoPlayer-1.6.0', ext:'aar')
+    //    compile(name:'GSYVideoPlayer-1.6.0', ext:'aar')
+    compile project(':zrcListView')
 }

@@ -45,6 +45,7 @@ MERGED from [com.google.android.exoplayer:exoplayer:r1.5.11] E:\Android\AndroidS
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.andkulikov\transitionseverywhere\1.7.0\AndroidManifest.xml:8:5-10:41
 MERGED from [com.danikula:videocache:2.6.4] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.danikula\videocache\2.6.4\AndroidManifest.xml:8:5-10:41
 MERGED from [cn.bingoogolapple:bga-banner:2.1.7] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.bingoogolapple\bga-banner\2.1.7\AndroidManifest.xml:6:5-8:41
+MERGED from [ImmediateChoice:zrcListView:unspecified] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\zrcListView\unspecified\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:25.1.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion

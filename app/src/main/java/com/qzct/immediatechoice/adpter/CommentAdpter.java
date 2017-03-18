@@ -26,7 +26,8 @@ public class CommentAdpter extends BaseAdapter {
 
     /**
      * 构造方法
-     * @param context  上下文
+     *
+     * @param context     上下文
      * @param commentList Comment数据
      */
     public CommentAdpter(Context context, List<Comment> commentList) {
@@ -36,6 +37,7 @@ public class CommentAdpter extends BaseAdapter {
 
     /**
      * 获取item数量
+     *
      * @return
      */
     @Override
@@ -45,6 +47,7 @@ public class CommentAdpter extends BaseAdapter {
 
     /**
      * 数据改变 刷新UI
+     *
      * @param commentList
      */
     public void onDataChange(List<Comment> commentList) {
@@ -55,6 +58,7 @@ public class CommentAdpter extends BaseAdapter {
 
     /**
      * 获取ItemView
+     *
      * @param i
      * @param view
      * @param viewGroup
@@ -66,7 +70,7 @@ public class CommentAdpter extends BaseAdapter {
         View v = null;
         //判断View是否存在 如果不存在 创建
         if (view == null) {
-            v = View.inflate(context, R.layout.dialog_comment_item, null);//将fragment01_item填充成一个View
+            v = View.inflate(context, R.layout.activity_comment_item, null);//将fragment01_item填充成一个View
         } else {
             v = view;
         }

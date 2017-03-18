@@ -6,16 +6,11 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
 import com.qzct.immediatechoice.application.MyApplication;
@@ -41,11 +36,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import zrc.widget.SimpleFooter;
+import zrc.widget.SimpleHeader;
+import zrc.widget.ZrcListView;
+
 
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class VideoPager extends BasePager implements AdapterView.OnItemClickListener {
+public class VideoPager extends BasePager implements ZrcListView.OnItemClickListener {
 
 
     private static String GET_MAX_ID = "0";
@@ -53,8 +52,7 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
     private static final String REFRESH_QUESTION = "2";
     private static final String TAG = "VideoPager";
     private static final String url = MyApplication.url_question_video;
-    private ListView lv_home_video;
-    private TwinklingRefreshLayout home_video_refreshLayout;
+    private ZrcListView lv_home_video;
     private ArrayList<QuestionVideo> questionVideoList = new ArrayList<QuestionVideo>();
     private QuestionVideoAdpter adpter;
     private int questionVideoId;
@@ -77,51 +75,80 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
 
     @Override
     public void initData() {
-        lv_home_video = (ListView) view.findViewById(R.id.lv_home_video);
+        lv_home_video = (ZrcListView) view.findViewById(R.id.lv_home_video);
         sendFabIsVisible(lv_home_video);
-        lv_home_video.setOnItemClickListener(this);
-        home_video_refreshLayout = (TwinklingRefreshLayout) view.findViewById(R.id.home_video_refreshLayout);
-        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);
-        home_video_refreshLayout.setHeaderView(sinaRefreshView);
-        //监听下拉，上拉事件
-        home_video_refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
 
-            //下拉刷新事件
+        // 设置下拉刷新的样式
+        SimpleHeader header = new SimpleHeader(context);
+        header.setTextColor(0xff0066aa);
+        header.setCircleColor(0xff33bbee);
+        lv_home_video.setHeadable(header);
+        lv_home_video.startLoadMore();
+        // 设置加载更多的样式
+        SimpleFooter footer = new SimpleFooter(context);
+        footer.setCircleColor(0xff33bbee);
+        lv_home_video.setFootable(footer);
+
+        // 设置列表项出现动画
+        lv_home_video.setItemAnimForTopIn(R.anim.topitem_in);
+        lv_home_video.setItemAnimForBottomIn(R.anim.bottomitem_in);
+
+        // 下拉刷新事件回调
+        lv_home_video.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
             @Override
-            public void onRefresh(TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        Log.d(TAG, "刷新时maxId: " + maxId);
-                        RefreshFromJsonArrayTask refreshFromJsonArrayTask =
-                                new RefreshFromJsonArrayTask(context, url, maxId);
-                        refreshFromJsonArrayTask.execute();
-                        home_video_refreshLayout.finishRefreshing();
-                    }
-                }, 2000);
-
-
-            }
-
-            //上拉加载事件
-            @Override
-            public void onLoadMore(TwinklingRefreshLayout refreshLayout) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        UpdateFromJsonArrayTask updateFromJsonArrayTask =
-                                new UpdateFromJsonArrayTask(context, url, questionVideoId);
-                        updateFromJsonArrayTask.execute();
-                        home_video_refreshLayout.finishLoadmore();
-                    }
-                }, 2000);
-
-
+            public void onStart() {
+                refresh();
             }
         });
+
+// 加载更多事件回调
+        lv_home_video.setOnLoadMoreStartListener(new ZrcListView.OnStartListener() {
+            @Override
+            public void onStart() {
+                loadMore();
+            }
+        });
+
+
+        lv_home_video.setOnItemClickListener(this);
+
         GetMaxIdTask getMaxIdTask = new GetMaxIdTask(url);
         getMaxIdTask.execute();
 
+
+    }
+
+    /**
+     * 上拉加载
+     */
+    private void loadMore() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                UpdateFromJsonArrayTask updateFromJsonArrayTask =
+                        new UpdateFromJsonArrayTask(context, url, questionVideoId);
+                updateFromJsonArrayTask.execute();
+                lv_home_video.setLoadMoreSuccess();
+            }
+        }, 2000);
+
+
+    }
+
+    /**
+     * 下拉刷新
+     */
+    private void refresh() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TAG, "刷新时maxId: " + maxId);
+                RefreshFromJsonArrayTask refreshFromJsonArrayTask =
+                        new RefreshFromJsonArrayTask(context, url, maxId);
+                refreshFromJsonArrayTask.execute();
+                lv_home_video.setRefreshSuccess("刷新成功");
+            }
+        }, 2000);
 
     }
 
@@ -135,7 +162,7 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
      * @param l
      */
     @Override
-    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemClick(ZrcListView adapterView, View view, int i, long l) {
         itemData = getItemData(view);
 //        Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
 //        dialog.show();
@@ -179,6 +206,7 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
 //        image_text_item_img_left.setImageDrawable(image_text_item_img_right.getDrawable());
         return itemData;
     }
+
 
     public static class ItemData implements Serializable {
         int Question_video_id;
@@ -387,10 +415,10 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
 
         String spec;
         Context context;
-        ListView listView;
+        ZrcListView listView;
         int startId;
 
-        public ShowFromJsonArrayTask(Context context, ListView listView, String spec, int startId) {
+        public ShowFromJsonArrayTask(Context context, ZrcListView listView, String spec, int startId) {
             this.context = context;
             this.listView = listView;
             this.spec = spec;
@@ -489,6 +517,7 @@ public class VideoPager extends BasePager implements AdapterView.OnItemClickList
                     Log.d(TAG, "更新的jsonArroy: " + jsonArray);
                     refreshquestionVideoList(GET_QUESTION);
                 } else {
+                    lv_home_video.stopLoadMore();
                     Toast.makeText(context, "已加载所有数据", Toast.LENGTH_SHORT).show();
                 }
             }
