@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.utils;
 
@@ -115,7 +114,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         user = new User(username, password);
         //判断网络连接
         if (isNetworkAvailable(getApplication())) {
-            LoginTask loginTask = new LoginTask(MyApplication.url_login, user);
+            LoginTask loginTask = new LoginTask(com.qzct.immediatechoice.application.MyApplication.url_login, user);
             loginTask.execute();
         } else {
             Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();
@@ -176,12 +175,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             switch (result) {
                 case "0":
                     Toast.makeText(LoginActivity.this, "帐号或密码错误！请重新登录！", Toast.LENGTH_SHORT).show();
-
                     break;
                 case "2":
                     Toast.makeText(LoginActivity.this, "连接网站失败", Toast.LENGTH_SHORT).show();
 
                     break;
+//                0
 
                 default:
                     //登录成功
@@ -197,7 +196,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                     User user_all = new User(user_id, username, password, phone_number, portrait_path, sex);
                     //存储User到Application
-                    MyApplication.user = user_all;
+                    com.qzct.immediatechoice.application.MyApplication.user = user_all;
                     //进入主界面
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);

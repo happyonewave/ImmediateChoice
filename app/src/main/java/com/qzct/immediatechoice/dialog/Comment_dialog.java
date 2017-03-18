@@ -64,7 +64,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
         setContentView(R.layout.dialog_comment);
 //        setTitle("评价");
 
-        itemData = MyApplication.itemData;
+        itemData = MyApplication.imageTextItemData;
         initView();
         initData();
 
@@ -188,7 +188,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
         try {
 //            jsonArray = new JSONArray();
             //遍历传入的jsonArray
-            for (int i = jsonArray.length() - 1; i > 0; i--) {
+            for (int i = jsonArray.length() - 1; i > -1; i--) {
                 JSONObject temp = jsonArray.getJSONObject(i);
                 //读取相应内容.
                 String comment_content = temp.getString("comment_content");

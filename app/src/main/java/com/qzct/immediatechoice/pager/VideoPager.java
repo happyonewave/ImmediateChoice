@@ -1,19 +1,25 @@
 package com.qzct.immediatechoice.pager;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.lcodecore.tkrefreshlayout.header.SinaRefreshView;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.adpter.ImageTextAdpter;
-import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
+import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -31,6 +37,7 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,22 +45,23 @@ import java.util.List;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class VideoPager extends BasePager {
+public class VideoPager extends BasePager implements AdapterView.OnItemClickListener {
 
 
     private static String GET_MAX_ID = "0";
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
     private static final String TAG = "VideoPager";
-    private static final String url = MyApplication.url_image_text;
+    private static final String url = MyApplication.url_question_video;
     private ListView lv_home_video;
     private TwinklingRefreshLayout home_video_refreshLayout;
-    private ArrayList<Question> questionlist = new ArrayList<Question>();
-    private ImageTextAdpter adpter;
-    private int questiobId;
+    private ArrayList<QuestionVideo> questionVideoList = new ArrayList<QuestionVideo>();
+    private QuestionVideoAdpter adpter;
+    private int questionVideoId;
     private JSONArray jsonArray;
     private int maxId;
     private String request;
+    private ItemData itemData;
 
 
     public VideoPager(Context context) {
@@ -71,10 +79,10 @@ public class VideoPager extends BasePager {
     public void initData() {
         lv_home_video = (ListView) view.findViewById(R.id.lv_home_video);
         sendFabIsVisible(lv_home_video);
-//        lv_home_video.setOnItemClickListener(this);
+        lv_home_video.setOnItemClickListener(this);
         home_video_refreshLayout = (TwinklingRefreshLayout) view.findViewById(R.id.home_video_refreshLayout);
-//        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);
-//        home_video_refreshLayout.setHeaderView(sinaRefreshView);
+        SinaRefreshView sinaRefreshView = new SinaRefreshView(context);
+        home_video_refreshLayout.setHeaderView(sinaRefreshView);
         //监听下拉，上拉事件
         home_video_refreshLayout.setOnRefreshListener(new RefreshListenerAdapter() {
 
@@ -102,7 +110,7 @@ public class VideoPager extends BasePager {
                     @Override
                     public void run() {
                         UpdateFromJsonArrayTask updateFromJsonArrayTask =
-                                new UpdateFromJsonArrayTask(context, url, questiobId);
+                                new UpdateFromJsonArrayTask(context, url, questionVideoId);
                         updateFromJsonArrayTask.execute();
                         home_video_refreshLayout.finishLoadmore();
                     }
@@ -116,6 +124,170 @@ public class VideoPager extends BasePager {
 
 
     }
+
+
+    /**
+     * ListVItem点击事件
+     *
+     * @param adapterView
+     * @param view
+     * @param i
+     * @param l
+     */
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        itemData = getItemData(view);
+//        Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
+//        dialog.show();
+//        Intent intent = new Intent(context, CommentActivity.class);
+//        context.startActivity(intent);
+
+        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
+    }
+
+
+    private ItemData getItemData(View view) {
+
+        TextView tv_question = (TextView) view.findViewById(R.id.tv_question);    //拿到相应的View对象
+//        SmartImageView image_text_item_img_left = (SmartImageView) view.findViewById(R.id.image_text_item_img_left);
+//        SmartImageView image_text_item_img_right = (SmartImageView) view.findViewById(R.id.image_text_item_img_right);
+        TextView item_username = (TextView) view.findViewById(R.id.item_username);
+        ImageView item_portrait = (ImageView) view.findViewById(R.id.item_portrait);
+        Button comment_icon = (Button) view.findViewById(R.id.comment_icon);
+        Button share_icon = (Button) view.findViewById(R.id.share_icon);
+        TextView item_comment = (TextView) view.findViewById(R.id.item_comment);
+
+        String question_video_content = tv_question.getText().toString();
+//        Drawable image_left = (Drawable) image_text_item_img_left.getDrawable();
+//        Drawable image_right = (Drawable) image_text_item_img_right.getDrawable();
+        String username = item_username.getText().toString();
+        Drawable portrait = (Drawable) item_portrait.getDrawable();
+        String comment_num = comment_icon.getText().toString();
+        String share_num = share_icon.getText().toString();
+        String comment = item_comment.getText().toString();
+        int Question_video_id = 0;
+        for (QuestionVideo questionVideo : questionVideoList) {
+            if (questionVideo.getQuizzer_name().equals(username) && questionVideo.getQuestion_video_content().equals(question_video_content)) {
+                Question_video_id = questionVideo.getQuestion_video_id();
+                Toast.makeText(context, "取到的Question_video_id：" + Question_video_id, Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+
+//        ItemData itemData = new ItemData(Question_video_id, question_video_content, image_left, image_right, username, portrait,
+//                comment_num, share_num, comment);
+//        image_text_item_img_left.setImageDrawable(image_text_item_img_right.getDrawable());
+        return itemData;
+    }
+
+    public static class ItemData implements Serializable {
+        int Question_video_id;
+        String question_video_content;
+        Drawable image_left;
+        Drawable image_right;
+        String username;
+        Drawable portrait;
+        String comment_num;
+        String share_num;
+        String comment;
+
+        public int getQuestion_video_id() {
+            return Question_video_id;
+        }
+
+        public void setQuestion_video_id(int Question_video_id) {
+            this.Question_video_id = Question_video_id;
+        }
+
+        public ItemData(int Question_video_id, String question_video_content, Drawable image_left, Drawable image_right, String username, Drawable portrait, String comment_num, String share_num, String comment) {
+            this.Question_video_id = Question_video_id;
+            this.question_video_content = question_video_content;
+            this.image_left = image_left;
+            this.image_right = image_right;
+            this.username = username;
+            this.portrait = portrait;
+            this.comment_num = comment_num;
+            this.share_num = share_num;
+            this.comment = comment;
+
+        }
+
+        public ItemData(String question_video_content, Drawable image_left, Drawable image_right, String username, Drawable portrait, String comment_num, String share_num, String comment) {
+            this.question_video_content = question_video_content;
+            this.image_left = image_left;
+            this.image_right = image_right;
+            this.username = username;
+            this.portrait = portrait;
+            this.comment_num = comment_num;
+            this.share_num = share_num;
+            this.comment = comment;
+        }
+
+        public String getQuestion_content() {
+            return question_video_content;
+        }
+
+        public void setQuestion_content(String question_video_content) {
+            this.question_video_content = question_video_content;
+        }
+
+        public Drawable getImage_left() {
+            return image_left;
+        }
+
+        public void setImage_left(Drawable image_left) {
+            this.image_left = image_left;
+        }
+
+        public Drawable getImage_right() {
+            return image_right;
+        }
+
+        public void setImage_right(Drawable image_right) {
+            this.image_right = image_right;
+        }
+
+        public String getUsername() {
+            return username;
+        }
+
+        public void setUsername(String username) {
+            this.username = username;
+        }
+
+        public Drawable getPortrait() {
+            return portrait;
+        }
+
+        public void setPortrait(Drawable portrait) {
+            this.portrait = portrait;
+        }
+
+        public String getComment_num() {
+            return comment_num;
+        }
+
+        public void setComment_num(String comment_num) {
+            this.comment_num = comment_num;
+        }
+
+        public String getShare_num() {
+            return share_num;
+        }
+
+        public void setShare_num(String share_num) {
+            this.share_num = share_num;
+        }
+
+        public String getComment() {
+            return comment;
+        }
+
+        public void setComment(String comment) {
+            this.comment = comment;
+        }
+    }
+
 
     /**
      * 拿到最大的Id
@@ -195,10 +367,10 @@ public class VideoPager extends BasePager {
         protected void onPostExecute(String id) {
             if (id != "0") {
                 Log.d(TAG, "获取到的maxId：" + id);
-                questiobId = Integer.parseInt(id);
-                maxId = questiobId;
+                questionVideoId = Integer.parseInt(id);
+                maxId = questionVideoId;
                 ShowFromJsonArrayTask showFromJsonArrayTask =
-                        new ShowFromJsonArrayTask(context, lv_home_video, url, questiobId);
+                        new ShowFromJsonArrayTask(context, lv_home_video, url, questionVideoId);
                 showFromJsonArrayTask.execute();
 
 
@@ -238,8 +410,8 @@ public class VideoPager extends BasePager {
 
                 if (!request.equals("-1")) {
                     Log.d(TAG, "第一次获取的的jsonArray: " + jsonArray);
-                    adpter = new ImageTextAdpter(context, questionlist);
-                    refreshQuestionList(GET_QUESTION);
+                    adpter = new QuestionVideoAdpter(context, questionVideoList);
+                    refreshquestionVideoList(GET_QUESTION);
                     lv_home_video.setAdapter(adpter);
                 } else {
                     Toast.makeText(context, "获取失败", Toast.LENGTH_SHORT).show();
@@ -254,13 +426,13 @@ public class VideoPager extends BasePager {
      */
     class RefreshFromJsonArrayTask extends AsyncTask<String, String, String> {
 
-        String spec;
+        String url;
         Context context;
         int startId;
 
-        public RefreshFromJsonArrayTask(Context context, String spec, int startId) {
+        public RefreshFromJsonArrayTask(Context context, String url, int startId) {
             this.context = context;
-            this.spec = spec;
+            this.url = url;
             this.startId = startId;
             Log.d(TAG, "刷新的startId: " + startId);
         }
@@ -277,7 +449,7 @@ public class VideoPager extends BasePager {
             if (jsonArray != null) {
                 if (!request.equals("-1")) {
                     Log.d(TAG, "刷新的jsonArroy: " + jsonArray);
-                    refreshQuestionList(REFRESH_QUESTION);
+                    refreshquestionVideoList(REFRESH_QUESTION);
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
                 }
@@ -292,13 +464,13 @@ public class VideoPager extends BasePager {
      */
     class UpdateFromJsonArrayTask extends AsyncTask<String, String, String> {
 
-        String spec;
+        String url;
         Context context;
         int startId;
 
-        public UpdateFromJsonArrayTask(Context context, String spec, int startId) {
+        public UpdateFromJsonArrayTask(Context context, String url, int startId) {
             this.context = context;
-            this.spec = spec;
+            this.url = url;
             this.startId = startId;
             Log.d(TAG, "更新的startId: " + startId);
         }
@@ -315,7 +487,7 @@ public class VideoPager extends BasePager {
             if (request != null) {
                 if (!request.equals("-1")) {
                     Log.d(TAG, "更新的jsonArroy: " + jsonArray);
-                    refreshQuestionList(GET_QUESTION);
+                    refreshquestionVideoList(GET_QUESTION);
                 } else {
                     Toast.makeText(context, "已加载所有数据", Toast.LENGTH_SHORT).show();
                 }
@@ -324,42 +496,47 @@ public class VideoPager extends BasePager {
     }
 
     /**
-     * 刷新QuestionList
+     * 刷新questionVideoList
      */
-    private void refreshQuestionList(String msg) {
+    private void refreshquestionVideoList(String msg) {
         try {
             jsonArray = new JSONArray(request);
             //遍历传入的jsonArray
             for (int i = jsonArray.length() - 1; i > -1; i--) {
                 JSONObject temp = jsonArray.getJSONObject(i);
                 //读取相应内容
+                int Question_video_id = temp.getInt("question_video_id");
+
                 //设置值
                 if (msg == REFRESH_QUESTION) {
                     if (i == jsonArray.length() - 1) {
-                        maxId = temp.getInt("id");
+                        maxId = Question_video_id;
                         Log.d(TAG, "maxId: " + maxId);
                     }
                 } else {
                     if (i == 0) {
-                        questiobId = temp.getInt("id") - 1;
+                        questionVideoId = Question_video_id - 1;
                     }
                 }
-                String question_content = temp.getString("question_content");
-                String image_left = temp.getString("image_left");
-                String image_right = temp.getString("image_right");
+                String question_video_content = temp.getString("question_video_content");
+                String video_left = temp.getString("video_left");
+                String video_right = temp.getString("video_right");
                 String quizzer_name = temp.getString("quizzer_name");
                 String quizzer_portrait = temp.getString("quizzer_portrait");
                 int share_count = temp.getInt("share_count");
                 int comment_count = temp.getInt("comment_count");
                 String comment = temp.getString("comment");
-                Question Question = new Question(question_content, image_left, image_right, quizzer_name, quizzer_portrait, share_count, comment_count, comment, null);
+                QuestionVideo questionVideo = new QuestionVideo(Question_video_id, question_video_content,
+                        video_left, video_right, quizzer_name,
+                        quizzer_portrait, share_count,
+                        comment_count, comment, null);
                 if (msg == REFRESH_QUESTION) {
-                    questionlist.add(0, Question);
+                    questionVideoList.add(0, questionVideo);
                 } else {
-                    questionlist.add(Question);
+                    questionVideoList.add(questionVideo);
                 }
             }
-            adpter.onDataChange(questionlist);
+            adpter.onDataChange(questionVideoList);
 
         } catch (JSONException e) {
             e.printStackTrace();

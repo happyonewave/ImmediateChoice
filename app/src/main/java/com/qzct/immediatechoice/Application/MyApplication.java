@@ -5,6 +5,7 @@ import android.app.Application;
 import com.qzct.immediatechoice.BuildConfig;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.pager.ImageTextPager;
+import com.qzct.immediatechoice.pager.VideoPager;
 
 import org.xutils.x;
 
@@ -23,12 +24,14 @@ public class MyApplication extends Application {
     public static String url_Discovery = url + "DiscoveryServlet";
     public static String url_user = url + "UserServlet";
     public static String url_image_text = url + "ImageTextServlet";
+    public static String url_question_video = url + "QuestionVideoServlet";
     public static String url_upload = url + "UploadServlet";
     public static String url_register = url + "RegisterServlet";
     public static String url_comment = url + "CommentServlet";
     public static String url_topic = url + "TopicServlet";
     public static User user;
-    public static ImageTextPager.ItemData itemData;
+    public static ImageTextPager.ItemData imageTextItemData;
+    public static VideoPager.ItemData videoItemData;
 
     @Override
     public void onCreate() {

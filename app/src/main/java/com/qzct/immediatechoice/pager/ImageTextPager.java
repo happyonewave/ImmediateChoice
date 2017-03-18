@@ -44,8 +44,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.qzct.immediatechoice.application.MyApplication.itemData;
-
 
 /**
  * Created by Administrator on 2017-03-05.
@@ -56,7 +54,7 @@ public class ImageTextPager extends BasePager implements AdapterView.OnItemClick
     private static String GET_MAX_ID = "0";
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
-    private static final String TAG = "VideoPager";
+    private static final String TAG = "ImageTextPager";
     private static final String url = MyApplication.url_image_text;
     private ListView lv_home;
     private TwinklingRefreshLayout home_refreshLayout;
@@ -66,6 +64,7 @@ public class ImageTextPager extends BasePager implements AdapterView.OnItemClick
     private JSONArray jsonArray;
     private int maxId;
     private String request;
+    private ItemData itemData;
 
 
     public ImageTextPager(Context context) {
@@ -141,6 +140,7 @@ public class ImageTextPager extends BasePager implements AdapterView.OnItemClick
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         itemData = getItemData(view);
+        MyApplication.imageTextItemData = itemData;
         Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
         dialog.show();
 //        Intent intent = new Intent(context, CommentActivity.class);

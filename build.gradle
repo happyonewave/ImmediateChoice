@@ -11,5 +11,18 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
+}
+dependencies {
+
+}
+ext {
+    compileSdkVersion =25
+    buildToolsVersion ="25.0.0"
+
+    targetSdkVersion =25
+
+    versionCode =603000
+    versionName ="0.6.3"
 }

@@ -7,8 +7,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.pager.ImageTextPager;
 
 import org.xutils.view.annotation.ContentView;
@@ -37,7 +37,7 @@ public class CommentActivity extends AppCompatActivity {
         TextView title = (TextView) findViewById(R.id.title);
         title.setText("评论");
 //        itemData = (ImageTextPager.ItemData) getIntent().getSerializableExtra("itemData");
-        itemData = MyApplication.itemData;
+        itemData = MyApplication.imageTextItemData;
 
         initView();
         initData();
