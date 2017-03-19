@@ -17,6 +17,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.pager.ImageTextPager;
+import com.qzct.immediatechoice.util.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -115,7 +116,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
      * 从服务器获取commentList
      */
     private void getCommentListfromServer() {
-        RequestParams entity = new RequestParams(MyApplication.url_comment);
+        RequestParams entity = new RequestParams(Config.url_comment);
         entity.addBodyParameter("msg", "2");
         entity.addBodyParameter("question_id", question_id + "");
         x.http().post(entity, new Callback.CommonCallback<String>() {
@@ -211,7 +212,7 @@ public class Comment_dialog extends Dialog implements View.OnClickListener, Call
      * 提交评论
      */
     private void pushComment() {
-        RequestParams entity = new RequestParams(MyApplication.url_comment);
+        RequestParams entity = new RequestParams(Config.url_comment);
 //        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date now = new Date();
         String commenter_date = now.toLocaleString();

@@ -6,6 +6,42 @@
     android:orientation="vertical"
     android:animateLayoutChanges="true" >
 
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/apporange"-->
+        <!--android:padding="5dp">-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/discovery_search"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_weight="7"-->
+            <!--android:background="@color/gray"-->
+            <!--android:drawableLeft="@mipmap/search"-->
+            <!--android:hint="搜索话题/帖子/用户"-->
+            <!--android:paddingLeft="5dp"-->
+            <!--android:textColorHint="@android:color/white" />-->
+
+        <!--<ImageView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:padding="2dp"-->
+            <!--android:layout_weight="2"-->
+            <!--android:src="@mipmap/attendance" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/discovery_scan"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:gravity="center"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:textSize="15dp"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:text="每日一签"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
     <include layout="@layout/home_title_button"></include>
 
     <FrameLayout

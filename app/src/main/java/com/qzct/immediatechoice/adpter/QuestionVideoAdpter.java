@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.QuestionVideo;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import org.xutils.image.ImageOptions;
 import org.xutils.x;
@@ -31,9 +32,11 @@ public class QuestionVideoAdpter extends BaseAdapter {
     Context context;
     List<QuestionVideo> questionVideoList;
     private String CHOICE_ONE = "1";
-//    IjkPlayerView view_video_item_left;
+    //    IjkPlayerView view_video_item_left;
 //    IjkPlayerView view_video_item_right;
     View v;
+    private StandardGSYVideoPlayer gsyVideoPlayer_left;
+    private StandardGSYVideoPlayer gsyVideoPlayer_right;
 //    MagicProgressCircle left_ProgressBar;
 //    MagicProgressCircle right_ProgressBar;
 
@@ -66,6 +69,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //        view_video_item_left = (IjkPlayerView) v.findViewById(R.id.view_video_item_left);
 //        view_video_item_right = (IjkPlayerView) v.findViewById(R.id.view_video_item_right);
 //        view_video_item_left.setVisibility(View.VISIBLE);
+        gsyVideoPlayer_left = (StandardGSYVideoPlayer) v.findViewById(R.id.view_video_item_left);
+        gsyVideoPlayer_right = (StandardGSYVideoPlayer) v.findViewById(R.id.view_video_item_right);
 //        view_video_item_right.setVisibility(View.VISIBLE);
 //        final ProgressBar left_ProgressBar = (ProgressBar) v.findViewById(R.id.view_video_item_left_ProgressBar);
 //        final ProgressBar right_ProgressBar = (ProgressBar) v.findViewById(R.id.view_video_item_right_ProgressBar);
@@ -75,6 +80,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //        right_ProgressBar.setVisibility(View.GONE);
 //        left_ProgressBar.setProgress(0);
 //        right_ProgressBar.setProgress(0);
+
         TextView item_username = (TextView) v.findViewById(R.id.item_username);
         ImageView item_portrait = (ImageView) v.findViewById(R.id.item_portrait);
         Button comment_icon = (Button) v.findViewById(R.id.comment_icon);
@@ -83,7 +89,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
 
         QuestionVideo i = questionVideoList.get(position);                                    //拿到一个info对象
-
+        initVideoPlayer(gsyVideoPlayer_left, i.getVideo_left());
+        initVideoPlayer(gsyVideoPlayer_right, i.getVideo_right());
         tv_question.setText(i.getQuestion_video_content());
 //        image_text_item_img_left.setImageUrl(i.getVideo_left());
 
@@ -104,6 +111,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
         item_comment.setText(i.getComment());
         System.out.println(i.getVideo_left());
         System.out.println(i.getVideo_right());
+
+
 //        //left点击事件监听
 //        image_text_item_img_left.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -193,6 +202,33 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //            }
 //        });
         return v;
+    }
+
+    private void initVideoPlayer(StandardGSYVideoPlayer gsyVideoPlayer, String url) {
+
+        //增加封面
+//        gsyVideoPlayer.setThumbImageView(holder.imageView);
+        //url
+        //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
+        gsyVideoPlayer.setUp(url, true, null, "这是title");
+        //非全屏下，不显示title
+        gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
+        //非全屏下不显示返回键
+        gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
+        //打开非全屏下触摸效果
+        gsyVideoPlayer.setIsTouchWiget(true);
+        //开启自动旋转
+        gsyVideoPlayer.setRotateViewAuto(false);
+
+//        gsyVideoPlayer.startWindowFullscreen(context, true, true);
+        //全屏首先横屏
+        gsyVideoPlayer.setLockLand(true);
+
+        //是否需要全屏动画效果
+        gsyVideoPlayer.setShowFullAnimation(false);
+
+        //立即播放
+//        gsyVideoPlayer.startPlayLogic();
     }
 
     /**

@@ -1,1 +1,1 @@
-include ':app', ':zrcListView'
+include ':app', ':zrcListView', ':SmallVideoLib'

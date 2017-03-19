@@ -80,7 +80,7 @@
                     android:src="@mipmap/push_img" />
 
                 <ImageView
-                    android:id="@+id/push_video_one"
+                    android:id="@+id/push_video_left"
                     style="@style/push_style"
                     android:src="@mipmap/push_video" />
 
@@ -104,7 +104,7 @@
                     android:src="@mipmap/push_img" />
 
                 <ImageView
-                    android:id="@+id/push_video_two"
+                    android:id="@+id/push_video_right"
                     style="@style/push_style"
                     android:src="@mipmap/push_video" />
 

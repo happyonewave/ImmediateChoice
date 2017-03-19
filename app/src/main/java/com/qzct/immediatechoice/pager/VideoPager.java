@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.QuestionVideo;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -51,7 +51,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
     private static final String TAG = "VideoPager";
-    private static final String url = MyApplication.url_question_video;
+    private static final String url = Config.url_question_video;
     private ZrcListView lv_home_video;
     private ArrayList<QuestionVideo> questionVideoList = new ArrayList<QuestionVideo>();
     private QuestionVideoAdpter adpter;

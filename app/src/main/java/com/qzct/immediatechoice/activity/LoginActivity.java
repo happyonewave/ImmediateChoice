@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -114,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         user = new User(username, password);
         //判断网络连接
         if (isNetworkAvailable(getApplication())) {
-            LoginTask loginTask = new LoginTask(com.qzct.immediatechoice.application.MyApplication.url_login, user);
+            LoginTask loginTask = new LoginTask(Config.url_login, user);
             loginTask.execute();
         } else {
             Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();

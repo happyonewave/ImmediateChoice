@@ -20,8 +20,16 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_bottom_navigation_item.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_media_recorder.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\SmallVideoLib\\unspecified\\res\\layout\\activity_media_recorder.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_progress_dialog.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_progress_dialog.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
@@ -30,10 +38,6 @@
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_progress_dialog.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_progress_dialog.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_top.xml",
@@ -72,12 +76,12 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_icon_group.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_video.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_video.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",

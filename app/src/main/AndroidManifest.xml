@@ -13,10 +13,12 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <!-- <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
-    <!-- <android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
-    <!-- <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
-    <!-- <android:uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
+
+
+     <!--<android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+     <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+     <!--<android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+     <!--<android:uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
@@ -68,6 +70,7 @@
         <activity android:name=".activity.QuestionnaireActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.CommentActivity" />
+        <activity android:name="mabeijianxi.camera.MediaRecorderActivity"/>
 
         <service
             android:name="com.baidu.location.f"

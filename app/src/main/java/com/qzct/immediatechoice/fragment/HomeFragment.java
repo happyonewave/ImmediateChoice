@@ -206,7 +206,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         broadcastManager.registerReceiver(bordcastReceiver, intentFilter);
 
         pagers.add(new ImageTextPager(context));
-        pagers.add(new VideoPager(context));
+        pagers.add(new VideoPager(getActivity()));
         pagers.add(new AttentionPager(context));
 
         /**

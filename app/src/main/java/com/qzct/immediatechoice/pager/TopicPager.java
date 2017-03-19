@@ -7,10 +7,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.adpter.TopicAdpter;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.adpter.TopicAdpter;
 import com.qzct.immediatechoice.domain.Topic;
+import com.qzct.immediatechoice.util.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,7 +58,7 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
      * 从服务器获取topicList
      */
     private void getTopicListfromServer() {
-        RequestParams entity = new RequestParams(MyApplication.url_topic);
+        RequestParams entity = new RequestParams(Config.url_topic);
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

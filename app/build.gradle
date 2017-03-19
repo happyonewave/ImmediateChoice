@@ -86,6 +86,8 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.5.2'
     //视频播放器（IJKplayer）
     compile 'com.github.CarGuo:GSYVideoPlayer:v1.6.0'
+    //短视频
+    //    compile 'com.mabeijianxi:small-video-record:1.1.0'
     //网络视频缩略图
     //    compile 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
     compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
@@ -97,5 +99,8 @@ dependencies {
     compile files('libs/BaiduLBS_Android.jar')
     //视频播放器（IJKplayer）
     //    compile(name:'GSYVideoPlayer-1.6.0', ext:'aar')
+    //自定义ListView
     compile project(':zrcListView')
+    //短视频
+    compile project(':SmallVideoLib')
 }

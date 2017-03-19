@@ -17,6 +17,7 @@ import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.RegisterActivity;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -169,7 +170,7 @@ public class RegisterFinallyFragment extends baseFragment {
         protected String doInBackground(String... params) {
 
             HttpClient hc = new DefaultHttpClient();
-            String url = MyApplication.url_register;
+            String url = Config.url_register;
             HttpPost httpPost = new HttpPost(url);
             try {
 //                List<NameValuePair> parameters = new ArrayList<NameValuePair>();

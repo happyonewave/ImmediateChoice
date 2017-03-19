@@ -18,6 +18,7 @@ import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.util.Config;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -114,7 +115,7 @@ public class ImageTextAdpter extends BaseAdapter {
         image_text_item_img_left.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RequestParams entity = new RequestParams(MyApplication.url_comment);
+                RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
                 entity.addBodyParameter("question_id", questionlist.get(position).getQuestion_id() + "");
                 entity.addBodyParameter("user_id",
@@ -159,7 +160,7 @@ public class ImageTextAdpter extends BaseAdapter {
         image_text_item_img_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                RequestParams entity = new RequestParams(MyApplication.url_comment);
+                RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
                 entity.addBodyParameter("question_id", questionlist.get(position).getQuestion_id() + "");
                 entity.addBodyParameter("user_id",

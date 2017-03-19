@@ -16,6 +16,7 @@ import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.Config;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,7 +71,7 @@ public class UserFragment extends baseFragment {
     }
 
     public  void getMyPush() {
-        RequestParams entity = new RequestParams(myApplication.url_user);
+        RequestParams entity = new RequestParams(Config.url_user);
         entity.addBodyParameter("quizzer_name", user.getUsername());
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override

@@ -10,10 +10,10 @@ import android.widget.Toast;
 
 import com.lcodecore.tkrefreshlayout.RefreshListenerAdapter;
 import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -45,7 +45,7 @@ public class AttentionPager extends BasePager {
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
     private static final String TAG = "VideoPager";
-    private static final String url = MyApplication.url_image_text;
+    private static final String url = Config.url_image_text;
     private ListView lv_home_attention;
     private TwinklingRefreshLayout home_attention_refreshLayout;
     private ArrayList<Question> questionlist = new ArrayList<Question>();

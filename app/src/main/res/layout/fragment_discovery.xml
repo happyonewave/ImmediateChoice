@@ -26,6 +26,7 @@
                 android:paddingLeft="5dp"
                 android:layout_weight="8"
                 android:layout_width="0dp"
+                android:singleLine="true"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@mipmap/search"
                 android:hint="搜索话题/帖子/用户"
