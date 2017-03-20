@@ -13,6 +13,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
@@ -28,11 +29,14 @@ public class MainActivity extends FragmentActivity {
 
     private FrameLayout fl;
     public static Activity mainActivity;
+    public static RadioGroup rg_nav;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainActivity = this;
+        rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
         //用来放fragment的帧布局
         fl = (FrameLayout) findViewById(R.id.fl);
         //填充状态栏的view
@@ -55,12 +59,14 @@ public class MainActivity extends FragmentActivity {
 
     /**
      * 退出提醒
+     *
      * @param keyCode
      * @param event
      * @return
      */
     // 用来计算返回键的点击间隔时间
     private long exitTime = 0;
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
@@ -80,6 +86,7 @@ public class MainActivity extends FragmentActivity {
 
     /**
      * 点击事件监听
+     *
      * @param v
      */
     public void click(View v) {

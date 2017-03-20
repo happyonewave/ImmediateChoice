@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
 import com.qzct.immediatechoice.pager.AttentionPager;
@@ -87,12 +88,14 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             fab_push.show();
             fab_question.show();
             home_title.setVisibility(View.VISIBLE);
+            MainActivity.rg_nav.setVisibility(View.VISIBLE);
             Log.e("show", "show");
         } else {
             fab_home.hide();
             fab_push.hide();
             fab_question.hide();
             home_title.setVisibility(View.GONE);
+            MainActivity.rg_nav.setVisibility(View.GONE);
             Log.e("hide", "hide");
 
 

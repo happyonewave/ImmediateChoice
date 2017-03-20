@@ -55,6 +55,10 @@ public class ImageTextAdpter extends BaseAdapter {
 
     }
 
+    public Question getQuestionFromItem(int position) {
+        return questionlist.get(position);
+    }
+
     @Override
     public int getCount() {
         return questionlist.size();

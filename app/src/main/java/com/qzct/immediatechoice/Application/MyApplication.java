@@ -5,9 +5,10 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.qzct.immediatechoice.BuildConfig;
+import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.pager.ImageTextPager;
-import com.qzct.immediatechoice.pager.VideoPager;
 
 import org.xutils.x;
 
@@ -26,7 +27,8 @@ public class MyApplication extends Application {
 
     public static User user;
     public static ImageTextPager.ItemData imageTextItemData;
-    public static VideoPager.ItemData videoItemData;
+    public static QuestionVideo questionVideo;
+    public static Question question;
 
     @Override
     public void onCreate() {

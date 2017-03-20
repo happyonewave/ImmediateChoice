@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Mar 19 10:34:47 CST 2017
+#Sun Mar 19 22:23:12 CST 2017
 20.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 143.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 493.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -27,7 +27,7 @@
 133.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 483.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 304.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-330.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png
+330.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\design_text_input_password_icon.xml
 43.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 166.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 60.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\pager_navigator_layout.xml
@@ -117,11 +117,11 @@
 432.set=ANDROID_RESOURCE
 387.set=ANDROID_RESOURCE
 310.set=ANDROID_RESOURCE
-211.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
+211.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 233.set=NATIVE_RESOURCE
 111.set=ANDROID_RESOURCE
 244.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-441.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png
+441.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\abc_grow_fade_in_from_bottom.xml
 107.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 486.set=ANDROID_RESOURCE
 474.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\record_cancel_normal.png
@@ -131,7 +131,7 @@
 337.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png
 287.set=ANDROID_RESOURCE
 199.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\fab_effect.xml
-210.set=ANDROID_RESOURCE
+210.set=NATIVE_RESOURCE
 165.set=ANDROID_RESOURCE
 371.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 201.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -285,7 +285,7 @@
 329.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 355.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\design_ic_visibility.xml
 68.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-85.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png
+85.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png
 467.set=ANDROID_RESOURCE
 388.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\armeabi\\libijkplayer.so
 94.set=ANDROID_RESOURCE
@@ -312,7 +312,7 @@
 75.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_action_mode_close_item_material.xml
 245.set=ANDROID_RESOURCE
 123.set=ANDROID_RESOURCE
-430.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\refresh_loading03.png
+430.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png
 413.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 498.set=ANDROID_RESOURCE
 421.set=ANDROID_RESOURCE
@@ -347,7 +347,7 @@
 8.set=ANDROID_RESOURCE
 316.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_tint_edittext.xml
 199.set=ANDROID_RESOURCE
-29.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
+29.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 178.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_activity_chooser_view.xml
 349.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_select_dialog_material.xml
 452.set=ANDROID_RESOURCE
@@ -365,7 +365,7 @@
 384.set=ANDROID_RESOURCE
 36.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar\\org\\apache\\http\\version.properties
 19.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-28.set=ANDROID_RESOURCE
+28.set=NATIVE_RESOURCE
 339.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\ic_launcher.png
 340.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 230.set=ANDROID_RESOURCE
@@ -377,7 +377,7 @@
 407.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
 361.set=ANDROID_RESOURCE
 269.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-116.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png
+116.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\refresh_loading09.png
 466.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxxhdpi-v4\\push_img.png
 284.set=ANDROID_RESOURCE
 26.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-mdpi-v4\\sex_press.png
@@ -389,7 +389,7 @@
 192.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 363.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 460.set=NATIVE_RESOURCE
-210.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png
+210.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\arm64-v8a\\libijkplayer.so
 59.set=NATIVE_RESOURCE
 396.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 243.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\video_forward_icon.png
@@ -445,7 +445,7 @@
 417.set=ANDROID_RESOURCE
 383.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ic_go_search_api_material.xml
 44.set=ANDROID_RESOURCE
-2.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_right_mtrl_light.png
+2.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\video_backward_icon.png
 96.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 417.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\activity_questionnaire.xml
 218.set=ANDROID_RESOURCE
@@ -472,7 +472,7 @@
 321.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml
 34.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 127.set=ANDROID_RESOURCE
-183.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_popup_menu_header_item_layout.xml
+183.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png
 337.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 199.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 93.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\armeabi-v7a\\libutility.so
@@ -530,7 +530,7 @@
 494.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_vector_test.xml
 112.set=ANDROID_RESOURCE
 54.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_search_dropdown_item_icons_2line.xml
-357.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\push_video.png
+357.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_item_background_holo_light.xml
 87.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxhdpi-v4\\push_img.png
 487.set=ANDROID_RESOURCE
 410.set=ANDROID_RESOURCE
@@ -538,7 +538,7 @@
 9.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v23\\abc_tint_btn_checkable.xml
 391.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 288.set=ANDROID_RESOURCE
-211.set=NATIVE_RESOURCE
+211.set=ANDROID_RESOURCE
 254.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 271.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\ic_arrow.png
 425.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -619,7 +619,7 @@
 25.set=ANDROID_RESOURCE
 118.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_tint_switch_track.xml
 468.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v23\\abc_tint_switch_thumb.xml
-28.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png
+28.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\armeabi-v7a\\libijkplayer.so
 332.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 194.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 365.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -661,7 +661,7 @@
 75.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 395.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_hint_foreground_material_dark.xml
 258.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png
-429.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png
+429.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\refresh_loading03.png
 87.set=ANDROID_RESOURCE
 338.set=ANDROID_RESOURCE
 10.set=ANDROID_RESOURCE
@@ -735,7 +735,7 @@
 300.set=ANDROID_RESOURCE
 379.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png
 209.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\design_navigation_item_header.xml
-210.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
+210.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
 223.set=ANDROID_RESOURCE
 101.set=ANDROID_RESOURCE
 243.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
@@ -779,7 +779,7 @@
 360.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 430.set=ANDROID_RESOURCE
 385.set=ANDROID_RESOURCE
-29.set=NATIVE_RESOURCE
+29.set=ANDROID_RESOURCE
 393.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 240.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png
 231.set=DEX
@@ -894,7 +894,7 @@
 134.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 484.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 305.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-331.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\design_text_input_password_icon.xml
+331.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_middle_mtrl_dark.png
 44.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 167.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 61.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\bga_banner_point_enabled.png
@@ -979,7 +979,7 @@
 468.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 315.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_list_menu_item_checkbox.xml
 189.set=ANDROID_RESOURCE
-28.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
+28.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
 177.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_action_menu_layout.xml
 348.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\record_camera_flash_led_on_normal.png
 442.set=ANDROID_RESOURCE
@@ -989,7 +989,7 @@
 243.set=ANDROID_RESOURCE
 121.set=ANDROID_RESOURCE
 245.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-442.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\abc_grow_fade_in_from_bottom.xml
+442.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png
 108.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 496.set=ANDROID_RESOURCE
 475.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxhdpi-v4\\scan.png
@@ -1092,7 +1092,7 @@
 239.set=ANDROID_RESOURCE
 33.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 117.set=ANDROID_RESOURCE
-182.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png
+182.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_popup_menu_header_item_layout.xml
 336.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 353.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\abc_screen_simple_overlay_action_mode.xml
 190.set=ANDROID_RESOURCE
@@ -1161,9 +1161,9 @@
 102.set=ANDROID_RESOURCE
 159.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 53.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\abc_tint_seek_thumb.xml
-356.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png
+356.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\push_video.png
 69.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-86.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png
+86.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_48dp.png
 477.set=ANDROID_RESOURCE
 400.set=ANDROID_RESOURCE
 389.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\record_delete_normal.png
@@ -1251,7 +1251,7 @@
 408.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 371.set=ANDROID_RESOURCE
 15.set=ANDROID_RESOURCE
-117.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-hdpi-v4\\refresh_loading09.png
+117.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png
 467.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxxhdpi-v4\\ic_add_black_48dp_05.png
 294.set=ANDROID_RESOURCE
 27.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\record_camera_switch_disable.png
@@ -1260,7 +1260,7 @@
 193.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 364.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 470.set=ANDROID_RESOURCE
-211.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\arm64-v8a\\libijkplayer.so
+211.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png
 69.set=ANDROID_RESOURCE
 397.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 244.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\anim\\abc_shrink_fade_out_from_bottom.xml
@@ -1310,7 +1310,7 @@ count=500
 384.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxxhdpi-v4\\default_portrait.png
 54.set=ANDROID_RESOURCE
 305.set=ANDROID_RESOURCE
-3.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\video_backward_icon.png
+3.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_right_mtrl_light.png
 97.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 418.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_seekbar_tick_mark_material.xml
 228.set=ANDROID_RESOURCE
@@ -1393,7 +1393,7 @@ count=500
 495.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\fab_menu_item_start.xml
 122.set=ANDROID_RESOURCE
 55.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\color-v23\\abc_tint_switch_track.xml
-358.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\abc_item_background_holo_light.xml
+358.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_text_select_handle_left_mtrl_dark.png
 88.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-ldrtl-xhdpi-v17\\abc_ic_menu_cut_mtrl_alpha.png
 497.set=ANDROID_RESOURCE
 420.set=ANDROID_RESOURCE
@@ -1482,7 +1482,7 @@ count=500
 119.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxxhdpi-v4\\ic_add_black_48dp_03.png
 469.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout-v21\\notification_template_icon_group.xml
 470.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
-29.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main\\lib\\armeabi-v7a\\libijkplayer.so
+29.file=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png
 209.set=ANDROID_RESOURCE
 30.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 333.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_

@@ -1,19 +1,20 @@
 package com.qzct.immediatechoice.adpter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
+import android.content.pm.ActivityInfo;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.domain.QuestionVideo;
+import com.shuyu.gsyvideoplayer.listener.StandardVideoAllCallBack;
+import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import org.xutils.image.ImageOptions;
@@ -49,6 +50,10 @@ public class QuestionVideoAdpter extends BaseAdapter {
         this.questionVideoList = questionVideoList;
         this.notifyDataSetChanged();
 
+    }
+
+    public QuestionVideo getQuestionVideoFromItem(int position) {
+        return questionVideoList.get(position);
     }
 
     @Override
@@ -204,7 +209,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
         return v;
     }
 
-    private void initVideoPlayer(StandardGSYVideoPlayer gsyVideoPlayer, String url) {
+    private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
 
         //增加封面
 //        gsyVideoPlayer.setThumbImageView(holder.imageView);
@@ -219,11 +224,144 @@ public class QuestionVideoAdpter extends BaseAdapter {
         gsyVideoPlayer.setIsTouchWiget(true);
         //开启自动旋转
         gsyVideoPlayer.setRotateViewAuto(false);
+        gsyVideoPlayer.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gsyVideoPlayer.startWindowFullscreen(LoginActivity.loginActivity, true, true);
 
-//        gsyVideoPlayer.startWindowFullscreen(context, true, true);
+            }
+        });
+        gsyVideoPlayer.getBackButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //先返回正常状态
+                OrientationUtils orientationUtils = new OrientationUtils(LoginActivity.loginActivity, gsyVideoPlayer);
+                if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                    gsyVideoPlayer.getFullscreenButton().performClick();
+                    return;
+                }
+            }
+        });
+
         //全屏首先横屏
         gsyVideoPlayer.setLockLand(true);
+        gsyVideoPlayer.setStandardVideoAllCallBack(new StandardVideoAllCallBack() {
+            @Override
+            public void onClickStartThumb(String s, Object... objects) {
+                Toast.makeText(context, "onClickStartThumb", Toast.LENGTH_SHORT).show();
+            }
 
+            @Override
+            public void onClickBlank(String s, Object... objects) {
+                Toast.makeText(context, "onClickBlank", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickBlankFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onClickBlankFullscreen", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onPrepared(String s, Object... objects) {
+                Toast.makeText(context, "onPrepared", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onClickStartIcon(String s, Object... objects) {
+                Toast.makeText(context, "onClickStartIcon", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickStartError(String s, Object... objects) {
+                Toast.makeText(context, "onClickStartError", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickStop(String s, Object... objects) {
+                Toast.makeText(context, "onClickStop", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickStopFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onClickStopFullscreen", Toast.LENGTH_SHORT).show();
+                gsyVideoPlayer.backFromWindowFull(LoginActivity.loginActivity);
+            }
+
+            @Override
+            public void onClickResume(String s, Object... objects) {
+                Toast.makeText(context, "onClickResume", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickResumeFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onClickResumeFullscreen", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickSeekbar(String s, Object... objects) {
+                Toast.makeText(context, "onClickSeekbar", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onClickSeekbarFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onClickSeekbarFullscreen", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onAutoComplete(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onEnterFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onEnterFullscreen", Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onQuitFullscreen(String s, Object... objects) {
+                Toast.makeText(context, "onQuitFullscreen", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onQuitSmallWidget(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onEnterSmallWidget(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onTouchScreenSeekVolume(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onTouchScreenSeekPosition(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onTouchScreenSeekLight(String s, Object... objects) {
+
+            }
+
+            @Override
+            public void onPlayError(String s, Object... objects) {
+                Toast.makeText(context, "onPlayError", Toast.LENGTH_SHORT).show();
+
+            }
+        });
         //是否需要全屏动画效果
         gsyVideoPlayer.setShowFullAnimation(false);
 
@@ -241,36 +379,6 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //        right_ProgressBar.setPercent(count_right / 100);
     }
 
-    /**
-     * drawable转bitmap
-     *
-     * @param drawable
-     * @return
-     */
-    public static Bitmap drawableToBitmap(Drawable drawable) {
-
-
-        Bitmap bitmap = Bitmap.createBitmap(
-
-                drawable.getIntrinsicWidth(),
-
-                drawable.getIntrinsicHeight(),
-
-                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-
-                        : Bitmap.Config.RGB_565);
-
-        Canvas canvas = new Canvas(bitmap);
-
-        //canvas.setBitmap(bitmap);
-
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-
-        drawable.draw(canvas);
-
-        return bitmap;
-
-    }
 
     @Override
     public Object getItem(int position) {

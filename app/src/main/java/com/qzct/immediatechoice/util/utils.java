@@ -5,6 +5,10 @@ import android.app.Activity;
 import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PixelFormat;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.os.Message;
@@ -103,10 +107,39 @@ public class utils {
 		return null;
 
 	}
+	/**
+	 * drawable转bitmap
+	 *
+	 * @param drawable
+	 * @return
+	 */
+	public static Bitmap drawableToBitmap(Drawable drawable) {
 
+
+		Bitmap bitmap = Bitmap.createBitmap(
+
+				drawable.getIntrinsicWidth(),
+
+				drawable.getIntrinsicHeight(),
+
+				drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
+
+						: Bitmap.Config.RGB_565);
+
+		Canvas canvas = new Canvas(bitmap);
+
+		//canvas.setBitmap(bitmap);
+
+		drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+
+		drawable.draw(canvas);
+
+		return bitmap;
+
+	}
 	/**
 	 * 根据Uri获取图片绝对路径，解决Android4.4以上版本Uri转换
-	 * @param activity
+	 * @param context
 	 * @param imageUri
 	 * @author yaoxing
 	 * @date 2014-10-12

@@ -165,8 +165,10 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
      */
     @Override
     public void onItemClick(ZrcListView adapterView, View view, int i, long l) {
-        itemData = getItemData(view);
-        MyApplication.imageTextItemData = itemData;
+//        itemData = getItemData(view);
+//        MyApplication.imageTextItemData = itemData;
+        Question question =  adpter.getQuestionFromItem(i);
+        MyApplication.question = question;
 //        Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
 //        dialog.show();
         Intent intent = new Intent(context, CommentActivity.class);

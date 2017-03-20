@@ -32,17 +32,21 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.qzct.immediatechoice.R.id.bt_login;
+
 /**
  * 登录
  */
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     User user;
+    public static LoginActivity loginActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        loginActivity = this;
         //登录
         Button bt_login = (Button) findViewById(R.id.bt_login);
         //注册
@@ -61,7 +65,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
         switch (v.getId()) {
             //登录
-            case R.id.bt_login:
+            case bt_login:
                 login();
                 break;
             //注册

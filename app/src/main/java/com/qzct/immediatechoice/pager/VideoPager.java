@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.pager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -12,10 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -163,21 +167,24 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
      */
     @Override
     public void onItemClick(ZrcListView adapterView, View view, int i, long l) {
-        itemData = getItemData(view);
+        itemData = getItemData(view, i);
+        QuestionVideo questionVideo = adpter.getQuestionVideoFromItem(i);
+        MyApplication.questionVideo = questionVideo;
 //        Dialog dialog = new Comment_dialog(context, R.style.comment_Dialog);
 //        dialog.show();
-//        Intent intent = new Intent(context, CommentActivity.class);
-//        context.startActivity(intent);
+        Intent intent = new Intent(context, CommentActivity.class);
+        context.startActivity(intent);
 
         Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
 
 
-    private ItemData getItemData(View view) {
+    private ItemData getItemData(View view, int position) {
 
         TextView tv_question = (TextView) view.findViewById(R.id.tv_question);    //拿到相应的View对象
-//        SmartImageView image_text_item_img_left = (SmartImageView) view.findViewById(R.id.image_text_item_img_left);
-//        SmartImageView image_text_item_img_right = (SmartImageView) view.findViewById(R.id.image_text_item_img_right);
+
+        StandardGSYVideoPlayer gsyVideoPlayer_left = (StandardGSYVideoPlayer) view.findViewById(R.id.view_video_item_left);
+        StandardGSYVideoPlayer gsyVideoPlayer_right = (StandardGSYVideoPlayer) view.findViewById(R.id.view_video_item_right);
         TextView item_username = (TextView) view.findViewById(R.id.item_username);
         ImageView item_portrait = (ImageView) view.findViewById(R.id.item_portrait);
         Button comment_icon = (Button) view.findViewById(R.id.comment_icon);
@@ -185,6 +192,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
         TextView item_comment = (TextView) view.findViewById(R.id.item_comment);
 
         String question_video_content = tv_question.getText().toString();
+        QuestionVideo questionVideo = adpter.getQuestionVideoFromItem(position);
 //        Drawable image_left = (Drawable) image_text_item_img_left.getDrawable();
 //        Drawable image_right = (Drawable) image_text_item_img_right.getDrawable();
         String username = item_username.getText().toString();
@@ -193,9 +201,9 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
         String share_num = share_icon.getText().toString();
         String comment = item_comment.getText().toString();
         int Question_video_id = 0;
-        for (QuestionVideo questionVideo : questionVideoList) {
-            if (questionVideo.getQuizzer_name().equals(username) && questionVideo.getQuestion_video_content().equals(question_video_content)) {
-                Question_video_id = questionVideo.getQuestion_video_id();
+        for (QuestionVideo questionVideo1 : questionVideoList) {
+            if (questionVideo1.getQuizzer_name().equals(username) && questionVideo1.getQuestion_video_content().equals(question_video_content)) {
+                Question_video_id = questionVideo1.getQuestion_video_id();
                 Toast.makeText(context, "取到的Question_video_id：" + Question_video_id, Toast.LENGTH_SHORT).show();
                 break;
             }

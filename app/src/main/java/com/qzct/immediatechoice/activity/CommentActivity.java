@@ -1,5 +1,6 @@
 package com.qzct.immediatechoice.activity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -17,8 +18,12 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Comment;
-import com.qzct.immediatechoice.pager.ImageTextPager;
+import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.util.Config;
+import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
+import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +37,7 @@ import java.util.Date;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
+import static com.qzct.immediatechoice.test.TestActivity.TRANSITION;
 
 
 /**
@@ -41,7 +47,7 @@ import static android.content.ContentValues.TAG;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener, Callback.CommonCallback<String> {
 
-    private ImageTextPager.ItemData itemData;
+    //    private ImageTextPager.ItemData itemData;
     TextView tv_question;
     SmartImageView image_text_item_img_left;
     SmartImageView image_text_item_img_right;
@@ -61,6 +67,13 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private JSONArray jsonArray;
     private String PUSH_COMMENT = "0";
     private TextView title;
+    private StandardGSYVideoPlayer gsyVideoPlayer_left;
+    private StandardGSYVideoPlayer gsyVideoPlayer_right;
+    private QuestionVideo questionVideo;
+    private OrientationUtils orientationUtils;
+    private boolean isTransition;
+    private Question question;
+    private boolean isQuestion;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -71,7 +84,15 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //        setActionBar(new Toolbar(this));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
         title.setText("评价");
-        itemData = MyApplication.imageTextItemData;
+        question = MyApplication.question;
+        if (question != null) {
+            isQuestion = true;
+            MyApplication.question = null;
+        } else {
+            questionVideo = MyApplication.questionVideo;
+        }
+//        itemData = MyApplication.imageTextItemData;
+        isTransition = getIntent().getBooleanExtra(TRANSITION, false);
         initView();
         initData();
 
@@ -82,6 +103,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         tv_question = (TextView) findViewById(R.id.tv_question);    //拿到相应的View对象
         image_text_item_img_left = (SmartImageView) findViewById(R.id.image_text_item_img_left);
         image_text_item_img_right = (SmartImageView) findViewById(R.id.image_text_item_img_right);
+        gsyVideoPlayer_left = (StandardGSYVideoPlayer) findViewById(R.id.video_item_left);
+        gsyVideoPlayer_right = (StandardGSYVideoPlayer) findViewById(R.id.video_item_right);
         item_username = (TextView) findViewById(R.id.item_username);
         item_portrait = (ImageView) findViewById(R.id.item_portrait);
         comment_icon = (Button) findViewById(R.id.comment_icon);
@@ -94,19 +117,93 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initData() {
-        tv_question.setText(itemData.getQuestion_content());
-        image_text_item_img_left.setImageDrawable(itemData.getImage_left());
-        image_text_item_img_right.setImageDrawable(itemData.getImage_right());
-        item_username.setText(itemData.getUsername());
-        item_portrait.setImageDrawable(itemData.getPortrait());
-        comment_icon.setText(itemData.getComment_num());
-        share_icon.setText(itemData.getShare_num());
-        bt_add_comment.setOnClickListener(this);
-        top_back.setOnClickListener(this);
-        question_id = itemData.getQuestion_id();
-        getCommentListfromServer();
+        if (isQuestion == true) {
+            tv_question.setText(question.getQuestion_content());
+//            image_text_item_img_left.setImageDrawable(question.getImage_left());
+            x.image().bind(image_text_item_img_left, question.getImage_left());
+//            image_text_item_img_right.setImageDrawable(question.getImage_right());
+            x.image().bind(image_text_item_img_right, question.getImage_right());
+            item_username.setText(question.getQuizzer_name());
+//            item_portrait.setImageDrawable(question.getQuizzer_portrait());
+            x.image().bind(item_portrait, question.getQuizzer_portrait());
+            comment_icon.setText(question.getComment_count());
+            share_icon.setText(question.getShare_count());
+            question_id = question.getQuestion_id();
+            bt_add_comment.setOnClickListener(this);
+            top_back.setOnClickListener(this);
+            getCommentListfromServer();
+
+        } else {
+            image_text_item_img_left.setVisibility(View.GONE);
+            image_text_item_img_right.setVisibility(View.GONE);
+            gsyVideoPlayer_left.setVisibility(View.VISIBLE);
+            gsyVideoPlayer_right.setVisibility(View.VISIBLE);
+            initVideoPlayer(gsyVideoPlayer_left, questionVideo.getVideo_left());
+            initVideoPlayer(gsyVideoPlayer_right, questionVideo.getVideo_right());
+        }
 
 
+    }
+
+
+    private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
+
+        //增加封面
+//        gsyVideoPlayer.setThumbImageView(holder.imageView);
+        //url
+        //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
+        gsyVideoPlayer.setUp(url, true, null, "");
+        //非全屏下，不显示title
+        gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
+        //非全屏下不显示返回键
+        gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
+        //打开非全屏下触摸效果
+        gsyVideoPlayer.setIsTouchWiget(true);
+        //开启自动旋转
+        gsyVideoPlayer.setRotateViewAuto(true);
+        //全屏首先横屏
+        gsyVideoPlayer.setLockLand(false);
+        //是否需要全屏动画效果
+        gsyVideoPlayer.setShowFullAnimation(false);
+
+        //立即播放
+//        gsyVideoPlayer.startPlayLogic();
+        //设置全屏按键功能
+        orientationUtils = new OrientationUtils(this, gsyVideoPlayer);
+        gsyVideoPlayer.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                orientationUtils.resolveByClick();
+            }
+        });
+        gsyVideoPlayer.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                gsyVideoPlayer.startWindowFullscreen(CommentActivity.this, true, true);
+
+            }
+        });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        //先返回正常状态
+        if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+            gsyVideoPlayer_left.getFullscreenButton().performClick();
+            gsyVideoPlayer_right.getFullscreenButton().performClick();
+            return;
+        }
+        //释放所有
+        gsyVideoPlayer_left.setStandardVideoAllCallBack(null);
+        gsyVideoPlayer_right.setStandardVideoAllCallBack(null);
+        GSYVideoPlayer.releaseAllVideos();
+        if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            super.onBackPressed();
+        } else {
+            finish();
+            overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        }
     }
 
     /**
