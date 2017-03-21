@@ -18,7 +18,6 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
-import com.qzct.immediatechoice.pager.AttentionPager;
 import com.qzct.immediatechoice.pager.BasePager;
 import com.qzct.immediatechoice.pager.ImageTextPager;
 import com.qzct.immediatechoice.pager.VideoPager;
@@ -209,8 +208,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         broadcastManager.registerReceiver(bordcastReceiver, intentFilter);
 
         pagers.add(new ImageTextPager(context));
-        pagers.add(new VideoPager(getActivity()));
-        pagers.add(new AttentionPager(context));
+        pagers.add(new VideoPager(context));
+        pagers.add(new VideoPager(context));
+//        pagers.add(new AttentionPager(context));
 
         /**
          * viewPager适配器

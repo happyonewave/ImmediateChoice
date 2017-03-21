@@ -2,17 +2,13 @@ package com.qzct.immediatechoice.activity;
 
 
 import android.app.Activity;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -21,11 +17,12 @@ import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
+import com.qzct.immediatechoice.util.utils;
 
 /**
  * 主
  */
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private FrameLayout fl;
     public static Activity mainActivity;
@@ -34,27 +31,15 @@ public class MainActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mainActivity = this;
+        setContentView(utils.getUsableView(this, R.layout.activity_main));
         rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
         //用来放fragment的帧布局
         fl = (FrameLayout) findViewById(R.id.fl);
-        //填充状态栏的view
-        ImageView iv_status_bar = (ImageView) findViewById(R.id.iv_status_bar);
-        //支持4.4以上
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = getWindow();
-            //设置状态栏背景透明
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //设置导航栏透明
-//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-            iv_status_bar.setVisibility(View.VISIBLE);
-        }
         //初始化Fragment为首页
         Fragment fragment = (Fragment) Adapter.instantiateItem(fl, 0);
         Adapter.setPrimaryItem(fl, 0, fragment);
         Adapter.finishUpdate(fl);
-
+        mainActivity = this;
     }
 
     /**

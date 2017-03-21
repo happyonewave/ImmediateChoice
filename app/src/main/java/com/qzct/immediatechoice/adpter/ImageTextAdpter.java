@@ -98,7 +98,6 @@ public class ImageTextAdpter extends BaseAdapter {
         tv_question.setText(i.getQuestion_content());
         image_text_item_img_left.setImageUrl(i.getImage_left());
 
-
         if (i.getQuizzer_portrait() != null) {
             image_text_item_img_right.setImageUrl(i.getImage_right());                                    //设置相应的信息
             item_username.setText(i.getQuizzer_name());

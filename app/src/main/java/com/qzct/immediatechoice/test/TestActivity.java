@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
@@ -56,11 +58,13 @@ public class TestActivity extends AppCompatActivity {
 //        MediaRecorderActivity.goSmallVideoRecorder(this, PushActivity.class.getName(), config);
 
 
-        //增加封面
         gsyVideoPlayer = (StandardGSYVideoPlayer) findViewById(R.id.view_video_item_left);
-//        gsyVideoPlayer.setThumbImageView(holder.imageView);
-        //url
+        //增加封面
         final String url = "http://123.207.31.213:8080/ImmediateChoice_service/1.mp4";
+        ImageView imageView = new ImageView(this);
+        imageView.setImageBitmap(utils.createVideoThumbnail(url));
+        gsyVideoPlayer.setThumbImageView(imageView);
+        //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
         gsyVideoPlayer.setUp(url, true, null, "这是title");
         //非全屏下，不显示title
@@ -116,6 +120,7 @@ public class TestActivity extends AppCompatActivity {
             overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
         }
     }
+
     private void initData() {
     }
 

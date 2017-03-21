@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.domain.QuestionVideo;
+import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.listener.StandardVideoAllCallBack;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
@@ -76,7 +77,10 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //        view_video_item_left.setVisibility(View.VISIBLE);
         gsyVideoPlayer_left = (StandardGSYVideoPlayer) v.findViewById(R.id.view_video_item_left);
         gsyVideoPlayer_right = (StandardGSYVideoPlayer) v.findViewById(R.id.view_video_item_right);
-//        view_video_item_right.setVisibility(View.VISIBLE);
+//
+        gsyVideoPlayer_left.setThumbImageView(new View(context));
+        gsyVideoPlayer_right.setThumbImageView(new View(context));
+//  view_video_item_right.setVisibility(View.VISIBLE);
 //        final ProgressBar left_ProgressBar = (ProgressBar) v.findViewById(R.id.view_video_item_left_ProgressBar);
 //        final ProgressBar right_ProgressBar = (ProgressBar) v.findViewById(R.id.view_video_item_right_ProgressBar);
 //        left_ProgressBar.setMax(100);
@@ -212,7 +216,9 @@ public class QuestionVideoAdpter extends BaseAdapter {
     private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
 
         //增加封面
-//        gsyVideoPlayer.setThumbImageView(holder.imageView);
+        ImageView imageView = new ImageView(context);
+        imageView.setImageBitmap(utils.createVideoThumbnail(url));
+        gsyVideoPlayer.setThumbImageView(imageView);
         //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
         gsyVideoPlayer.setUp(url, true, null, "这是title");

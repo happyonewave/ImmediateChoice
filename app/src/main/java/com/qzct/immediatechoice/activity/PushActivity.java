@@ -291,7 +291,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         RequestParams entity = new RequestParams(url);
         QuestionVideo questionVideo = new QuestionVideo(
                 question_content, getNetUrlFormLocalPath(video_left_url, "video"),
-                getNetUrlFormLocalPath(video_right_url, "Video"), quizzer_name, user.getPortrait_path(),
+                getNetUrlFormLocalPath(video_right_url, "video"), quizzer_name, user.getPortrait_path(),
                 locationDescribe
         );
         JSONObject jsonObject = questionVideo.getJSONObject();
@@ -336,10 +336,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
      * @return
      */
     private String getNetUrlFormLocalPath(String localPath, String type) {
-        if (type == "image") {
-            return Config.server_video_url + getFileName(localPath);
-        } else if (type == "video") {
+        if (type.equals("image") ) {
             return Config.server_img_url + getFileName(localPath);
+        } else if (type.equals("video")) {
+            return Config.server_video_url + getFileName(localPath);
         } else {
             return localPath;
         }

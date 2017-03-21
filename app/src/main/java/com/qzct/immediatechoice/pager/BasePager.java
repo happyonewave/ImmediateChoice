@@ -49,7 +49,7 @@ public abstract class BasePager {
     /**
      * 响应listview滑动事件 发送是否显示悬浮按钮广播
      */
-    public void sendFabIsVisible(ZrcListView listView) {
+    public void sendFabIsVisible(final ZrcListView listView) {
 
         listView.setOnScrollListener(new ZrcListView.OnScrollListener() {
 
@@ -64,14 +64,14 @@ public abstract class BasePager {
                 if (firstVisibleItem > oldVisibleItem) {
                     // 向上滑动
                     intent.putExtra("isvisible", false);
+                    //开启加载更多
+                    listView.startLoadMore();
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-//                    Toast.makeText(context, "向上滑动", Toast.LENGTH_SHORT).show();
                 }
                 if (firstVisibleItem < oldVisibleItem) {
                     // 向下滑动
                     intent.putExtra("isvisible", true);
                     LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
-//                    Toast.makeText(context, "向下滑动", Toast.LENGTH_SHORT).show();
                 }
                 oldVisibleItem = firstVisibleItem;
             }

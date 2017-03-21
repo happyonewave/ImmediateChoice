@@ -84,6 +84,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.wseemann\FFmpegMediaMetadataRetriever\1.0.14\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b70b6350ac88e7eeef91054f45f0739f395d7588">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.github.wseemann-FFmpegMediaMetadataRetriever-1.0.14_ca614ef8777b8234e4a502bd4a99ab945c8755b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"

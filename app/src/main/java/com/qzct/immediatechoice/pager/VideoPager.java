@@ -93,9 +93,10 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
         footer.setCircleColor(0xff33bbee);
         lv_home_video.setFootable(footer);
 
+
         // 设置列表项出现动画
-        lv_home_video.setItemAnimForTopIn(R.anim.topitem_in);
-        lv_home_video.setItemAnimForBottomIn(R.anim.bottomitem_in);
+//        lv_home_video.setItemAnimForTopIn(R.anim.topitem_in);
+//        lv_home_video.setItemAnimForBottomIn(R.anim.bottomitem_in);
 
         // 下拉刷新事件回调
         lv_home_video.setOnRefreshStartListener(new ZrcListView.OnStartListener() {

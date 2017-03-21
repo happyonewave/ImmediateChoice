@@ -44,6 +44,7 @@ MERGED from [tv.danmaku.ijk.media:ijkplayer-exo:0.7.7.1] E:\Android\AndroidStudi
 MERGED from [com.google.android.exoplayer:exoplayer:r1.5.11] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.google.android.exoplayer\exoplayer\r1.5.11\AndroidManifest.xml:24:5-26:41
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.andkulikov\transitionseverywhere\1.7.0\AndroidManifest.xml:8:5-10:41
 MERGED from [com.danikula:videocache:2.6.4] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.danikula\videocache\2.6.4\AndroidManifest.xml:8:5-10:41
+MERGED from [com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.wseemann\FFmpegMediaMetadataRetriever\1.0.14\AndroidManifest.xml:7:5-9:41
 MERGED from [cn.bingoogolapple:bga-banner:2.1.7] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.bingoogolapple\bga-banner\2.1.7\AndroidManifest.xml:6:5-8:41
 MERGED from [ImmediateChoice:zrcListView:unspecified] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\zrcListView\unspecified\AndroidManifest.xml:7:5-9:41
 MERGED from [ImmediateChoice:SmallVideoLib:unspecified] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\SmallVideoLib\unspecified\AndroidManifest.xml:7:5-9:41
@@ -129,6 +130,7 @@ MERGED from [com.github.CarGuo:GSYVideoPlayer:v1.6.0] E:\Android\AndroidStudioPr
 MERGED from [tv.danmaku.ijk.media:ijkplayer-exo:0.7.7.1] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-exo\0.7.7.1\AndroidManifest.xml:9:5-13:19
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.andkulikov\transitionseverywhere\1.7.0\AndroidManifest.xml:12:5-20
 MERGED from [com.danikula:videocache:2.6.4] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.danikula\videocache\2.6.4\AndroidManifest.xml:12:5-20
+MERGED from [com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.wseemann\FFmpegMediaMetadataRetriever\1.0.14\AndroidManifest.xml:11:5-20
 	android:label
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:47:9-41
 	android:supportsRtl

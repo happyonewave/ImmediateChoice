@@ -131,7 +131,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             question_id = question.getQuestion_id();
             bt_add_comment.setOnClickListener(this);
             top_back.setOnClickListener(this);
-            getCommentListfromServer();
+            getCommentListfromServer("");
 
         } else {
             image_text_item_img_left.setVisibility(View.GONE);
@@ -209,7 +209,10 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     /**
      * 从服务器获取commentList
      */
-    private void getCommentListfromServer() {
+    private void getCommentListfromServer(String what) {
+        if (what == "image_text") {
+
+        }
         RequestParams entity = new RequestParams(Config.url_comment);
         entity.addBodyParameter("msg", "2");
         entity.addBodyParameter("question_id", question_id + "");
@@ -341,7 +344,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     public void onSuccess(String result) {
         if (result != null) {
             if (result.equals("1")) {
-                getCommentListfromServer();
+                getCommentListfromServer("");
                 Toast.makeText(this, "评论成功", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "评论失败", Toast.LENGTH_SHORT).show();
