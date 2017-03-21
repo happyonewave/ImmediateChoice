@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.mingle.widget.LoadingView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
@@ -46,7 +47,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
 
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
-    private static final String TAG = "ImageTextPager";
+    private static final String TAG = "qin";
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home;
     private ArrayList<Question> questionlist = new ArrayList<Question>();
@@ -54,9 +55,9 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     private String minPostTime;
     private JSONArray jsonArray;
     private String request;
-    private String unixTime_min = "1970-01-01 08:00:00";
     private String maxPostTime;
     private boolean isFirst;
+    private LoadingView loadingView;
 
 
     public ImageTextPager(Context context) {
@@ -66,6 +67,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     @Override
     public View initView() {
         view = inflater.inflate(R.layout.view_image_text, null);
+        loadingView = (LoadingView) view.findViewById(R.id.loadView);
         return view;
     }
 
@@ -103,7 +105,12 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
         });
         FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
         firstLoadMoreTask.execute();
-
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadingView.setVisibility(View.GONE);
+            }
+        }, 4000);
     }
 
     /**
@@ -149,6 +156,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     public void onItemClick(ZrcListView adapterView, View view, int i, long l) {
         Question question = adpter.getQuestionFromItem(i);
         MyApplication.question = question;
+        MyApplication.isQuestion = true;
         Intent intent = new Intent(context, CommentActivity.class);
         context.startActivity(intent);
         Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
@@ -166,7 +174,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             Date now = new Date();
             String startTime = format.format(now);
-            request = getQuestionJson(GET_QUESTION, startTime, unixTime_min);
+            request = getQuestionJson(GET_QUESTION, startTime, Config.unixTime_min);
             return request;
         }
 
@@ -178,6 +186,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);
+
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
                 }
@@ -226,7 +235,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
         @Override
         protected String doInBackground(String... params) {
             //返回获取的jasonArray 北京时间1970年01月01日08时00分00秒
-            request = getQuestionJson(GET_QUESTION, minPostTime, unixTime_min);
+            request = getQuestionJson(GET_QUESTION, minPostTime, Config.unixTime_min);
             return request;
         }
 
@@ -259,12 +268,15 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
             BasicNameValuePair pair1 =
                     new BasicNameValuePair("msg", msg);
             BasicNameValuePair pair2 =
-                    new BasicNameValuePair("startTime", startTime);
+                    new BasicNameValuePair("type", "image");
             BasicNameValuePair pair3 =
+                    new BasicNameValuePair("startTime", startTime);
+            BasicNameValuePair pair4 =
                     new BasicNameValuePair("endTime", endTime);
             parameters.add(pair1);
             parameters.add(pair2);
             parameters.add(pair3);
+            parameters.add(pair4);
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
             httpPost.setEntity(entity);
             HttpResponse hr = hc.execute(httpPost);
@@ -315,17 +327,17 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                     }
                 }
                 String question_content = temp.getString("question_content");
-                String image_left = temp.getString("image_left");
-                String image_right = temp.getString("image_right");
+                String left_url = temp.getString("left_url");
+                String right_url = temp.getString("right_url");
                 String quizzer_name = temp.getString("quizzer_name");
-                String quizzer_portrait = temp.getString("quizzer_portrait");
+                String portrait_url = temp.getString("portrait_url");
                 int share_count = temp.getInt("share_count");
                 int comment_count = temp.getInt("comment_count");
                 String comment = temp.getString("comment");
                 Question Question = new Question(question_id, question_content,
-                        image_left, image_right, quizzer_name,
-                        quizzer_portrait, share_count,
-                        comment_count, comment, null);
+                        left_url, right_url, quizzer_name,
+                        portrait_url, share_count,
+                        comment_count, comment, null, null);
                 tempList.add(Question);
             }
             if (msg == REFRESH_QUESTION) {

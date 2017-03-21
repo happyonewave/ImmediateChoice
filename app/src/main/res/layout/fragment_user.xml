@@ -3,95 +3,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
 
     <RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="4"
-    android:background="@color/apporange"
-        android:padding="10dp"
-    >
+        android:id="@+id/rl_bg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/apporange">
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
         <ImageView
             android:id="@+id/bt_setting"
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:src="@mipmap/seting"
-            android:background="@color/apporange"
             android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/seting"
             tools:ignore="RtlHardcoded" />
+
         <ImageView
             android:layout_width="40sp"
             android:layout_height="40sp"
-            android:src="@mipmap/message"
-            android:background="@color/apporange"
             android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:background="@android:color/transparent"
+            android:src="@mipmap/message"
             tools:ignore="RtlHardcoded" />
 
         <!--<de.hdodenhof.circleimageview.CircleImageView-->
-            <!--android:id="@+id/user_portrait"-->
-            <!--android:layout_width="120dp"-->
-            <!--android:layout_height="120dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:src="@mipmap/ic_launcher"/>-->
+        <!--android:id="@+id/user_portrait"-->
+        <!--android:layout_width="120dp"-->
+        <!--android:layout_height="120dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:src="@mipmap/ic_launcher"/>-->
 
-
-        <com.loopj.android.image.SmartImageView
+        <ImageView
             android:id="@+id/user_portrait"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="20dp"
-            android:layout_centerHorizontal="true"
-            android:src="@mipmap/default_portrait"/>
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true" />
+
+        <!--<com.loopj.android.image.SmartImageView-->
+        <!--android:id="@+id/user_portrait"-->
+        <!--android:layout_width="120dp"-->
+        <!--android:layout_height="120dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:src="@mipmap/default_portrait"/>-->
         <TextView
             android:id="@+id/user_tv_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="@string/username"
-            android:textColor="@android:color/white"
-            android:textSize="25dp"
             android:layout_below="@id/user_portrait"
             android:layout_centerInParent="true"
+            android:gravity="center"
             android:paddingTop="10dp"
-            />
+            android:text="@string/username"
+            android:textColor="@android:color/white"
+            android:textSize="25dp" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_alignParentBottom="true"
+            android:layout_below="@id/user_tv_username"
             android:layout_centerInParent="true"
-            android:layout_below="@id/user_tv_username">
+            android:gravity="center">
+
             <TextView
+                style="@style/info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/info_vote"
-                style="@style/info_style"
-                />
+                android:text="@string/info_vote" />
+
             <TextView
+                style="@style/info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/info_fans"
-                style="@style/info_style"
-                />
+                android:text="@string/info_fans" />
+
             <TextView
+                style="@style/info_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/info_attention"
-                style="@style/info_style"
-                />
+                android:text="@string/info_attention" />
 
         </LinearLayout>
 
     </RelativeLayout>
+
     <LinearLayout
-        android:layout_weight="5"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_weight="5"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -109,7 +123,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/my_post"
                 android:textColor="@android:color/black"
-                android:textSize="20dp"/>
+                android:textSize="20dp" />
         </LinearLayout>
 
         <GridView
@@ -117,26 +131,25 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:numColumns="auto_fit"
-            ></GridView>
+            android:numColumns="auto_fit"></GridView>
 
     </LinearLayout>
     <!--<RelativeLayout -->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="0dp"-->
-		<!--android:layout_weight="1"-->
-        <!--&gt;-->
-        <!--<EditText -->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:id="@+id/et_chat"-->
-            <!--/>-->
-        <!--<Button -->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:text="发送"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--/>-->
-        <!---->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="0dp"-->
+    <!--android:layout_weight="1"-->
+    <!--&gt;-->
+    <!--<EditText -->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:id="@+id/et_chat"-->
+    <!--/>-->
+    <!--<Button -->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:text="发送"-->
+    <!--android:layout_alignParentRight="true"-->
+    <!--/>-->
+    <!---->
     <!--</RelativeLayout>-->
 </LinearLayout>

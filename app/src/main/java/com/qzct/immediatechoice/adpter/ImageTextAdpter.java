@@ -96,10 +96,10 @@ public class ImageTextAdpter extends BaseAdapter {
         Question i = questionlist.get(position);                                    //拿到一个info对象
 
         tv_question.setText(i.getQuestion_content());
-        image_text_item_img_left.setImageUrl(i.getImage_left());
+        image_text_item_img_left.setImageUrl(i.getLeft_url());
 
-        if (i.getQuizzer_portrait() != null) {
-            image_text_item_img_right.setImageUrl(i.getImage_right());                                    //设置相应的信息
+        if (i.getPortrait_url() != null) {
+            image_text_item_img_right.setImageUrl(i.getRight_url());                                    //设置相应的信息
             item_username.setText(i.getQuizzer_name());
             ImageOptions.Builder builder = new ImageOptions.Builder();
             builder.setCircular(true);
@@ -107,13 +107,13 @@ public class ImageTextAdpter extends BaseAdapter {
             builder.setFailureDrawableId(R.mipmap.default_portrait);
             builder.setSize(100, 100);
             ImageOptions options = builder.build();
-            x.image().bind(item_portrait, i.getQuizzer_portrait(), options);
+            x.image().bind(item_portrait, i.getPortrait_url(), options);
         }
         comment_icon.setText(i.getComment_count() + "");
         share_icon.setText(i.getShare_count() + "");
         item_comment.setText(i.getComment());
-        System.out.println(i.getImage_left());
-        System.out.println(i.getImage_right());
+        System.out.println(i.getLeft_url());
+        System.out.println(i.getRight_url());
         //left点击事件监听
         image_text_item_img_left.setOnClickListener(new View.OnClickListener() {
             @Override

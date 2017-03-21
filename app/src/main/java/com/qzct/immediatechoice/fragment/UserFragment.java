@@ -5,15 +5,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
@@ -23,11 +26,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
-import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 import static com.qzct.immediatechoice.application.MyApplication.user;
 
@@ -49,12 +54,40 @@ public class UserFragment extends baseFragment {
         User user = MyApplication.user;
         TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
 //        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
-        SmartImageView user_portrait = (SmartImageView) v.findViewById(R.id.user_portrait);
-        ImageOptions options = new ImageOptions.Builder().setCircular(true)
-                .setFailureDrawableId(R.mipmap.default_portrait).build();
-        x.image().bind(user_portrait, user.getPortrait_path(), options);
+//        SmartImageView user_portrait = (SmartImageView) v.findViewById(R.id.user_portrait);
+//        RelativeLayout rl_bg =  (RelativeLayout) v.findViewById(R.id.rl_bg);
+//        ImageOptions options = new ImageOptions.Builder().setCircular(true)
+//                .setFailureDrawableId(R.mipmap.default_portrait).build();
+//        x.image().bind(user_portrait, user.getPortrait_path(), options);
+
+        ImageView blurImageView = (ImageView) v.findViewById(R.id.iv_bg);
+        ImageView avatarImageView = (ImageView) v.findViewById(R.id.user_portrait);
+
+        Glide.with(this).load(user.getPortrait_path())
+                .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
+                .into(blurImageView);
+
+
+        Glide.with(this).load(user.getPortrait_path())
+                .bitmapTransform(new CropCircleTransformation(context))
+                .into(avatarImageView);
+
         tv_username.setText(user.getUsername());
         lv = (GridView) v.findViewById(R.id.gv_user);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Question question = questionList.get(position);
+                MyApplication.question = question;
+                if (question.getLeft_url().contains("image")) {
+                    MyApplication.isQuestion = true;
+                } else {
+                    MyApplication.isQuestion = false;
+                }
+                Intent intent = new Intent(context, CommentActivity.class);
+                context.startActivity(intent);
+            }
+        });
         getMyPush();
 
 
@@ -70,7 +103,7 @@ public class UserFragment extends baseFragment {
         });
     }
 
-    public  void getMyPush() {
+    public void getMyPush() {
         RequestParams entity = new RequestParams(Config.url_user);
         entity.addBodyParameter("quizzer_name", user.getUsername());
         x.http().post(entity, new Callback.CommonCallback<String>() {
@@ -85,11 +118,20 @@ public class UserFragment extends baseFragment {
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject temp = jsonArray.getJSONObject(i);
                         //读取相应内容
-                        String image_left = temp.getString("image_left");
-                        String image_right = temp.getString("image_right");
+                        int question_id = temp.getInt("question_id");
+                        String post_time = temp.getString("post_time");
                         String question_content = temp.getString("question_content");
+                        String left_url = temp.getString("left_url");
+                        String right_url = temp.getString("right_url");
+                        String quizzer_name = temp.getString("quizzer_name");
+                        String portrait_url = temp.getString("portrait_url");
+                        int share_count = temp.getInt("share_count");
+                        int comment_count = temp.getInt("comment_count");
+                        String comment = temp.getString("comment");
 
-                        Question Question = new Question(image_left, image_right, question_content);
+                        Question Question = new Question(question_id, question_content,
+                                left_url, right_url, quizzer_name, portrait_url,
+                                share_count, comment_count, comment, null, post_time);
                         System.out.println(Question.toString());
                         questionList.add(Question);
 

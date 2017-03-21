@@ -1,5 +1,8 @@
 package com.qzct.immediatechoice.domain;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Administrator on 2017-02-26.
  */
@@ -7,146 +10,101 @@ package com.qzct.immediatechoice.domain;
 public class Question {
     int question_id;
     String question_content;
-    String image_left;
-    String image_right;
+    String left_url;
+    String right_url;
     String quizzer_name;
-    String quizzer_portrait;
+    String portrait_url;
     int share_count;
     int comment_count;
     String comment;
     String location;
+    String post_time;
 
-    public Question(int question_id, String question_content, String image_left, String image_right, String quizzer_name, String quizzer_portrait, int share_count, int comment_count, String comment, String location) {
+    public Question() {
+    }
+
+    public Question(int question_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
         this.question_id = question_id;
         this.question_content = question_content;
-        this.image_left = image_left;
-        this.image_right = image_right;
+        this.left_url = left_url;
+        this.right_url = right_url;
         this.quizzer_name = quizzer_name;
-        this.quizzer_portrait = quizzer_portrait;
+        this.portrait_url = portrait_url;
         this.share_count = share_count;
         this.comment_count = comment_count;
         this.comment = comment;
         this.location = location;
+        this.post_time = post_time;
     }
+
+
+
+
 
     public int getQuestion_id() {
         return question_id;
-    }
-
-    public void setQuestion_id(int question_id) {
-        this.question_id = question_id;
-    }
-
-    public String getQuizzer_portrait() {
-        return quizzer_portrait;
-    }
-
-    public void setQuizzer_portrait(String quizzer_portrait) {
-        this.quizzer_portrait = quizzer_portrait;
-    }
-
-    public Question() {
-        super();
-    }
-
-    public Question(String question_content) {
-        this.question_content = question_content;
-    }
-
-    public Question(String question_content, String image_left, String image_right, String quizzer_name, int share_count, int comment_count, String comment, String location) {
-        this.question_content = question_content;
-        this.image_left = image_left;
-        this.image_right = image_right;
-        this.quizzer_name = quizzer_name;
-        this.share_count = share_count;
-        this.comment_count = comment_count;
-        this.comment = comment;
-        this.location = location;
-    }
-
-
-    public Question(String question_content, String image_left, String image_right, String quizzer_name,
-                    String quizzer_portrait, int share_count, int comment_count, String comment, String location) {
-        this.question_content = question_content;
-        this.image_left = image_left;
-        this.image_right = image_right;
-        this.quizzer_name = quizzer_name;
-        this.quizzer_portrait = quizzer_portrait;
-        this.share_count = share_count;
-        this.comment_count = comment_count;
-        this.comment = comment;
-        this.location = location;
-    }
-
-
-    public Question(String image_left, String image_right, String question_content) {
-        this.image_left = image_left;
-        this.image_right = image_right;
-        this.question_content = question_content;
-
     }
 
     public String getQuestion_content() {
         return question_content;
     }
 
-    public void setQuestion_content(String question_content) {
-        this.question_content = question_content;
+    public String getLeft_url() {
+        return left_url;
     }
 
-    public String getImage_left() {
-        return image_left;
-    }
-
-    public void setImage_left(String image_left) {
-        this.image_left = image_left;
-    }
-
-    public String getImage_right() {
-        return image_right;
-    }
-
-    public void setImage_right(String image_right) {
-        this.image_right = image_right;
+    public String getRight_url() {
+        return right_url;
     }
 
     public String getQuizzer_name() {
         return quizzer_name;
     }
 
-    public void setQuizzer_name(String quizzer_name) {
-        this.quizzer_name = quizzer_name;
+    public String getPortrait_url() {
+        return portrait_url;
     }
 
     public int getShare_count() {
         return share_count;
     }
 
-    public void setShare_count(int share_count) {
-        this.share_count = share_count;
-    }
-
     public int getComment_count() {
         return comment_count;
-    }
-
-    public void setComment_count(int comment_count) {
-        this.comment_count = comment_count;
     }
 
     public String getComment() {
         return comment;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public String getPost_time() {
+        return post_time;
+    }
+
+    public JSONObject getJSONObject() {
+
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.put("question_id", question_id);
+            jsonObject.put("question_content", question_content);
+            jsonObject.put("left_url", left_url);
+            jsonObject.put("right_url", right_url);
+            jsonObject.put("quizzer_name", quizzer_name);
+            jsonObject.put("portrait_url", portrait_url);
+            jsonObject.put("share_count", share_count);
+            jsonObject.put("comment_count", comment_count);
+            jsonObject.put("comment", comment);
+            jsonObject.put("location", location);
+            jsonObject.put("post_time", post_time);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return jsonObject;
+
     }
 }

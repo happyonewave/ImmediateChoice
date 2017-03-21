@@ -66,10 +66,10 @@ public class UserAdpter extends BaseAdapter {
 
         user_tv_question.setText(Question.getQuestion_content());
         System.out.println(Question.getQuestion_content());
-        user_item_img_left.setImageUrl(Question.getImage_left());
+        user_item_img_left.setImageUrl(Question.getLeft_url());
 //        ImageOptions options = new ImageOptions.Builder().build();
 //        x.image().bind(user_item_img_left,Question.getImage_left(),options);
-        user_item_img_right.setImageUrl(Question.getImage_right());
+        user_item_img_right.setImageUrl(Question.getRight_url());
         return v;
     }
 

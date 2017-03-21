@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.LoginActivity;
-import com.qzct.immediatechoice.domain.QuestionVideo;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.listener.StandardVideoAllCallBack;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -32,7 +32,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
 
     Context context;
-    List<QuestionVideo> questionVideoList;
+    List<Question> questionList;
     private String CHOICE_ONE = "1";
     //    IjkPlayerView view_video_item_left;
 //    IjkPlayerView view_video_item_right;
@@ -42,24 +42,25 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //    MagicProgressCircle left_ProgressBar;
 //    MagicProgressCircle right_ProgressBar;
 
-    public QuestionVideoAdpter(Context context, List<QuestionVideo> questionVideoList) {
+    public QuestionVideoAdpter(Context context, List<Question> questionList) {
         this.context = context;
-        this.questionVideoList = questionVideoList;
+        this.questionList = questionList;
     }
 
-    public void onDataChange(List<QuestionVideo> questionVideoList) {
-        this.questionVideoList = questionVideoList;
+    public void onDataChange(List<Question> questionList) {
+        this.questionList = questionList;
         this.notifyDataSetChanged();
 
     }
 
-    public QuestionVideo getQuestionVideoFromItem(int position) {
-        return questionVideoList.get(position);
+
+    public Question getQuestionFromItem(int position) {
+        return questionList.get(position);
     }
 
     @Override
     public int getCount() {
-        return questionVideoList.size();
+        return questionList.size();
     }
 
     @Override
@@ -97,14 +98,14 @@ public class QuestionVideoAdpter extends BaseAdapter {
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
 
 
-        QuestionVideo i = questionVideoList.get(position);                                    //拿到一个info对象
-        initVideoPlayer(gsyVideoPlayer_left, i.getVideo_left());
-        initVideoPlayer(gsyVideoPlayer_right, i.getVideo_right());
-        tv_question.setText(i.getQuestion_video_content());
+        Question i = questionList.get(position);                                    //拿到一个info对象
+        initVideoPlayer(gsyVideoPlayer_left, i.getLeft_url());
+        initVideoPlayer(gsyVideoPlayer_right, i.getRight_url());
+        tv_question.setText(i.getQuestion_content());
 //        image_text_item_img_left.setImageUrl(i.getVideo_left());
 
 
-        if (i.getQuizzer_portrait() != null) {
+        if (i.getPortrait_url() != null) {
 //            image_text_item_img_right.setImageUrl(i.getVideo_right());                                    //设置相应的信息
             item_username.setText(i.getQuizzer_name());
             ImageOptions.Builder builder = new ImageOptions.Builder();
@@ -113,13 +114,13 @@ public class QuestionVideoAdpter extends BaseAdapter {
             builder.setFailureDrawableId(R.mipmap.default_portrait);
             builder.setSize(100, 100);
             ImageOptions options = builder.build();
-            x.image().bind(item_portrait, i.getQuizzer_portrait(), options);
+            x.image().bind(item_portrait, i.getPortrait_url(), options);
         }
         comment_icon.setText(i.getComment_count() + "");
         share_icon.setText(i.getShare_count() + "");
         item_comment.setText(i.getComment());
-        System.out.println(i.getVideo_left());
-        System.out.println(i.getVideo_right());
+        System.out.println(i.getLeft_url());
+        System.out.println(i.getRight_url());
 
 
 //        //left点击事件监听
@@ -128,7 +129,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //            public void onClick(View view) {
 //                RequestParams entity = new RequestParams(MyApplication.url_comment);
 //                entity.addBodyParameter("msg", CHOICE_ONE);
-//                entity.addBodyParameter("question_id", questionVideoList.get(position).getQuestion_video_id() + "");
+//                entity.addBodyParameter("question_id", questionList.get(position).getQuestion_video_id() + "");
 //                entity.addBodyParameter("user_id",
 //                        String.valueOf(MyApplication.user.getUser_id()));
 //
@@ -173,7 +174,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //            public void onClick(View view) {
 //                RequestParams entity = new RequestParams(MyApplication.url_comment);
 //                entity.addBodyParameter("msg", CHOICE_ONE);
-//                entity.addBodyParameter("question_id", questionVideoList.get(position).getQuestion_video_id() + "");
+//                entity.addBodyParameter("question_id", questionList.get(position).getQuestion_video_id() + "");
 //                entity.addBodyParameter("user_id",
 //                        String.valueOf(MyApplication.user.getUser_id()));
 //
@@ -221,7 +222,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
         gsyVideoPlayer.setThumbImageView(imageView);
         //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
-        gsyVideoPlayer.setUp(url, true, null, "这是title");
+        gsyVideoPlayer.setUp(url, true, null, "");
         //非全屏下，不显示title
         gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
         //非全屏下不显示返回键
@@ -400,7 +401,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //    public void onClick(View view) {
 //        RequestParams entity = new RequestParams(MyApplication.url_comment);
 //        entity.addBodyParameter("msg", CHOICE_ONE);
-////        entity.addBodyParameter("question_id", questionVideoList.get(position).);
+////        entity.addBodyParameter("question_id", questionList.get(position).);
 //        entity.addBodyParameter("user_id",
 //                String.valueOf(MyApplication.user.getUser_id()));
 //        switch (view.getId()) {

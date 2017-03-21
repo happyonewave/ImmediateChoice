@@ -19,8 +19,8 @@ import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
-import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
@@ -30,6 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -47,7 +48,6 @@ import static com.qzct.immediatechoice.test.TestActivity.TRANSITION;
 
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener, Callback.CommonCallback<String> {
 
-    //    private ImageTextPager.ItemData itemData;
     TextView tv_question;
     SmartImageView image_text_item_img_left;
     SmartImageView image_text_item_img_right;
@@ -69,29 +69,20 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private TextView title;
     private StandardGSYVideoPlayer gsyVideoPlayer_left;
     private StandardGSYVideoPlayer gsyVideoPlayer_right;
-    private QuestionVideo questionVideo;
     private OrientationUtils orientationUtils;
     private boolean isTransition;
     private Question question;
-    private boolean isQuestion;
+    private boolean isQuestion = MyApplication.isQuestion;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comment);
-//        setActionBar(new Toolbar(this));
+        setContentView(utils.getUsableView(this, R.layout.activity_comment));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
         title.setText("评价");
         question = MyApplication.question;
-        if (question != null) {
-            isQuestion = true;
-            MyApplication.question = null;
-        } else {
-            questionVideo = MyApplication.questionVideo;
-        }
-//        itemData = MyApplication.imageTextItemData;
         isTransition = getIntent().getBooleanExtra(TRANSITION, false);
         initView();
         initData();
@@ -117,30 +108,33 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     private void initData() {
-        if (isQuestion == true) {
-            tv_question.setText(question.getQuestion_content());
-//            image_text_item_img_left.setImageDrawable(question.getImage_left());
-            x.image().bind(image_text_item_img_left, question.getImage_left());
-//            image_text_item_img_right.setImageDrawable(question.getImage_right());
-            x.image().bind(image_text_item_img_right, question.getImage_right());
-            item_username.setText(question.getQuizzer_name());
+        tv_question.setText(question.getQuestion_content());
+        item_username.setText(question.getQuizzer_name());
 //            item_portrait.setImageDrawable(question.getQuizzer_portrait());
-            x.image().bind(item_portrait, question.getQuizzer_portrait());
-            comment_icon.setText(question.getComment_count());
-            share_icon.setText(question.getShare_count());
-            question_id = question.getQuestion_id();
-            bt_add_comment.setOnClickListener(this);
-            top_back.setOnClickListener(this);
-            getCommentListfromServer("");
+        ImageOptions options = new ImageOptions.Builder().setCircular(true)
+                .setFailureDrawableId(R.mipmap.default_portrait).build();
+        x.image().bind(item_portrait, question.getPortrait_url(),options);
+        comment_icon.setText(question.getComment_count() + "");
+        share_icon.setText(question.getShare_count() + "");
+        question_id = question.getQuestion_id();
+        bt_add_comment.setOnClickListener(this);
+        top_back.setOnClickListener(this);
+        if (isQuestion) {
+            x.image().bind(image_text_item_img_right, question.getRight_url());
+//            image_text_item_img_left.setImageDrawable(question.getImage_left());
+            x.image().bind(image_text_item_img_left, question.getLeft_url());
+//            image_text_item_img_right.setImageDrawable(question.getImage_right());
 
         } else {
             image_text_item_img_left.setVisibility(View.GONE);
             image_text_item_img_right.setVisibility(View.GONE);
             gsyVideoPlayer_left.setVisibility(View.VISIBLE);
             gsyVideoPlayer_right.setVisibility(View.VISIBLE);
-            initVideoPlayer(gsyVideoPlayer_left, questionVideo.getVideo_left());
-            initVideoPlayer(gsyVideoPlayer_right, questionVideo.getVideo_right());
+            initVideoPlayer(gsyVideoPlayer_left, question.getLeft_url());
+            initVideoPlayer(gsyVideoPlayer_right, question.getRight_url());
+//            getCommentListfromServer(isQuestion);
         }
+        getCommentListfromServer(isQuestion);
 
 
     }
@@ -149,7 +143,9 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
 
         //增加封面
-//        gsyVideoPlayer.setThumbImageView(holder.imageView);
+        ImageView imageView = new ImageView(this);
+        imageView.setImageBitmap(utils.createVideoThumbnail(url));
+        gsyVideoPlayer.setThumbImageView(imageView);
         //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
         gsyVideoPlayer.setUp(url, true, null, "");
@@ -188,31 +184,32 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onBackPressed() {
-        //先返回正常状态
-        if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-            gsyVideoPlayer_left.getFullscreenButton().performClick();
-            gsyVideoPlayer_right.getFullscreenButton().performClick();
-            return;
-        }
-        //释放所有
-        gsyVideoPlayer_left.setStandardVideoAllCallBack(null);
-        gsyVideoPlayer_right.setStandardVideoAllCallBack(null);
-        GSYVideoPlayer.releaseAllVideos();
-        if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            super.onBackPressed();
-        } else {
-            finish();
-            overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+        super.onBackPressed();
+        if (!isQuestion) {
+            //先返回正常状态
+            if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
+                gsyVideoPlayer_left.getFullscreenButton().performClick();
+                gsyVideoPlayer_right.getFullscreenButton().performClick();
+                return;
+            }
+            //释放所有
+            gsyVideoPlayer_left.setStandardVideoAllCallBack(null);
+            gsyVideoPlayer_right.setStandardVideoAllCallBack(null);
+            GSYVideoPlayer.releaseAllVideos();
+            if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                super.onBackPressed();
+            } else {
+                finish();
+                overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
+            }
+
         }
     }
 
     /**
      * 从服务器获取commentList
      */
-    private void getCommentListfromServer(String what) {
-        if (what == "image_text") {
-
-        }
+    private void getCommentListfromServer(boolean isQuestion) {
         RequestParams entity = new RequestParams(Config.url_comment);
         entity.addBodyParameter("msg", "2");
         entity.addBodyParameter("question_id", question_id + "");
@@ -344,7 +341,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     public void onSuccess(String result) {
         if (result != null) {
             if (result.equals("1")) {
-                getCommentListfromServer("");
+                getCommentListfromServer(isQuestion);
                 Toast.makeText(this, "评论成功", Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(this, "评论失败", Toast.LENGTH_SHORT).show();

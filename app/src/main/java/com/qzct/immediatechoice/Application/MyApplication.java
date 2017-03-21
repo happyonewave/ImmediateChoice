@@ -6,7 +6,6 @@ import android.os.Environment;
 
 import com.qzct.immediatechoice.BuildConfig;
 import com.qzct.immediatechoice.domain.Question;
-import com.qzct.immediatechoice.domain.QuestionVideo;
 import com.qzct.immediatechoice.domain.User;
 
 import org.xutils.x;
@@ -25,8 +24,8 @@ public class MyApplication extends Application {
 
 
     public static User user;
-    public static QuestionVideo questionVideo;
     public static Question question;
+    public static boolean isQuestion = false;
 
     @Override
     public void onCreate() {

@@ -352,7 +352,7 @@ public class AttentionPager extends BasePager {
                 int share_count = temp.getInt("share_count");
                 int comment_count = temp.getInt("comment_count");
                 String comment = temp.getString("comment");
-                Question Question = new Question(question_content, image_left, image_right, quizzer_name, quizzer_portrait, share_count, comment_count, comment, null);
+                Question Question = new Question(0,question_content, image_left, image_right, quizzer_name, quizzer_portrait, share_count, comment_count, comment, null,null);
                 if (msg == REFRESH_QUESTION) {
                     questionlist.add(0, Question);
                 } else {
