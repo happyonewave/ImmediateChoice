@@ -53,6 +53,13 @@
             android:drawableTop="@drawable/bt_discovery_bg"
             android:onClick="click" />
 
+        <!--android:text="朋友"-->
+        <RadioButton
+            android:id="@+id/bt_friend"
+            style="@style/bt_style"
+            android:drawableTop="@drawable/bt_friend_bg"
+            android:onClick="click" />
+
         <!--android:text="我的"-->
         <RadioButton
             android:id="@+id/bt_user"

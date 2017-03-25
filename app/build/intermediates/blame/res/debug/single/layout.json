@@ -4,72 +4,48 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_discovery.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_comment.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\dialog_comment.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_grid_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_grid_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoticon_tab_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_emoticon_tab_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_menu_item_action_area.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_plugin_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_plugin_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_bottom_navigation_item.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_catalog_listview.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_catalog_listview.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_media_recorder.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\SmallVideoLib\\unspecified\\res\\layout\\activity_media_recorder.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_multichoice_material.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_leave_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_leave_message.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_progress_dialog.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_progress_dialog.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_input_menu.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_input_menu.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_webview.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_webview.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_top.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\setting_top.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_conversation_member.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_conversation_member.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_dialog_title_material.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_layout_tab_text.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_image.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\cn.bingoogolapple\\bga-banner\\2.1.7\\res\\layout\\bga_banner_item_image.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_layout_snackbar.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_attention.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_attention.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_file_list.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_file_list.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
@@ -80,36 +56,32 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_video.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_app_service_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_app_service_conversation.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_action.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_activity_chooser_view.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_testconversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_testconversation.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_menu_layout.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_action_tombstone.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_dialog_popup_options_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_dialog_popup_options_item.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_bar_view_list_nav_layout.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoji_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_emoji_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_checkbox.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_up_container.xml",
@@ -120,8 +92,440 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fill_verification_code.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_rich_content_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_rich_content_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_sub_list.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_public_service_sub_list.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\register_top.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\register_top.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_volume_dialog.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_volume_dialog.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_home.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_activity.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_activity.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_refresh_list_view.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_refresh_list_view.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_rich_content_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_rich_content_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_comment_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_comment_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_layout_custom.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_layout_custom.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_notice.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_wi_notice.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_inf.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_public_service_inf.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_layout_tab_icon.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_root_menu_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_root_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_image.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_image.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_extension_bar.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_extension_bar.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_image_text_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_image_text_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoji_pager.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_emoji_pager.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_register.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_image_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_image_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_notification_realtime_location.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_notification_realtime_location.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_preview_fragment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_preview_fragment.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_menu_item_start.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_start.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_speed_dial_bottom.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_speed_dial_bottom.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\stasus_bar.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\stasus_bar.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_location_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_location_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_video_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_video_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_grid_camera.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_grid_camera.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_media_custom.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_public_service_search.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_public_service_search.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_original.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_original.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_top.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\layout_top.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_push.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_push.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_dialog_popup_prompt_warning.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_dialog_popup_prompt_warning.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_input_menus.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_input_menus.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fill_password.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fill_password.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_group_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_group_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_effect.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fab_effect.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_mention_members.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_mention_members.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_alert_human_evaluation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_alert_human_evaluation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_user.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_user.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_photo.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_photo.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoticon_tab_container.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_emoticon_tab_container.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_sinaheader.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.lcodecorex\\tkrefreshlayout\\1.0.4\\res\\layout\\view_sinaheader.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_file_list_adapter.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_wi_file_list_adapter.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_discussion_notification_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_discussion_notification_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item_header.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_base_activity_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_base_activity_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_menu_item_end.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_end.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_emoji_grid_view.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_emoji_grid_view.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_alert_warning.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_alert_warning.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_camera.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_camera.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_icon_rt_location_marker.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_icon_rt_location_marker.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\setting_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_bottom_sheet_dialog.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_evaluate.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_evaluate.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_progress.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_progress.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item_separator.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_title_button.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\home_title_button.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_system_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_system_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_vo_popup.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_wi_vo_popup.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_sub_menu_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_sub_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_comment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\dialog_comment.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_input_menu_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_input_menu_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_menu_item_action_area.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_menu_item_action_area.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_bottom_navigation_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_conversation_notification_container.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_conversation_notification_container.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_search.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_search.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_friend.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_friend.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_dialog_popup_options.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_dialog_popup_options.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_base_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_base_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_fragment.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\layout_fragment.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_dialog_alter.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_dialog_alter.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_text_message_evaluate.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_text_message_evaluate.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_sub_menu_container.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_sub_menu_container.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_top.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\setting_top.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_multi_rich_content_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_multi_rich_content_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_text.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_layout_tab_text.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_location_real_time_activity.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_location_real_time_activity.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_mention_list_item.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_mention_list_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\bga_banner_item_image.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\cn.bingoogolapple\\bga-banner\\2.1.7\\res\\layout\\bga_banner_item_image.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_layout_snackbar.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_attention.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_attention.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fragment_base_setting.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fragment_base_setting.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_conversation.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_file_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_file_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_file_list.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_file_list.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_comment_item.xml",
@@ -132,52 +536,40 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_brightness.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_dialog.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.zzz40500\\android-shapeLoadingView\\1.0.3.2\\res\\layout\\layout_dialog.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_volume_dialog.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_volume_dialog.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_speed_dial_top.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_speed_dial_top.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_home.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_home.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picsel_preview.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_preview.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_plugin_grid_view.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_plugin_grid_view.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pager_navigator_layout_no_scroll.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.hackware1993\\MagicIndicator\\1.3.1\\res\\layout\\pager_navigator_layout_no_scroll.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_text_input_password_icon.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_text_input_password_icon.xml"
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_text_input_password_icon.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_menu.xml"
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_menu.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_part_time.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_voice_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_voice_message.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_snackbar_include.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_layout_snackbar_include.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_comment_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_comment_item.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\video_layout_custom.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.CarGuo\\GSYVideoPlayer\\v1.6.0\\res\\layout\\video_layout_custom.xml"
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
@@ -192,136 +584,120 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fill_tel.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_layout_tab_icon.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_layout_tab_icon.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_user_item.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_user_item.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_item.xml"
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_image_text_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_image_text_item.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_conversationlist.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_conversationlist.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_register.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_register.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_group_information_notification_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_group_information_notification_message.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_toolbar.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_messagelist.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_messagelist.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_bezier.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.lcodecorex\\tkrefreshlayout\\1.0.4\\res\\layout\\view_bezier.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_location_preview_activity.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_location_preview_activity.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\set_password.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\set_password.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_view.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_search_view.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_menu_item_start.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_start.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_speed_dial_bottom.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_speed_dial_bottom.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_voice_input.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_voice_input.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\support_simple_spinner_dropdown_item.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\stasus_bar.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\stasus_bar.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_video_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_video_item.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_select_dialog_material.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_media_custom.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_media_custom.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_input_pager_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_input_pager_layout.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\pager_navigator_layout.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.hackware1993\\MagicIndicator\\1.3.1\\res\\layout\\pager_navigator_layout.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_information_notification_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_information_notification_message.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_chronometer.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_top.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\layout_top.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_dialog_popup_prompt.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_dialog_popup_prompt.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_file_manager.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_file_manager.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\push_top.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\push_top.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_push.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_push.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_camera.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_camera.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fill_password.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fill_password.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_effect.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fab_effect.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_main.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\functionfragment.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\functionfragment.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_albums.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_albums.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_content_include.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_list.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_list.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_input_edit_text.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_input_edit_text.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_topic_item.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_topic_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_picture_pager.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_picture_pager.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\questionnaire_top.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\questionnaire_top.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_menu_item.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines_media.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_user.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\fragment_user.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_plugin_location_activity.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_plugin_location_activity.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting.xml",
@@ -332,12 +708,32 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\image_carousel.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_sinaheader.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.lcodecorex\\tkrefreshlayout\\1.0.4\\res\\layout\\view_sinaheader.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_plugin_pager.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_plugin_pager.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_header.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_item_header.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_fr_conversation_member_list.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_fr_conversation_member_list.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_menu_container.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_menu_container.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_single_choice_layout.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_single_choice_layout.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_test.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_test.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ac_file_download.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ac_file_download.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_alert_robot_evaluation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_alert_robot_evaluation.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_questionnaire.xml",
@@ -352,6 +748,10 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_discussion_conversation.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_discussion_conversation.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_activity_chooser_view_list_item.xml"
     },
@@ -360,48 +760,60 @@
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_action_mode_bar.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_menu_item_end.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.1\\res\\layout\\fab_menu_item_end.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_item_material.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\select_dialog_item_material.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_subheader.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_item_subheader.xml"
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.1.0\\res\\layout\\design_navigation_item_subheader.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\load_view.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.github.zzz40500\\android-shapeLoadingView\\1.0.3.2\\res\\layout\\load_view.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_block_popup.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_wi_block_popup.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_message.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_material.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_image_text.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_image_text.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\setting_item.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\setting_item.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_wi_block.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_wi_block.xml"
     },
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_bottom_sheet_dialog.xml"
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_text_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_text_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_ext_indicator.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_ext_indicator.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_cs_item_single_choice.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_cs_item_single_choice.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_pic_popup_window.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_pic_popup_window.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_share_location_message.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_share_location_message.xml"
+    },
+    {
+        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picprev_activity.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picprev_activity.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_login.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_login.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item_separator.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.0.0\\res\\layout\\design_navigation_item_separator.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_topic.xml",
@@ -410,10 +822,6 @@
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_title_material.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\layout\\abc_alert_dialog_title_material.xml"
-    },
-    {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\home_title_button.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\home_title_button.xml"
     },
     {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_comment.xml",

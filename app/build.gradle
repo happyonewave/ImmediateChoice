@@ -70,7 +70,7 @@ dependencies {
     compile 'com.android.support:support-vector-drawable:25.+'
     compile 'com.android.support:appcompat-v7:25.1.0'
     //材料设计
-    compile 'com.android.support:design:25.0.0'
+    compile 'com.android.support:design:25.1.0'
     //悬浮按钮
     compile 'io.github.yavski:fab-speed-dial:1.0.1'
     //圆形ImageView
@@ -93,7 +93,7 @@ dependencies {
     //网络视频缩略图
     compile 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
     //加载动画
-    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
+    //    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
     compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
     compile files('libs/httpclient-4.3.1.jar')
     compile files('libs/httpmime-4.3.1.jar')
@@ -107,4 +107,6 @@ dependencies {
     compile project(':zrcListView')
     //短视频
     compile project(':SmallVideoLib')
+    compile project(':IMKit')
+    compile project(':IMLib')
 }

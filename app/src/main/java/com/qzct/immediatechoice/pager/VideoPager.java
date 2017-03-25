@@ -73,7 +73,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     @Override
     public void initData() {
         lv_home_video = (ZrcListView) view.findViewById(R.id.lv_home_video);
-        sendFabIsVisible(lv_home_video);
+//        sendFabIsVisible(lv_home_video);
 
         // 设置下拉刷新的样式
         SimpleHeader header = new SimpleHeader(context);

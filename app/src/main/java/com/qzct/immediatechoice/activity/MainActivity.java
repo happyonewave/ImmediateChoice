@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
+import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
@@ -86,9 +87,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.bt_discovery:
                 index = 1;
                 break;
+            //朋友
+            case R.id.bt_friend:
+                index = 2;
+                break;
             //我的
             case R.id.bt_user:
-                index = 2;
+                index = 3;
                 break;
 
             default:
@@ -121,9 +126,11 @@ public class MainActivity extends AppCompatActivity {
                     baseFragment = new DiscoveryFragment();
                     break;
                 case 2:
+                    baseFragment = new FriendFragment();
+                    break;
+                case 3:
                     baseFragment = new UserFragment();
                     break;
-
                 default:
                     break;
             }

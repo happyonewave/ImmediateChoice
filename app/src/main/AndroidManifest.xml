@@ -14,11 +14,10 @@
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
 
-
-     <!--<android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
-     <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
-     <!--<android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
-     <!--<android:uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
+    <!--<android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+    <!--<android:uses-permission android:name="android.permission.READ_PHONE_STATE" /> -->
+    <!--<android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!--<android:uses-permission android:name="android.permission.READ_CALL_LOG" /> -->
     <!-- 这个权限用于进行网络定位 -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!-- 这个权限用于访问GPS定位 -->
@@ -40,6 +39,48 @@
 
     <!--<android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 获取机型信息权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS_FULL" />
+
+    <!-- 查看 Wi-Fi 状态 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 查看网络状态 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 控制振动器 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <!-- 防止设备休眠 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+    <!--获取联系人信息，demo中演示发送通讯录消息-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- ⼩米 配置开始 < -->
+    <permission
+        android:name="cn.rongcloud.im.permission.MIPUSH_RECEIVE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="cn.rongcloud.im.permission.MIPUSH_RECEIVE" />
+    <!-- ⼩米 配置结束 < -->
+    <!-- GCM 配置开始 < -->
+    <permission
+        android:name="cn.rongcloud.im.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="cn.rongcloud.im.permission.C2D_MESSAGE" />
+    <!-- GCM 配置结束 < -->
+
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
@@ -52,31 +93,55 @@
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/app_name">
+            <!--<intent-filter>-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
+
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name=".test.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".test.TestActivity" >
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
-
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
-        </activity>
         <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.PushActivity" >
+        <activity android:name=".activity.PushActivity">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.QuestionnaireActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.CommentActivity" />
-        <activity android:name="mabeijianxi.camera.MediaRecorderActivity"/>
+        <activity android:name="mabeijianxi.camera.MediaRecorderActivity" />
+        <activity android:name=".test.TestConversationActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="com.qzct.immediatechoice"
+                    android:pathPrefix="/conversation/"
+                    android:scheme="rong" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".test.SubConversationListActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="com.qzct.immediatechoice"
+                    android:path="/subconversationlist"
+                    android:scheme="rong" />
+            </intent-filter>
+        </activity>
 
         <service
             android:name="com.baidu.location.f"
@@ -87,6 +152,11 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="eCgphSZuHICzW4F8Ck6RZ2DAXiqdANTF" />
         <!-- //key:开发者申请的Key -->
+
+
+        <meta-data
+            android:name="RONG_CLOUD_APP_KEY"
+            android:value="x18ywvqfxlw3c" />
     </application>
 
 </manifest>

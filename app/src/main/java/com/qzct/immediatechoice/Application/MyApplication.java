@@ -12,8 +12,10 @@ import org.xutils.x;
 
 import java.io.File;
 
+import io.rong.imkit.RongIM;
 import mabeijianxi.camera.VCamera;
 import mabeijianxi.camera.util.DeviceUtils;
+
 
 
 /**
@@ -29,8 +31,10 @@ public class MyApplication extends Application {
 
     @Override
     public void onCreate() {
-        user = new User();
         super.onCreate();
+        user = new User();
+        //融云IM初始化
+        RongIM.init(this);
         //初始化xUtils
         x.Ext.init(this);
         // 是否输出debug日志, 开启debug会影响性能.

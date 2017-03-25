@@ -8,7 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-import com.mingle.widget.LoadingView;
+//import com.mingle.widget.LoadingView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
@@ -57,7 +57,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     private String request;
     private String maxPostTime;
     private boolean isFirst;
-    private LoadingView loadingView;
+//    private LoadingView loadingView;
 
 
     public ImageTextPager(Context context) {
@@ -67,7 +67,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     @Override
     public View initView() {
         view = inflater.inflate(R.layout.view_image_text, null);
-        loadingView = (LoadingView) view.findViewById(R.id.loadView);
+//        loadingView = (LoadingView) view.findViewById(R.id.loadView);
         return view;
     }
 
@@ -75,7 +75,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     @Override
     public void initData() {
         lv_home = (ZrcListView) view.findViewById(R.id.lv_home);
-        sendFabIsVisible(lv_home);
+//        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
         // 设置下拉刷新的样式
         SimpleHeader header = new SimpleHeader(context);
@@ -105,12 +105,12 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
         });
         FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
         firstLoadMoreTask.execute();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                loadingView.setVisibility(View.GONE);
-            }
-        }, 4000);
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                loadingView.setVisibility(View.GONE);
+//            }
+//        }, 4000);
     }
 
     /**

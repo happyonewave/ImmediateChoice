@@ -37,6 +37,7 @@ import wseemann.media.FFmpegMediaMetadataRetriever;
 public class utils {
     private static JSONObject obj;
 
+
     public static Bitmap createVideoThumbnail(String url) {
         FFmpegMediaMetadataRetriever fmmr = new FFmpegMediaMetadataRetriever();
         Bitmap bitmap = null;

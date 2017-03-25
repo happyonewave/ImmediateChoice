@@ -12,15 +12,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.zzz40500\android-shapeLoadingView\1.0.3.2\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0cc1eadbbbd59d1ac49015550ce8e11e2dff5eff">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.github.zzz40500-android-shapeLoadingView-1.0.3.2_358612481ea94adc1c0fbdd929c80dfe2c5a8596.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.CarGuo\GSYVideoPlayer\v1.6.0\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -39,15 +30,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\transition\25.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0c6d948e6cb9ea6f535d175fb61ba2930719c0e9">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.0.0_f13fa02767715797c3f7b42a24387d811dde9ff1.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\libs\httpcore-4.3.jar"
         jumboMode="false"
         optimize="true"
@@ -63,6 +45,15 @@
         revision="25.0.0"
         sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.2.0_953db10fa7711747394acc94486d07cc59fc9ff7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMKit\unspecified\jars\libs\Rong_IMKit.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="7f06de4548e7539eeb9f398c5563e1480befbe50">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\Rong_IMKit_635395540c32b55f2a6526adc45e034f6be1b872.jar" />
     </item>
     <item
         is-multidex="false"
@@ -144,6 +135,24 @@
         revision="25.0.0"
         sha1="4968500e276d051b8ed8135f1a0254120f6c600d">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.wang.avi-library-1.0.1_c46f4387eb8a040f36a77dc5d066b67c37865b99.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\transition\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="d38084015027549951cbaea5d5f6fb795cc81151">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.1.0_467abaa0025605e7bf6428ad300c0af930251c92.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMKit\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b3c88f68e5343c225512ffd3ee39a7427729f9c5">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\ImmediateChoice-IMKit-unspecified_b15b10ecf916e461786974e71f534078b36b76f1.jar" />
     </item>
     <item
         is-multidex="false"
@@ -264,12 +273,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.0.0\jars\classes.jar"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMLib\unspecified\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
-        sha1="26384be22ddc74cfe197ebda9edbc7d1fd8bd537">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.0.0_b9efd8e17ecf11f1d40dad1849f167482f9df4e2.jar" />
+        sha1="df2bf1dd9aad6f587a795fc4edf323fa579b1fd9">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\ImmediateChoice-IMLib-unspecified_740501a9e8ed0dfb82196e75f2c4c8f87d63e916.jar" />
     </item>
     <item
         is-multidex="false"
@@ -291,21 +300,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.0.0\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5e497d60f0cb6ce87c458ac5420a46d0fed49bd0">
-        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.0.0_ba673e623e365ffea19d8309890e95a2a5413a3c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\SmallVideoLib\unspecified\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.0"
         sha1="756ff039f72459902426ddf0a31d6a121df9a682">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\ImmediateChoice-SmallVideoLib-unspecified_fbc751f161ec79bbc1c794f11a034aab56ba47a4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="b266c8faa5af72e579b9da36ef35053ffed6ac64">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.1.0_d72bf00fc126726a2e59d57061ae28c45a987d4a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -333,6 +342,24 @@
         revision="25.0.0"
         sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
         <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_00d4503652a8e1e0954f0a02fde391d9fac9dbd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMLib\unspecified\jars\libs\Rong_IMLib.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="67dc90e774d172e4bf85b585fb78b9c912707beb">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\Rong_IMLib_551dd70f4d5d6546c1ad71b5827f9be1bb8b6e6b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\design\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="30103d98fa5ed824b54af839c85e2111f9bde8ec">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.android.support-design-25.1.0_49690312f463e97e8a32c7e1f7419074356925a5.jar" />
     </item>
     <item
         is-multidex="false"
