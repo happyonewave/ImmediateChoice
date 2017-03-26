@@ -8,6 +8,8 @@ import android.view.View;
 
 import com.qzct.immediatechoice.fragment.HomeFragment;
 
+import zrc.widget.SimpleFooter;
+import zrc.widget.SimpleHeader;
 import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
@@ -79,5 +81,42 @@ public abstract class BasePager {
 
     }
 
-    ;
+
+    public void setLoad(ZrcListView listView) {
+
+        // 设置下拉刷新的样式
+        SimpleHeader header = new SimpleHeader(context);
+        header.setTextColor(0xff0066aa);
+        header.setCircleColor(0xff33bbee);
+        listView.setHeadable(header);
+        // 设置加载更多的样式
+        SimpleFooter footer = new SimpleFooter(context);
+        footer.setCircleColor(0xff33bbee);
+        listView.setFootable(footer);
+        // 设置列表项出现动画
+//        lv_home.setItemAnimForTopIn(R.anim.topitem_in);
+//        lv_home.setItemAnimForBottomIn(R.anim.bottomitem_in);
+        // 下拉刷新事件回调
+        listView.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
+            @Override
+            public void onStart() {
+                refresh();
+            }
+        });
+        // 加载更多事件回调
+        listView.setOnLoadMoreStartListener(new ZrcListView.OnStartListener() {
+            @Override
+            public void onStart() {
+                loadMore();
+            }
+        });
+    }
+
+    private void loadMore() {
+
+    }
+
+    private void refresh() {
+
+    }
 }

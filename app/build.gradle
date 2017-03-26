@@ -5,7 +5,7 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.qzct.immediatechoice"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 19
         vectorDrawables.useSupportLibrary = true
     }
@@ -92,8 +92,6 @@ dependencies {
     //    compile 'com.mabeijianxi:small-video-record:1.1.0'
     //网络视频缩略图
     compile 'com.github.wseemann:FFmpegMediaMetadataRetriever:1.0.14'
-    //加载动画
-    //    compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
     compile 'cn.bingoogolapple:bga-banner:2.1.7@aar'
     compile files('libs/httpclient-4.3.1.jar')
     compile files('libs/httpmime-4.3.1.jar')
@@ -107,6 +105,15 @@ dependencies {
     compile project(':zrcListView')
     //短视频
     compile project(':SmallVideoLib')
+    //可自定义FAB控件
+//    compile 'com.github.joaquimley:faboptions:1.1.2'
+    //一个悬浮操作按钮的Toolbar
+    compile 'com.github.alexkolpa:floating-action-button-toolbar:0.5.1'
+    //带展开菜单的浮动操作按钮
+    compile 'io.github.yavski:fab-speed-dial:1.0.6'
+    //融云及时通讯
     compile project(':IMKit')
+    //漂亮流畅的加载视图
+    compile 'com.tuyenmonkey:mkloader:1.2.0'
     compile project(':IMLib')
 }

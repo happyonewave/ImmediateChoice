@@ -13,6 +13,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.alexkolpa.fabtoolbar.FabToolbar;
+import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
@@ -73,6 +75,9 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private boolean isTransition;
     private Question question;
     private boolean isQuestion = MyApplication.isQuestion;
+    private FabToolbar fab_toolbar;
+    private TwinklingRefreshLayout comment_TwinklingRefresh;
+    private View header_layout;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -91,20 +96,24 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void initView() {
-        tv_question = (TextView) findViewById(R.id.tv_question);    //拿到相应的View对象
-        image_text_item_img_left = (SmartImageView) findViewById(R.id.image_text_item_img_left);
-        image_text_item_img_right = (SmartImageView) findViewById(R.id.image_text_item_img_right);
-        gsyVideoPlayer_left = (StandardGSYVideoPlayer) findViewById(R.id.video_item_left);
-        gsyVideoPlayer_right = (StandardGSYVideoPlayer) findViewById(R.id.video_item_right);
-        item_username = (TextView) findViewById(R.id.item_username);
-        item_portrait = (ImageView) findViewById(R.id.item_portrait);
-        comment_icon = (Button) findViewById(R.id.comment_icon);
-        share_icon = (Button) findViewById(R.id.share_icon);
+        header_layout = (View) View.inflate(this, R.layout.lv_comment_header, null);
+        tv_question = (TextView) header_layout.findViewById(R.id.tv_question);    //拿到相应的View对象
+        image_text_item_img_left = (SmartImageView) header_layout.findViewById(R.id.image_text_item_img_left);
+        image_text_item_img_right = (SmartImageView) header_layout.findViewById(R.id.image_text_item_img_right);
+        gsyVideoPlayer_left = (StandardGSYVideoPlayer) header_layout.findViewById(R.id.video_item_left);
+        gsyVideoPlayer_right = (StandardGSYVideoPlayer) header_layout.findViewById(R.id.video_item_right);
+        item_username = (TextView) header_layout.findViewById(R.id.item_username);
+        item_portrait = (ImageView) header_layout.findViewById(R.id.item_portrait);
+        comment_icon = (Button) header_layout.findViewById(R.id.comment_icon);
+        share_icon = (Button) header_layout.findViewById(R.id.share_icon);
         lv_comment = (ListView) findViewById(R.id.lv_comment);
         hint_new_comment = (TextView) findViewById(R.id.hint_new_comment);
         et_add_comment_content = (TextView) findViewById(R.id.et_add_comment_content);
         bt_add_comment = (Button) findViewById(R.id.bt_add_comment);
+        fab_toolbar = (FabToolbar) findViewById(R.id.fab_toolbar);
         top_back = (ImageView) findViewById(R.id.top_back);
+//        comment_TwinklingRefresh = (TwinklingRefreshLayout) findViewById(R.id.comment_TwinklingRefresh);
+
     }
 
     private void initData() {
@@ -113,12 +122,13 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //            item_portrait.setImageDrawable(question.getQuizzer_portrait());
         ImageOptions options = new ImageOptions.Builder().setCircular(true)
                 .setFailureDrawableId(R.mipmap.default_portrait).build();
-        x.image().bind(item_portrait, question.getPortrait_url(),options);
+        x.image().bind(item_portrait, question.getPortrait_url(), options);
         comment_icon.setText(question.getComment_count() + "");
         share_icon.setText(question.getShare_count() + "");
         question_id = question.getQuestion_id();
         bt_add_comment.setOnClickListener(this);
         top_back.setOnClickListener(this);
+//        comment_TwinklingRefresh.setPureScrollModeOn(true);
         if (isQuestion) {
             x.image().bind(image_text_item_img_right, question.getRight_url());
 //            image_text_item_img_left.setImageDrawable(question.getImage_left());
@@ -126,6 +136,21 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //            image_text_item_img_right.setImageDrawable(question.getImage_right());
 
         } else {
+//            fab_toolbar.requestFocusFromTouch();
+//            fab_toolbar.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//                @Override
+//                public void onFocusChange(View v, boolean hasFocus) {
+//                    fab_toolbar.requestFocus();
+//                    Log.d(TAG, "onFocusChange: ");
+//                    if (!hasFocus) {
+//                        Toast.makeText(CommentActivity.this, "!hasFocus", Toast.LENGTH_SHORT).show();
+//                        fab_toolbar.hide();
+//                    } else {
+//                        Toast.makeText(CommentActivity.this, "hasFocus", Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }
+//            });
             image_text_item_img_left.setVisibility(View.GONE);
             image_text_item_img_right.setVisibility(View.GONE);
             gsyVideoPlayer_left.setVisibility(View.VISIBLE);
@@ -134,6 +159,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             initVideoPlayer(gsyVideoPlayer_right, question.getRight_url());
 //            getCommentListfromServer(isQuestion);
         }
+        header_layout.setVisibility(View.VISIBLE);
+        lv_comment.addHeaderView(header_layout);
         getCommentListfromServer(isQuestion);
 
 
@@ -259,22 +286,18 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.bt_add_comment:
                 //判断提交按钮的状态
-                if (bt_add_comment.getText().equals("+")) {
-                    hint_new_comment.setVisibility(View.GONE);
-                    et_add_comment_content.setVisibility(View.VISIBLE);
-                    bt_add_comment.setText("提交");
+                comment_content = et_add_comment_content.getText().toString();
+                if (!("".equals(comment_content))) {
+                    pushComment();
+                    et_add_comment_content.setText("");
+                    fab_toolbar.hide();
                 } else {
-                    comment_content = et_add_comment_content.getText().toString();
-                    if (!("".equals(comment_content))) {
-                        pushComment();
-                        hint_new_comment.setVisibility(View.VISIBLE);
-                        et_add_comment_content.setVisibility(View.GONE);
-                        et_add_comment_content.setText("");
-                        bt_add_comment.setText("+");
-                    } else {
-                        Toast.makeText(this, "你没有评论哦", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(this, "你没有评论哦", Toast.LENGTH_SHORT).show();
                 }
+
+                break;
+            case R.id.add_comment_layout:
+                fab_toolbar.hide();
                 break;
 
             case R.id.top_back:

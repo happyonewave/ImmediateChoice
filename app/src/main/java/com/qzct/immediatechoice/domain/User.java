@@ -1,5 +1,10 @@
 package com.qzct.immediatechoice.domain;
 
+import android.content.Context;
+
+import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.util.utils;
+
 /**
  * Created by Administrator on 2017-02-26.
  */
@@ -41,6 +46,17 @@ public class User {
         this.username = username;
         this.password = password;
     }
+
+    public User(int user_id, String username, String portrait_path) {
+        this.user_id = user_id;
+        this.username = username;
+        this.portrait_path = portrait_path;
+    }
+
+    public static User getDefaultUser(Context context) {
+        return new User(0, "游客", utils.getUribyId(context, R.mipmap.default_portrait).toString());
+    }
+
 
     public User() {
     }

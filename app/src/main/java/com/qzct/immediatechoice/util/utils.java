@@ -2,8 +2,10 @@ package com.qzct.immediatechoice.util;
 
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -37,6 +39,16 @@ import wseemann.media.FFmpegMediaMetadataRetriever;
 public class utils {
     private static JSONObject obj;
 
+
+    public static Uri getUribyId(Context context, int resid) {
+        Resources r = context.getResources();
+
+        Uri url = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+                + r.getResourcePackageName(resid) + "/"
+                + r.getResourceTypeName(resid) + "/"
+                + r.getResourceEntryName(resid));
+        return url;
+    }
 
     public static Bitmap createVideoThumbnail(String url) {
         FFmpegMediaMetadataRetriever fmmr = new FFmpegMediaMetadataRetriever();
@@ -81,6 +93,11 @@ public class utils {
             bar.setWidth(activity.getWindow().getWindowManager().getDefaultDisplay().getWidth());
             bar.setHeight(getStatusBarHeight(activity));
             bar.setBackgroundColor(Color.parseColor("#ffeb633b"));
+//            View firstView = view.getChildAt(0);
+//            View firstView1 = firstView;
+//            view.removeView(firstView);
+//            firstView1.setPadding(0, getStatusBarHeight(activity), 0, 0);
+//            view.addView(firstView1, 0);
             view.addView(bar, 0);
             //设置导航栏透明
 //            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);

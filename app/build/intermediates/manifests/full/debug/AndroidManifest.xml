@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="19"
         android:targetSdkVersion="19" />
     <!-- To auto-complete the email text field in the activity_login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -89,7 +89,13 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.qzct.immediatechoice.activity.MainActivity"
-            android:label="@string/app_name" />
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.qzct.immediatechoice.activity.LoginActivity"
             android:label="@string/app_name" >
@@ -102,11 +108,13 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.qzct.immediatechoice.test.TestActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.SettingActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.PushActivity" >

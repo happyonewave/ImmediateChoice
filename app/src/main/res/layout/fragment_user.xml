@@ -47,9 +47,10 @@
 
         <ImageView
             android:id="@+id/user_portrait"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_centerInParent="true" />
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:src="@mipmap/default_portrait" />
 
         <!--<com.loopj.android.image.SmartImageView-->
         <!--android:id="@+id/user_portrait"-->
@@ -125,6 +126,15 @@
                 android:textColor="@android:color/black"
                 android:textSize="20dp" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/hint_mypush"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="请登入后查看"
+            android:textColor="#900000ff"
+            android:textSize="20dp"></TextView>
 
         <GridView
             android:id="@+id/gv_user"

@@ -2,6 +2,7 @@ package com.qzct.immediatechoice.adpter;
 
 import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -218,7 +219,11 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
         //增加封面
         ImageView imageView = new ImageView(context);
-        imageView.setImageBitmap(utils.createVideoThumbnail(url));
+        Bitmap videoThumbnail = utils.createVideoThumbnail(url);
+//        videoThumbnail.setWidth(gsyVideoPlayer.getgetWidth());
+//        videoThumbnail.setHeight(gsyVideoPlayer.getHeight());
+        imageView.setImageBitmap(videoThumbnail);
+
         gsyVideoPlayer.setThumbImageView(imageView);
         //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title

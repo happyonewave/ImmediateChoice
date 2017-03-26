@@ -1,167 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/comment_top"
-        layout="@layout/layout_top"></include>
-
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <TextView
-                android:id="@+id/tv_question"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_margin="10dp"
-                android:text="@string/question_content"
-                android:textSize="25dp" />
-
-            <LinearLayout
-                android:id="@+id/image_text_item_img_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tv_question">
-
-                <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
-                    android:id="@+id/video_item_left"
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"
-                    android:visibility="gone"
-                    />
-
-                <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
-                    android:id="@+id/video_item_right"
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher"
-                    android:visibility="gone"/>
-                <com.loopj.android.image.SmartImageView
-                    android:id="@+id/image_text_item_img_left"
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
-
-                <com.loopj.android.image.SmartImageView
-                    android:id="@+id/image_text_item_img_right"
-                    android:layout_width="0dp"
-                    android:layout_height="180dp"
-                    android:layout_weight="1"
-                    android:src="@mipmap/ic_launcher" />
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/hint_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/image_text_item_img_layout"
-                android:padding="5dp">
-
-                <ImageView
-                    android:layout_centerVertical="true"
-                    android:id="@+id/item_portrait"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:background="@android:color/transparent"
-                    android:src="@mipmap/default_portrait" />
-
-                <TextView
-                    android:id="@+id/item_username"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/item_portrait"
-                    android:background="@android:color/transparent"
-                    android:text="不语" />
-
-                <Button
-                    android:id="@+id/comment_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@mipmap/comment"
-                    android:text="65" />
-
-                <Button
-                    android:id="@+id/share_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toLeftOf="@id/comment_icon"
-                    android:background="@android:color/transparent"
-                    android:drawableLeft="@mipmap/share"
-                    android:text="65" />
-
-            </RelativeLayout>
-        </RelativeLayout>
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/gray"
-            android:orientation="horizontal">
+            android:background="@android:color/white"
+            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/hint_new_comment"
-                android:layout_width="0dp"
+            <include
+                android:id="@+id/comment_top"
+                layout="@layout/layout_top"></include>
+
+            <!--<com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout-->
+            <!--android:id="@+id/comment_TwinklingRefresh"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight="10"
-                android:padding="5dp"
-                android:text="最新评论"
-                android:textColor="@android:color/black"
-                android:textSize="15sp" />
+                android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/et_add_comment_content"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:gravity="center_vertical"
-                android:layout_gravity="center"
-                android:layout_weight="10"
-                android:hint="请输入评论"
-                android:padding="5dp"
-                android:textColor="@android:color/black"
-                android:textSize="15sp"
 
-                android:visibility="gone" />
+                <ListView
+                    android:id="@+id/lv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@null"
+                    android:scrollbars="none"></ListView>
 
-            <Button
-                android:id="@+id/bt_add_comment"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:padding="4dp"
-                android:text="+" />
+            </LinearLayout>
+            <!--</com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout>-->
+
         </LinearLayout>
 
-        <ListView
-            android:divider="@null"
-            android:id="@+id/lv_comment"
+
+        <com.github.alexkolpa.fabtoolbar.FabToolbar
+            android:id="@+id/fab_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scrollbars="none"></ListView>
+            android:layout_gravity="bottom"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            app:fabSize="mini"
+            app:tb_button_gravity="end"
+            app:tb_color="@color/apporange"
+            app:tb_container_gravity="center">
 
-    </LinearLayout>
+            <LinearLayout
+                android:id="@+id/add_comment_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_add_comment_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_weight="10"
+                    android:gravity="center_vertical"
+                    android:hint="请输入评论"
+                    android:padding="5dp"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp" />
+
+                <Button
+                    android:id="@+id/bt_add_comment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:padding="4dp"
+                    android:text="提交" />
+            </LinearLayout>
+
+            <!-- More buttons can be added here -->
+
+        </com.github.alexkolpa.fabtoolbar.FabToolbar>
+
+    </FrameLayout>
+
 
 </LinearLayout>

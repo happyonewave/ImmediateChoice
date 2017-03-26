@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
@@ -201,7 +202,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
                     User user_all = new User(user_id, username, password, phone_number, portrait_path, sex);
                     //存储User到Application
-                    com.qzct.immediatechoice.application.MyApplication.user = user_all;
+                    MyApplication.user = user_all;
+                    MyApplication.logined = true;
                     //进入主界面
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);

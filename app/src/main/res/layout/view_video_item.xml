@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
-        android:descendantFocusability="blocksDescendants"
-        android:padding="10dp">
-
+        android:descendantFocusability="blocksDescendants">
+        <!--android:padding="10dp"-->
 
         <TextView
             android:id="@+id/tv_question"
@@ -32,19 +32,21 @@
             <LinearLayout
                 android:id="@+id/view_item_img_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_weight="1">
+                    <!--android:layout_marginRight="5dp"-->
 
 
                     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                         android:id="@+id/view_video_item_left"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="match_parent"
+                        />
 
                     <ProgressBar
                         android:id="@+id/view_video_item_left_ProgressBar"
@@ -57,16 +59,16 @@
                 </FrameLayout>
 
                 <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_height="150dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
                     android:layout_weight="1">
 
                     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                         android:id="@+id/view_video_item_right"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp" />
+                        android:layout_height="wrap_content" />
 
+                    <!--android:layout_marginRight="5dp"-->
                     <ProgressBar
                         android:id="@+id/view_video_item_right_ProgressBar"
                         style="@android:style/Widget.ProgressBar.Horizontal"
@@ -132,7 +134,8 @@
             android:layout_below="@id/hint_layout"
             android:background="@color/gray"
             android:padding="15dp"
-            android:text="当然是冬天才能领略北国风光啦！" />
+            android:text="当然是冬天才能领略北国风光啦！"
+            android:visibility="gone" />
 
     </RelativeLayout>
 

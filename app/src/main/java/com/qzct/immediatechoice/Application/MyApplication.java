@@ -17,7 +17,6 @@ import mabeijianxi.camera.VCamera;
 import mabeijianxi.camera.util.DeviceUtils;
 
 
-
 /**
  * Created by Qin on 2017-02-27.
  */
@@ -28,11 +27,12 @@ public class MyApplication extends Application {
     public static User user;
     public static Question question;
     public static boolean isQuestion = false;
+    public static boolean logined = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
-        user = new User();
+        user = User.getDefaultUser(getApplicationContext());
         //融云IM初始化
         RongIM.init(this);
         //初始化xUtils

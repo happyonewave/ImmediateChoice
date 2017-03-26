@@ -2,10 +2,12 @@ package com.qzct.immediatechoice.activity;
 
 
 import android.app.Activity;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -13,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
@@ -20,14 +23,22 @@ import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
 import com.qzct.immediatechoice.util.utils;
 
+import java.util.ArrayList;
+
+import io.rong.imkit.RongIM;
+import io.rong.imlib.RongIMClient;
+import io.rong.imlib.model.UserInfo;
+
 /**
  * 主
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements RongIM.UserInfoProvider {
 
     private FrameLayout fl;
     public static Activity mainActivity;
     public static RadioGroup rg_nav;
+    private String token = "18LyaY+7DAct9px+BRJxCl3lOgyfFg2AjkViYtqQca3pbaogcPqTnfcI34AD9x2wXSWqwKWhvYM=";
+    private ArrayList<UserInfo> UserInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +52,44 @@ public class MainActivity extends AppCompatActivity {
         Adapter.setPrimaryItem(fl, 0, fragment);
         Adapter.finishUpdate(fl);
         mainActivity = this;
+
+        UserInfoList = new ArrayList<UserInfo>();
+        UserInfoList.add(new UserInfo("1", "小梨子", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/2.jpg")));
+        UserInfoList.add(new UserInfo("2", "Qin", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/3.jpg")));
+        RongIM.setUserInfoProvider(this, true);
+        if (MyApplication.user.getUser_id() == 2) {
+            token = "G/i7WKl49H6dWLJIf31wg5K2kJJ49pN8xrdowMMx5ayEtxy460ZKgAMWNe5rqcc8kGacuUXe1r87hDlHGJQzBg==";
+
+        }
+        RongIM.connect(token, new RongIMClient.ConnectCallback() {
+            @Override
+            public void onTokenIncorrect() {
+
+            }
+
+            @Override
+            public void onSuccess(String s) {
+                Log.d("qin", "userid: " + s);
+
+            }
+
+            @Override
+            public void onError(RongIMClient.ErrorCode errorCode) {
+
+            }
+        });
+    }
+
+
+    @Override
+    public UserInfo getUserInfo(String s) {
+
+        for (UserInfo user : UserInfoList) {
+            if (user.getUserId().equals(s)) {
+                return user;
+            }
+        }
+        return null;
     }
 
     /**

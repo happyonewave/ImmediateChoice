@@ -4,12 +4,12 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -29,6 +29,9 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.yavski.fabspeeddial.FabSpeedDial;
+import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
+
 @ContentView(R.layout.fragment_home)
 public class HomeFragment extends baseFragment implements View.OnClickListener {
 
@@ -36,19 +39,15 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private static final int VIDEO = 1;
     private static final int ATTENTTION = 2;
     private View v;
-    LinearLayout fab_push_vote__layout;
-    LinearLayout fab_question_layout;
     private ViewPager vp_home;
     private PagerAdapter pagerAdapter = null;
     private List<BasePager> pagers = new ArrayList<BasePager>();
     View home_image_text_line;
     View home_video_line;
     View home_attention_line;
-    FloatingActionButton fab_home;
-    FloatingActionButton fab_push;
-    FloatingActionButton fab_question;
     public final static String ACTION_SET_FAB_VISBILITY = "ACTION_SET_FAB_VISBILITY";
     private LinearLayout home_title;
+    private FabSpeedDial fabSpeedDial;
 
     /**
      * 填充view
@@ -59,19 +58,33 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
         vp_home = (ViewPager) v.findViewById(R.id.vp_home);
-        fab_push_vote__layout = (LinearLayout) v.findViewById(R.id.fab_push_vote__layout);
-        fab_question_layout = (LinearLayout) v.findViewById(R.id.fab_question_layout);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
 
+        fabSpeedDial = (FabSpeedDial) v.findViewById(R.id.fab_speed_dial);
+        fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.fab_push:
+                        Intent intent = new Intent(context, PushActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.fab_question:
+                        intent = new Intent(context, QuestionnaireActivity.class);
+                        startActivity(intent);
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                return super.onMenuItemSelected(menuItem);
+            }
+        });
         home_title = (LinearLayout) v.findViewById(R.id.home_title);
-        fab_home = (FloatingActionButton) v.findViewById(R.id.fab_home);
-        fab_push = (FloatingActionButton) v.findViewById(R.id.fab_push);
-        fab_question = (FloatingActionButton) v.findViewById(R.id.fab_question);
-        fab_home.setOnClickListener(this);
-        fab_push.setOnClickListener(this);
-        fab_question.setOnClickListener(this);
         return v;
     }
 
@@ -83,16 +96,12 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     public void setFabvisibility(boolean isvisible) {
 
         if (isvisible) {
-            fab_home.show();
-            fab_push.show();
-            fab_question.show();
+            fabSpeedDial.show();
             home_title.setVisibility(View.VISIBLE);
             MainActivity.rg_nav.setVisibility(View.VISIBLE);
             Log.e("show", "show");
         } else {
-            fab_home.hide();
-            fab_push.hide();
-            fab_question.hide();
+            fabSpeedDial.hide();
             home_title.setVisibility(View.GONE);
             MainActivity.rg_nav.setVisibility(View.GONE);
             Log.e("hide", "hide");
@@ -154,26 +163,13 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()) {
-            //主悬浮按钮
-            case R.id.fab_home:
 
-                if (fab_push_vote__layout.getVisibility() == View.GONE) {
-                    fab_push_vote__layout.setVisibility(View.VISIBLE);
-                    fab_question_layout.setVisibility(View.VISIBLE);
-                } else {
-                    fab_push_vote__layout.setVisibility(View.GONE);
-                    fab_question_layout.setVisibility(View.GONE);
-                }
-                break;
-            //发起
             case R.id.fab_push:
-                Intent intent = new Intent(context, PushActivity.class);
-                startActivity(intent);
+
                 break;
-            //问卷调查
+
             case R.id.fab_question:
-                intent = new Intent(context, QuestionnaireActivity.class);
-                startActivity(intent);
+
                 break;
 
             default:

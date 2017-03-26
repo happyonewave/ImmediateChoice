@@ -33,8 +33,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import zrc.widget.SimpleFooter;
-import zrc.widget.SimpleHeader;
 import zrc.widget.ZrcListView;
 
 
@@ -74,36 +72,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     public void initData() {
         lv_home_video = (ZrcListView) view.findViewById(R.id.lv_home_video);
 //        sendFabIsVisible(lv_home_video);
-
-        // 设置下拉刷新的样式
-        SimpleHeader header = new SimpleHeader(context);
-        header.setTextColor(0xff0066aa);
-        header.setCircleColor(0xff33bbee);
-        lv_home_video.setHeadable(header);
-        lv_home_video.startLoadMore();
-        // 设置加载更多的样式
-        SimpleFooter footer = new SimpleFooter(context);
-        footer.setCircleColor(0xff33bbee);
-        lv_home_video.setFootable(footer);
-
-
-        // 设置列表项出现动画
-//        lv_home_video.setItemAnimForTopIn(R.anim.topitem_in);
-//        lv_home_video.setItemAnimForBottomIn(R.anim.bottomitem_in);
-        // 下拉刷新事件回调
-        lv_home_video.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
-            @Override
-            public void onStart() {
-                refresh();
-            }
-        });
-// 加载更多事件回调
-        lv_home_video.setOnLoadMoreStartListener(new ZrcListView.OnStartListener() {
-            @Override
-            public void onStart() {
-                loadMore();
-            }
-        });
+            setLoad(lv_home_video);
         lv_home_video.setOnItemClickListener(this);
         FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
         firstLoadMoreTask.execute();

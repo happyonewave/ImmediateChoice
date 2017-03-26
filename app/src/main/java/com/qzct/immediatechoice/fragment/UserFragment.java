@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
+import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.application.MyApplication;
@@ -34,46 +35,59 @@ import java.util.List;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
-import static com.qzct.immediatechoice.application.MyApplication.user;
-
-public class UserFragment extends baseFragment {
-
+public class UserFragment extends baseFragment implements View.OnClickListener {
+    private static final String TAG = "qin";
     private View v;
     List<Question> questionList;
     GridView lv;
+    User user;
+    private String portrait_path;
+    private TextView tv_username;
+    private ImageView blurImageView;
+    private ImageView user_portrait;
+    private ImageView bt_setting;
+    private TextView hint_mypush;
 
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = v.inflate(context, R.layout.fragment_user, null);
+        user = MyApplication.user;
+        tv_username = (TextView) v.findViewById(R.id.user_tv_username);
+        blurImageView = (ImageView) v.findViewById(R.id.iv_bg);
+        user_portrait = (ImageView) v.findViewById(R.id.user_portrait);
+        lv = (GridView) v.findViewById(R.id.gv_user);
+        bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
+        hint_mypush = (TextView) v.findViewById(R.id.hint_mypush);
         return v;
     }
 
     @Override
     public void initdata() {
-
-        User user = MyApplication.user;
-        TextView tv_username = (TextView) v.findViewById(R.id.user_tv_username);
 //        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
 //        SmartImageView user_portrait = (SmartImageView) v.findViewById(R.id.user_portrait);
 //        RelativeLayout rl_bg =  (RelativeLayout) v.findViewById(R.id.rl_bg);
 //        ImageOptions options = new ImageOptions.Builder().setCircular(true)
 //                .setFailureDrawableId(R.mipmap.default_portrait).build();
 //        x.image().bind(user_portrait, user.getPortrait_path(), options);
-
-        ImageView blurImageView = (ImageView) v.findViewById(R.id.iv_bg);
-        ImageView avatarImageView = (ImageView) v.findViewById(R.id.user_portrait);
-
-        Glide.with(this).load(user.getPortrait_path())
+        portrait_path = user.getPortrait_path();
+//        if (MyApplication.logined) {
+//            portrait_path = user.getPortrait_path();
+//        } else {
+//            portrait_path = utils.getUribyId(getActivity(), R.mipmap.default_portrait).toString();
+//
+//        }
+        Glide.with(this).load(portrait_path)
                 .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
                 .into(blurImageView);
 
 
-        Glide.with(this).load(user.getPortrait_path())
+        Glide.with(this).load(portrait_path)
                 .bitmapTransform(new CropCircleTransformation(context))
-                .into(avatarImageView);
+                .into(user_portrait);
 
         tv_username.setText(user.getUsername());
-        lv = (GridView) v.findViewById(R.id.gv_user);
+        user_portrait.setOnClickListener(this);
+        bt_setting.setOnClickListener(this);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -88,19 +102,14 @@ public class UserFragment extends baseFragment {
                 context.startActivity(intent);
             }
         });
-        getMyPush();
+        if (MyApplication.logined) {
+            hint_mypush.setVisibility(View.VISIBLE);
+            getMyPush();
+        }
 
 
 //        ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, MyApplication.url_user);
 //        ShowConversationFromJsonArrayTask.execute();
-        ImageView bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
-        bt_setting.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context, SettingActivity.class);
-                startActivity(intent);
-            }
-        });
     }
 
     public void getMyPush() {
@@ -164,6 +173,20 @@ public class UserFragment extends baseFragment {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.bt_setting:
+                Intent intent = new Intent(context, SettingActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.user_portrait:
+                Intent login = new Intent(context, LoginActivity.class);
+                startActivity(login);
+                break;
+        }
     }
 
 

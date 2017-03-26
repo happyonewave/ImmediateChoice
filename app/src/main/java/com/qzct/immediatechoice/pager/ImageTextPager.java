@@ -8,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
-//import com.mingle.widget.LoadingView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
@@ -16,6 +15,7 @@ import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -34,9 +34,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import zrc.widget.SimpleFooter;
-import zrc.widget.SimpleHeader;
 import zrc.widget.ZrcListView;
+
+//import com.mingle.widget.LoadingView;
 
 
 /**
@@ -57,6 +57,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     private String request;
     private String maxPostTime;
     private boolean isFirst;
+    private MKLoader loader;
 //    private LoadingView loadingView;
 
 
@@ -75,48 +76,18 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     @Override
     public void initData() {
         lv_home = (ZrcListView) view.findViewById(R.id.lv_home);
+        loader = (MKLoader) view.findViewById(R.id.loader);
 //        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
-        // 设置下拉刷新的样式
-        SimpleHeader header = new SimpleHeader(context);
-        header.setTextColor(0xff0066aa);
-        header.setCircleColor(0xff33bbee);
-        lv_home.setHeadable(header);
-        // 设置加载更多的样式
-        SimpleFooter footer = new SimpleFooter(context);
-        footer.setCircleColor(0xff33bbee);
-        lv_home.setFootable(footer);
-        // 设置列表项出现动画
-//        lv_home.setItemAnimForTopIn(R.anim.topitem_in);
-//        lv_home.setItemAnimForBottomIn(R.anim.bottomitem_in);
-        // 下拉刷新事件回调
-        lv_home.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
-            @Override
-            public void onStart() {
-                refresh();
-            }
-        });
-        // 加载更多事件回调
-        lv_home.setOnLoadMoreStartListener(new ZrcListView.OnStartListener() {
-            @Override
-            public void onStart() {
-                loadMore();
-            }
-        });
+        setLoad(lv_home);
         FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
         firstLoadMoreTask.execute();
-//        new Handler().postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                loadingView.setVisibility(View.GONE);
-//            }
-//        }, 4000);
     }
 
     /**
      * 下拉刷新
      */
-    private void refresh() {
+    protected void refresh() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -131,7 +102,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     /**
      * 上拉加载
      */
-    private void loadMore() {
+    protected void loadMore() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -186,6 +157,13 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loader.setVisibility(View.GONE);
+                            lv_home.setVisibility(View.VISIBLE);
+                        }
+                    }, 2000);
 
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
