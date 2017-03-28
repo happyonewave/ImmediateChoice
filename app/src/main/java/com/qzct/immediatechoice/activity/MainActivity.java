@@ -2,7 +2,6 @@ package com.qzct.immediatechoice.activity;
 
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -16,14 +15,24 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
 import java.util.ArrayList;
+import java.util.List;
 
 import io.rong.imkit.RongIM;
 import io.rong.imlib.RongIMClient;
@@ -37,8 +46,8 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     private FrameLayout fl;
     public static Activity mainActivity;
     public static RadioGroup rg_nav;
-    private String token = "18LyaY+7DAct9px+BRJxCl3lOgyfFg2AjkViYtqQca3pbaogcPqTnfcI34AD9x2wXSWqwKWhvYM=";
-    private ArrayList<UserInfo> UserInfoList;
+    private String token = MyApplication.user.getToken();
+    private ArrayList<UserInfo> userInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +62,12 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         Adapter.finishUpdate(fl);
         mainActivity = this;
 
-        UserInfoList = new ArrayList<UserInfo>();
-        UserInfoList.add(new UserInfo("1", "小梨子", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/2.jpg")));
-        UserInfoList.add(new UserInfo("2", "Qin", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/3.jpg")));
+        userInfoList = new ArrayList<UserInfo>();
+//        MyApplication.userList = getFriendInfo();
+        getFriendInfo();
+//        userInfoList.add(new UserInfo("1", "小梨子", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/2.jpg")));
+//        userInfoList.add(new UserInfo("2", "Qin", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/3.jpg")));
         RongIM.setUserInfoProvider(this, true);
-        if (MyApplication.user.getUser_id() == 2) {
-            token = "G/i7WKl49H6dWLJIf31wg5K2kJJ49pN8xrdowMMx5ayEtxy460ZKgAMWNe5rqcc8kGacuUXe1r87hDlHGJQzBg==";
-
-        }
         RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override
             public void onTokenIncorrect() {
@@ -80,11 +87,65 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         });
     }
 
+    /**
+     * 获取好友信息
+     */
+    private void getFriendInfo() {
+        final List<User> userList = new ArrayList<User>();
+        RequestParams entity = new RequestParams(Config.url_friend);
+        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    try {
+                        JSONArray friendArray = new JSONArray(result);
+                        for (int i = 0; i < friendArray.length(); i++) {
+                            JSONObject temp = friendArray.getJSONObject(i);
+                            int user_id = temp.getInt("user_id");
+                            String name = temp.getString("name");
+                            String phone_number = temp.getString("phone_number");
+                            String sex = temp.getString("sex");
+                            String portrait_url = temp.getString("portrait_path");
+                            User user = new User(user_id, name, phone_number, sex, portrait_url);
+                            userList.add(user);
+                        }
+                        MyApplication.userList = userList;
+                        userInfoList.add(MyApplication.user.toUserinfo());
+                        for (User user : userList) {
+                            Log.d("qin", user.toUserinfo().getPortraitUri().toString());
+                            userInfoList.add(user.toUserinfo());
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(MainActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
 
     @Override
     public UserInfo getUserInfo(String s) {
 
-        for (UserInfo user : UserInfoList) {
+        for (UserInfo user : userInfoList) {
             if (user.getUserId().equals(s)) {
                 return user;
             }

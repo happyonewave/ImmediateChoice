@@ -11,6 +11,7 @@ import com.qzct.immediatechoice.domain.User;
 import org.xutils.x;
 
 import java.io.File;
+import java.util.List;
 
 import io.rong.imkit.RongIM;
 import mabeijianxi.camera.VCamera;
@@ -28,6 +29,7 @@ public class MyApplication extends Application {
     public static Question question;
     public static boolean isQuestion = false;
     public static boolean logined = false;
+    public static List<User> userList;
 
     @Override
     public void onCreate() {

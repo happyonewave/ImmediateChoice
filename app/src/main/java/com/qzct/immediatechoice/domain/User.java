@@ -1,9 +1,12 @@
 package com.qzct.immediatechoice.domain;
 
 import android.content.Context;
+import android.net.Uri;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.util.utils;
+
+import io.rong.imlib.model.UserInfo;
 
 /**
  * Created by Administrator on 2017-02-26.
@@ -16,6 +19,33 @@ public class User {
     String phone_number;
     String portrait_path;
     String sex;
+    String token;
+
+    public UserInfo toUserinfo(){
+        UserInfo userInfo = new UserInfo(user_id + "", username, Uri.parse(portrait_path));
+        return userInfo;
+    }
+    public User(int user_id, String username, String phone_number, String sex, String portrait_path) {
+        this.user_id = user_id;
+        this.username = username;
+        this.phone_number = phone_number;
+        this.sex = sex;
+        this.portrait_path = portrait_path;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public User(int user_id, String username, String password, String phone_number, String portrait_path, String sex, String token) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.phone_number = phone_number;
+        this.portrait_path = portrait_path;
+        this.sex = sex;
+        this.token = token;
+    }
 
     public User(int user_id, String username, String password, String phone_number, String portrait_path, String sex) {
         this.user_id = user_id;

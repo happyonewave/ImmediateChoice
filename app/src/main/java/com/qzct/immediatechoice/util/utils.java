@@ -39,15 +39,14 @@ import wseemann.media.FFmpegMediaMetadataRetriever;
 public class utils {
     private static JSONObject obj;
 
-
     public static Uri getUribyId(Context context, int resid) {
         Resources r = context.getResources();
 
-        Uri url = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
+        Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE + "://"
                 + r.getResourcePackageName(resid) + "/"
                 + r.getResourceTypeName(resid) + "/"
                 + r.getResourceEntryName(resid));
-        return url;
+        return uri;
     }
 
     public static Bitmap createVideoThumbnail(String url) {
@@ -79,7 +78,6 @@ public class utils {
         }
         return bitmap;
     }
-
 
     public static View getUsableView(Activity activity, int resource) {
 

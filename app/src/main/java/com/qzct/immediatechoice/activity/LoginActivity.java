@@ -42,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     User user;
     public static LoginActivity loginActivity;
+    private String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,10 +198,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         phone_number = json.getString("phone_number");
                         sex = json.getString("sex");
                         portrait_path = json.getString("portrait_path");
+                        token = json.getString("token");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    User user_all = new User(user_id, username, password, phone_number, portrait_path, sex);
+                    User user_all = new User(user_id, username, password, phone_number, portrait_path, sex,token);
                     //存储User到Application
                     MyApplication.user = user_all;
                     MyApplication.logined = true;
