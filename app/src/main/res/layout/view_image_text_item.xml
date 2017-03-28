@@ -81,13 +81,19 @@
                         android:src="@mipmap/ic_launcher" />
                     <!--android:layout_marginRight="5dp"-->
 
-                    <ProgressBar
-                        android:id="@+id/image_text_item_left_ProgressBar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                    <!--<ProgressBar-->
+                    <!--android:id="@+id/image_text_item_left_ProgressBar"-->
+                    <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="bottom|center_horizontal" />-->
 
+                    <com.daimajia.numberprogressbar.NumberProgressBar
+                        android:id="@+id/image_text_item_left_ProgressBar"
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal">
+
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
                 </FrameLayout>
 
                 <FrameLayout
@@ -102,12 +108,19 @@
                         android:scaleType="center"
                         android:src="@mipmap/ic_launcher" />
 
-                    <ProgressBar
+                    <!--<ProgressBar-->
+                        <!--android:id="@+id/image_text_item_right_ProgressBar"-->
+                        <!--style="@android:style/Widget.ProgressBar.Horizontal"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="bottom|center_horizontal" />-->
+
+                    <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/image_text_item_right_ProgressBar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center" />
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal">
+
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
 
                 </FrameLayout>
 

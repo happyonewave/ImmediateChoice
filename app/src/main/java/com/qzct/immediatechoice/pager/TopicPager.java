@@ -1,6 +1,6 @@
 package com.qzct.immediatechoice.pager;
 
-import android.content.Context;
+import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -35,7 +35,7 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
     private TopicAdpter adpter;
     private GridView gv_class;
 
-    public TopicPager(Context context) {
+    public TopicPager(Activity context) {
         super(context);
     }
 

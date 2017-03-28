@@ -1,6 +1,6 @@
 package com.qzct.immediatechoice.pager;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -61,7 +61,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
 //    private LoadingView loadingView;
 
 
-    public ImageTextPager(Context context) {
+    public ImageTextPager(Activity context) {
         super(context);
     }
 

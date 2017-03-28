@@ -1,5 +1,6 @@
 package com.qzct.immediatechoice.pager;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -56,7 +57,7 @@ public class AttentionPager extends BasePager {
     private String request;
 
 
-    public AttentionPager(Context context) {
+    public AttentionPager(Activity context) {
         super(context);
     }
 
@@ -214,11 +215,11 @@ public class AttentionPager extends BasePager {
     class ShowFromJsonArrayTask extends AsyncTask<String, String, String> {
 
         String spec;
-        Context context;
+        Activity context;
         ListView listView;
         int startId;
 
-        public ShowFromJsonArrayTask(Context context, ListView listView, String spec, int startId) {
+        public ShowFromJsonArrayTask(Activity context, ListView listView, String spec, int startId) {
             this.context = context;
             this.listView = listView;
             this.spec = spec;

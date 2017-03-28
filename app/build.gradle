@@ -113,7 +113,11 @@ dependencies {
     compile 'io.github.yavski:fab-speed-dial:1.0.6'
     //融云及时通讯
     compile project(':IMKit')
+    compile project(':IMLib')
     //漂亮流畅的加载视图
     compile 'com.tuyenmonkey:mkloader:1.2.0'
-    compile project(':IMLib')
+    //支持水平方向上滑动和竖直方向上的滑动的ViewPager
+    compile 'cn.youngkaaa:yviewpager:0.2'
+    //简约性感的数字进度条
+    compile 'com.daimajia.numberprogressbar:library:1.4@aar'
 }

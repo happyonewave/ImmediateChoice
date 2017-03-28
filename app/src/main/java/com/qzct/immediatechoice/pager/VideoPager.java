@@ -1,6 +1,6 @@
 package com.qzct.immediatechoice.pager;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -57,7 +57,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     private String minPostTime;
 
 
-    public VideoPager(Context context) {
+    public VideoPager(Activity context) {
         super(context);
     }
 

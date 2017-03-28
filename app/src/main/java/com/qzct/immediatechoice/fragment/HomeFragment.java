@@ -58,6 +58,33 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
         vp_home = (ViewPager) v.findViewById(R.id.vp_home);
+        vp_home.setAdapter(new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return 0;
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return false;
+            }
+        });
+        vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);

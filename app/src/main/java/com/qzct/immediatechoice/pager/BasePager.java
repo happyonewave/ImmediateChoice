@@ -1,6 +1,6 @@
 package com.qzct.immediatechoice.pager;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
 import android.view.LayoutInflater;
@@ -19,12 +19,12 @@ import zrc.widget.ZrcListView;
 
 public abstract class BasePager {
 
-    public Context context;
+    public Activity context;
     public View view;
     public LayoutInflater inflater;
     int oldVisibleItem;
 
-    public BasePager(Context context) {
+    public BasePager(Activity context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         view = initView();

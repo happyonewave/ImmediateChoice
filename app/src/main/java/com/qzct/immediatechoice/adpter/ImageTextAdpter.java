@@ -1,6 +1,6 @@
 package com.qzct.immediatechoice.adpter;
 
-import android.content.Context;
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
@@ -35,7 +35,7 @@ import java.util.List;
 public class ImageTextAdpter extends BaseAdapter {
 
 
-    Context context;
+    Activity context;
     List<Question> questionlist;
     private String CHOICE_ONE = "1";
     SmartImageView image_text_item_img_left;
@@ -44,7 +44,7 @@ public class ImageTextAdpter extends BaseAdapter {
 //    MagicProgressCircle left_ProgressBar;
 //    MagicProgressCircle right_ProgressBar;
 
-    public ImageTextAdpter(Context context, List<Question> questionlist) {
+    public ImageTextAdpter(Activity context, List<Question> questionlist) {
         this.context = context;
         this.questionlist = questionlist;
     }
@@ -78,8 +78,8 @@ public class ImageTextAdpter extends BaseAdapter {
         image_text_item_img_right = (SmartImageView) v.findViewById(R.id.image_text_item_img_right);
         image_text_item_img_left.setVisibility(View.VISIBLE);
         image_text_item_img_right.setVisibility(View.VISIBLE);
-        final ProgressBar left_ProgressBar = (ProgressBar) v.findViewById(R.id.image_text_item_left_ProgressBar);
-        final ProgressBar right_ProgressBar = (ProgressBar) v.findViewById(R.id.image_text_item_right_ProgressBar);
+        final NumberProgressBar left_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_left_ProgressBar);
+        final NumberProgressBar right_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_right_ProgressBar);
         left_ProgressBar.setMax(100);
         right_ProgressBar.setMax(100);
         left_ProgressBar.setVisibility(View.GONE);
@@ -135,8 +135,10 @@ public class ImageTextAdpter extends BaseAdapter {
 //                            showBar(percent, 100 - percent);
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
-                            left_ProgressBar.setProgress(percent);
-                            right_ProgressBar.setProgress(100 - percent);
+                            setProgress(left_ProgressBar, percent);
+                            setProgress(right_ProgressBar, 100 - percent);
+//                            left_ProgressBar.setProgress(percent);
+//                            right_ProgressBar.setProgress(100 - percent);
                         }
                     }
 
@@ -203,6 +205,29 @@ public class ImageTextAdpter extends BaseAdapter {
             }
         });
         return v;
+    }
+
+    int counter = 0;
+
+    private void setProgress(final NumberProgressBar numberProgressBar, final int num) {
+//        Timer timer = new Timer();
+//        timer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                context.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        numberProgressBar.incrementProgressBy(1);
+//                        counter++;
+//                        if (counter == num) {
+//                            numberProgressBar.setProgress(0);
+//                            counter = 0;
+//                        }
+//                    }
+//                });
+//            }
+//        }, 1000, 100);
+        numberProgressBar.setProgress(num);
     }
 
     /**

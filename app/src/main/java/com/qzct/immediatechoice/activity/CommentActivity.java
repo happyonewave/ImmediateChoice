@@ -40,7 +40,6 @@ import java.util.Date;
 import java.util.List;
 
 import static android.content.ContentValues.TAG;
-import static com.qzct.immediatechoice.test.TestActivity.TRANSITION;
 
 
 /**
@@ -78,6 +77,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private FabToolbar fab_toolbar;
     private TwinklingRefreshLayout comment_TwinklingRefresh;
     private View header_layout;
+    private String TRANSITION = "TRANSITION";
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
