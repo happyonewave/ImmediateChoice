@@ -15,6 +15,7 @@ import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -55,6 +56,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     private boolean isFirst;
     private String maxPostTime;
     private String minPostTime;
+    private MKLoader loader;
 
 
     public VideoPager(Activity context) {
@@ -71,8 +73,9 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     @Override
     public void initData() {
         lv_home_video = (ZrcListView) view.findViewById(R.id.lv_home_video);
+        loader = (MKLoader) view.findViewById(R.id.loader);
 //        sendFabIsVisible(lv_home_video);
-            setLoad(lv_home_video);
+        setLoad(lv_home_video);
         lv_home_video.setOnItemClickListener(this);
         FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
         firstLoadMoreTask.execute();
@@ -83,7 +86,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     /**
      * 下拉刷新
      */
-    private void refresh() {
+    public void refresh() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -98,7 +101,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     /**
      * 上拉加载
      */
-    private void loadMore() {
+    public void loadMore() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -153,6 +156,8 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
                     isFirst = true;
                     refreshquestionList(GET_QUESTION);
                     lv_home_video.setAdapter(adpter);
+                    loader.setVisibility(View.GONE);
+                    lv_home_video.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
                 }

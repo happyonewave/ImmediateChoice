@@ -48,6 +48,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.0"
+        sha1="71ede1c33cee460e83b4b3be432d137df0b83049">
+        <dex dex="E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\com.ldoublem.thumbUplib-ThumbUplib-0.5_e669251a7553d9bf7cb73fd1538e7aafec88873a.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\Android\AndroidStudioProjects\ImmediateChoice\app\libs\httpcore-4.3.jar"
         jumboMode="false"
         optimize="true"

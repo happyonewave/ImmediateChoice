@@ -57,6 +57,7 @@ MERGED from [ImmediateChoice:IMLib:unspecified] E:\Android\AndroidStudioProjects
 MERGED from [com.tuyenmonkey:mkloader:1.2.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.tuyenmonkey\mkloader\1.2.0\AndroidManifest.xml:7:5-9:41
 MERGED from [cn.youngkaaa:yviewpager:0.2] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.youngkaaa\yviewpager\0.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.daimajia.numberprogressbar:library:1.4] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.daimajia.numberprogressbar\library\1.4\AndroidManifest.xml:7:5-9:41
+MERGED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.1.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -236,6 +237,7 @@ MERGED from [ImmediateChoice:IMKit:unspecified] E:\Android\AndroidStudioProjects
 MERGED from [ImmediateChoice:IMLib:unspecified] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMLib\unspecified\AndroidManifest.xml:24:5-95:19
 MERGED from [com.tuyenmonkey:mkloader:1.2.0] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.tuyenmonkey\mkloader\1.2.0\AndroidManifest.xml:11:5-15:19
 MERGED from [cn.youngkaaa:yviewpager:0.2] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.youngkaaa\yviewpager\0.2\AndroidManifest.xml:11:5-15:19
+MERGED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] E:\Android\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:11:5-15:19
 	android:label
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:88:9-41
 	android:supportsRtl

@@ -211,24 +211,41 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         if (!isQuestion) {
             //先返回正常状态
+            int val = CommentActivity.this.getWindow().getAttributes().flags;
+            // 全屏 66816 - 非全屏 65792
+            if (val == 66816) {//全屏
+//                gsyVideoPlayer_left.clearFullscreenLayout();
+//                gsyVideoPlayer_right.clearFullscreenLayout();
+                Toast.makeText(this, "退出全屏", Toast.LENGTH_SHORT).show();
+
+            }
+
+
             if (orientationUtils.getScreenType() == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE) {
-                gsyVideoPlayer_left.getFullscreenButton().performClick();
-                gsyVideoPlayer_right.getFullscreenButton().performClick();
+//                gsyVideoPlayer_left.getFullscreenButton().performClick();
+//                gsyVideoPlayer_right.getFullscreenButton().performClick();
+//                gsyVideoPlayer_left.clearFullscreenLayout();
+//                gsyVideoPlayer_right.clearFullscreenLayout();
                 return;
             }
             //释放所有
             gsyVideoPlayer_left.setStandardVideoAllCallBack(null);
             gsyVideoPlayer_right.setStandardVideoAllCallBack(null);
             GSYVideoPlayer.releaseAllVideos();
+            gsyVideoPlayer_left.clearFullscreenLayout();
+            gsyVideoPlayer_right.clearFullscreenLayout();
             if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 super.onBackPressed();
             } else {
-                finish();
+                Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
+//                finish();
                 overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
             }
+
+        } else {
+            super.onBackPressed();
 
         }
     }

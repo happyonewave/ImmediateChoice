@@ -153,6 +153,12 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         return null;
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+    }
+
     /**
      * 退出提醒
      *

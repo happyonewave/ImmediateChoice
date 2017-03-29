@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -182,8 +183,8 @@ public class ImageTextAdpter extends BaseAdapter {
 //                            showBar(100 - percent, percent);
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
-                            left_ProgressBar.setProgress(100 - percent);
-                            right_ProgressBar.setProgress(percent);
+                            setProgress(left_ProgressBar, 100 - percent);
+                            setProgress(right_ProgressBar, percent);
                         }
                     }
 
@@ -206,30 +207,27 @@ public class ImageTextAdpter extends BaseAdapter {
         });
         return v;
     }
-
-    int counter = 0;
-
-    private void setProgress(final NumberProgressBar numberProgressBar, final int num) {
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                context.runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        numberProgressBar.incrementProgressBy(1);
-//                        counter++;
-//                        if (counter == num) {
-//                            numberProgressBar.setProgress(0);
-//                            counter = 0;
-//                        }
-//                    }
-//                });
-//            }
-//        }, 1000, 100);
-        numberProgressBar.setProgress(num);
+    /**
+     * 显示投票情况
+     */
+    public static void setProgress(final NumberProgressBar numberProgressBar, final int num) {
+        final Handler handler = new Handler();
+        numberProgressBar.setProgress(0);
+        Runnable runnable = new Runnable() {
+            int counter = 0;
+            @Override
+            public void run() {
+                counter++;
+                numberProgressBar.setProgress(counter);
+                if (counter == num) {
+                    counter = 0;
+                } else {
+                    handler.postDelayed(this, 50);
+                }
+            }
+        };
+        handler.postDelayed(runnable, 50);
     }
-
     /**
      * 显示投票情况
      */

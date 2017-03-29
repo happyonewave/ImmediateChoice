@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Mar 26 20:36:26 CST 2017
+#Wed Mar 29 13:47:11 CST 2017
 1007.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 835.base=E\:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 100.set=ANDROID_RESOURCE

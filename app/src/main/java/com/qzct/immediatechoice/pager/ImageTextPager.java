@@ -77,6 +77,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     public void initData() {
         lv_home = (ZrcListView) view.findViewById(R.id.lv_home);
         loader = (MKLoader) view.findViewById(R.id.loader);
+//        loader.reDraw();
 //        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
         setLoad(lv_home);
@@ -87,7 +88,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     /**
      * 下拉刷新
      */
-    protected void refresh() {
+    public void refresh() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -102,7 +103,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     /**
      * 上拉加载
      */
-    protected void loadMore() {
+    public void loadMore() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -157,13 +158,11 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            loader.setVisibility(View.GONE);
-                            lv_home.setVisibility(View.VISIBLE);
-                        }
-                    }, 2000);
+//                    new Handler().postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                        }
+//                    }, 2000);
 
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
@@ -327,6 +326,11 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
 
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+
+        if (lv_home.getVisibility() == View.GONE) {
+            loader.setVisibility(View.GONE);
+            lv_home.setVisibility(View.VISIBLE);
         }
     }
 

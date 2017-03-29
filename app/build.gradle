@@ -120,4 +120,6 @@ dependencies {
     compile 'cn.youngkaaa:yviewpager:0.2'
     //简约性感的数字进度条
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
+    //不错的点赞效果
+    compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
 }

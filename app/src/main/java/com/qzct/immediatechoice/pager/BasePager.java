@@ -96,6 +96,8 @@ public abstract class BasePager {
         // 设置列表项出现动画
 //        lv_home.setItemAnimForTopIn(R.anim.topitem_in);
 //        lv_home.setItemAnimForBottomIn(R.anim.bottomitem_in);
+        //开启加载更多
+        listView.startLoadMore();
         // 下拉刷新事件回调
         listView.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
             @Override
@@ -112,11 +114,11 @@ public abstract class BasePager {
         });
     }
 
-    private void loadMore() {
+    public void loadMore() {
 
     }
 
-    private void refresh() {
+    public void refresh() {
 
     }
 }

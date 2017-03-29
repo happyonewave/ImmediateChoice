@@ -103,7 +103,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
             }
         });
         if (MyApplication.logined) {
-            hint_mypush.setVisibility(View.VISIBLE);
+            hint_mypush.setVisibility(View.GONE);
             getMyPush();
         }
 

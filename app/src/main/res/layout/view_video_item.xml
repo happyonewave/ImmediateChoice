@@ -45,17 +45,27 @@
                     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                         android:id="@+id/view_video_item_left"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        />
+                        android:layout_height="match_parent" />
 
-                    <ProgressBar
+                    <com.ldoublem.thumbUplib.ThumbUpView
+                        android:id="@+id/tpv_left"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        app:cracksColor="#33475f"
+                        app:edgeColor="#9d55b8"
+                        app:fillColor="#ea8010"
+                        app:unlikeType="1" />
+
+
+                    <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_left_ProgressBar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:visibility="gone" />
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:visibility="gone">
 
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
                 </FrameLayout>
 
                 <FrameLayout
@@ -69,13 +79,27 @@
                         android:layout_height="wrap_content" />
 
                     <!--android:layout_marginRight="5dp"-->
-                    <ProgressBar
+
+
+                    <com.ldoublem.thumbUplib.ThumbUpView
+                        android:id="@+id/tpv_right"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="right|center_vertical"
+                        android:layout_marginRight="20dp"
+                        app:cracksColor="#33475f"
+                        app:edgeColor="#9d55b8"
+                        app:fillColor="#ea8010"
+                        app:unlikeType="1" />
+
+                    <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_right_ProgressBar"
-                        style="@android:style/Widget.ProgressBar.Horizontal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:visibility="gone" />
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:visibility="gone">
+
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
+
 
                 </FrameLayout>
 
