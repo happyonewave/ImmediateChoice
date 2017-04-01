@@ -29,6 +29,7 @@ public class SettingActivity extends AppCompatActivity {
 
     /**
      * 点击事件监听
+     *
      * @param v
      */
     @Event({R.id.seting_back, R.id.logout})
@@ -44,7 +45,7 @@ public class SettingActivity extends AppCompatActivity {
                 MyApplication.user = null;
                 Intent intent = new Intent(SettingActivity.this, LoginActivity.class);
                 startActivity(intent);
-              MainActivity.mainActivity.finish();
+                MainActivity.mainActivity.finish();
                 SettingActivity.this.finish();
 
                 break;

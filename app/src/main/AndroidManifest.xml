@@ -91,18 +91,18 @@
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".test.TestActivity">
@@ -124,7 +124,7 @@
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.CommentActivity" />
         <activity android:name="mabeijianxi.camera.MediaRecorderActivity" />
-        <activity android:name=".test.TestConversationActivity">
+        <activity android:name=".activity.ConversationActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -137,7 +137,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".test.SubConversationListActivity">
+        <activity android:name=".activity.SubConversationListActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />

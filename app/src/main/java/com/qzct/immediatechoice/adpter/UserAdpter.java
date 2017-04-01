@@ -19,7 +19,6 @@ import java.util.List;
 
 public class UserAdpter extends BaseAdapter {
 
-    String ListviewName;
     List<Question> questionList;
     Context context;
 
@@ -39,25 +38,11 @@ public class UserAdpter extends BaseAdapter {
         Log.i("now", "getView");
         Question Question = questionList.get(position);
         if (convertView == null) {
-//				v =  new LinearLayout(context);
-//				v.setOrientation(LinearLayout.VERTICAL);
-//            if(conversation.getAddresser().equals( "小梨子")){
-//                v =  v.inflate(context, R.layout.fragment_user_item_lift, null);
-//            }else{
-//                v =  v.inflate(context, R.layout.ragment_userf_item_right, null);
-//            }
             v = v.inflate(context, R.layout.fragment_user_item, null);
             System.out.println("调用：" + position);
         } else {
             v = convertView;
         }
-
-
-//			SmartImageView siv = new SmartImageView(context);
-//			TextView tv_content = new TextView(context);
-//			TextView tv_addresser = new TextView(context);
-//			TextView tv_addressee = new TextView(context);
-//			siv.setRight(0);
 
         SmartImageView user_item_img_left = (SmartImageView) v.findViewById(R.id.user_item_img_left);
         SmartImageView user_item_img_right = (SmartImageView) v.findViewById(R.id.user_item_img_right);
@@ -67,8 +52,6 @@ public class UserAdpter extends BaseAdapter {
         user_tv_question.setText(Question.getQuestion_content());
         System.out.println(Question.getQuestion_content());
         user_item_img_left.setImageUrl(Question.getLeft_url());
-//        ImageOptions options = new ImageOptions.Builder().build();
-//        x.image().bind(user_item_img_left,Question.getImage_left(),options);
         user_item_img_right.setImageUrl(Question.getRight_url());
         return v;
     }

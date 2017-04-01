@@ -265,13 +265,13 @@ ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\Android
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:102:13-106:29
 action#android.intent.action.MAIN
-ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:13-65
+ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:17-69
 	android:name
-		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:21-62
+		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:105:13-73
+ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:105:17-77
 	android:name
-		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:105:23-70
+		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:105:27-74
 activity#com.qzct.immediatechoice.test.TestActivity
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:108:9-114:20
 	android:name
@@ -300,7 +300,7 @@ activity#mabeijianxi.camera.MediaRecorderActivity
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:126:9-77
 	android:name
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:126:19-74
-activity#com.qzct.immediatechoice.test.TestConversationActivity
+activity#com.qzct.immediatechoice.activity.ConversationActivity
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:127:9-139:20
 	android:name
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:127:19-64
@@ -322,10 +322,10 @@ ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\Android
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:136:21-42
 	android:pathPrefix
 		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:135:21-56
-activity#com.qzct.immediatechoice.test.SubConversationListActivity
+activity#com.qzct.immediatechoice.activity.SubConversationListActivity
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:140:9-150:20
 	android:name
-		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:140:19-67
+		ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:140:19-71
 service#com.baidu.location.f
 ADDED from E:\Android\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:152:9-155:41
 	android:enabled

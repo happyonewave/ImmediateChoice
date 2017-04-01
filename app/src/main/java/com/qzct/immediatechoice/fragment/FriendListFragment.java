@@ -6,11 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.GlideCircleTransform;
 
 import java.util.List;
 
@@ -52,15 +58,29 @@ public class FriendListFragment extends baseFragment {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                TextView v = null;
+                View v = null;
                 if (convertView == null) {
-                    v = new TextView(context);
-//                    v.setHeight(50);
-//                    v.setWidth(50);
+                    v = View.inflate(context, R.layout.fragment_friendlist_item, null);
                 } else {
                     v = (TextView) convertView;
                 }
-                v.setText(userList.get(position).getUsername());
+                ImageView portrait = (ImageView) v.findViewById(R.id.friend_portrait);
+                TextView name = (TextView) v.findViewById(R.id.friend_name);
+                Button btn_delete = (Button) v.findViewById(R.id.friend_delete);
+
+                Glide.with(context).load(userList.get(position).getPortrait_path())
+                        .transform(new GlideCircleTransform(context)).into(portrait);
+//                ImageOptions options = new ImageOptions.Builder().setCircular(true).setSize(80, 80).build();
+//                x.image().bind(portrait, userList.get(position).getPortrait_path(), options
+//                );
+                name.setText(userList.get(position).getUsername());
+                btn_delete.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Toast.makeText(context, "已点击btn_delete", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
                 return v;
             }
         });
@@ -69,7 +89,7 @@ public class FriendListFragment extends baseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 RongIM.getInstance().startPrivateChat(context,
                         userList.get(position).getUser_id() + "",
-                        "与" + userList.get(position).getUsername() + "的聊天");
+                        userList.get(position).getUsername());
                 Log.d("qin", "name:  " + userList.get(position).getUsername());
 
             }

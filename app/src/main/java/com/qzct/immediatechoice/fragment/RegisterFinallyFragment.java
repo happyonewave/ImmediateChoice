@@ -1,5 +1,6 @@
 package com.qzct.immediatechoice.fragment;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -12,9 +13,8 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.activity.LoginActivity;
-import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.RegisterActivity;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
@@ -50,6 +50,7 @@ public class RegisterFinallyFragment extends baseFragment {
         super();
     }
 
+    @SuppressLint("ValidFragment")
     public RegisterFinallyFragment(String phone_number) {
         this.phone_number = phone_number;
     }
@@ -70,7 +71,6 @@ public class RegisterFinallyFragment extends baseFragment {
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("image/*");
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//              intent.addCategory(Intent.CATEGORY_OPENABLE);
                 startActivityForResult(intent, IMAGE_PORTRAIT_UPLOAD);
 
             }
@@ -105,7 +105,6 @@ public class RegisterFinallyFragment extends baseFragment {
     public String getPathFromActivityResult(Intent data) {
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
         if (data != null) {
-//            ContentResolver resolver = getContentResolver();
             Uri originalUri = data.getData();        //获得图片的uri
             String path = utils.getImageAbsolutePath(context, originalUri);
             return path;
@@ -116,7 +115,6 @@ public class RegisterFinallyFragment extends baseFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
         if (data != null) {
             user_portrait.setImageURI(data.getData());
             portrait_path = getPathFromActivityResult(data);
@@ -173,16 +171,6 @@ public class RegisterFinallyFragment extends baseFragment {
             String url = Config.url_register;
             HttpPost httpPost = new HttpPost(url);
             try {
-//                List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-//                BasicNameValuePair pair1 = new BasicNameValuePair("name", name);
-//                BasicNameValuePair pair2 = new BasicNameValuePair("password", password);
-//                BasicNameValuePair pair3 = new BasicNameValuePair("phone_number", phone_number);
-//                BasicNameValuePair pair4 = new BasicNameValuePair("sex", sex);
-//                parameters.add(pair1);
-//                parameters.add(pair2);
-//                parameters.add(pair3);
-//                parameters.add(pair4);
-//                UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
 
 
                 Charset charset = Charset.forName("utf-8");

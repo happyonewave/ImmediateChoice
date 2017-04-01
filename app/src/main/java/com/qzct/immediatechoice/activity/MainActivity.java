@@ -63,10 +63,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         mainActivity = this;
 
         userInfoList = new ArrayList<UserInfo>();
-//        MyApplication.userList = getFriendInfo();
         getFriendInfo();
-//        userInfoList.add(new UserInfo("1", "小梨子", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/2.jpg")));
-//        userInfoList.add(new UserInfo("2", "Qin", Uri.parse("http://123.207.31.213/ImmediateChoice_service/image/3.jpg")));
         RongIM.setUserInfoProvider(this, true);
         RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override

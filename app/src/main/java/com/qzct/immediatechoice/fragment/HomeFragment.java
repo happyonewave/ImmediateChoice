@@ -301,79 +301,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         });
 
 
-//        lv_home = (ListView) v.findViewById(R.id.lv_home);
-//        new ShowFromJsonArrayTask(context, lv_home, getString(R.string.url_image_text)).execute();
-//
-//        final SwipeRefreshLayout home_swipe_refresh = (SwipeRefreshLayout) v.findViewById(R.id.home_swipe_refresh);
-//        home_swipe_refresh.setColorSchemeColors(Color.YELLOW, Color.BLUE);
-//        home_swipe_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-//            @Override
-//            public void onRefresh() {
-//
-//                Toast.makeText(context, "正在刷新", Toast.LENGTH_SHORT).show();
-//                new ShowFromJsonArrayTask(context, lv_home, getString(R.string.url_image_text)).execute();
-//                new Handler().postDelayed(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-//                        Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
-//                        home_swipe_refresh.setRefreshing(false);
-//
-//                    }
-//                }, 1500);
-//            }
-//        });
     }
 
-
-//
-//    class ShowFromJsonArrayTask extends AsyncTask<String, String, JSONArray> {
-//
-//        String spec;
-//        Context context;
-//        ListView listView;
-//
-//        public ShowFromJsonArrayTask(Context context, ListView listView, String spec) {
-//            this.context = context;
-//            this.listView = listView;
-//            this.spec = spec;
-//        }
-//
-//        @Override
-//        protected JSONArray doInBackground(String... params) {
-//            //返回获取的jasonArray
-//            return utils.GetJsonArray(spec);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(JSONArray jsonArray) {
-//            ArrayList<Question> questionlist = null;
-//            try {
-//                //new一个info数组
-//                questionlist = new ArrayList<Question>();
-//                //遍历传入的jsonArray
-//                for (int i = jsonArray.length() - 1; i > 0; i--) {
-//                    JSONObject temp = jsonArray.getJSONObject(i);
-//                    //读取相应内容
-//                    String question_content = temp.getString("question_content");
-//                    String image_left = temp.getString("image_left");
-//                    String image_right = temp.getString("image_right");
-//                    String quizzer_name = temp.getString("quizzer_name");
-//                    int share_count = temp.getInt("share_count");
-//                    int comment_count = temp.getInt("comment_count");
-//                    String comment = temp.getString("comment");
-//                    Question Question = new Question(question_content, image_left, image_right, quizzer_name, share_count, comment_count, comment, null);
-//                    System.out.println(Question.toString());
-//                    questionlist.add(Question);
-//                }
-//
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            //设置适配器
-//            listView.setAdapter(new ImageTextAdpter(context, questionlist));
-//            super.onPostExecute(jsonArray);
-//        }
-//    }
 
 }

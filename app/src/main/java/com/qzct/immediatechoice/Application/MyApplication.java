@@ -44,12 +44,6 @@ public class MyApplication extends Application {
         initSmallVideo(this);
 
     }
-
-    public void updateUserPortrait(User user) {
-
-
-    }
-
     public static void initSmallVideo(Context context) {
         // 设置拍摄视频缓存路径
         File dcim = Environment

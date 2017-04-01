@@ -68,7 +68,6 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     @Override
     public View initView() {
         view = inflater.inflate(R.layout.view_image_text, null);
-//        loadingView = (LoadingView) view.findViewById(R.id.loadView);
         return view;
     }
 
@@ -77,7 +76,6 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     public void initData() {
         lv_home = (ZrcListView) view.findViewById(R.id.lv_home);
         loader = (MKLoader) view.findViewById(R.id.loader);
-//        loader.reDraw();
 //        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
         setLoad(lv_home);
@@ -158,11 +156,6 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);
-//                    new Handler().postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                        }
-//                    }, 2000);
 
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();

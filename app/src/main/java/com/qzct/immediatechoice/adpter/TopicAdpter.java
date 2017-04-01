@@ -21,13 +21,12 @@ import java.util.List;
 /**
  * Topic适配器
  */
-public  class TopicAdpter extends BaseAdapter {
-    private static final String TAG = "tag";
+public class TopicAdpter extends BaseAdapter {
     private Context context;
     private List<Topic> topicList;
 
     /**
-     *数据改变 刷新Ui显示
+     * 数据改变 刷新Ui显示
      */
     public void onDataChange(List<Topic> topicList) {
         this.topicList = topicList;
@@ -37,7 +36,8 @@ public  class TopicAdpter extends BaseAdapter {
 
     /**
      * 构造方法
-     * @param context 上下文
+     *
+     * @param context   上下文
      * @param topicList topic数据
      */
     public TopicAdpter(Context context, List<Topic> topicList) {
@@ -47,6 +47,7 @@ public  class TopicAdpter extends BaseAdapter {
 
     /**
      * 获取item数量
+     *
      * @return
      */
     @Override
@@ -56,6 +57,7 @@ public  class TopicAdpter extends BaseAdapter {
 
     /**
      * 获得itemView
+     *
      * @param i
      * @param view
      * @param viewGroup
@@ -75,30 +77,6 @@ public  class TopicAdpter extends BaseAdapter {
         TextView view_class_text = (TextView) v.findViewById(R.id.view_topic_text);
         final Topic topic = topicList.get(i);
 
-        //填充数据
-//        x.image().bind(view_class_img, topic.getTopic_img_url(), new Callback.CommonCallback<Drawable>() {
-//            @Override
-//            public void onSuccess(Drawable result) {
-//                Log.d(TAG, topic.getTopic_img_url() + "下载成功");
-//
-//            }
-//
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//                Log.d(TAG, topic.getTopic_img_url() + "下载失败");
-//                Log.d(TAG, "onError: ",ex);
-//            }
-//
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//
-//            }
-//
-//            @Override
-//            public void onFinished() {
-//
-//            }
-//        });
         view_class_img.setImageUrl(topic.getTopic_img_url());
         view_class_text.setText(topic.getTopic_title());
 

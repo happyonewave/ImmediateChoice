@@ -14,7 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.github.alexkolpa.fabtoolbar.FabToolbar;
-import com.lcodecore.tkrefreshlayout.TwinklingRefreshLayout;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
@@ -75,7 +74,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private Question question;
     private boolean isQuestion = MyApplication.isQuestion;
     private FabToolbar fab_toolbar;
-    private TwinklingRefreshLayout comment_TwinklingRefresh;
     private View header_layout;
     private String TRANSITION = "TRANSITION";
 
@@ -112,14 +110,12 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         bt_add_comment = (Button) findViewById(R.id.bt_add_comment);
         fab_toolbar = (FabToolbar) findViewById(R.id.fab_toolbar);
         top_back = (ImageView) findViewById(R.id.top_back);
-//        comment_TwinklingRefresh = (TwinklingRefreshLayout) findViewById(R.id.comment_TwinklingRefresh);
 
     }
 
     private void initData() {
         tv_question.setText(question.getQuestion_content());
         item_username.setText(question.getQuizzer_name());
-//            item_portrait.setImageDrawable(question.getQuizzer_portrait());
         ImageOptions options = new ImageOptions.Builder().setCircular(true)
                 .setFailureDrawableId(R.mipmap.default_portrait).build();
         x.image().bind(item_portrait, question.getPortrait_url(), options);
@@ -128,36 +124,17 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         question_id = question.getQuestion_id();
         bt_add_comment.setOnClickListener(this);
         top_back.setOnClickListener(this);
-//        comment_TwinklingRefresh.setPureScrollModeOn(true);
         if (isQuestion) {
             x.image().bind(image_text_item_img_right, question.getRight_url());
-//            image_text_item_img_left.setImageDrawable(question.getImage_left());
             x.image().bind(image_text_item_img_left, question.getLeft_url());
-//            image_text_item_img_right.setImageDrawable(question.getImage_right());
 
         } else {
-//            fab_toolbar.requestFocusFromTouch();
-//            fab_toolbar.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-//                @Override
-//                public void onFocusChange(View v, boolean hasFocus) {
-//                    fab_toolbar.requestFocus();
-//                    Log.d(TAG, "onFocusChange: ");
-//                    if (!hasFocus) {
-//                        Toast.makeText(CommentActivity.this, "!hasFocus", Toast.LENGTH_SHORT).show();
-//                        fab_toolbar.hide();
-//                    } else {
-//                        Toast.makeText(CommentActivity.this, "hasFocus", Toast.LENGTH_SHORT).show();
-//
-//                    }
-//                }
-//            });
             image_text_item_img_left.setVisibility(View.GONE);
             image_text_item_img_right.setVisibility(View.GONE);
             gsyVideoPlayer_left.setVisibility(View.VISIBLE);
             gsyVideoPlayer_right.setVisibility(View.VISIBLE);
             initVideoPlayer(gsyVideoPlayer_left, question.getLeft_url());
             initVideoPlayer(gsyVideoPlayer_right, question.getRight_url());
-//            getCommentListfromServer(isQuestion);
         }
         header_layout.setVisibility(View.VISIBLE);
         lv_comment.addHeaderView(header_layout);
@@ -359,7 +336,6 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
      */
     private void pushComment() {
         RequestParams entity = new RequestParams(Config.url_comment);
-//        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date now = new Date();
         String commenter_date = now.toLocaleString();
         entity.addBodyParameter("msg", PUSH_COMMENT);

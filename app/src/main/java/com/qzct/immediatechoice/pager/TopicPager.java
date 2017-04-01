@@ -50,7 +50,6 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
         gv_class = (GridView) view.findViewById(R.id.gv_class);
         gv_class.setOnItemClickListener(this);
         getTopicListfromServer();
-//        gv_class.setAdapter(adpter);
     }
 
 
@@ -104,7 +103,6 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
     private void refreshTopicList() {
         topicList = new ArrayList<Topic>();
         try {
-//            jsonArray = new JSONArray();
             //遍历传入的jsonArray
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject temp = jsonArray.getJSONObject(i);

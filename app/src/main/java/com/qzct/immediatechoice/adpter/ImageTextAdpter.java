@@ -1,10 +1,6 @@
 package com.qzct.immediatechoice.adpter;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PixelFormat;
-import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +38,6 @@ public class ImageTextAdpter extends BaseAdapter {
     SmartImageView image_text_item_img_left;
     SmartImageView image_text_item_img_right;
     View v;
-//    MagicProgressCircle left_ProgressBar;
-//    MagicProgressCircle right_ProgressBar;
 
     public ImageTextAdpter(Activity context, List<Question> questionlist) {
         this.context = context;
@@ -133,13 +127,10 @@ public class ImageTextAdpter extends BaseAdapter {
                             int percent = Integer.parseInt(result);
                             Toast.makeText(context, "left:" + percent + "%," +
                                     "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
-//                            showBar(percent, 100 - percent);
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
                             setProgress(left_ProgressBar, percent);
                             setProgress(right_ProgressBar, 100 - percent);
-//                            left_ProgressBar.setProgress(percent);
-//                            right_ProgressBar.setProgress(100 - percent);
                         }
                     }
 
@@ -180,7 +171,6 @@ public class ImageTextAdpter extends BaseAdapter {
                             int percent = Integer.parseInt(result);
                             Toast.makeText(context, "left:" + (100 - percent) + "%," +
                                     "right:" + percent + "%", Toast.LENGTH_SHORT).show();
-//                            showBar(100 - percent, percent);
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
                             setProgress(left_ProgressBar, 100 - percent);
@@ -228,46 +218,6 @@ public class ImageTextAdpter extends BaseAdapter {
         };
         handler.postDelayed(runnable, 50);
     }
-    /**
-     * 显示投票情况
-     */
-    private void showBar(int count_left, int count_right) {
-//        left_ProgressBar.setVisibility(View.VISIBLE);
-//        right_ProgressBar.setVisibility(View.VISIBLE);
-//        left_ProgressBar.setPercent(count_left / 100);
-//        right_ProgressBar.setPercent(count_right / 100);
-    }
-
-    /**
-     * drawable转bitmap
-     *
-     * @param drawable
-     * @return
-     */
-    public static Bitmap drawableToBitmap(Drawable drawable) {
-
-
-        Bitmap bitmap = Bitmap.createBitmap(
-
-                drawable.getIntrinsicWidth(),
-
-                drawable.getIntrinsicHeight(),
-
-                drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
-
-                        : Bitmap.Config.RGB_565);
-
-        Canvas canvas = new Canvas(bitmap);
-
-        //canvas.setBitmap(bitmap);
-
-        drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-
-        drawable.draw(canvas);
-
-        return bitmap;
-
-    }
 
     @Override
     public Object getItem(int position) {
@@ -279,75 +229,4 @@ public class ImageTextAdpter extends BaseAdapter {
         return 0;
     }
 
-//    @Override
-//    public void onClick(View view) {
-//        RequestParams entity = new RequestParams(MyApplication.url_comment);
-//        entity.addBodyParameter("msg", CHOICE_ONE);
-////        entity.addBodyParameter("question_id", questionlist.get(position).);
-//        entity.addBodyParameter("user_id",
-//                String.valueOf(MyApplication.user.getUser_id()));
-//        switch (view.getId()) {
-//            case R.id.image_text_item_img_left:
-//                entity.addBodyParameter("left_or_right", "left");
-//                x.http().post(entity, new Callback.CommonCallback<String>() {
-//                    @Override
-//                    public void onSuccess(String result) {
-//                        if (result != null) {
-//                            int percent = Integer.parseInt(result);
-//                            Toast.makeText(context, "left:" + percent + "%," +
-//                                    "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable ex, boolean isOnCallback) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(CancelledException cex) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onFinished() {
-//
-//                    }
-//                });
-//                break;
-//            case image_text_item_img_right:
-//                entity.addBodyParameter("left_or_right", "right");
-//                x.http().post(entity, new Callback.CommonCallback<String>() {
-//                    @Override
-//                    public void onSuccess(String result) {
-//                        if (result != null) {
-//                            int percent = Integer.parseInt(result);
-//                            Toast.makeText(context, "right:" + percent + "%," +
-//                                    "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Throwable ex, boolean isOnCallback) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(CancelledException cex) {
-//
-//                    }
-//
-//                    @Override
-//                    public void onFinished() {
-//
-//                    }
-//                });
-//
-//                break;
-//            default:
-//
-//                break;
-//        }
-//
-//    }
 }

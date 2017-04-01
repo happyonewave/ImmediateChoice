@@ -130,7 +130,7 @@
         <activity android:name="com.qzct.immediatechoice.activity.RegisterActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.CommentActivity" />
         <activity android:name="mabeijianxi.camera.MediaRecorderActivity" />
-        <activity android:name="com.qzct.immediatechoice.test.TestConversationActivity" >
+        <activity android:name="com.qzct.immediatechoice.activity.ConversationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -142,7 +142,7 @@
                     android:scheme="rong" />
             </intent-filter>
         </activity>
-        <activity android:name="com.qzct.immediatechoice.test.SubConversationListActivity" >
+        <activity android:name="com.qzct.immediatechoice.activity.SubConversationListActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 

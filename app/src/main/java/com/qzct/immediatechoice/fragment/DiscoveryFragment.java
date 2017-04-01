@@ -7,6 +7,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -14,15 +16,17 @@ import android.widget.Toast;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.pager.BasePager;
 import com.qzct.immediatechoice.pager.TopicPager;
+import com.qzct.immediatechoice.util.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.UIUtil;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
-import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.ColorTransitionPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -55,6 +59,7 @@ public class DiscoveryFragment extends baseFragment {
 
     /**
      * 初始化UI
+     *
      * @param inflater  布局填充器
      * @param container
      * @return
@@ -118,7 +123,9 @@ public class DiscoveryFragment extends baseFragment {
         mTitleDataList.add("娱乐");
         mTitleDataList.add("爱好");
         mTitleDataList.add("同学");
-        final CommonNavigator commonNavigator = new CommonNavigator(context);
+        magic_indicator.setBackgroundColor(Color.WHITE);
+        CommonNavigator commonNavigator = new CommonNavigator(context);
+        commonNavigator.setScrollPivotX(0.8f);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
@@ -126,31 +133,34 @@ public class DiscoveryFragment extends baseFragment {
             }
 
             @Override
-            public IPagerTitleView getTitleView(Context context, final int i) {
-                ColorTransitionPagerTitleView colorTransitionPagerTitleView = new ColorTransitionPagerTitleView(context);
-                colorTransitionPagerTitleView.setNormalColor(Color.GRAY);
-                colorTransitionPagerTitleView.setSelectedColor(Color.parseColor("#ffeb633b"));
-                colorTransitionPagerTitleView.setTextSize(22);
-                colorTransitionPagerTitleView.setText(mTitleDataList.get(i));
-                colorTransitionPagerTitleView.setOnClickListener(new View.OnClickListener() {
+            public IPagerTitleView getTitleView(Context context, final int index) {
+                SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
+                simplePagerTitleView.setText(mTitleDataList.get(index));
+                simplePagerTitleView.setTextSize(22);
+                simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
+                simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
+                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View view) {
-                        vp_discovery.setCurrentItem(i);
+                    public void onClick(View v) {
+                        vp_discovery.setCurrentItem(index);
                     }
                 });
-                return colorTransitionPagerTitleView;
+                return simplePagerTitleView;
             }
 
             @Override
             public IPagerIndicator getIndicator(Context context) {
                 LinePagerIndicator indicator = new LinePagerIndicator(context);
-                indicator.setMode(LinePagerIndicator.MODE_WRAP_CONTENT);
+                indicator.setStartInterpolator(new AccelerateInterpolator());
+                indicator.setEndInterpolator(new DecelerateInterpolator(1.6f));
+                indicator.setYOffset(UIUtil.dip2px(context, 39));
+                indicator.setLineHeight(UIUtil.dip2px(context, 1));
+                indicator.setColors(Color.parseColor("#f57c00"));
                 return indicator;
             }
         });
         magic_indicator.setNavigator(commonNavigator);
-        ViewPagerHelper viewPagerHelper = new ViewPagerHelper();
-        viewPagerHelper.bind(magic_indicator, vp_discovery);
+        ViewPagerHelper.bind(magic_indicator, vp_discovery);
 
     }
 
@@ -174,6 +184,7 @@ public class DiscoveryFragment extends baseFragment {
 
     /**
      * 点击事件监听
+     *
      * @param v
      */
     @Event(R.id.discovery_scan)

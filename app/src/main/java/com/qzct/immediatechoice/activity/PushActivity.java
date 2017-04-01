@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -189,8 +188,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 if (!("".equals(question_content))) {
                     //上传
                     uplooad();
-//                    UploadTask uploadTask = new UploadTask(Config.url_upload, vote);
-//                    uploadTask.execute();
                     PushActivity.this.finish();
                 } else {
                     Toast.makeText(this, "您还没输入投票题目呢", Toast.LENGTH_SHORT).show();
@@ -220,7 +217,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             //选择左视频
             case R.id.push_video_left:
 
-//                MediaRecorderActivity.goSmallVideoRecorder(this, PushActivity.class.getName(), config);
                 intent = new Intent(this, MediaRecorderActivity.class);
                 intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
                 intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
@@ -322,11 +318,9 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
      * @param data
      */
 
-    Uri videoUri;
     String videoScreenshot;
 
     private void DisposeResultVideo(int what, Intent data) {
-//        videoUri = Uri.parse(data.getStringExtra(MediaRecorderActivity.VIDEO_URI));
         String path = data.getStringExtra(MediaRecorderActivity.VIDEO_URI);
         videoScreenshot = data.getStringExtra(MediaRecorderActivity.VIDEO_SCREENSHOT);
         if (videoScreenshot != null) {
@@ -336,7 +330,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     push_video_left.setPadding(0, 0, 0, 0);
                     push_video_left.setImageBitmap(bitmap);
                     left_path = path;
-//                    video_left_url = PathUtils.getPath(this, videoUri);
 
 
                     break;
@@ -344,7 +337,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     push_video_right.setPadding(0, 0, 0, 0);
                     push_video_right.setImageBitmap(bitmap);
                     right_path = path;
-//                    video_right_url = PathUtils.getPath(this, videoUri);
 
 
                     break;
@@ -357,7 +349,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 
 
     /**
-     * 上传视频
+     * 异步上传
      */
     private void uplooad() {
         RequestParams entity = new RequestParams(url);
@@ -369,16 +361,9 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 question_content,
                 getNetUrlFormLocalPath(left_path, type),
                 getNetUrlFormLocalPath(right_path, type),
-                quizzer_name, user.getPortrait_path(),0,0,null,
-                locationDescribe,null
+                quizzer_name, user.getPortrait_path(), 0, 0, null,
+                locationDescribe, null
         );
-//        Question question = new Question(
-//                question_content,
-//                getNetUrlFormLocalPath(left_path, type),
-//                getNetUrlFormLocalPath(right_path, type),
-//                quizzer_name, user.getPortrait_path(),
-//                locationDescribe
-//        );
         JSONObject jsonObject = question.getJSONObject();
         entity.addBodyParameter("question", jsonObject.toString());
         entity.addBodyParameter("msg", type);
@@ -396,6 +381,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             }
+
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 Toast.makeText(PushActivity.this, "连接服务器失败", Toast.LENGTH_SHORT).show();
@@ -600,99 +586,5 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-
-    /**
-     * 异步上传
-     */
-//    class UploadTask extends AsyncTask<String, String, String> {
-//        String url;
-//        String image_left_path;
-//        String image_right_path;
-//        String question_content;
-//        String username;
-//        String locationDescribe;
-//        String quizzer_name;
-//
-//        public UploadTask(String url, Question vote) {
-//            this.url = url;
-//            this.username = vote.getQuizzer_name();
-//            this.question_content = vote.getQuestion_content();
-//            this.image_left_path = vote.getImage_left();
-//            this.image_right_path = vote.getImage_right();
-//            this.locationDescribe = vote.getLocation();
-//            this.quizzer_name = vote.getQuizzer_name();
-//        }
-//
-//        //后台上传
-//        @Override
-//        protected String doInBackground(String... params) {
-//
-//            HttpClient hc = new DefaultHttpClient();
-//            HttpPost httpPost = new HttpPost(url);
-//
-//            try {
-//                Charset charset = Charset.forName("utf-8");
-//                MultipartEntity entity = new MultipartEntity();
-//                FileBody image_left = new FileBody(new File(image_left_path));
-//                FileBody image_right = new FileBody(new File(image_right_path));
-//                String image_left_name = image_left.getFilename();
-//                String image_right_name = image_right.getFilename();
-//                //判断是否获取定位
-//                if (locationDescribe == null) {
-//                    locationDescribe = "未获得定位";
-//                }
-//                entity.addPart("msg", new StringBody(UPLOAD_IMAGE + "", charset));
-//                entity.addPart("question_content", new StringBody(question_content, charset));
-//                entity.addPart("image_left_name", new StringBody(image_left_name, charset));
-//                entity.addPart("image_right_name", new StringBody(image_right_name, charset));
-//                entity.addPart("quizzer_name", new StringBody(quizzer_name, charset));
-//                entity.addPart("quizzer_portrait", new StringBody(MyApplication.user.getPortrait_path(), charset));
-//                entity.addPart("locations", new StringBody(locationDescribe, charset));
-//                entity.addPart("image_left", image_left);
-//                entity.addPart("image_right", image_right);
-//
-//                httpPost.setEntity(entity);
-//                HttpResponse hr = hc.execute(httpPost);
-//                //返回码
-//                if (hr.getStatusLine().getStatusCode() == 200) {
-//                    InputStream is = hr.getEntity().getContent();
-//                    String result = utils.getTextFromStream(is);
-//                    return result;
-//                } else {
-//                    return "2";
-//                }
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
-//
-//        @Override
-//        protected void onPostExecute(String result) {
-//            //判断result是否存在
-//            if (result != null) {
-//                switch (result) {
-//                    case "0":
-//                        Toast.makeText(PushActivity.this, "发起投票失败", Toast.LENGTH_LONG).show();
-//                        break;
-//
-//                    case "1":
-//                        Toast.makeText(PushActivity.this, "发起投票成功", Toast.LENGTH_LONG).show();
-//                        new UserFragment().getMyPush();
-//                        break;
-//
-//                    case "2":
-//                        Toast.makeText(PushActivity.this, "连接网站失败", Toast.LENGTH_LONG).show();
-//                        break;
-//
-//
-//                    default:
-//                        break;
-//                }
-//
-//            }
-//
-//        }
-//    }
 
 }

@@ -43,10 +43,8 @@ import zrc.widget.ZrcListView;
 public class VideoPager extends BasePager implements ZrcListView.OnItemClickListener {
 
 
-    private static String GET_MAX_ID = "0";
     private static final String GET_QUESTION = "1";
     private static final String REFRESH_QUESTION = "2";
-    private static final String TAG = "qin";
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home_video;
     private ArrayList<Question> questionList = new ArrayList<Question>();

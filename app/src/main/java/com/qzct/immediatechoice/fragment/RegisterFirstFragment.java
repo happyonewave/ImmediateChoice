@@ -25,12 +25,10 @@ public class RegisterFirstFragment extends baseFragment {
                 Toast.makeText(context,"下一步已点击",Toast.LENGTH_LONG).show();
                 EditText et_tel = (EditText) v.findViewById(R.id.et_tel);
                 String phone_number = et_tel.getText().toString();
-//                String phone_number = "15158442585";
 
                 RegisterSecondFragment Second = new RegisterSecondFragment(phone_number);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fl_register, Second);
-//                transaction.addToBackStack(null);
                 transaction.commit();
             }
         });

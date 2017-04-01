@@ -36,7 +36,6 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
 public class UserFragment extends baseFragment implements View.OnClickListener {
-    private static final String TAG = "qin";
     private View v;
     List<Question> questionList;
     GridView lv;
@@ -63,19 +62,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
 
     @Override
     public void initdata() {
-//        CircleImageView user_portrait = (CircleImageView)v.findViewById(R.id.user_portrait);
-//        SmartImageView user_portrait = (SmartImageView) v.findViewById(R.id.user_portrait);
-//        RelativeLayout rl_bg =  (RelativeLayout) v.findViewById(R.id.rl_bg);
-//        ImageOptions options = new ImageOptions.Builder().setCircular(true)
-//                .setFailureDrawableId(R.mipmap.default_portrait).build();
-//        x.image().bind(user_portrait, user.getPortrait_path(), options);
         portrait_path = user.getPortrait_path();
-//        if (MyApplication.logined) {
-//            portrait_path = user.getPortrait_path();
-//        } else {
-//            portrait_path = utils.getUribyId(getActivity(), R.mipmap.default_portrait).toString();
-//
-//        }
         Glide.with(this).load(portrait_path)
                 .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
                 .into(blurImageView);
@@ -108,8 +95,6 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         }
 
 
-//        ShowConversationFromJsonArrayTask ShowConversationFromJsonArrayTask = new ShowConversationFromJsonArrayTask(context, lv, MyApplication.url_user);
-//        ShowConversationFromJsonArrayTask.execute();
     }
 
     public void getMyPush() {
@@ -118,7 +103,6 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-//                ArrayList<Question> questionArrayList = null;
                 try {
                     JSONArray jsonArray = new JSONArray(result);
                     //new一个question数组
@@ -188,119 +172,6 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 break;
         }
     }
-
-
-//    class ShowConversationFromJsonArrayTask extends AsyncTask<String, String, JSONArray> {
-//
-//        String spec;
-//        Context context;
-//        GridView listView;
-//
-//        public ShowConversationFromJsonArrayTask(Context context, GridView listView, String spec) {
-//            this.context = context;
-//            this.listView = listView;
-//            this.spec = spec;
-//        }
-//
-//        @Override
-//        protected JSONArray doInBackground(String... params) {
-//            //返回获取的jasonArray
-//            return utils.GetJsonArray(spec);
-//        }
-//
-//        @Override
-//        protected void onPostExecute(JSONArray jsonArray) {
-//            ArrayList<conversation> conversationlist = null;
-//            try {
-//                //new一个info数组
-//                conversationlist = new ArrayList<conversation>();
-//                System.out.println("for前");
-//                //遍历传入的jsonArray
-//                for (int i = 0; i < jsonArray.length(); i++) {
-//                    JSONObject temp = jsonArray.getJSONObject(i);
-//                    //读取相应内容
-//                    String content = temp.getString("content");
-//                    String portraiturl = temp.getString("portraiturl");
-//                    String addresser = temp.getString("addresser");
-//                    String addressee = temp.getString("addressee");
-//
-//                    conversation conversation = new conversation(content, portraiturl, addressee, addresser);
-//                    System.out.println(conversation.toString());
-//                    conversationlist.add(conversation);
-//
-//                }
-//
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//            Log.i("空1", context.toString());
-//
-//            Log.i("空2", listView.toString());
-//            //设置适配器
-//            listView.setAdapter(new UserAdpter(context, conversationlist));
-//        }
-//    }
-
-
-//	Handler handler =  new Handler(){
-//		@Override
-//		public void handleMessage(Message msg) {
-//				System.out.println("连接成功");
-//				JSONArray jsonArray =(JSONArray) msg.obj;
-//				//显示
-//				show(jsonArray);
-//		}
-//
-//		private void show(JSONArray jsonArray) {
-//
-//			// TODO Auto-generated method stub
-//				//通过资源id拿到listview对象
-//			 GridView lv =(GridView) v.findViewById(R.id.lv_chat);
-//				try {
-//					//new一个info数组
-//					conversationlist = new ArrayList<conversation>();
-//					System.out.println("for前");
-//					//遍历传入的jsonArray
-//					for(int i=0;i<jsonArray.length();i++){
-//						JSONObject temp = jsonArray.getJSONObject(i);
-//						//读取相应内容
-//						String content = temp.getString("content");
-//						String portraiturl = temp.getString("portraiturl");
-//						String addresser = temp.getString("addresser");
-//						String addressee = temp.getString("addressee");
-//
-//						conversation conversation = new conversation(content, portraiturl, addressee, addresser);
-//						System.out.println(conversation.toString());
-//						conversationlist.add(conversation);
-//
-//					}
-//
-//				} catch (JSONException e) {
-//					e.printStackTrace();
-//				}
-//				//设置适配器
-//				lv.setAdapter(new UserAdpter(context,conversationlist));
-//		}
-//	};
-//	@Override
-//	public void onCreate(Bundle savedInstanceState) {
-//		super.onCreate(savedInstanceState);
-//		//拿到json
-//		GetJsonarray(getString(R.string.url_user));
-//	}
-//
-//	private void GetJsonarray(final String spec) {
-//		//开一个子线程
-//		new Thread(){
-//			 Message  msg = Message.obtain();
-//			public void run() {
-//				JSONArray Array = utils.GetJsonArray(spec);
-//				msg.obj = Array;
-//				handler.sendMessage(msg);
-//			};
-//		}.start();
-//	}
 
 
 }
