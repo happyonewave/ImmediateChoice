@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_main));
+        setContentView(utils.getUsableView(this, R.layout.activity_main, null));
         rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
         //用来放fragment的帧布局
         fl = (FrameLayout) findViewById(R.id.fl);

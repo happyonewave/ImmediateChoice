@@ -1,20 +1,34 @@
 package com.qzct.immediatechoice.test;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.TextView;
 
-import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.qzct.immediatechoice.R;
-import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
-import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+import com.qzct.immediatechoice.activity.PushActivity;
+import com.qzct.immediatechoice.domain.GroupInfo;
+import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.utils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
+
+import java.util.ArrayList;
 import java.util.List;
-
-import io.rong.imlib.model.UserInfo;
 
 
 /**
@@ -22,68 +36,141 @@ import io.rong.imlib.model.UserInfo;
  */
 //@ContentView(R.layout.view_video_item)
 public class TestActivity extends AppCompatActivity {
-
-    private StandardGSYVideoPlayer gsyVideoPlayer;
-    private OrientationUtils orientationUtils;
-    public final static String TRANSITION = "TRANSITION";
-    private boolean isTransition;
-    private String token1 = "18LyaY+7DAct9px+BRJxCl3lOgyfFg2AjkViYtqQca3pbaogcPqTnfcI34AD9x2wXSWqwKWhvYM=";
-    private String token2 = "G/i7WKl49H6dWLJIf31wg5K2kJJ49pN8xrdowMMx5ayEtxy460ZKgAMWNe5rqcc8kGacuUXe1r87hDlHGJQzBg==";
-    private Button bt_1;
-    private Button bt_2;
-    private Button bt_3;
-    private Button bt_4;
-    private ViewPager vp_test;
-    private List<Fragment> fragmentList;
-    private List<UserInfo> UserInfoList;
-    private int counter;
+    private List<GroupInfo> groupInfoList;
+    private List<List<User>> membersList;
+    private ListView lv_group;
+    private RadioButton choice_group;
+    private List<String> groupIdList = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(utils.getHasTopView(this, R.layout.activity_test, "谁能看见"));
         initView();
         initData();
 
     }
 
+
     private void initView() {
-        final NumberProgressBar bnp = (NumberProgressBar) findViewById(R.id.number_progress_bar);
-        counter = 0;
-        new Handler().postDelayed(new Runnable() {
+        choice_group = (RadioButton) findViewById(R.id.choice_group);
+        lv_group = (ListView) findViewById(R.id.lv_group);
+
+    }
+
+    private void initData() {
+        Intent intent = new Intent(this, PushActivity.class);
+        intent.putStringArrayListExtra("groupIdList", (ArrayList<String>) groupIdList);
+        setResult(RESULT_OK, intent);
+        Button new_group = new Button(getApplicationContext());
+        new_group.setText("新建");
+        choice_group.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                bnp.incrementProgressBy(1);
-                counter++;
-                if (counter == 110) {
-                    bnp.setProgress(0);
-                    counter = 0;
+            public void onClick(View v) {
+                if (lv_group.getVisibility() == View.VISIBLE) {
+                    lv_group.setVisibility(View.GONE);
+                } else {
+                    lv_group.setVisibility(View.VISIBLE);
+
                 }
+            }
+        });
+        new_group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                AlertDialog.Builder builder = new  AlertDialog.Builder(getApplicationContext());
+
+//                lv_group.addView();
+            }
+        });
+        lv_group.addHeaderView(new_group);
+        lv_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
+                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
+            }
+        });
+        getGroup();
+    }
+
+    private void getGroup() {
+        RequestParams entity = new RequestParams(Config.url_group);
+        entity.addParameter("owner_id", 1);
+//        entity.addParameter("owner_id", MyApplication.user.getUser_id());
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    try {
+                        JSONArray resultJsonArray = new JSONArray(result);
+                        groupInfoList = GroupInfo.tolistFrom(resultJsonArray.getJSONArray(0));
+                        membersList = new ArrayList<List<User>>();
+                        for (int i = 1; i < resultJsonArray.length(); i++) {
+                            JSONObject temp = resultJsonArray.getJSONObject(i);
+                            List<User> memberList = User.toMemberListFrom(temp.getJSONArray("members"));
+                            membersList.add(memberList);
+                        }
+                        lv_group.setAdapter(new SpinnerAdapter());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.d("qin", "onError: " + ex.toString());
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
 
             }
-        },2000);
 
-//        Timer timer = new Timer();
-//        timer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        bnp.incrementProgressBy(1);
-//                        counter++;
-//                        if (counter == 110) {
-//                            bnp.setProgress(0);
-//                            counter = 0;
-//                        }
-//                    }
-//                });
-//            }
-//        }, 1000, 100);
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
     }
 
 
-    private void initData() {
+    private class SpinnerAdapter extends BaseAdapter {
+        @Override
+        public int getCount() {
+            return groupInfoList.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            TextView v = null;
+            if (convertView != null) {
+                v = (TextView) convertView;
+            } else {
+                v = new TextView(getApplicationContext());
+            }
+//            v.setCompoundDrawables(getDrawable(R.drawable.bt_sex_bg), null, null, null);
+            v.setText(groupInfoList.get(position).getName() + " (" + membersList.get(position).size() + ")");
+            return v;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @Override

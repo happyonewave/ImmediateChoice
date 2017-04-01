@@ -26,9 +26,12 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.test.TestActivity;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.PathUtils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -70,8 +73,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     final int GET_LOCATION_FAILURE = 3;
     final int VIDEO_LEFT_UPLOAD = 4;
     final int VIDEO_RIGHT_UPLOAD = 5;
-    final int UPLOAD_IMAGE = 6;
-    final int UPLOAD_VIDEO = 7;
+    final int CHOICE_GROUP = 6;
     final private String url = Config.url_upload;
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
@@ -79,6 +81,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private MediaRecorderConfig config;
     private boolean isUploadImage = false;
     private EditText et_push_question_content;
+    private Button choice_group;
+    private JSONArray push_group_ids;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +125,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         push_video_right.setOnClickListener(this);
         iv_push_go.setOnClickListener(this);
         bt_location.setOnClickListener(this);
-
+        choice_group.setOnClickListener(this);
         //定位
         mLocationClient = new LocationClient(getApplicationContext());
         //声明LocationClient类
@@ -161,6 +165,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         push_video_left = (ImageView) findViewById(R.id.push_video_left);
         push_video_right = (ImageView) findViewById(R.id.push_video_right);
         iv_push_go = (ImageView) findViewById(R.id.iv_push_go);
+        choice_group = (Button) findViewById(R.id.choice_group);
         bt_location = (Button) findViewById(R.id.bt_location);
         location_hint = (TextView) findViewById(R.id.location_hint);
         et_push_question_content = (EditText) findViewById(R.id.push_question_content);
@@ -230,6 +235,11 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 startActivityForResult(intent, VIDEO_RIGHT_UPLOAD);
 
                 break;
+            //选择可见群组
+            case R.id.choice_group:
+                Intent group = new Intent(PushActivity.this, ChoiceGroupActivity.class);
+                startActivityForResult(group, CHOICE_GROUP);
+                break;
             //获取定位
             case R.id.bt_location:
                 mLocationClient.start();
@@ -271,6 +281,19 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             //右视频上传
             case VIDEO_RIGHT_UPLOAD:
                 DisposeResultVideo(VIDEO_RIGHT_UPLOAD, data);
+
+                break;
+            //选择群组上传
+            case CHOICE_GROUP:
+                List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
+                 push_group_ids = new JSONArray();
+                for (String group_id : groupIdList) {
+                    try {
+                        push_group_ids.put(new JSONObject().put("group_id",group_id));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
 
                 break;
             default:
@@ -366,6 +389,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         );
         JSONObject jsonObject = question.getJSONObject();
         entity.addBodyParameter("question", jsonObject.toString());
+        entity.addBodyParameter("group_ids", push_group_ids.toString());
         entity.addBodyParameter("msg", type);
         entity.addBodyParameter("file_left", new File(left_path));
         entity.addBodyParameter("file_right", new File(right_path));

@@ -6,6 +6,13 @@ import android.net.Uri;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.util.utils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import io.rong.imlib.model.UserInfo;
 
 /**
@@ -21,10 +28,11 @@ public class User {
     String sex;
     String token;
 
-    public UserInfo toUserinfo(){
+    public UserInfo toUserinfo() {
         UserInfo userInfo = new UserInfo(user_id + "", username, Uri.parse(portrait_path));
         return userInfo;
     }
+
     public User(int user_id, String username, String phone_number, String sex, String portrait_path) {
         this.user_id = user_id;
         this.username = username;
@@ -111,5 +119,22 @@ public class User {
                 ", portrait_path='" + portrait_path + '\'' +
                 ", sex='" + sex + '\'' +
                 '}';
+    }
+
+    public User(int user_id) {
+        this.user_id = user_id;
+    }
+
+    public static List<User> toMemberListFrom(JSONArray members) throws JSONException {
+
+        List<User> memberList = new ArrayList<User>();
+        for (int i = 0; i < members.length(); i++) {
+            JSONObject temp = members.getJSONObject(i);
+            User user = new User(temp.getInt("f_id"));
+            memberList.add(user);
+        }
+        return memberList;
+
+
     }
 }

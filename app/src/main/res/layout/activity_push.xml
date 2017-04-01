@@ -32,7 +32,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="位置信息"/>
+                android:text="位置信息" />
 
         </LinearLayout>
 
@@ -182,8 +182,8 @@
                 android:text="@string/push_topic" />
         </RelativeLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="10dp">
@@ -195,7 +195,16 @@
                 android:background="@android:color/transparent"
                 android:drawableLeft="@mipmap/push_topic"
                 android:text="@string/push_timing" />
-        </LinearLayout>
+
+            <Button
+                android:id="@+id/choice_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@mipmap/push_topic"
+                android:text="所有人可见" />
+        </RelativeLayout>
 
     </LinearLayout>
 

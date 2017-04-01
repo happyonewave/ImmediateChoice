@@ -23,7 +23,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.qzct.immediatechoice.R;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,8 +38,6 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import wseemann.media.FFmpegMediaMetadataRetriever;
-
-
 
 
 public class utils {
@@ -82,9 +83,39 @@ public class utils {
         return bitmap;
     }
 
-    public static View getUsableView(Activity activity, int resource) {
+    public static ViewGroup getHasTopView(final Activity activity, int resource, String title) {
+        ViewGroup view = (ViewGroup) View.inflate(activity, resource, null);
+        View top = View.inflate(activity, R.layout.layout_top, null);
+        ImageView back = (ImageView) top.findViewById(R.id.top_back);
+        TextView tv_title = (TextView) top.findViewById(R.id.top_title);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.finish();
+            }
+        });
+        tv_title.setText(title);
+        view.addView(top, 0);
+        return view;
+    }
+
+
+    public static View getUsableView(final Activity activity, int resource, String title) {
 
         ViewGroup view = (ViewGroup) View.inflate(activity, resource, null);
+        if (title != null) {
+            View top = View.inflate(activity, R.layout.layout_top, null);
+            ImageView back = (ImageView) top.findViewById(R.id.top_back);
+            TextView tv_title = (TextView) top.findViewById(R.id.top_title);
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    activity.finish();
+                }
+            });
+            tv_title.setText(title);
+            view.addView(top, 0);
+        }
         //支持4.4以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = activity.getWindow();
