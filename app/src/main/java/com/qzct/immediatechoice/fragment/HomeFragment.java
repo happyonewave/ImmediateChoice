@@ -19,8 +19,6 @@ import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
 import com.qzct.immediatechoice.pager.BasePager;
-import com.qzct.immediatechoice.pager.ImageTextPager;
-import com.qzct.immediatechoice.pager.VideoPager;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -230,9 +228,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         };
         broadcastManager.registerReceiver(bordcastReceiver, intentFilter);
 
-        pagers.add(new ImageTextPager(context));
-        pagers.add(new VideoPager(context));
-        pagers.add(new VideoPager(context));
+//        pagers.add(new ImageTextPager(context));
+//        pagers.add(new VideoPager(context));
+//        pagers.add(new VideoPager(context));
 //        pagers.add(new AttentionPager(context));
 
         /**
@@ -264,7 +262,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             }
 
         };
-        vp_home.setAdapter(pagerAdapter);
+//        vp_home.setAdapter(pagerAdapter);
         vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

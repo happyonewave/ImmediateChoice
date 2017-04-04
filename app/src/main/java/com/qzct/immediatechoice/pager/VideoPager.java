@@ -239,13 +239,16 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
             BasicNameValuePair pair2 =
                     new BasicNameValuePair("type", "video");
             BasicNameValuePair pair3 =
-                    new BasicNameValuePair("startTime", startTime);
+                    new BasicNameValuePair("user_id", 0+ "");
             BasicNameValuePair pair4 =
+                    new BasicNameValuePair("startTime", startTime);
+            BasicNameValuePair pair5 =
                     new BasicNameValuePair("endTime", endTime);
             parameters.add(pair1);
             parameters.add(pair2);
             parameters.add(pair3);
             parameters.add(pair4);
+            parameters.add(pair5);
             UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
             httpPost.setEntity(entity);
             HttpResponse hr = hc.execute(httpPost);

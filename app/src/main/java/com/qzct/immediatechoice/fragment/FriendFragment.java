@@ -56,6 +56,7 @@ public class FriendFragment extends baseFragment {
     public void initdata() {
         fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new FriendListFragment());
+        fragmentList.add(new CircleFragment());
         fragmentList.add(initConversationList());
 //        fragmentList.add();
         vp_friend.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
