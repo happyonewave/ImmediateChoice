@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 
 import zrc.widget.SimpleFooter;
 import zrc.widget.SimpleHeader;

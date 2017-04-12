@@ -17,7 +17,7 @@ import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;

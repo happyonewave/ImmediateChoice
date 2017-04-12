@@ -16,7 +16,7 @@ import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.LoginActivity;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;

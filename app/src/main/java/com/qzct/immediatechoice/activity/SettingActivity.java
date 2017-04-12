@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 
 import org.xutils.view.annotation.ContentView;

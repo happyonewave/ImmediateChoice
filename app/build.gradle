@@ -104,7 +104,6 @@ dependencies {
     //自定义ListView
     compile project(':zrcListView')
     //短视频
-    compile project(':SmallVideoLib')
     //可自定义FAB控件
     //    compile 'com.github.joaquimley:faboptions:1.1.2'
     //一个悬浮操作按钮的Toolbar
@@ -123,4 +122,5 @@ dependencies {
     //不错的点赞效果
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
     compile project(':LazyViewPager')
+    compile project(':YunWangVideoSDK')
 }

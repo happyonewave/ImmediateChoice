@@ -11,7 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.util.Config;
 

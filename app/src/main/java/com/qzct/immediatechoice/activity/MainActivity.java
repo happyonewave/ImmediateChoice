@@ -14,7 +14,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;

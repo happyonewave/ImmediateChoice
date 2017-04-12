@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="bghuise">#F2F2F2</color>
+    <color name="colorAccent">#219BE2</color>
+    <color name="colorPrimary">#219BE2</color>
+    <color name="colorPrimaryDark">#219BE2</color>
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
         <!-- API 14 theme customizations can go here. -->
     </style>

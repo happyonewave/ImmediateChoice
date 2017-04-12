@@ -1,18 +1,94 @@
 [
     {
-        "outputFile": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+        "outputFile": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
         "map": [
             {
                 "to": {
                     "startLine": 2,
                     "startColumn": 4,
                     "startOffset": 55,
-                    "endLine": 4,
-                    "endColumn": 12,
-                    "endOffset": 201
+                    "endColumn": 41,
+                    "endOffset": 92
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\styles.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\colors.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 204,
+                        "endColumn": 41,
+                        "endOffset": 241
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 97,
+                    "endColumn": 45,
+                    "endOffset": 138
+                },
+                "from": {
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\colors.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 157,
+                        "endColumn": 45,
+                        "endOffset": 198
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 4,
+                    "startColumn": 4,
+                    "startOffset": 143,
+                    "endColumn": 46,
+                    "endOffset": 185
+                },
+                "from": {
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\colors.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endColumn": 46,
+                        "endOffset": 99
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 5,
+                    "startColumn": 4,
+                    "startOffset": 190,
+                    "endColumn": 50,
+                    "endOffset": 236
+                },
+                "from": {
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\colors.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 105,
+                        "endColumn": 50,
+                        "endOffset": 151
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 6,
+                    "startColumn": 4,
+                    "startOffset": 241,
+                    "endLine": 8,
+                    "endColumn": 12,
+                    "endOffset": 387
+                },
+                "from": {
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\values-v14\\styles.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -25,15 +101,15 @@
             },
             {
                 "to": {
-                    "startLine": 5,
+                    "startLine": 9,
                     "startColumn": 4,
-                    "startOffset": 206,
-                    "endLine": 9,
+                    "startOffset": 392,
+                    "endLine": 13,
                     "endColumn": 12,
-                    "endOffset": 477
+                    "endOffset": 663
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -46,14 +122,14 @@
             },
             {
                 "to": {
-                    "startLine": 10,
+                    "startLine": 14,
                     "startColumn": 4,
-                    "startOffset": 482,
+                    "startOffset": 668,
                     "endColumn": 70,
-                    "endOffset": 548
+                    "endOffset": 734
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -65,14 +141,14 @@
             },
             {
                 "to": {
-                    "startLine": 11,
+                    "startLine": 15,
                     "startColumn": 4,
-                    "startOffset": 553,
+                    "startOffset": 739,
                     "endColumn": 82,
-                    "endOffset": 631
+                    "endOffset": 817
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
@@ -84,15 +160,15 @@
             },
             {
                 "to": {
-                    "startLine": 12,
+                    "startLine": 16,
                     "startColumn": 4,
-                    "startOffset": 636,
-                    "endLine": 17,
+                    "startOffset": 822,
+                    "endLine": 21,
                     "endColumn": 12,
-                    "endOffset": 1041
+                    "endOffset": 1227
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
@@ -105,15 +181,15 @@
             },
             {
                 "to": {
-                    "startLine": 18,
+                    "startLine": 22,
                     "startColumn": 4,
-                    "startOffset": 1046,
-                    "endLine": 23,
+                    "startOffset": 1232,
+                    "endLine": 27,
                     "endColumn": 12,
-                    "endOffset": 1463
+                    "endOffset": 1649
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
@@ -126,14 +202,14 @@
             },
             {
                 "to": {
-                    "startLine": 24,
+                    "startLine": 28,
                     "startColumn": 4,
-                    "startOffset": 1468,
+                    "startOffset": 1654,
                     "endColumn": 119,
-                    "endOffset": 1583
+                    "endOffset": 1769
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 21,
                         "startColumn": 4,
@@ -145,14 +221,14 @@
             },
             {
                 "to": {
-                    "startLine": 25,
+                    "startLine": 29,
                     "startColumn": 4,
-                    "startOffset": 1588,
+                    "startOffset": 1774,
                     "endColumn": 131,
-                    "endOffset": 1715
+                    "endOffset": 1901
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 22,
                         "startColumn": 4,
@@ -164,14 +240,14 @@
             },
             {
                 "to": {
-                    "startLine": 26,
+                    "startLine": 30,
                     "startColumn": 4,
-                    "startOffset": 1720,
+                    "startOffset": 1906,
                     "endColumn": 119,
-                    "endOffset": 1835
+                    "endOffset": 2021
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
@@ -183,14 +259,14 @@
             },
             {
                 "to": {
-                    "startLine": 27,
+                    "startLine": 31,
                     "startColumn": 4,
-                    "startOffset": 1840,
+                    "startOffset": 2026,
                     "endColumn": 62,
-                    "endOffset": 1898
+                    "endOffset": 2084
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 24,
                         "startColumn": 4,
@@ -202,15 +278,15 @@
             },
             {
                 "to": {
-                    "startLine": 28,
+                    "startLine": 32,
                     "startColumn": 4,
-                    "startOffset": 1903,
-                    "endLine": 30,
+                    "startOffset": 2089,
+                    "endLine": 34,
                     "endColumn": 12,
-                    "endOffset": 2052
+                    "endOffset": 2238
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 25,
                         "startColumn": 4,
@@ -223,14 +299,14 @@
             },
             {
                 "to": {
-                    "startLine": 31,
+                    "startLine": 35,
                     "startColumn": 4,
-                    "startOffset": 2057,
+                    "startOffset": 2243,
                     "endColumn": 62,
-                    "endOffset": 2115
+                    "endOffset": 2301
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 28,
                         "startColumn": 4,
@@ -242,14 +318,14 @@
             },
             {
                 "to": {
-                    "startLine": 32,
+                    "startLine": 36,
                     "startColumn": 4,
-                    "startOffset": 2120,
+                    "startOffset": 2306,
                     "endColumn": 131,
-                    "endOffset": 2247
+                    "endOffset": 2433
                 },
                 "from": {
-                    "file": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
+                    "file": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.0\\res\\values-v14\\values-v14.xml",
                     "position": {
                         "startLine": 29,
                         "startColumn": 4,

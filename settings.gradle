@@ -1,2 +1,2 @@
-include ':app', ':zrcListView', ':SmallVideoLib', ':IMKit', ':IMLib'
+include ':app', ':zrcListView', ':IMKit', ':IMLib', ':YunWangVideoSDK'
 include ':LazyViewPager'

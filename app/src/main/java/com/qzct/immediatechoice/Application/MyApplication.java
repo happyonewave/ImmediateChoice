@@ -1,4 +1,4 @@
-package com.qzct.immediatechoice.application;
+package com.qzct.immediatechoice.Application;
 
 import android.app.Application;
 import android.content.Context;
@@ -14,8 +14,6 @@ import java.io.File;
 import java.util.List;
 
 import io.rong.imkit.RongIM;
-import mabeijianxi.camera.VCamera;
-import mabeijianxi.camera.util.DeviceUtils;
 
 
 /**
@@ -41,26 +39,7 @@ public class MyApplication extends Application {
         x.Ext.init(this);
         // 是否输出debug日志, 开启debug会影响性能.
         x.Ext.setDebug(BuildConfig.DEBUG);
-        initSmallVideo(this);
 
-    }
-    public static void initSmallVideo(Context context) {
-        // 设置拍摄视频缓存路径
-        File dcim = Environment
-                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
-        if (DeviceUtils.isZte()) {
-            if (dcim.exists()) {
-                VCamera.setVideoCachePath(dcim + "/mabeijianxi/");
-            } else {
-                VCamera.setVideoCachePath(dcim.getPath().replace("/sdcard/",
-                        "/sdcard-ext/")
-                        + "/mabeijianxi/");
-            }
-        } else {
-            VCamera.setVideoCachePath(dcim + "/mabeijianxi/");
-        }
-        VCamera.setDebugMode(true);
-        VCamera.initialize(context);
     }
 
 }

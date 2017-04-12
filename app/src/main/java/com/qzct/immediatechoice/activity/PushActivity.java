@@ -23,7 +23,7 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
@@ -39,12 +39,6 @@ import org.xutils.x;
 import java.io.File;
 import java.util.List;
 
-import mabeijianxi.camera.MediaRecorderActivity;
-import mabeijianxi.camera.model.AutoVBRMode;
-import mabeijianxi.camera.model.MediaRecorderConfig;
-
-import static mabeijianxi.camera.MediaRecorderActivity.MEDIA_RECORDER_CONFIG_KEY;
-import static mabeijianxi.camera.MediaRecorderActivity.OVER_ACTIVITY_NAME;
 
 
 /**
@@ -77,7 +71,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
     private ImageView iv_back;
-    private MediaRecorderConfig config;
     private boolean isUploadImage = false;
     private EditText et_push_question_content;
     private Button choice_group;
@@ -116,7 +109,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initData() {
-        initRecorder();
+//        initRecorder();
         //设置点击监听
         iv_back.setOnClickListener(this);
         push_left.setOnClickListener(this);
@@ -135,27 +128,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    /**
-     * 初始化短视频录制
-     */
-    private void initRecorder() {
-
-        config = new MediaRecorderConfig.Buidler()
-                .doH264Compress(new AutoVBRMode()
-//                        .setVelocity(BaseMediaBitrateConfig.Velocity.ULTRAFAST)
-                )
-                .setMediaBitrateConfig(new AutoVBRMode()
-//                        .setVelocity(BaseMediaBitrateConfig.Velocity.ULTRAFAST)
-                )
-                .smallVideoWidth(480)
-                .smallVideoHeight(360)
-                .recordTimeMax(6 * 1000)
-                .maxFrameRate(20)
-                .minFrameRate(8)
-                .captureThumbnailsTime(1)
-                .recordTimeMin((int) (1.5 * 1000))
-                .build();
-    }
 
     private void initView() {
         //获得View
@@ -216,9 +188,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     startActivityForResult(intent, IMAGE_LEFT_UPLOAD);
                 } else {
                     //选择左视频
-                    intent = new Intent(this, MediaRecorderActivity.class);
-                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
-                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+//                    intent = new Intent(this, MediaRecorderActivity.class);
+//                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
+//                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+                    intent = new Intent(PushActivity.this, YWRecordVideoActivity.class);
                     startActivityForResult(intent, VIDEO_LEFT_UPLOAD);
                 }
                 break;
@@ -231,9 +204,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     startActivityForResult(intent, IMAGE_RIGHT_UPLOAD);
                 } else {
                     //选择右视频
-                    intent = new Intent(this, MediaRecorderActivity.class);
-                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
-                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+//                    intent = new Intent(this, MediaRecorderActivity.class);
+//                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
+//                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+                    intent = new Intent(PushActivity.this, YWRecordVideoActivity.class);
                     startActivityForResult(intent, VIDEO_RIGHT_UPLOAD);
                 }
 
@@ -279,42 +253,44 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            //左图上传
-            case IMAGE_LEFT_UPLOAD:
-                DisposeResultImage(IMAGE_LEFT_UPLOAD, data);
-                break;
-            //右图上传
-            case IMAGE_RIGHT_UPLOAD:
-                DisposeResultImage(IMAGE_RIGHT_UPLOAD, data);
+        if (data != null) {
+            switch (requestCode) {
+                //左图上传
+                case IMAGE_LEFT_UPLOAD:
+                    DisposeResultImage(IMAGE_LEFT_UPLOAD, data);
+                    break;
+                //右图上传
+                case IMAGE_RIGHT_UPLOAD:
+                    DisposeResultImage(IMAGE_RIGHT_UPLOAD, data);
 
-                break;
-            //左视频上传
-            case VIDEO_LEFT_UPLOAD:
-                DisposeResultVideo(VIDEO_LEFT_UPLOAD, data);
+                    break;
+                //左视频上传
+                case VIDEO_LEFT_UPLOAD:
+                    DisposeResultVideo(VIDEO_LEFT_UPLOAD, data);
 
-                break;
-            //右视频上传
-            case VIDEO_RIGHT_UPLOAD:
-                DisposeResultVideo(VIDEO_RIGHT_UPLOAD, data);
+                    break;
+                //右视频上传
+                case VIDEO_RIGHT_UPLOAD:
+                    DisposeResultVideo(VIDEO_RIGHT_UPLOAD, data);
 
-                break;
-            //选择群组上传
-            case CHOICE_GROUP:
-                List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
-                push_group_ids = new JSONArray();
-                for (String group_id : groupIdList) {
-                    try {
-                        push_group_ids.put(new JSONObject().put("group_id", group_id));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                    break;
+                //选择群组上传
+                case CHOICE_GROUP:
+                    List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
+                    push_group_ids = new JSONArray();
+                    for (String group_id : groupIdList) {
+                        try {
+                            push_group_ids.put(new JSONObject().put("group_id", group_id));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
-                }
 
-                break;
-            default:
-                break;
+                    break;
+                default:
+                    break;
 
+            }
         }
     }
 
@@ -360,8 +336,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     String videoScreenshot;
 
     private void DisposeResultVideo(int what, Intent data) {
-        String path = data.getStringExtra(MediaRecorderActivity.VIDEO_URI);
-        videoScreenshot = data.getStringExtra(MediaRecorderActivity.VIDEO_SCREENSHOT);
+        String path = data.getStringExtra("videoPath");
+        videoScreenshot = data.getStringExtra("framePicPath");
         if (videoScreenshot != null) {
             Bitmap bitmap = BitmapFactory.decodeFile(videoScreenshot);
             switch (what) {

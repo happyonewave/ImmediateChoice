@@ -17,7 +17,7 @@ import com.github.alexkolpa.fabtoolbar.FabToolbar;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
-import com.qzct.immediatechoice.application.MyApplication;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
