@@ -1,1 +1,2 @@
 include ':app', ':zrcListView', ':SmallVideoLib', ':IMKit', ':IMLib'
+include ':LazyViewPager'

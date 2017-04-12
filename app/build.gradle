@@ -5,8 +5,8 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.qzct.immediatechoice"
-        minSdkVersion 19
-        targetSdkVersion 19
+        minSdkVersion 17
+        targetSdkVersion 17
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -106,7 +106,7 @@ dependencies {
     //短视频
     compile project(':SmallVideoLib')
     //可自定义FAB控件
-//    compile 'com.github.joaquimley:faboptions:1.1.2'
+    //    compile 'com.github.joaquimley:faboptions:1.1.2'
     //一个悬浮操作按钮的Toolbar
     compile 'com.github.alexkolpa:floating-action-button-toolbar:0.5.1'
     //带展开菜单的浮动操作按钮
@@ -122,4 +122,5 @@ dependencies {
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     //不错的点赞效果
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
+    compile project(':LazyViewPager')
 }

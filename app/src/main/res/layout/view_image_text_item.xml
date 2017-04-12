@@ -91,7 +91,7 @@
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/image_text_item_left_ProgressBar"
                         style="@style/NumberProgressBar_Funny_Orange"
-                        android:layout_gravity="bottom|center_horizontal">
+                        android:layout_gravity="center_vertical|center_horizontal">
 
                     </com.daimajia.numberprogressbar.NumberProgressBar>
                 </FrameLayout>
@@ -118,7 +118,7 @@
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/image_text_item_right_ProgressBar"
                         style="@style/NumberProgressBar_Funny_Orange"
-                        android:layout_gravity="bottom|center_horizontal">
+                        android:layout_gravity="center_vertical|center_horizontal">
 
                     </com.daimajia.numberprogressbar.NumberProgressBar>
 

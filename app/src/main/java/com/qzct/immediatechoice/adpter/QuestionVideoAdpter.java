@@ -3,6 +3,7 @@ package com.qzct.immediatechoice.adpter;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -29,8 +30,6 @@ import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.List;
-
-import static com.qzct.immediatechoice.adpter.ImageTextAdpter.setProgress;
 
 
 /**
@@ -225,6 +224,29 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
 
 
+
+    /**
+     * 显示投票情况
+     */
+    public void setProgress(final NumberProgressBar numberProgressBar, final int num) {
+        final Handler handler = new Handler();
+        numberProgressBar.setProgress(0);
+        Runnable runnable = new Runnable() {
+            int counter = 0;
+
+            @Override
+            public void run() {
+                counter++;
+                numberProgressBar.setProgress(counter);
+                if (counter == num) {
+                    counter = 0;
+                } else {
+                    handler.postDelayed(this, 50);
+                }
+            }
+        };
+        handler.postDelayed(runnable, 50);
+    }
 
 
     private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {

@@ -26,7 +26,6 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.test.TestActivity;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.PathUtils;
 
@@ -53,13 +52,13 @@ import static mabeijianxi.camera.MediaRecorderActivity.OVER_ACTIVITY_NAME;
  */
 public class PushActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageView push_img_left;
-    private ImageView push_img_right;
+    private ImageView push_left;
+    private ImageView push_right;
     private ImageView iv_push_go;
     private String left_path = "Nothing";
     private String right_path = "Nothing";
-    private ImageView push_video_left;
-    private ImageView push_video_right;
+    //    private ImageView push_video_left;
+//    private ImageView push_video_right;
     private String quizzer_name;
     private String question_content;
     private Button bt_location;
@@ -83,12 +82,13 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private EditText et_push_question_content;
     private Button choice_group;
     private JSONArray push_group_ids;
+    private boolean isImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_push);
-
+        isImage = getIntent().getBooleanExtra("isImage", true);
         handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
@@ -119,10 +119,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         initRecorder();
         //设置点击监听
         iv_back.setOnClickListener(this);
-        push_img_left.setOnClickListener(this);
-        push_img_right.setOnClickListener(this);
-        push_video_left.setOnClickListener(this);
-        push_video_right.setOnClickListener(this);
+        push_left.setOnClickListener(this);
+        push_right.setOnClickListener(this);
+//        push_video_left.setOnClickListener(this);
+//        push_video_right.setOnClickListener(this);
         iv_push_go.setOnClickListener(this);
         bt_location.setOnClickListener(this);
         choice_group.setOnClickListener(this);
@@ -160,10 +160,14 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private void initView() {
         //获得View
         iv_back = (ImageView) findViewById(R.id.iv_push_back);
-        push_img_left = (ImageView) findViewById(R.id.push_img_left);
-        push_img_right = (ImageView) findViewById(R.id.push_img_right);
-        push_video_left = (ImageView) findViewById(R.id.push_video_left);
-        push_video_right = (ImageView) findViewById(R.id.push_video_right);
+        push_left = (ImageView) findViewById(R.id.push_left);
+        push_right = (ImageView) findViewById(R.id.push_right);
+        if (!isImage) {
+            push_left.setImageResource(R.mipmap.push_video);
+            push_right.setImageResource(R.mipmap.push_video);
+        }
+//        push_video_left = (ImageView) findViewById(R.id.push_video_left);
+//        push_video_right = (ImageView) findViewById(R.id.push_video_right);
         iv_push_go = (ImageView) findViewById(R.id.iv_push_go);
         choice_group = (Button) findViewById(R.id.choice_group);
         bt_location = (Button) findViewById(R.id.bt_location);
@@ -181,7 +185,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
      */
     @Override
     public void onClick(View v) {
-        Intent intent = null;
+        Intent intent = new Intent();
         //初始化一个投票类
         Question vote = new Question();
         switch (v.getId()) {
@@ -204,37 +208,49 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             //选择左图
-            case R.id.push_img_left:
-                intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, IMAGE_LEFT_UPLOAD);
+            case R.id.push_left:
+                //选择左图
+                if (isImage) {
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, IMAGE_LEFT_UPLOAD);
+                } else {
+                    //选择左视频
+                    intent = new Intent(this, MediaRecorderActivity.class);
+                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
+                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+                    startActivityForResult(intent, VIDEO_LEFT_UPLOAD);
+                }
                 break;
             //选择右图
-            case R.id.push_img_right:
-                intent = new Intent();
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                intent.setType("image/*");
-                startActivityForResult(intent, IMAGE_RIGHT_UPLOAD);
+            case R.id.push_right:
+                //选择右图
+                if (isImage) {
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    intent.setType("image/*");
+                    startActivityForResult(intent, IMAGE_RIGHT_UPLOAD);
+                } else {
+                    //选择右视频
+                    intent = new Intent(this, MediaRecorderActivity.class);
+                    intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
+                    intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+                    startActivityForResult(intent, VIDEO_RIGHT_UPLOAD);
+                }
 
                 break;
 
             //选择左视频
-            case R.id.push_video_left:
-
-                intent = new Intent(this, MediaRecorderActivity.class);
-                intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
-                intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
-                startActivityForResult(intent, VIDEO_LEFT_UPLOAD);
-                break;
+//            case R.id.push_video_left:
+////
+////                intent = new Intent(this, MediaRecorderActivity.class);
+////                intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
+////                intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
+////                startActivityForResult(intent, VIDEO_LEFT_UPLOAD);
+//                break;
             //选择右视频
-            case R.id.push_video_right:
-                intent = new Intent(this, MediaRecorderActivity.class);
-                intent.putExtra(OVER_ACTIVITY_NAME, PushActivity.class.getName());
-                intent.putExtra(MEDIA_RECORDER_CONFIG_KEY, config);
-                startActivityForResult(intent, VIDEO_RIGHT_UPLOAD);
-
-                break;
+//            case R.id.push_video_right:
+//
+//                break;
             //选择可见群组
             case R.id.choice_group:
                 Intent group = new Intent(PushActivity.this, ChoiceGroupActivity.class);
@@ -286,10 +302,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             //选择群组上传
             case CHOICE_GROUP:
                 List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
-                 push_group_ids = new JSONArray();
+                push_group_ids = new JSONArray();
                 for (String group_id : groupIdList) {
                     try {
-                        push_group_ids.put(new JSONObject().put("group_id",group_id));
+                        push_group_ids.put(new JSONObject().put("group_id", group_id));
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -313,20 +329,20 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             case IMAGE_LEFT_UPLOAD:
                 left_path = PathUtils.getPathFromActivityResult(this, data);
                 if (left_path != null) {
-                    push_img_left.setPadding(0, 0, 0, 0);
-                    push_img_left.setBackgroundColor(Color.TRANSPARENT);
+                    push_left.setPadding(0, 0, 0, 0);
+                    push_left.setBackgroundColor(Color.TRANSPARENT);
                     Bitmap bitmap = BitmapFactory.decodeFile(left_path);
-                    push_img_left.setImageBitmap(bitmap);
+                    push_left.setImageBitmap(bitmap);
                 }
 
                 break;
             case IMAGE_RIGHT_UPLOAD:
                 right_path = PathUtils.getPathFromActivityResult(this, data);
                 if (right_path != null) {
-                    push_img_right.setPadding(0, 0, 0, 0);
-                    push_img_right.setBackgroundColor(Color.TRANSPARENT);
+                    push_right.setPadding(0, 0, 0, 0);
+                    push_right.setBackgroundColor(Color.TRANSPARENT);
                     Bitmap bitmap = BitmapFactory.decodeFile(right_path);
-                    push_img_right.setImageBitmap(bitmap);
+                    push_right.setImageBitmap(bitmap);
                 }
 
                 break;
@@ -350,15 +366,15 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             Bitmap bitmap = BitmapFactory.decodeFile(videoScreenshot);
             switch (what) {
                 case VIDEO_LEFT_UPLOAD:
-                    push_video_left.setPadding(0, 0, 0, 0);
-                    push_video_left.setImageBitmap(bitmap);
+                    push_left.setPadding(0, 0, 0, 0);
+                    push_left.setImageBitmap(bitmap);
                     left_path = path;
 
 
                     break;
                 case VIDEO_RIGHT_UPLOAD:
-                    push_video_right.setPadding(0, 0, 0, 0);
-                    push_video_right.setImageBitmap(bitmap);
+                    push_right.setPadding(0, 0, 0, 0);
+                    push_right.setImageBitmap(bitmap);
                     right_path = path;
 
 
@@ -389,7 +405,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         );
         JSONObject jsonObject = question.getJSONObject();
         entity.addBodyParameter("question", jsonObject.toString());
-        entity.addBodyParameter("group_ids", push_group_ids.toString());
+//        entity.addBodyParameter("group_ids", push_group_ids.toString());
         entity.addBodyParameter("msg", type);
         entity.addBodyParameter("file_left", new File(left_path));
         entity.addBodyParameter("file_right", new File(right_path));

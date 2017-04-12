@@ -1,9 +1,5 @@
 [
     {
-        "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",
-        "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\menu\\main.xml"
-    },
-    {
         "merged": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\menu\\fab_menu.xml",
         "source": "E:\\Android\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\menu\\fab_menu.xml"
     }

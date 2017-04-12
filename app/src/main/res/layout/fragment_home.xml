@@ -50,13 +50,13 @@
         android:background="#90cccccc">
 
 
-        <android.support.v4.view.ViewPager
+        <com.github.lianghanzhen.LazyViewPager
             android:id="@+id/vp_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-        </android.support.v4.view.ViewPager>
+        </com.github.lianghanzhen.LazyViewPager>
 
         <RelativeLayout
             android:layout_width="match_parent"

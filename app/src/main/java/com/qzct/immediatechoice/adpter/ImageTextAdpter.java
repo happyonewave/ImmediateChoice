@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.adpter;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,6 +82,8 @@ public class ImageTextAdpter extends BaseAdapter {
         right_ProgressBar.setVisibility(View.GONE);
         left_ProgressBar.setProgress(0);
         right_ProgressBar.setProgress(0);
+//        image_text_item_img_left.setImageBitmap(null);
+//        image_text_item_img_right.setImageBitmap(null);
         TextView item_username = (TextView) v.findViewById(R.id.item_username);
         ImageView item_portrait = (ImageView) v.findViewById(R.id.item_portrait);
         Button comment_icon = (Button) v.findViewById(R.id.comment_icon);
@@ -157,6 +160,15 @@ public class ImageTextAdpter extends BaseAdapter {
         image_text_item_img_right.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                image_text_item_img_left.setBackgroundColor(Color.parseColor("#60000000"));
+//                Glide.with(context).load(image_text_item_img_left.getResources())
+//                        .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
+//                        .into(image_text_item_img_left);
+//
+//                Glide.with(context).load(image_text_item_img_right.getResources())
+//                        .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
+//                        .into(image_text_item_img_right);
+
                 RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
                 entity.addBodyParameter("question_id", questionlist.get(position).getQuestion_id() + "");
@@ -197,14 +209,17 @@ public class ImageTextAdpter extends BaseAdapter {
         });
         return v;
     }
+
     /**
      * 显示投票情况
      */
-    public static void setProgress(final NumberProgressBar numberProgressBar, final int num) {
+    public void setProgress(final NumberProgressBar numberProgressBar, final int num) {
+
         final Handler handler = new Handler();
         numberProgressBar.setProgress(0);
         Runnable runnable = new Runnable() {
             int counter = 0;
+
             @Override
             public void run() {
                 counter++;
