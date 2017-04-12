@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,10 +15,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import com.github.lianghanzhen.LazyFragmentPagerAdapter;
+import com.github.lianghanzhen.LazyViewPager;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
-import com.qzct.immediatechoice.activity.QuestionnaireActivity;
 import com.qzct.immediatechoice.pager.BasePager;
 
 import org.xutils.view.annotation.ContentView;
@@ -37,7 +39,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private static final int VIDEO = 1;
     private static final int ATTENTTION = 2;
     private View v;
-    private ViewPager vp_home;
+    private LazyViewPager vp_home;
     private PagerAdapter pagerAdapter = null;
     private List<BasePager> pagers = new ArrayList<BasePager>();
     View home_image_text_line;
@@ -46,6 +48,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     public final static String ACTION_SET_FAB_VISBILITY = "ACTION_SET_FAB_VISBILITY";
     private LinearLayout home_title;
     private FabSpeedDial fabSpeedDial;
+    private List<Fragment> fragmentList;
 
     /**
      * 填充view
@@ -55,34 +58,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
-        vp_home = (ViewPager) v.findViewById(R.id.vp_home);
-        vp_home.setAdapter(new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return 0;
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return false;
-            }
-        });
-        vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        vp_home = (LazyViewPager) v.findViewById(R.id.vp_home);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
@@ -94,11 +70,16 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
                 switch (menuItem.getItemId()) {
                     case R.id.fab_push:
                         Intent intent = new Intent(context, PushActivity.class);
+                        intent.putExtra("isImage", true);
                         startActivity(intent);
                         break;
                     case R.id.fab_question:
-                        intent = new Intent(context, QuestionnaireActivity.class);
-                        startActivity(intent);
+//                        intent = new Intent(context, QuestionnaireActivity.class);
+//                        startActivity(intent);
+                        Intent videoIntent = new Intent(context, PushActivity.class);
+                        videoIntent.putExtra("isImage", false);
+                        startActivity(videoIntent);
+
                         break;
 
                     default:
@@ -111,6 +92,124 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         });
         home_title = (LinearLayout) v.findViewById(R.id.home_title);
         return v;
+    }
+
+    /**
+     * 填充数据
+     */
+    @Override
+    public void initdata() {
+        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ACTION_SET_FAB_VISBILITY);
+
+        //接收并处理是否显示悬浮按钮的广播
+        BroadcastReceiver bordcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                //信息处理
+
+                Log.e("isvisible", String.valueOf(intent.getBooleanExtra("isvisible", true)));
+
+                setFabvisibility(intent.getBooleanExtra("isvisible", true));
+
+
+            }
+        };
+        broadcastManager.registerReceiver(bordcastReceiver, intentFilter);
+
+//        pagers.add(new ImageTextPager(context));
+//        pagers.add(new VideoPager(context));
+////        pagers.add(new VideoPager(context));
+//        pagers.add(new AttentionPager(context));
+
+        /**
+         * viewPager适配器
+         */
+        pagerAdapter = new PagerAdapter() {
+            @Override
+            public int getCount() {
+                return pagers.size();
+            }
+
+            @Override
+            public Object instantiateItem(ViewGroup container, int position) {
+
+                container.addView(pagers.get(position).getRootView());
+
+
+                return pagers.get(position).getRootView();
+            }
+
+            @Override
+            public void destroyItem(ViewGroup container, int position, Object object) {
+                container.removeView(pagers.get(position).getRootView());
+            }
+
+            @Override
+            public boolean isViewFromObject(View view, Object object) {
+                return view == object;
+            }
+
+        };
+//        vp_home.setAdapter(pagerAdapter);
+
+        fragmentList = new ArrayList<Fragment>();
+        fragmentList.add(new QuestionFragment());
+        fragmentList.add(new VideoFragment());
+        fragmentList.add(new AttentionFragment());
+        vp_home.setAdapter(new LazyFragmentPagerAdapter(getFragmentManager()) {
+            @Override
+            protected Fragment getItem(ViewGroup container, int position) {
+                return fragmentList.get(position);
+            }
+
+//            @Override
+//            public Fragment getItem(int position) {
+//                return fragmentList.get(position);
+//            }
+
+            @Override
+            public int getCount() {
+                return fragmentList.size();
+            }
+        });
+        vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                reSetLine();
+                switch (position) {
+                    case IMAGE_TEXT:
+                        home_image_text_line.setVisibility(View.VISIBLE);
+                        break;
+                    case VIDEO:
+                        home_video_line.setVisibility(View.VISIBLE);
+                        break;
+                    case ATTENTTION:
+                        home_attention_line.setVisibility(View.VISIBLE);
+                        break;
+
+
+                    default:
+
+                        break;
+
+
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+
     }
 
     /**
@@ -202,103 +301,6 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
 
         }
-    }
-
-    /**
-     * 填充数据
-     */
-    @Override
-    public void initdata() {
-        LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction(ACTION_SET_FAB_VISBILITY);
-
-        //接收并处理是否显示悬浮按钮的广播
-        BroadcastReceiver bordcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                //信息处理
-
-                Log.e("isvisible", String.valueOf(intent.getBooleanExtra("isvisible", true)));
-
-                setFabvisibility(intent.getBooleanExtra("isvisible", true));
-
-
-            }
-        };
-        broadcastManager.registerReceiver(bordcastReceiver, intentFilter);
-
-//        pagers.add(new ImageTextPager(context));
-//        pagers.add(new VideoPager(context));
-//        pagers.add(new VideoPager(context));
-//        pagers.add(new AttentionPager(context));
-
-        /**
-         * viewPager适配器
-         */
-        pagerAdapter = new PagerAdapter() {
-            @Override
-            public int getCount() {
-                return pagers.size();
-            }
-
-            @Override
-            public Object instantiateItem(ViewGroup container, int position) {
-
-                container.addView(pagers.get(position).getRootView());
-
-
-                return pagers.get(position).getRootView();
-            }
-
-            @Override
-            public void destroyItem(ViewGroup container, int position, Object object) {
-                container.removeView(pagers.get(position).getRootView());
-            }
-
-            @Override
-            public boolean isViewFromObject(View view, Object object) {
-                return view == object;
-            }
-
-        };
-//        vp_home.setAdapter(pagerAdapter);
-        vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                reSetLine();
-                switch (position) {
-                    case IMAGE_TEXT:
-                        home_image_text_line.setVisibility(View.VISIBLE);
-                        break;
-                    case VIDEO:
-                        home_video_line.setVisibility(View.VISIBLE);
-                        break;
-                    case ATTENTTION:
-                        home_attention_line.setVisibility(View.VISIBLE);
-                        break;
-
-
-                    default:
-
-                        break;
-
-
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
-
-
     }
 
 

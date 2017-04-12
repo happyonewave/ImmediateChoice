@@ -185,11 +185,14 @@
     <orderEntry type="module" module-name="IMKit" exported="" />
     <orderEntry type="module" module-name="zrcListView" exported="" />
     <orderEntry type="module" module-name="SmallVideoLib" exported="" />
+    <orderEntry type="module" module-name="LazyViewPager" exported="" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-25" level="project" />
     <orderEntry type="library" exported="" name="Rong_IMLib" level="project" />
     <orderEntry type="library" exported="" name="Rong_IMKit" level="project" />
     <orderEntry type="library" exported="" name="support-v4-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-23.4.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
   </component>
 </module>
