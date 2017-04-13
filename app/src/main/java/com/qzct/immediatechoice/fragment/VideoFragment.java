@@ -2,14 +2,15 @@ package com.qzct.immediatechoice.fragment;
 
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.github.lianghanzhen.LazyFragmentPagerAdapter;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
@@ -42,7 +43,7 @@ import zrc.widget.ZrcListView;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class VideoFragment extends baseFragment implements ZrcListView.OnItemClickListener ,LazyFragmentPagerAdapter.Laziable{
+public class VideoFragment extends baseFragment implements ZrcListView.OnItemClickListener {
 
 
     private static final String GET_QUESTION = "1";
@@ -152,8 +153,6 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
                     isFirst = true;
                     refreshquestionList(GET_QUESTION);
                     lv_home_video.setAdapter(adpter);
-                    loader.setVisibility(View.GONE);
-                    lv_home_video.setVisibility(View.VISIBLE);
                 } else {
                     Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
                 }
@@ -263,6 +262,13 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
         }
     }
 
+//    @Override
+//    public void onDestroyView() {
+//        loader.setVisibility(View.VISIBLE);
+//        lv_home_video.setVisibility(View.GONE);
+//        super.onDestroyView();
+//    }
+
     /**
      * 刷新questionList
      */
@@ -319,6 +325,15 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
 
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+        if (lv_home_video.getVisibility() == View.GONE) {
+            new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    loader.setVisibility(View.GONE);
+                    lv_home_video.setVisibility(View.VISIBLE);
+                }
+            }.sendEmptyMessageDelayed(0, 4000);
         }
     }
 

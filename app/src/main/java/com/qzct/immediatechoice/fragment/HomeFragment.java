@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -15,9 +16,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.github.lianghanzhen.LazyFragmentPagerAdapter;
-import com.github.lianghanzhen.LazyViewPager;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
 import com.qzct.immediatechoice.pager.BasePager;
@@ -39,7 +40,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private static final int VIDEO = 1;
     private static final int ATTENTTION = 2;
     private View v;
-    private LazyViewPager vp_home;
+    private ViewPager vp_home;
     private PagerAdapter pagerAdapter = null;
     private List<BasePager> pagers = new ArrayList<BasePager>();
     View home_image_text_line;
@@ -58,7 +59,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
-        vp_home = (LazyViewPager) v.findViewById(R.id.vp_home);
+        vp_home = (ViewPager) v.findViewById(R.id.vp_home);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
@@ -69,15 +70,23 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             public boolean onMenuItemSelected(MenuItem menuItem) {
                 switch (menuItem.getItemId()) {
                     case R.id.fab_push:
-                        Intent intent = new Intent(context, PushActivity.class);
-                        intent.putExtra("isImage", true);
+
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        if (MyApplication.logined) {
+                            intent = new Intent(context, PushActivity.class);
+                            intent.putExtra("isImage", true);
+                        }
                         startActivity(intent);
                         break;
                     case R.id.fab_question:
 //                        intent = new Intent(context, QuestionnaireActivity.class);
 //                        startActivity(intent);
-                        Intent videoIntent = new Intent(context, PushActivity.class);
-                        videoIntent.putExtra("isImage", false);
+
+                        Intent videoIntent = new Intent(context, LoginActivity.class);
+                        if (MyApplication.logined) {
+                            videoIntent = new Intent(context, PushActivity.class);
+                            videoIntent.putExtra("isImage", false);
+                        }
                         startActivity(videoIntent);
 
                         break;
@@ -158,16 +167,12 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         fragmentList.add(new QuestionFragment());
         fragmentList.add(new VideoFragment());
         fragmentList.add(new AttentionFragment());
-        vp_home.setAdapter(new LazyFragmentPagerAdapter(getFragmentManager()) {
+        vp_home.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+
             @Override
-            protected Fragment getItem(ViewGroup container, int position) {
+            public Fragment getItem(int position) {
                 return fragmentList.get(position);
             }
-
-//            @Override
-//            public Fragment getItem(int position) {
-//                return fragmentList.get(position);
-//            }
 
             @Override
             public int getCount() {

@@ -260,7 +260,7 @@ public class YWRecordVideoActivity extends Activity implements View.OnClickListe
         try {
             this._quality = 0;
             //录制时间
-            this._maxDuration = 20000;
+            this._maxDuration = 15000;
             this._maxDuration += 100;
         } catch (Exception var5) {
 

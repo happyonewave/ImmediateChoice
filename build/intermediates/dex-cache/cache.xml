@@ -165,15 +165,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\LazyViewPager\unspecified\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.0"
-        sha1="576f50df4d03d432a2f579c614b68c6d8e1deb29">
-        <dex dex="C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\pre-dexed\debug\ImmediateChoice-LazyViewPager-unspecified_c06c83f850abafd63af58a876d956b43866b2d57.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"

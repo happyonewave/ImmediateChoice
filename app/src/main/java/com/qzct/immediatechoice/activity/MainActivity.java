@@ -2,6 +2,7 @@ package com.qzct.immediatechoice.activity;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -191,6 +192,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     public void click(View v) {
         int id = v.getId();
         int index = 0;
+        boolean change = true;
         switch (id) {
             //首页
             case R.id.bt_home:
@@ -202,6 +204,12 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 break;
             //朋友
             case R.id.bt_friend:
+                if (MyApplication.user.getUser_id() == 0) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+//                    change = false;
+                    return;
+                }
                 index = 2;
                 break;
             //我的
@@ -213,9 +221,11 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 break;
         }
         //Fragment切换
+//        if (change) {
         Fragment fragment = (Fragment) Adapter.instantiateItem(fl, index);
         Adapter.setPrimaryItem(fl, 0, fragment);
         Adapter.finishUpdate(fl);
+//        }
     }
 
     /**

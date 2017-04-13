@@ -3,6 +3,7 @@ package com.qzct.immediatechoice.fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -319,8 +320,13 @@ public class CircleFragment extends baseFragment implements ZrcListView.OnItemCl
         }
 
         if (lv_circle.getVisibility() == View.GONE) {
-            loader.setVisibility(View.GONE);
-            lv_circle.setVisibility(View.VISIBLE);
+            new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    loader.setVisibility(View.GONE);
+                    lv_circle.setVisibility(View.VISIBLE);
+                }
+            }.sendEmptyMessageDelayed(0, 4000);
         }
     }
 

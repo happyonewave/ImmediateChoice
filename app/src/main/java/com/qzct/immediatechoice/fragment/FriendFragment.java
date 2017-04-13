@@ -71,6 +71,7 @@ public class FriendFragment extends baseFragment {
             }
         });
         setIndicator();
+        vp_friend.setCurrentItem(1);
     }
 
 

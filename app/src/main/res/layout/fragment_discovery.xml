@@ -13,42 +13,44 @@
         <cn.bingoogolapple.bgabanner.BGABanner
             android:id="@+id/discovery_banner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </cn.bingoogolapple.bgabanner.BGABanner>
+            android:layout_height="wrap_content"></cn.bingoogolapple.bgabanner.BGABanner>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:padding="10dp">
 
             <EditText
                 android:id="@+id/discovery_search"
-                android:paddingLeft="5dp"
-                android:layout_weight="8"
-                android:layout_width="0dp"
-                android:singleLine="true"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/discovery_scan"
+                android:background="#60eb633b"
                 android:drawableLeft="@mipmap/search"
                 android:hint="搜索话题/帖子/用户"
-                android:textColorHint="@android:color/white"
-                android:background="#60eb633b" />
+                android:paddingLeft="5dp"
+
+                android:singleLine="true"
+                android:textColorHint="@android:color/white" />
 
             <ImageView
                 android:id="@+id/discovery_scan"
-                android:paddingLeft="20dp"
-                android:layout_weight="2"
-                android:layout_width="0dp"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@mipmap/scan"
-                />
-        </LinearLayout>
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:padding="5dp"
+                android:src="@mipmap/scan" />
+        </RelativeLayout>
 
     </FrameLayout>
 
     <net.lucode.hackware.magicindicator.MagicIndicator
         android:id="@+id/magic_indicator"
         android:layout_width="match_parent"
-        android:layout_height="37.5dp">
+        android:layout_height="0dp"
+        android:layout_weight="0.3">
 
     </net.lucode.hackware.magicindicator.MagicIndicator>
 

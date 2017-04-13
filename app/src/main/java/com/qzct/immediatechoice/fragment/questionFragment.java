@@ -3,13 +3,13 @@ package com.qzct.immediatechoice.fragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.github.lianghanzhen.LazyFragmentPagerAdapter;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.ImageTextAdpter;
@@ -44,7 +44,7 @@ import zrc.widget.ZrcListView;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class QuestionFragment extends baseFragment implements ZrcListView.OnItemClickListener, LazyFragmentPagerAdapter.Laziable{
+public class QuestionFragment extends baseFragment implements ZrcListView.OnItemClickListener {
 
 
     private static final String GET_QUESTION = "1";
@@ -328,8 +328,13 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
         }
 
         if (lv_home.getVisibility() == View.GONE) {
-            loader.setVisibility(View.GONE);
-            lv_home.setVisibility(View.VISIBLE);
+            new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    loader.setVisibility(View.GONE);
+                    lv_home.setVisibility(View.VISIBLE);
+                }
+            }.sendEmptyMessageDelayed(0, 4000);
         }
     }
 

@@ -7,24 +7,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="5dp"
-        android:layout_marginBottom="10dp">
+        android:padding="5dp">
 
         <com.loopj.android.image.SmartImageView
             android:id="@+id/view_topic_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/notdata" />
 
         <TextView
             android:id="@+id/view_topic_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:text="#二月二"
-            android:textSize="15dp" />
+            android:textSize="13sp" />
     </LinearLayout>
 
 

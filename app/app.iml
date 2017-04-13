@@ -184,7 +184,6 @@
     <orderEntry type="module" module-name="IMLib" exported="" />
     <orderEntry type="module" module-name="IMKit" exported="" />
     <orderEntry type="module" module-name="zrcListView" exported="" />
-    <orderEntry type="module" module-name="LazyViewPager" exported="" />
     <orderEntry type="module" module-name="YunWangVideoSDK" exported="" />
     <orderEntry type="library" exported="" name="android-android-25" level="project" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-25" level="project" />
@@ -193,8 +192,6 @@
     <orderEntry type="library" exported="" name="support-v4-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-23.0.1" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-23.4.0" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-23.4.0" level="project" />
     <orderEntry type="library" exported="" name="tb_video_recorder_sdk" level="project" />
     <orderEntry type="library" exported="" name="tb_video_recorder" level="project" />
   </component>

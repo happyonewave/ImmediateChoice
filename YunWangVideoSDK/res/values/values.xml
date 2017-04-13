@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="imrecorder_alphayellow">#7fffda44</color>
-    <color name="imrecorder_filter_theme_selected_bg">#219BE2</color>
+    <color name="imrecorder_filter_theme_selected_bg">#fff</color>
     <color name="imrecorder_init_color">#219BE2</color>
     <color name="imrecorder_pause_color">#219BE2</color>
     <color name="imrecorder_pause_outside_color">#219BE2</color>
@@ -30,7 +30,7 @@
     <color name="taorecorder_init_color">#ff5000</color>
     <color name="taorecorder_pause_color">#1beb25</color>
     <color name="taorecorder_pause_outside_color">#1c8624</color>
-    <color name="taorecorder_timeline_bg">#666666</color>
+    <color name="taorecorder_timeline_bg">#fff</color>
     <color name="taorecorder_timeline_start_color">#1beb25</color>
     <color name="taorecorder_yellowpressed">#998326</color>
     <string name="imrecorder_dlg_record_quit_message">确定要放弃这段视频吗？</string>

@@ -5,8 +5,8 @@ android {
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
         applicationId "com.qzct.immediatechoice"
-        minSdkVersion 17
-        targetSdkVersion 17
+        minSdkVersion 19
+        targetSdkVersion 19
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -121,6 +121,5 @@ dependencies {
     compile 'com.daimajia.numberprogressbar:library:1.4@aar'
     //不错的点赞效果
     compile 'com.ldoublem.thumbUplib:ThumbUplib:0.5'
-    compile project(':LazyViewPager')
     compile project(':YunWangVideoSDK')
 }

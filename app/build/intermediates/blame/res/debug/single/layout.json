@@ -872,6 +872,10 @@
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_picsel_grid_item.xml"
     },
     {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activty_splash.xml",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activty_splash.xml"
+    },
+    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_public_service_multi_rich_content_message.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_public_service_multi_rich_content_message.xml"
     },

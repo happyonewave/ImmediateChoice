@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -45,7 +46,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private ImageView blurImageView;
     private ImageView user_portrait;
     private ImageView bt_setting;
-    private TextView hint_mypush;
+    private LinearLayout hint_mypush;
 
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
@@ -56,7 +57,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         user_portrait = (ImageView) v.findViewById(R.id.user_portrait);
         lv = (GridView) v.findViewById(R.id.gv_user);
         bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
-        hint_mypush = (TextView) v.findViewById(R.id.hint_mypush);
+        hint_mypush = (LinearLayout) v.findViewById(R.id.hint_mypush);
         return v;
     }
 
