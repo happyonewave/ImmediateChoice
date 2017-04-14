@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/topic_img"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/notdata" />
+
+        <TextView
+            android:id="@+id/topic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/topic_img"
+            android:text="#title"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/topic_count_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/topic_img"
+            android:text="326个用户关注此话题"
+            android:textSize="10sp" />
+
+        <Button
+            android:id="@+id/btn_push"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/topic_count_user"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/topic_count_user"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/topic_img"
+            android:background="@drawable/btn_bg_normal"
+            android:text="发起"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/btn_attention"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/topic_count_user"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/btn_push"
+            android:background="@drawable/btn_bg_normal"
+            android:text="关注"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gv_topic"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:numColumns="auto_fit"></GridView>
+</LinearLayout>

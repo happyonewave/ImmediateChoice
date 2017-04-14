@@ -5,7 +5,7 @@ package com.qzct.immediatechoice.util;
  */
 
 public class Config {
-    //        public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+//            public static String url = "http://123.207.31.213/ImmediateChoice_service/";
     public static String url = "http://192.168.1.200:8080/Server/";
 
     public static String url_login = url + "LoginServlet";

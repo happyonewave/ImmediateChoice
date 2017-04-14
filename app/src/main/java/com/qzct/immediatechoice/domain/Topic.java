@@ -51,4 +51,10 @@ public class Topic {
         return topic_img_url;
     }
 
+    public String[] toStringArray() {
+        String[] strs = new String[]{
+                topic_id + "", topic_title, topic_img_url
+        };
+        return strs;
+    }
 }

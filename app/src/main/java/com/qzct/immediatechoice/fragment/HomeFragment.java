@@ -108,6 +108,27 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      */
     @Override
     public void initdata() {
+        vp_home.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 2) {
+                    if (!MyApplication.logined) {
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         LocalBroadcastManager broadcastManager = LocalBroadcastManager.getInstance(getActivity());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ACTION_SET_FAB_VISBILITY);

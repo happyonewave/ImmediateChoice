@@ -38,9 +38,6 @@ public class Question {
     }
 
 
-
-
-
     public int getQuestion_id() {
         return question_id;
     }
@@ -107,4 +104,23 @@ public class Question {
         return jsonObject;
 
     }
+
+    public static Question jsonObjectToQuestion(JSONObject jsonObject) throws JSONException {
+        int question_id = jsonObject.getInt("question_id");
+        String question_content = jsonObject.getString("question_content");
+        String left_url = jsonObject.getString("left_url");
+        String right_url = jsonObject.getString("right_url");
+        String quizzer_name = jsonObject.getString("quizzer_name");
+        String portrait_url = jsonObject.getString("portrait_url");
+        int share_count = jsonObject.getInt("share_count");
+        int comment_count = jsonObject.getInt("comment_count");
+        String comment = jsonObject.getString("comment");
+        String location = jsonObject.getString("location");
+//        String post_time = jsonObject.getString("post_time");
+        return new Question(question_id, question_content,
+                left_url, right_url, quizzer_name,
+                portrait_url, share_count,
+                comment_count, comment, location, null);
+    }
+
 }

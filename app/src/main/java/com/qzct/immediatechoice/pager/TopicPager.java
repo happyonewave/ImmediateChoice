@@ -1,6 +1,8 @@
 package com.qzct.immediatechoice.pager;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,6 +10,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.TopicActivity;
 import com.qzct.immediatechoice.adpter.TopicAdpter;
 import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.util.Config;
@@ -107,12 +110,13 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject temp = jsonArray.getJSONObject(i);
                 //读取相应内容.
+                int topic_id = temp.getInt("topic_id");
                 String topic_title = temp.getString("topic_title");
                 String topic_img_url = temp.getString("topic_img_url");
-                Topic topic = new Topic(topic_title, topic_img_url);
+                Topic topic = new Topic(topic_id,topic_title, topic_img_url);
                 topicList.add(topic);
             }
-            adpter = new TopicAdpter(context,topicList);
+            adpter = new TopicAdpter(context, topicList);
             Log.d(TAG, "adpter new成功 ");
             gv_class.setAdapter(adpter);
             Log.d(TAG, "setAdapter成功 ");
@@ -125,6 +129,7 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
 
     /**
      * GridView的item监听事件
+     *
      * @param adapterView
      * @param view
      * @param i
@@ -134,5 +139,8 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
         Toast.makeText(context, "点击了：" + i, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, TopicActivity.class);
+        intent.putExtra("topic_info", topicList.get(i).toStringArray());
+        context.startActivity(intent);
     }
 }

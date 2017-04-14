@@ -190,6 +190,7 @@ public class DiscoveryFragment extends baseFragment {
     @Event(R.id.discovery_scan)
     private void click(View v) {
         Toast.makeText(context, "点击了discovery_scan", Toast.LENGTH_SHORT).show();
+
     }
 
 }

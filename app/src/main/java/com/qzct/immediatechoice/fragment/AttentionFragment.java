@@ -1,9 +1,11 @@
 package com.qzct.immediatechoice.fragment;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -12,6 +14,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.activity.TopicActivity;
 import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.util.Config;
 
@@ -51,6 +54,14 @@ public class AttentionFragment extends baseFragment {
         v.setWidth(context.getWindowManager().getDefaultDisplay().getWidth());
         lv_home_attention.addHeaderView(v);
         getAttentionTopic();
+        lv_home_attention.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, TopicActivity.class);
+                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+                context.startActivity(intent);
+            }
+        });
 
     }
 

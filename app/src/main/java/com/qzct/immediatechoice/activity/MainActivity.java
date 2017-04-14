@@ -204,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 break;
             //朋友
             case R.id.bt_friend:
-                if (MyApplication.user.getUser_id() == 0) {
+                if (!MyApplication.logined) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
 //                    change = false;

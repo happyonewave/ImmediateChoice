@@ -176,6 +176,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.qzct.immediatechoice.activity.TopicActivity" />
 
         <service
             android:name="com.baidu.location.f"

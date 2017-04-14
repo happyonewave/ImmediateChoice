@@ -332,12 +332,12 @@
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.6\\res\\layout\\fab_menu_item_end.xml"
     },
     {
-        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\push_top.xml",
-        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\push_top.xml"
-    },
-    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_item_progress.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_item_progress.xml"
+    },
+    {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\push_top.xml",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\push_top.xml"
     },
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_picprev_activity.xml",
@@ -430,6 +430,10 @@
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_video.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\view_video.xml"
+    },
+    {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_topic.xml",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\src\\main\\res\\layout\\activity_topic.xml"
     },
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_part_time.xml",
