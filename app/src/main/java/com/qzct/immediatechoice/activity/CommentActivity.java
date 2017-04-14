@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.github.alexkolpa.fabtoolbar.FabToolbar;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
@@ -82,7 +83,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_comment,null));
+        setContentView(utils.getUsableView(this, R.layout.activity_comment, null));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
         title.setText("评价");
         question = MyApplication.question;
@@ -116,17 +117,21 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private void initData() {
         tv_question.setText(question.getQuestion_content());
         item_username.setText(question.getQuizzer_name());
-        ImageOptions options = new ImageOptions.Builder().setCircular(true)
-                .setFailureDrawableId(R.mipmap.default_portrait).build();
-        x.image().bind(item_portrait, question.getPortrait_url(), options);
+//        ImageOptions options = new ImageOptions.Builder().setCircular(true)
+//                .setFailureDrawableId(R.mipmap.default_portrait).build();
+//        x.image().bind(item_portrait, question.getPortrait_url(), options);
+        Glide.with(CommentActivity.this).load(question.getPortrait_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(item_portrait);
         comment_icon.setText(question.getComment_count() + "");
         share_icon.setText(question.getShare_count() + "");
         question_id = question.getQuestion_id();
         bt_add_comment.setOnClickListener(this);
         top_back.setOnClickListener(this);
         if (isQuestion) {
-            x.image().bind(image_text_item_img_right, question.getRight_url());
-            x.image().bind(image_text_item_img_left, question.getLeft_url());
+//            x.image().bind(image_text_item_img_right, question.getRight_url());
+//            x.image().bind(image_text_item_img_left, question.getLeft_url());
+            Glide.with(CommentActivity.this).load(question.getRight_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_right);
+            Glide.with(CommentActivity.this).load(question.getLeft_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_left);
+
 
         } else {
             image_text_item_img_left.setVisibility(View.GONE);

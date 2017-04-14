@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@android:color/white"
         android:descendantFocusability="blocksDescendants">
         <!--android:padding="10dp"-->
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_margin="25dp"
+            android:layout_margin="10dp"
             android:text="@string/question_content"
             android:textSize="25dp" />
 
@@ -33,6 +33,7 @@
                 android:id="@+id/view_item_img_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:orientation="vertical">
 
                 <FrameLayout
@@ -62,8 +63,8 @@
                         android:id="@+id/tpv_left"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="20dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="20dp"
                         app:cracksColor="#33475f"
                         app:edgeColor="#9d55b8"
                         app:fillColor="#ea8010"
@@ -107,8 +108,8 @@
                         android:id="@+id/tpv_right"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
-                        android:layout_gravity="right|center_vertical"
-                        android:layout_marginRight="20dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="20dp"
                         app:cracksColor="#33475f"
                         app:edgeColor="#9d55b8"
                         app:fillColor="#ea8010"
@@ -135,7 +136,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/fl"
-            android:padding="10dp">
+            android:padding="5dp">
 
             <ImageView
                 android:id="@+id/item_portrait"

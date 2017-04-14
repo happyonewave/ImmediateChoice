@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
-        android:src="@mipmap/default_portrait" />
+        android:src="@mipmap/notdata" />
 
     <TextView
         android:id="@+id/topic_title"

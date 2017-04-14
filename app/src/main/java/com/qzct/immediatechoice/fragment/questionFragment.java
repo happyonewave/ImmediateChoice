@@ -219,7 +219,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setLoadMoreSuccess();
                 } else {
-                    lv_home.stopLoadMore();
+//                    lv_home.stopLoadMore();
 
                     Toast.makeText(context, "已加载所有数据", Toast.LENGTH_SHORT).show();
                 }

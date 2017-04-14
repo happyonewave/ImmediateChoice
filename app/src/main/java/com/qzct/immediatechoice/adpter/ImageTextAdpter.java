@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
@@ -94,18 +95,22 @@ public class ImageTextAdpter extends BaseAdapter {
         Question i = questionlist.get(position);                                    //拿到一个info对象
 
         tv_question.setText(i.getQuestion_content());
-        image_text_item_img_left.setImageUrl(i.getLeft_url());
+//        image_text_item_img_left.setImageUrl(i.getLeft_url());
+        Glide.with(context).load(i.getLeft_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_left);
+
 
         if (i.getPortrait_url() != null) {
             image_text_item_img_right.setImageUrl(i.getRight_url());                                    //设置相应的信息
+            Glide.with(context).load(i.getRight_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_right);
             item_username.setText(i.getQuizzer_name());
-            ImageOptions.Builder builder = new ImageOptions.Builder();
-            builder.setCircular(true);
-            builder.setLoadingDrawableId(R.mipmap.default_portrait);//加载中默认显示图片
-            builder.setFailureDrawableId(R.mipmap.default_portrait);
-            builder.setSize(100, 100);
-            ImageOptions options = builder.build();
-            x.image().bind(item_portrait, i.getPortrait_url(), options);
+//            ImageOptions.Builder builder = new ImageOptions.Builder();
+//            builder.setCircular(true);
+//            builder.setLoadingDrawableId(R.mipmap.default_portrait);//加载中默认显示图片
+//            builder.setFailureDrawableId(R.mipmap.default_portrait);
+//            builder.setSize(100, 100);
+//            ImageOptions options = builder.build();
+//            x.image().bind(item_portrait, i.getPortrait_url(), options);
+            Glide.with(context).load(i.getPortrait_url()).placeholder(R.mipmap.default_portrait).error(R.mipmap.default_portrait).into(item_portrait);
         }
         comment_icon.setText(i.getComment_count() + "");
         share_icon.setText(i.getShare_count() + "");

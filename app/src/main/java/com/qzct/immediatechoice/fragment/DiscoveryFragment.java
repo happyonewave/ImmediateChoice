@@ -1,21 +1,32 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.SearchView;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.widget.EditText;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.pager.BasePager;
 import com.qzct.immediatechoice.pager.TopicPager;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -28,6 +39,10 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
@@ -46,8 +61,8 @@ public class DiscoveryFragment extends baseFragment {
     private View v;
     @ViewInject(R.id.discovery_banner)
     private BGABanner banner;
-    @ViewInject(R.id.discovery_search)
-    private EditText discovery_search;
+    //    @ViewInject(R.id.discovery_search)
+    private SearchView discovery_search;
     @ViewInject(R.id.discovery_scan)
     private ImageView discovery_scan;
     @ViewInject(R.id.magic_indicator)
@@ -55,7 +70,14 @@ public class DiscoveryFragment extends baseFragment {
     private List<String> mTitleDataList;
     @ViewInject(R.id.vp_discovery)
     private ViewPager vp_discovery;
+    @ViewInject(R.id.lv_search)
+    private ListView lv_search;
     private List<BasePager> pagerList;
+    private LinearLayout ll_layout;
+    private List<Question> questionList;
+    private ArrayAdapter<String> adapter;
+    private List<String> mStrList = new ArrayList<String>();
+
 
     /**
      * 初始化UI
@@ -67,6 +89,8 @@ public class DiscoveryFragment extends baseFragment {
     @Override
     public View initview(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
+        discovery_search = (SearchView) v.findViewById(R.id.discovery_search);
+        ll_layout = (LinearLayout) v.findViewById(R.id.ll_layout);
         return v;
     }
 
@@ -75,6 +99,88 @@ public class DiscoveryFragment extends baseFragment {
      */
     @Override
     public void initdata() {
+        mStrList.add("无此项");
+        adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mStrList);
+        lv_search.setAdapter(adapter);
+        lv_search.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Question question = questionList.get(position);
+                MyApplication.question = question;
+                if (question.getLeft_url().contains("image")) {
+                    MyApplication.isQuestion = true;
+                } else {
+                    MyApplication.isQuestion = false;
+                }
+                Intent intent = new Intent(context, CommentActivity.class);
+                context.startActivity(intent);
+
+            }
+        });
+//        lv_search.setTextFilterEnabled(true);
+        discovery_search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                lv_search.setVisibility(View.VISIBLE);
+                ll_layout.setVisibility(View.GONE);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                if (!TextUtils.isEmpty(newText)) {
+                    RequestParams entity = new RequestParams(Config.url_search);
+                    entity.addBodyParameter("keyword", newText);
+                    x.http().post(entity, new Callback.CommonCallback<String>() {
+                        @Override
+                        public void onSuccess(String result) {
+                            if (result != null && !"[]".equals(result)) {
+                                Log.d("qin", "result:   " + result);
+                                try {
+                                    questionList = new ArrayList<Question>();
+                                    mStrList.clear();
+                                    JSONArray array = new JSONArray(result);
+                                    for (int i = 0; i < array.length(); i++) {
+                                        Question question = Question.jsonObjectToQuestion(array.getJSONObject(i));
+                                        mStrList.add(question.getQuestion_content());
+                                        questionList.add(question);
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            Toast.makeText(context, "连接搜索服务错误", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(CancelledException cex) {
+
+                        }
+
+                        @Override
+                        public void onFinished() {
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+//                    lv_search.setFilterText(newText);
+                } else {
+//                    lv_search.clearTextFilter();
+                }
+                return false;
+            }
+        });
+        discovery_search.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                lv_search.setVisibility(View.GONE);
+                ll_layout.setVisibility(View.VISIBLE);
+                return false;
+            }
+        });
         setCarousel();
         setTopic();
     }

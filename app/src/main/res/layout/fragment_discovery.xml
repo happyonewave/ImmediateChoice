@@ -4,63 +4,75 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_height="40dp"
+        android:background="@color/apporange"
+        android:padding="0dp">
 
+        <ImageView
+            android:id="@+id/discovery_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:src="@mipmap/scan" />
 
-        <cn.bingoogolapple.bgabanner.BGABanner
-            android:id="@+id/discovery_banner"
+        <android.support.v7.widget.SearchView
+            android:id="@+id/discovery_search"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="#60eb633b"
+            android:iconifiedByDefault="true"
+            android:queryHint="搜索话题/帖子/用户"
+            android:textColorHint="@android:color/white" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_search"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"></ListView>
+
+    <LinearLayout
+        android:id="@+id/ll_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"></cn.bingoogolapple.bgabanner.BGABanner>
+            android:layout_height="0dp"
+            android:layout_weight="2">
 
-        <RelativeLayout
+
+            <cn.bingoogolapple.bgabanner.BGABanner
+                android:id="@+id/discovery_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></cn.bingoogolapple.bgabanner.BGABanner>
+
+        </FrameLayout>
+
+        <net.lucode.hackware.magicindicator.MagicIndicator
+            android:id="@+id/magic_indicator"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:padding="10dp">
+            android:layout_height="0dp"
+            android:layout_weight="0.3">
 
-            <EditText
-                android:id="@+id/discovery_search"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_toStartOf="@+id/discovery_scan"
-                android:background="#60eb633b"
-                android:drawableLeft="@mipmap/search"
-                android:hint="搜索话题/帖子/用户"
-                android:paddingLeft="5dp"
-
-                android:singleLine="true"
-                android:textColorHint="@android:color/white" />
-
-            <ImageView
-                android:id="@+id/discovery_scan"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:padding="5dp"
-                android:src="@mipmap/scan" />
-        </RelativeLayout>
-
-    </FrameLayout>
-
-    <net.lucode.hackware.magicindicator.MagicIndicator
-        android:id="@+id/magic_indicator"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.3">
-
-    </net.lucode.hackware.magicindicator.MagicIndicator>
+        </net.lucode.hackware.magicindicator.MagicIndicator>
 
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/vp_discovery"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_discovery"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
 
-    </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>
 
+
+    </LinearLayout>
 </LinearLayout>

@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Topic;
 
 import java.util.List;
@@ -77,7 +79,9 @@ public class TopicAdpter extends BaseAdapter {
         TextView view_class_text = (TextView) v.findViewById(R.id.view_topic_text);
         final Topic topic = topicList.get(i);
 
-        view_class_img.setImageUrl(topic.getTopic_img_url());
+//        view_class_img.setImageUrl(topic.getTopic_img_url());
+        Glide.with(context).load(topic.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(view_class_img);
+
         view_class_text.setText(topic.getTopic_title());
 
         return v;

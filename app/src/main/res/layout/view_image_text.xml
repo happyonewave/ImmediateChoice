@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:mk_color="@color/apporange"
-        app:mk_type="FishSpinner" />
+        app:mk_type="FivePulse" />
 
     <zrc.widget.ZrcListView
-        android:background="@color/gray"
         android:id="@+id/lv_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/gray"
         android:divider="@null"
         android:scrollbars="none"
         android:visibility="gone">

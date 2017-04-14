@@ -12,6 +12,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.TopicActivity;
@@ -23,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
+import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -58,7 +60,8 @@ public class AttentionFragment extends baseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context, TopicActivity.class);
-                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+                intent.putExtra("topic_info", topicList.get(position - 1).toStringArray());
+                Log.d("qin1", "topic_info" + topicList.get(position - 1).toStringArray()[1]);
                 context.startActivity(intent);
             }
         });
@@ -71,7 +74,6 @@ public class AttentionFragment extends baseFragment {
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                Log.d("qin", "onSuccess ");
                 if (result != null) {
                     try {
                         JSONArray resultJson = new JSONArray(result);
@@ -79,9 +81,9 @@ public class AttentionFragment extends baseFragment {
                         for (int i = 0; i < resultJson.length(); i++) {
                             JSONObject temp = resultJson.getJSONObject(i);
                             Topic topic = Topic.jsonObjectToTotic(temp);
+                            Log.d("qin", "temp: " + temp.toString());
                             topicList.add(topic);
                         }
-                        Log.d("qin", "onSuccess: topicList :" + topicList.toString());
                         lv_home_attention.setAdapter(new BaseAdapter() {
                             @Override
                             public int getCount() {
@@ -112,7 +114,9 @@ public class AttentionFragment extends baseFragment {
 
                                 Topic i = topicList.get(position);
 
-                                x.image().bind(topic_img, i.getTopic_img_url());
+//                                ImageOptions options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.notdata).build();
+//                                x.image().bind(topic_img, i.getTopic_img_url(), options);
+                                Glide.with(AttentionFragment.this).load(i.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(topic_img);
                                 topic_title.setText(i.getTopic_title());
                                 return v;
                             }
