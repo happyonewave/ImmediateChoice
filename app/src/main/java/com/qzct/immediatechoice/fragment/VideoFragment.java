@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
+import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
@@ -30,6 +31,9 @@ import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.xutils.common.Callback;
+import org.xutils.http.RequestParams;
+import org.xutils.x;
 
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -45,18 +49,17 @@ import zrc.widget.ZrcListView;
  */
 public class VideoFragment extends baseFragment implements ZrcListView.OnItemClickListener {
 
-
-    private static final String GET_QUESTION = "1";
-    private static final String REFRESH_QUESTION = "2";
+    //    private static final String GET_QUESTION = "1";
+//    private static final String REFRESH_QUESTION = "2";
+//    private String minPostTime;
+//    private String request;
+//    private String maxPostTime;
+//    private boolean isFirst;
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home_video;
     private ArrayList<Question> questionList = new ArrayList<Question>();
     private JSONArray jsonArray;
-    private String request;
     private QuestionVideoAdpter adpter;
-    private boolean isFirst;
-    private String maxPostTime;
-    private String minPostTime;
     private MKLoader loader;
     private View v;
 
@@ -72,10 +75,10 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
         lv_home_video = (ZrcListView) v.findViewById(R.id.lv_home_video);
         loader = (MKLoader) v.findViewById(R.id.loader);
 //        sendFabIsVisible(lv_home_video);
-        setLoad(lv_home_video);
         lv_home_video.setOnItemClickListener(this);
-        FirstLoadMoreTask firstLoadMoreTask = new FirstLoadMoreTask();
-        firstLoadMoreTask.execute();
+        adpter = new QuestionVideoAdpter(context, questionList);
+        lv_home_video.setAdapter(adpter);
+        initLoad(lv_home_video);
 
     }
 
@@ -83,33 +86,112 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
      * 下拉刷新
      */
     public void refresh() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                RefreshTask refreshTask = new RefreshTask();
-                refreshTask.execute();
-                lv_home_video.setRefreshSuccess("刷新成功");
-            }
-        }, 2000);
+        loadQuestion("video", true);
+        lv_home_video.setRefreshSuccess("刷新成功");
 
     }
-
 
     /**
      * 上拉加载
      */
     public void loadMore() {
-        new Handler().postDelayed(new Runnable() {
+        new Handler() {
             @Override
-            public void run() {
-                LoadMoreTask loadMoreTask = new LoadMoreTask();
-                loadMoreTask.execute();
+            public void handleMessage(Message msg) {
+                loadQuestion("video", false);
+                lv_home_video.setLoadMoreSuccess();
             }
-        }, 2000);
-
-
+        }.sendEmptyMessageDelayed(0, 4000);
     }
 
+    /**
+     * 加载数据
+     */
+    private void loadQuestion(String type, final boolean isRefresh) {
+        RequestParams entity = new RequestParams(Config.url_image_text);
+        entity.addBodyParameter("type", type);
+        if (isRefresh) {
+            current_page = 1;
+            entity.addBodyParameter("page", current_page + "");
+        } else {
+            current_page += 1;
+            entity.addBodyParameter("page", current_page + "");
+        }
+        x.http().get(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.d(TAG, "请求更新成功");
+                if (result != null) {
+                    if ("-1".equals(result)) {
+                        lv_home_video.stopLoadMore();
+                        return;
+                    }
+                    try {
+                        jsonArray = new JSONArray(result);
+                        ArrayList<Question> tempList = new ArrayList<Question>();
+                        //遍历传入的jsonArray
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject temp = null;
+                            temp = jsonArray.getJSONObject(i);
+                            int question_id = temp.getInt("question_id");
+//                            String post_time = temp.getString("post_time");
+                            String question_content = temp.getString("question_content");
+                            String left_url = temp.getString("left_url");
+                            String right_url = temp.getString("right_url");
+                            String quizzer_name = temp.getString("quizzer_name");
+                            String portrait_url = temp.getString("portrait_url");
+                            int share_count = temp.getInt("share_count");
+                            int comment_count = temp.getInt("comment_count");
+                            String comment = temp.getString("comment");
+                            Question Question = new Question(question_id, question_content,
+                                    left_url, right_url, quizzer_name,
+                                    portrait_url, share_count,
+                                    comment_count, comment, null, null);
+                            tempList.add(Question);
+                        }
+                        if (isRefresh) {
+                            questionList.clear();
+                            questionList.addAll(tempList);
+                        } else {
+                            questionList.addAll(tempList);
+                        }
+                        adpter.notifyDataSetChanged();
+//                        adpter.onDataChange(questionlist);
+//                        questionlist.addAll(0, tempList);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Log.d(TAG, "onError: " + ex.toString());
+                Toast.makeText(context, "请求刷新错误", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+                Log.d(TAG, "请求更新结束");
+//                        adpter.onDataChange(questionlist);
+                if (lv_home_video.getVisibility() == View.GONE) {
+                    new Handler() {
+                        @Override
+                        public void handleMessage(Message msg) {
+                            loader.setVisibility(View.GONE);
+                            lv_home_video.setVisibility(View.VISIBLE);
+                        }
+                    }.sendEmptyMessageDelayed(0, 2000);
+                }
+            }
+        });
+    }
 
     /**
      * ListVItem点击事件
@@ -132,93 +214,95 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
     /**
      * 第一次加载
      */
-    class FirstLoadMoreTask extends AsyncTask<String, String, String> {
-
-
-        @Override
-        protected String doInBackground(String... params) {
-            //返回获取的jasonArray 2017-03-20 21:25:53.0
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date now = new Date();
-            String startTime = format.format(now);
-            request = getQuestionJson(GET_QUESTION, startTime, Config.unixTime_min);
-            return request;
-        }
-
-        @Override
-        protected void onPostExecute(String request) {
-            if (request != null) {
-                if (!request.equals("-1")) {
-                    adpter = new QuestionVideoAdpter(context, questionList);
-                    isFirst = true;
-                    refreshquestionList(GET_QUESTION);
-                    lv_home_video.setAdapter(adpter);
-                } else {
-                    Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        }
-    }
-
+//
+//    class FirstLoadMoreTask extends AsyncTask<String, String, String> {
+//
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            //返回获取的jasonArray 2017-03-20 21:25:53.0
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date now = new Date();
+//            String startTime = format.format(now);
+//            request = getQuestionJson(GET_QUESTION, startTime, Config.unixTime_min);
+//            return request;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String request) {
+//            if (request != null) {
+//                if (!request.equals("-1")) {
+//                    adpter = new QuestionVideoAdpter(context, questionList);
+//                    isFirst = true;
+//                    refreshquestionList(GET_QUESTION);
+//                    lv_home_video.setAdapter(adpter);
+//                } else {
+//                    Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//            }
+//        }
+//    }
 
     /**
      * 刷新数据
      */
-    class RefreshTask extends AsyncTask<String, String, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-            //返回获取的jasonArray 2017-03-20 21:25:53.0
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date now = new Date();
-            String startTime = format.format(now);
-            request = getQuestionJson(REFRESH_QUESTION, startTime, maxPostTime);
-            return request;
-        }
-
-        @Override
-        protected void onPostExecute(String request) {
-            if (request != null) {
-                if (!request.equals("-1")) {
-                    refreshquestionList(REFRESH_QUESTION);
-                } else {
-                    Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
-                }
-
-
-            }
-        }
-    }
+//
+//    class RefreshTask extends AsyncTask<String, String, String> {
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            //返回获取的jasonArray 2017-03-20 21:25:53.0
+//            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date now = new Date();
+//            String startTime = format.format(now);
+//            request = getQuestionJson(REFRESH_QUESTION, startTime, maxPostTime);
+//            return request;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String request) {
+//            if (request != null) {
+//                if (!request.equals("-1")) {
+//                    refreshquestionList(REFRESH_QUESTION);
+//                } else {
+//                    Toast.makeText(context, "已刷新为最新数据", Toast.LENGTH_SHORT).show();
+//                }
+//
+//
+//            }
+//        }
+//    }
 
     /**
      * 加载数据
      */
-    class LoadMoreTask extends AsyncTask<String, String, String> {
-
-
-        @Override
-        protected String doInBackground(String... params) {
-            //返回获取的jasonArray 北京时间1970年01月01日08时00分00秒
-            request = getQuestionJson(GET_QUESTION, minPostTime, Config.unixTime_min);
-            return request;
-        }
-
-        @Override
-        protected void onPostExecute(String request) {
-            if (request != null) {
-                if (!request.equals("-1")) {
-                    refreshquestionList(GET_QUESTION);
-                    lv_home_video.setLoadMoreSuccess();
-                } else {
-                    lv_home_video.stopLoadMore();
-
-                    Toast.makeText(context, "已加载所有数据", Toast.LENGTH_SHORT).show();
-                }
-            }
-        }
-    }
+//
+//    class LoadMoreTask extends AsyncTask<String, String, String> {
+//
+//
+//        @Override
+//        protected String doInBackground(String... params) {
+//            //返回获取的jasonArray 北京时间1970年01月01日08时00分00秒
+//            request = getQuestionJson(GET_QUESTION, minPostTime, Config.unixTime_min);
+//            return request;
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String request) {
+//            if (request != null) {
+//                if (!request.equals("-1")) {
+//                    refreshquestionList(GET_QUESTION);
+//                    lv_home_video.setLoadMoreSuccess();
+//                } else {
+//                    lv_home_video.stopLoadMore();
+//
+//                    Toast.makeText(context, "已加载所有数据", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        }
+//    }
 
     /**
      * 请求数据
@@ -226,116 +310,111 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
      * @param startTime
      * @return
      */
-    private String getQuestionJson(String msg, String startTime, String endTime) {
-        HttpClient hc = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
-        try {
-            List<NameValuePair> parameters = new ArrayList<NameValuePair>();
-            BasicNameValuePair pair1 =
-                    new BasicNameValuePair("msg", msg);
-            BasicNameValuePair pair2 =
-                    new BasicNameValuePair("type", "video");
-            BasicNameValuePair pair3 =
-                    new BasicNameValuePair("user_id", 0 + "");
-            BasicNameValuePair pair4 =
-                    new BasicNameValuePair("startTime", startTime);
-            BasicNameValuePair pair5 =
-                    new BasicNameValuePair("endTime", endTime);
-            parameters.add(pair1);
-            parameters.add(pair2);
-            parameters.add(pair3);
-            parameters.add(pair4);
-            parameters.add(pair5);
-            UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
-            httpPost.setEntity(entity);
-            HttpResponse hr = hc.execute(httpPost);
-            if (hr.getStatusLine().getStatusCode() == 200) {
-                InputStream is = hr.getEntity().getContent();
-                String request = utils.getTextFromStream(is);
-                return request;
-            } else {
-                return "0";
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return e.toString();
-        }
-    }
-
-//    @Override
-//    public void onDestroyView() {
-//        loader.setVisibility(View.VISIBLE);
-//        lv_home_video.setVisibility(View.GONE);
-//        super.onDestroyView();
+//
+//    private String getQuestionJson(String msg, String startTime, String endTime) {
+//        HttpClient hc = new DefaultHttpClient();
+//        HttpPost httpPost = new HttpPost(url);
+//        try {
+//            List<NameValuePair> parameters = new ArrayList<NameValuePair>();
+//            BasicNameValuePair pair1 =
+//                    new BasicNameValuePair("msg", msg);
+//            BasicNameValuePair pair2 =
+//                    new BasicNameValuePair("type", "video");
+//            BasicNameValuePair pair3 =
+//                    new BasicNameValuePair("user_id", 0 + "");
+//            BasicNameValuePair pair4 =
+//                    new BasicNameValuePair("startTime", startTime);
+//            BasicNameValuePair pair5 =
+//                    new BasicNameValuePair("endTime", endTime);
+//            parameters.add(pair1);
+//            parameters.add(pair2);
+//            parameters.add(pair3);
+//            parameters.add(pair4);
+//            parameters.add(pair5);
+//            UrlEncodedFormEntity entity = new UrlEncodedFormEntity(parameters, "utf-8");
+//            httpPost.setEntity(entity);
+//            HttpResponse hr = hc.execute(httpPost);
+//            if (hr.getStatusLine().getStatusCode() == 200) {
+//                InputStream is = hr.getEntity().getContent();
+//                String request = utils.getTextFromStream(is);
+//                return request;
+//            } else {
+//                return "0";
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return e.toString();
+//        }
 //    }
 
     /**
      * 刷新questionList
      */
-    private void refreshquestionList(String msg) {
-        try {
-            jsonArray = new JSONArray(request);
-            ArrayList<Question> tempList = new ArrayList<Question>();
-            //遍历传入的jsonArray
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject temp = jsonArray.getJSONObject(i);
-                //读取相应内容
-                int question_id = temp.getInt("question_id");
-                String post_time = temp.getString("post_time");
-
-                //设置值
-                if (msg.equals(GET_QUESTION)) {
-                    if (i == jsonArray.length() - 1) {
-                        minPostTime = post_time;
-                        Log.d("qin", "minPostTime = post_time执行");
-                    }
-                    if (isFirst) {
-                        if (i == 0) {
-                            maxPostTime = post_time;
-                            Log.d("qin", "maxPostTime = post_time执行");
-                        }
-                        isFirst = false;
-                    }
-                } else {
-                    if (i == 0) {
-                        maxPostTime = post_time;
-                        Log.d("qin", "maxPostTime = post_time执行");
-                    }
-                }
-                String question_content = temp.getString("question_content");
-                String left_url = temp.getString("left_url");
-                String right_url = temp.getString("right_url");
-                String quizzer_name = temp.getString("quizzer_name");
-                String portrait_url = temp.getString("portrait_url");
-                int share_count = temp.getInt("share_count");
-                int comment_count = temp.getInt("comment_count");
-                String comment = temp.getString("comment");
-                Question Question = new Question(question_id, question_content,
-                        left_url, right_url, quizzer_name,
-                        portrait_url, share_count,
-                        comment_count, comment, null, null);
-                tempList.add(Question);
-            }
-            if (msg == REFRESH_QUESTION) {
-                questionList.addAll(0, tempList);
-            } else {
-                questionList.addAll(tempList);
-            }
-            adpter.onDataChange(questionList);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if (lv_home_video.getVisibility() == View.GONE) {
-            new Handler() {
-                @Override
-                public void handleMessage(Message msg) {
-                    loader.setVisibility(View.GONE);
-                    lv_home_video.setVisibility(View.VISIBLE);
-                }
-            }.sendEmptyMessageDelayed(0, 4000);
-        }
-    }
+//
+//    private void refreshquestionList(String msg) {
+//        try {
+//            jsonArray = new JSONArray(request);
+//            ArrayList<Question> tempList = new ArrayList<Question>();
+//            //遍历传入的jsonArray
+//            for (int i = 0; i < jsonArray.length(); i++) {
+//                JSONObject temp = jsonArray.getJSONObject(i);
+//                //读取相应内容
+//                int question_id = temp.getInt("question_id");
+//                String post_time = temp.getString("post_time");
+//
+//                //设置值
+//                if (msg.equals(GET_QUESTION)) {
+//                    if (i == jsonArray.length() - 1) {
+//                        minPostTime = post_time;
+//                        Log.d("qin", "minPostTime = post_time执行");
+//                    }
+//                    if (isFirst) {
+//                        if (i == 0) {
+//                            maxPostTime = post_time;
+//                            Log.d("qin", "maxPostTime = post_time执行");
+//                        }
+//                        isFirst = false;
+//                    }
+//                } else {
+//                    if (i == 0) {
+//                        maxPostTime = post_time;
+//                        Log.d("qin", "maxPostTime = post_time执行");
+//                    }
+//                }
+//                String question_content = temp.getString("question_content");
+//                String left_url = temp.getString("left_url");
+//                String right_url = temp.getString("right_url");
+//                String quizzer_name = temp.getString("quizzer_name");
+//                String portrait_url = temp.getString("portrait_url");
+//                int share_count = temp.getInt("share_count");
+//                int comment_count = temp.getInt("comment_count");
+//                String comment = temp.getString("comment");
+//                Question Question = new Question(question_id, question_content,
+//                        left_url, right_url, quizzer_name,
+//                        portrait_url, share_count,
+//                        comment_count, comment, null, null);
+//                tempList.add(Question);
+//            }
+//            if (msg == REFRESH_QUESTION) {
+//                questionList.addAll(0, tempList);
+//            } else {
+//                questionList.addAll(tempList);
+//            }
+//            adpter.onDataChange(questionList);
+//
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        if (lv_home_video.getVisibility() == View.GONE) {
+//            new Handler() {
+//                @Override
+//                public void handleMessage(Message msg) {
+//                    loader.setVisibility(View.GONE);
+//                    lv_home_video.setVisibility(View.VISIBLE);
+//                }
+//            }.sendEmptyMessageDelayed(0, 4000);
+//        }
+//    }
 
 
 }

@@ -47,9 +47,10 @@ public class ImageTextAdpter extends BaseAdapter {
     }
 
     public void onDataChange(List<Question> questionlist) {
-        this.questionlist = questionlist;
+        this.questionlist.clear();
+        this.questionlist.addAll(questionlist);
         this.notifyDataSetChanged();
-
+        this.notifyDataSetInvalidated();
     }
 
     public Question getQuestionFromItem(int position) {

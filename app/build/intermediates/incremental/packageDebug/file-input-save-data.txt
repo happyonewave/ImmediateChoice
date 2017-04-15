@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Apr 15 19:59:03 CST 2017
+#Sun Apr 16 02:05:49 CST 2017
 1073.file=C\:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\mipmap-xxhdpi-v4\\ic_launcher.png
 1090.base=C\:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 1007.base=C\:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\resources-debug.ap_
