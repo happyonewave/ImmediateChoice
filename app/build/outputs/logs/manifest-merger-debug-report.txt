@@ -58,6 +58,7 @@ MERGED from [cn.youngkaaa:yviewpager:0.2] C:\Users\tsh2\AndroidStudioProjects\Im
 MERGED from [com.daimajia.numberprogressbar:library:1.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.daimajia.numberprogressbar\library\1.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:7:5-9:41
 MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:7:5-43
+MERGED from [com.github.lecho:hellocharts-android:v1.5.8] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.lecho\hellocharts-android\v1.5.8\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -285,6 +286,16 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:102:13-45
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:101:13-51
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:13-107:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:104:13-65
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:104:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:106:13-73
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:106:23-70
 activity#com.qzct.immediatechoice.test.TestActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:109:9-115:20
 	android:name
@@ -347,16 +358,6 @@ activity#com.qzct.immediatechoice.activity.SplashActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:152:9-158:20
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:152:19-58
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:153:13-157:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:17-69
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:17-77
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:27-74
 activity#com.qzct.immediatechoice.activity.TopicActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:159:9-59
 	android:name

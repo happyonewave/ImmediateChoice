@@ -326,7 +326,7 @@ public class CircleFragment extends baseFragment implements ZrcListView.OnItemCl
                     loader.setVisibility(View.GONE);
                     lv_circle.setVisibility(View.VISIBLE);
                 }
-            }.sendEmptyMessageDelayed(0, 4000);
+            }.sendEmptyMessageDelayed(0, 2000);
         }
     }
 

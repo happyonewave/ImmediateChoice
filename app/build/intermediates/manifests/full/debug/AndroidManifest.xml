@@ -113,13 +113,11 @@
         <activity
             android:name="com.qzct.immediatechoice.activity.LoginActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name="com.qzct.immediatechoice.test.TestActivity" >
 
@@ -170,11 +168,13 @@
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.YWRecordVideoActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.SplashActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.TopicActivity" />
 

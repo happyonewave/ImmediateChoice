@@ -40,7 +40,6 @@ import java.io.File;
 import java.util.List;
 
 
-
 /**
  * 发起投票
  */
@@ -76,6 +75,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private Button choice_group;
     private JSONArray push_group_ids;
     private boolean isImage;
+    private int group_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -276,15 +276,16 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     break;
                 //选择群组上传
                 case CHOICE_GROUP:
-                    List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
-                    push_group_ids = new JSONArray();
-                    for (String group_id : groupIdList) {
-                        try {
-                            push_group_ids.put(new JSONObject().put("group_id", group_id));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
+//                    List<String> groupIdList = data.getStringArrayListExtra("groupIdList");
+                    group_id = data.getIntExtra("group_id", 0);
+//                    push_group_ids = new JSONArray();
+//                    for (String group_id : groupIdList) {
+//                        try {
+//                            push_group_ids.put(new JSONObject().put("group_id", group_id));
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
 
                     break;
                 default:
@@ -372,8 +373,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         if (isUploadImage) {
             type = "image";
         }
-        Question question = new Question(0,
-                question_content,
+        Question question = new Question(0, group_id, question_content,
                 getNetUrlFormLocalPath(left_path, type),
                 getNetUrlFormLocalPath(right_path, type),
                 quizzer_name, user.getPortrait_path(), 0, 0, null,

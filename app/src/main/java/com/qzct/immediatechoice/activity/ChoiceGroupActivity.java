@@ -57,9 +57,9 @@ public class ChoiceGroupActivity extends AppCompatActivity {
     }
 
     private void initData() {
-        Intent intent = new Intent(this, PushActivity.class);
-        intent.putStringArrayListExtra("groupIdList", (ArrayList<String>) groupIdList);
-        setResult(RESULT_OK, intent);
+//        Intent intent = new Intent(this, PushActivity.class);
+//        intent.putStringArrayListExtra("groupIdList", (ArrayList<String>) groupIdList);
+//        setResult(RESULT_OK, intent);
         Button new_group = new Button(getApplicationContext());
         new_group.setText("新建");
         choice_group.setOnClickListener(new View.OnClickListener() {
@@ -86,8 +86,12 @@ public class ChoiceGroupActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
-                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
+                Intent intent = new Intent(ChoiceGroupActivity.this, PushActivity.class);
+                intent.putExtra("group_id", groupInfoList.get(position - 1).getGroup_id());
+                setResult(RESULT_OK, intent);
+                finish();
+//                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
+//                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
             }
         });
         getGroup();

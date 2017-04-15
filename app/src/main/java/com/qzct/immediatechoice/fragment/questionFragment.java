@@ -334,7 +334,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
                     loader.setVisibility(View.GONE);
                     lv_home.setVisibility(View.VISIBLE);
                 }
-            }.sendEmptyMessageDelayed(0, 4000);
+            }.sendEmptyMessageDelayed(0, 2000);
         }
     }
 

@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.test;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -30,6 +31,14 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import lecho.lib.hellocharts.model.BubbleChartData;
+import lecho.lib.hellocharts.model.BubbleValue;
+import lecho.lib.hellocharts.model.Line;
+import lecho.lib.hellocharts.model.LineChartData;
+import lecho.lib.hellocharts.model.PointValue;
+import lecho.lib.hellocharts.view.BubbleChartView;
+import lecho.lib.hellocharts.view.LineChartView;
+
 
 /**
  * 测试
@@ -45,7 +54,8 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getHasTopView(this, R.layout.activity_test, "谁能看见"));
+        setContentView(R.layout.activity_test);
+//        setContentView(utils.getHasTopView(this, R.layout.activity_test, null));
         initView();
         initData();
 
@@ -53,131 +63,28 @@ public class TestActivity extends AppCompatActivity {
 
 
     private void initView() {
-        choice_group = (RadioButton) findViewById(R.id.choice_group);
-        lv_group = (ListView) findViewById(R.id.lv_group);
 
     }
 
     private void initData() {
-        Intent intent = new Intent(this, PushActivity.class);
-        intent.putStringArrayListExtra("groupIdList", (ArrayList<String>) groupIdList);
-        setResult(RESULT_OK, intent);
-        Button new_group = new Button(getApplicationContext());
-        new_group.setText("新建");
-        choice_group.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (lv_group.getVisibility() == View.VISIBLE) {
-                    lv_group.setVisibility(View.GONE);
-                } else {
-                    lv_group.setVisibility(View.VISIBLE);
+        List<BubbleValue> values = new ArrayList<BubbleValue>();
+        values.add(new BubbleValue(0, 2, 2));
+        values.add(new BubbleValue(2, 1, 2));
+        values.add(new BubbleValue(3, 3, 3));
+        values.add(new BubbleValue(5, 5, 5));
+        values.add(new BubbleValue(7, 7, 1));
+        values.add(new BubbleValue(1, 3, 7));
 
-                }
-            }
-        });
-        new_group.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                AlertDialog.Builder builder = new  AlertDialog.Builder(getApplicationContext());
-
-//                lv_group.addView();
-            }
-        });
-        lv_group.addHeaderView(new_group);
-        lv_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
-                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
-            }
-        });
-        getGroup();
+//In most cased you can call data model methods in builder-pattern-like manner.
+//        Line line = new Line(values).setColor(Color.BLUE).setCubic(true);
+//        List<Line> lines = new ArrayList<Line>();
+//        lines.add(line);
+        BubbleChartData data = new BubbleChartData();
+        data.setValues(values);
+//        LineChartView chart = new LineChartView(this);
+//        LineChartView chart = (LineChartView) findViewById(R.id.chart);
+        BubbleChartView bubbleChartView = (BubbleChartView) findViewById(R.id.chart);
+        bubbleChartView.setBubbleChartData(data);
     }
-
-    private void getGroup() {
-        RequestParams entity = new RequestParams(Config.url_group);
-        entity.addParameter("owner_id", 1);
-//        entity.addParameter("owner_id", MyApplication.user.getUser_id());
-        x.http().post(entity, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                if (result != null) {
-                    try {
-                        JSONArray resultJsonArray = new JSONArray(result);
-                        groupInfoList = GroupInfo.tolistFrom(resultJsonArray.getJSONArray(0));
-                        membersList = new ArrayList<List<User>>();
-                        for (int i = 1; i < resultJsonArray.length(); i++) {
-                            JSONObject temp = resultJsonArray.getJSONObject(i);
-                            List<User> memberList = User.toMemberListFrom(temp.getJSONArray("members"));
-                            membersList.add(memberList);
-                        }
-                        lv_group.setAdapter(new SpinnerAdapter());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Log.d("qin", "onError: " + ex.toString());
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-
-    }
-
-
-    private class SpinnerAdapter extends BaseAdapter {
-        @Override
-        public int getCount() {
-            return groupInfoList.size();
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            TextView v = null;
-            if (convertView != null) {
-                v = (TextView) convertView;
-            } else {
-                v = new TextView(getApplicationContext());
-            }
-//            v.setCompoundDrawables(getDrawable(R.drawable.bt_sex_bg), null, null, null);
-            v.setText(groupInfoList.get(position).getName() + " (" + membersList.get(position).size() + ")");
-            return v;
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-
-    }
-
 }
 
