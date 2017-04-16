@@ -11,7 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         app:mk_color="@color/apporange"
-        app:mk_type="FishSpinner" />
+        app:mk_type="FishSpinner"
+        />
 
     <zrc.widget.ZrcListView
         android:background="@color/gray"

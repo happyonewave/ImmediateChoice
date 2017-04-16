@@ -25,7 +25,7 @@ public class RegisterSecondFragment extends baseFragment {
     }
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
 
         RegisterActivity registerActivity = (RegisterActivity) getActivity();
         registerActivity.setTitleColor(0);
@@ -56,7 +56,7 @@ public class RegisterSecondFragment extends baseFragment {
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
 
     }
 }

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.MyCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -35,7 +36,7 @@ public abstract class baseFragment extends Fragment {
     Activity context;
     MyApplication myApplication;
     public int current_page;
-     String TAG ="qin";
+    String TAG = "qin";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,21 +45,21 @@ public abstract class baseFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
-    public abstract View initview(LayoutInflater inflater, ViewGroup container);
+    public abstract View initView(LayoutInflater inflater, ViewGroup container);
 
-    public abstract void initdata();
+    public abstract void initData();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = initview(inflater, container);
+        View v = initView(inflater, container);
         return v;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        initdata();
+        initData();
     }
 
     @Override
@@ -75,7 +76,7 @@ public abstract class baseFragment extends Fragment {
     }
 
 
-    public void initLoad(final ZrcListView listView) {
+    public void initRefreshAndLoad(final ZrcListView listView, final MyCallback.InitRefreshAndLoadCallBack initRefreshAndLoadCallBack) {
 
         // 设置下拉刷新的样式
         SimpleHeader header = new SimpleHeader(context);
@@ -95,7 +96,8 @@ public abstract class baseFragment extends Fragment {
         listView.setOnRefreshStartListener(new ZrcListView.OnStartListener() {
             @Override
             public void onStart() {
-                refresh();
+//                refresh();
+                initRefreshAndLoadCallBack.refresh();
                 // 加载更多事件回调
                 listView.startLoadMore();
             }
@@ -103,20 +105,27 @@ public abstract class baseFragment extends Fragment {
         listView.setOnLoadMoreStartListener(new ZrcListView.OnStartListener() {
             @Override
             public void onStart() {
-                loadMore();
+//                loadMore();
+                initRefreshAndLoadCallBack.loadMore();
             }
         });
-        refresh();
+        initRefreshAndLoadCallBack.refresh();
     }
 
+    /**
+     * 上拉加载
+     */
     public void loadMore() {
     }
 
+    /**
+     * 下拉刷新
+     */
     public void refresh() {
 
     }
 
-    public void questionLoad(final ZrcListView listView , final List<Question> questionlist, final BaseAdapter adpter, String type, final boolean isRefresh) {
+    public void questionLoad(final ZrcListView listView, final List<Question> questionList, final BaseAdapter adpter, String type, final boolean isRefresh) {
         RequestParams entity = new RequestParams(Config.url_image_text);
         entity.addBodyParameter("type", type);
         if (isRefresh) {
@@ -160,14 +169,14 @@ public abstract class baseFragment extends Fragment {
                             tempList.add(Question);
                         }
                         if (isRefresh) {
-                            questionlist.clear();
-                            questionlist.addAll(tempList);
+                            questionList.clear();
+                            questionList.addAll(tempList);
                         } else {
-                            questionlist.addAll(tempList);
+                            questionList.addAll(tempList);
                         }
                         adpter.notifyDataSetChanged();
-//                        adpter.onDataChange(questionlist);
-//                        questionlist.addAll(0, tempList);
+//                        adpter.onDataChange(questionList);
+//                        questionList.addAll(0, tempList);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -189,7 +198,7 @@ public abstract class baseFragment extends Fragment {
             @Override
             public void onFinished() {
                 Log.d(TAG, "请求更新结束");
-//                        adpter.onDataChange(questionlist);
+//                        adpter.onDataChange(questionList);
             }
         });
     }

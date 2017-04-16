@@ -101,8 +101,12 @@ public class utils {
 
 
     public static View getUsableView(final Activity activity, int resource, String title) {
-
         ViewGroup view = (ViewGroup) View.inflate(activity, resource, null);
+        return getUsableView(activity, view, title);
+    }
+
+    public static View getUsableView(final Activity activity, ViewGroup view, String title) {
+        ViewGroup viewGroup = view;
         if (title != null) {
             View top = View.inflate(activity, R.layout.layout_top, null);
             ImageView back = (ImageView) top.findViewById(R.id.top_back);
@@ -114,7 +118,7 @@ public class utils {
                 }
             });
             tv_title.setText(title);
-            view.addView(top, 0);
+            viewGroup.addView(top, 0);
         }
         //支持4.4以上
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
@@ -130,11 +134,11 @@ public class utils {
 //            view.removeView(firstView);
 //            firstView1.setPadding(0, getStatusBarHeight(activity), 0, 0);
 //            view.addView(firstView1, 0);
-            view.addView(bar, 0);
+            viewGroup.addView(bar, 0);
             //设置导航栏透明
 //            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
-        return view;
+        return viewGroup;
 
     }
 

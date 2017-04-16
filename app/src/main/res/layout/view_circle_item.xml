@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/white"
+        android:descendantFocusability="blocksDescendants">
+        <!--android:padding="10dp"-->
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/question_content"
+            android:textSize="25dp" />
+
+        <FrameLayout
+            android:id="@+id/fl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_question">
+
+
+            <LinearLayout
+                android:id="@+id/view_item_img_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+                    <!--android:layout_marginRight="5dp"-->
+
+
+                    <ImageView
+                        android:id="@+id/image_text_item_img_left"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+                        android:id="@+id/view_video_item_left"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:visibility="visible" />
+                    <!--<ImageView-->
+                    <!--android:id="@+id/view_video_item_left"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@android:color/black" />-->
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:src="@mipmap/play_img" />-->
+
+                    <com.ldoublem.thumbUplib.ThumbUpView
+                        android:id="@+id/tpv_left"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="20dp"
+                        app:cracksColor="#33475f"
+                        app:edgeColor="#9d55b8"
+                        app:fillColor="#ea8010"
+                        app:unlikeType="1" />
+
+
+                    <com.daimajia.numberprogressbar.NumberProgressBar
+                        android:id="@+id/view_video_item_left_ProgressBar"
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:visibility="gone">
+
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/image_text_item_img_right"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+                        android:id="@+id/view_video_item_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <!--<ImageView-->
+                    <!--android:id="@+id/view_video_item_right"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@android:color/black" />-->
+
+                    <!--<ImageView-->
+                    <!--android:layout_width="50dp"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:src="@mipmap/play_img" />-->
+                    <!--android:layout_marginRight="5dp"-->
+
+
+                    <com.ldoublem.thumbUplib.ThumbUpView
+                        android:id="@+id/tpv_right"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="left|center_vertical"
+                        android:layout_marginLeft="20dp"
+                        app:cracksColor="#33475f"
+                        app:edgeColor="#9d55b8"
+                        app:fillColor="#ea8010"
+                        app:unlikeType="1" />
+
+                    <com.daimajia.numberprogressbar.NumberProgressBar
+                        android:id="@+id/view_video_item_right_ProgressBar"
+                        style="@style/NumberProgressBar_Funny_Orange"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:visibility="gone">
+
+                    </com.daimajia.numberprogressbar.NumberProgressBar>
+
+
+                </FrameLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/hint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fl"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/item_portrait"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/default_portrait" />
+
+            <TextView
+                android:id="@+id/item_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/item_portrait"
+                android:background="@android:color/transparent"
+                android:text="不语" />
+
+            <Button
+                android:id="@+id/comment_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@mipmap/comment"
+                android:text="65" />
+
+            <Button
+                android:id="@+id/share_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@id/comment_icon"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@mipmap/share"
+                android:text="65" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/hint_layout"
+            android:background="@color/gray"
+            android:padding="15dp"
+            android:text="当然是冬天才能领略北国风光啦！"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</LinearLayout>

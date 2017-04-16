@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ import io.rong.imlib.model.UserInfo;
  * Created by Administrator on 2017-02-26.
  */
 
-public class User {
+public class User implements Serializable {
     int user_id;
     String username;
     String password;
@@ -136,5 +137,20 @@ public class User {
         return memberList;
 
 
+    }
+
+    public static User jsonObjectToUser(JSONObject jsonObject) throws JSONException {
+        int user_id = jsonObject.getInt("user_id");
+        String username = jsonObject.getString("name");
+//        String password = jsonObject.getString("password");
+        String password = jsonObject.has("password") ? jsonObject.getString("password") : "";
+//        String phone_number = jsonObject.getString("phone_number");
+        String phone_number = jsonObject.has("phone_number") ? jsonObject.getString("phone_number") : "";
+        String portrait_path = jsonObject.getString("portrait_path");
+        String sex = jsonObject.getString("sex");
+        String token = jsonObject.has("token") ? jsonObject.getString("token") : "";
+//        String token = jsonObject.getString("token");
+
+        return new User(user_id, username, password, phone_number, portrait_path, sex, token);
     }
 }

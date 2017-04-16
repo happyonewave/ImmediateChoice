@@ -177,6 +177,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.TopicActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.UserInfoActivity" />
 
         <service
             android:name="com.baidu.location.f"

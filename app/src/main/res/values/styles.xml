@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -72,6 +72,7 @@
         <item name="android:textColor">@drawable/bt_textcolor</item>
         <item name="android:textSize">14sp</item>
     </style>
+
     <style name="comment_Dialog" parent="@android:style/Theme.Dialog">
         <!--<item name="android:windowFrame">@null</item>-->
         <item name="android:windowNoTitle">true</item>//无标题
@@ -94,6 +95,20 @@
 
         <item name="progress_reached_bar_height">1.5dp</item>
         <item name="progress_unreached_bar_height">0.75dp</item>
+    </style>
+
+    <style name="activity_userinfo_title_style">
+
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="0dp"-->
+        <!--android:layout_rowWeight="1"-->
+        <!--android:gravity="center"-->
+        <item name="android:layout_width">wrap_content</item>
+        <!--<item name="android:layout_height">wrap_content</item>-->
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <!--<item name="android:textColor">@android:color/black</item>-->
     </style>
 
 </resources>

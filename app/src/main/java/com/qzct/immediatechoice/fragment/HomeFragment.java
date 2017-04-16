@@ -57,7 +57,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      * @return
      */
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
         vp_home = (ViewPager) v.findViewById(R.id.vp_home);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
@@ -107,7 +107,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      * 填充数据
      */
     @Override
-    public void initdata() {
+    public void initData() {
         vp_home.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

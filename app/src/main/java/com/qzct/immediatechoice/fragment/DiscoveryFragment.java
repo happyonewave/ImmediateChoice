@@ -87,7 +87,7 @@ public class DiscoveryFragment extends baseFragment {
      * @return
      */
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
         discovery_search = (SearchView) v.findViewById(R.id.discovery_search);
         ll_layout = (LinearLayout) v.findViewById(R.id.ll_layout);
@@ -98,7 +98,7 @@ public class DiscoveryFragment extends baseFragment {
      * 填充数据
      */
     @Override
-    public void initdata() {
+    public void initData() {
         mStrList.add("无此项");
         adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mStrList);
         lv_search.setAdapter(adapter);
@@ -107,13 +107,15 @@ public class DiscoveryFragment extends baseFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Question question = questionList.get(position);
                 MyApplication.question = question;
-                if (question.getLeft_url().contains("image")) {
-                    MyApplication.isQuestion = true;
-                } else {
-                    MyApplication.isQuestion = false;
+                if (!questionList.isEmpty()) {
+                    if (question.getLeft_url().contains("image")) {
+                        MyApplication.isQuestion = true;
+                    } else {
+                        MyApplication.isQuestion = false;
+                    }
+                    Intent intent = new Intent(context, CommentActivity.class);
+                    context.startActivity(intent);
                 }
-                Intent intent = new Intent(context, CommentActivity.class);
-                context.startActivity(intent);
 
             }
         });

@@ -16,6 +16,8 @@ import com.qzct.immediatechoice.adpter.ImageTextAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
@@ -50,7 +52,7 @@ import zrc.widget.ZrcListView;
 public class QuestionFragment extends baseFragment implements ZrcListView.OnItemClickListener {
 
 
-//    private static final String GET_QUESTION = "1";
+    //    private static final String GET_QUESTION = "1";
 //    private static final String REFRESH_QUESTION = "2";
 //    private String minPostTime;
 //    private String request;
@@ -59,7 +61,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
     private static final String TAG = "qin";
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home;
-    private ArrayList<Question> questionlist = new ArrayList<Question>();
+    private ArrayList<Question> questionList = new ArrayList<Question>();
     private ImageTextAdpter adpter;
     private JSONArray jsonArray;
     private MKLoader loader;
@@ -67,132 +69,96 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         v = inflater.inflate(R.layout.view_image_text, null);
         return v;
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
         lv_home = (ZrcListView) v.findViewById(R.id.lv_home);
         loader = (MKLoader) v.findViewById(R.id.loader);
 //        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
-        adpter = new ImageTextAdpter(context, questionlist);
+        adpter = new ImageTextAdpter(context, questionList);
         lv_home.setAdapter(adpter);
-        initLoad(lv_home);
-
-    }
-
-    /**
-     * 下拉刷新
-     */
-    public void refresh() {
-        loadQuestion("image", true);
-        lv_home.setRefreshSuccess("刷新成功");
-
-    }
-
-    /**
-     * 上拉加载
-     */
-    public void loadMore() {
-        new Handler() {
+        initRefreshAndLoad(lv_home, new MyCallback.InitRefreshAndLoadCallBack() {
             @Override
-            public void handleMessage(Message msg) {
-                loadQuestion("image", false);
-                lv_home.setLoadMoreSuccess();
+            public void refresh() {
+//        loadQuestion("image", true);
+                Log.d(TAG, "刷新");
+                Service.getInstance().loadQuestion("image", true, new MyLoadQuestionCallBack());
+                lv_home.setRefreshSuccess("刷新成功");
             }
-        }.sendEmptyMessageDelayed(0, 4000);
-    }
 
-    /**
-     * 加载数据
-     */
-    private void loadQuestion(String type, final boolean isRefresh) {
-        RequestParams entity = new RequestParams(Config.url_image_text);
-        entity.addBodyParameter("type", type);
-        if (isRefresh) {
-            current_page = 1;
-            entity.addBodyParameter("page", current_page + "");
-        } else {
-            current_page += 1;
-            entity.addBodyParameter("page", current_page + "");
-        }
-        x.http().get(entity, new Callback.CommonCallback<String>() {
             @Override
-            public void onSuccess(String result) {
-                Log.d(TAG, "请求更新成功");
-                if (result != null) {
-                    if ("-1".equals(result)) {
-                        lv_home.stopLoadMore();
-                        return;
+            public void loadMore() {
+                new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+//                loadQuestion("image", false);
+                        Log.d(TAG, "加载");
+                        Service.getInstance().loadQuestion("image", false, new MyLoadQuestionCallBack());
+                        lv_home.setLoadMoreSuccess();
                     }
-                    try {
-                        jsonArray = new JSONArray(result);
-                        ArrayList<Question> tempList = new ArrayList<Question>();
-                        //遍历传入的jsonArray
-                        for (int i = 0; i < jsonArray.length(); i++) {
-                            JSONObject temp = null;
-                            temp = jsonArray.getJSONObject(i);
-                            int question_id = temp.getInt("question_id");
-//                            String post_time = temp.getString("post_time");
-                            String question_content = temp.getString("question_content");
-                            String left_url = temp.getString("left_url");
-                            String right_url = temp.getString("right_url");
-                            String quizzer_name = temp.getString("quizzer_name");
-                            String portrait_url = temp.getString("portrait_url");
-                            int share_count = temp.getInt("share_count");
-                            int comment_count = temp.getInt("comment_count");
-                            String comment = temp.getString("comment");
-                            Question Question = new Question(question_id, question_content,
-                                    left_url, right_url, quizzer_name,
-                                    portrait_url, share_count,
-                                    comment_count, comment, null, null);
-                            tempList.add(Question);
-                        }
-                        if (isRefresh) {
-                            questionlist.clear();
-                            questionlist.addAll(tempList);
-                        } else {
-                            questionlist.addAll(tempList);
-                        }
-                        adpter.notifyDataSetChanged();
-//                        adpter.onDataChange(questionlist);
-//                        questionlist.addAll(0, tempList);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Log.d(TAG, "onError: " + ex.toString());
-                Toast.makeText(context, "请求刷新错误", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-                Log.d(TAG, "请求更新结束");
-//                        adpter.onDataChange(questionlist);
-                if (lv_home.getVisibility() == View.GONE) {
-                    new Handler() {
-                        @Override
-                        public void handleMessage(Message msg) {
-                            loader.setVisibility(View.GONE);
-                            lv_home.setVisibility(View.VISIBLE);
-                        }
-                    }.sendEmptyMessageDelayed(0, 2000);
-                }
+                }.sendEmptyMessageDelayed(0, 4000);
             }
         });
+
+    }
+
+
+    private class MyLoadQuestionCallBack implements MyCallback.LoadQuestionCallBack {
+        @Override
+        public int getPage(boolean isRefresh) {
+            if (isRefresh) {
+                current_page = 1;
+            } else {
+                current_page += 1;
+            }
+            return current_page;
+        }
+
+        @Override
+        public int getUserId() {
+            return 0;
+        }
+
+        @Override
+        public void onSuccess(boolean isRefresh, ArrayList<Question> list) {
+            if (isRefresh) {
+                questionList.clear();
+                questionList.addAll(list);
+            } else {
+                questionList.addAll(list);
+            }
+            adpter.notifyDataSetChanged();
+        }
+
+        @Override
+        public void onDataIsNull() {
+            lv_home.stopLoadMore();
+        }
+
+        @Override
+        public void onError(Throwable ex) {
+            Log.d(TAG, "onError: " + ex.toString());
+            Toast.makeText(context, "请求刷新错误", Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onFinished() {
+//                        adpter.onDataChange(questionList);
+            if (lv_home.getVisibility() == View.GONE) {
+                new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        loader.setVisibility(View.GONE);
+                        lv_home.setVisibility(View.VISIBLE);
+                    }
+                }.sendEmptyMessageDelayed(0, 2000);
+            }
+        }
     }
 
     /**
@@ -212,6 +178,97 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
         context.startActivity(intent);
         Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
+
+
+    /**
+     * 加载数据
+     */
+//
+//    private void loadQuestion(String type, final boolean isRefresh) {
+//        RequestParams entity = new RequestParams(Config.url_image_text);
+//        entity.addBodyParameter("type", type);
+//        if (isRefresh) {
+//            current_page = 1;
+//            entity.addBodyParameter("page", current_page + "");
+//        } else {
+//            current_page += 1;
+//            entity.addBodyParameter("page", current_page + "");
+//        }
+//        x.http().get(entity, new MyCallback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log.d(TAG, "请求更新成功");
+//                if (result != null) {
+//                    if ("-1".equals(result)) {
+//                        lv_home.stopLoadMore();
+//                        return;
+//                    }
+//                    try {
+//                        jsonArray = new JSONArray(result);
+//                        ArrayList<Question> tempList = new ArrayList<Question>();
+//                        //遍历传入的jsonArray
+//                        for (int i = 0; i < jsonArray.length(); i++) {
+//                            JSONObject temp = null;
+//                            temp = jsonArray.getJSONObject(i);
+//                            int question_id = temp.getInt("question_id");
+////                            String post_time = temp.getString("post_time");
+//                            String question_content = temp.getString("question_content");
+//                            String left_url = temp.getString("left_url");
+//                            String right_url = temp.getString("right_url");
+//                            String quizzer_name = temp.getString("quizzer_name");
+//                            String portrait_url = temp.getString("portrait_url");
+//                            int share_count = temp.getInt("share_count");
+//                            int comment_count = temp.getInt("comment_count");
+//                            String comment = temp.getString("comment");
+//                            Question Question = new Question(question_id, question_content,
+//                                    left_url, right_url, quizzer_name,
+//                                    portrait_url, share_count,
+//                                    comment_count, comment, null, null);
+//                            tempList.add(Question);
+//                        }
+//                        if (isRefresh) {
+//                            questionList.clear();
+//                            questionList.addAll(tempList);
+//                        } else {
+//                            questionList.addAll(tempList);
+//                        }
+//                        adpter.notifyDataSetChanged();
+////                        adpter.onDataChange(questionList);
+////                        questionList.addAll(0, tempList);
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Log.d(TAG, "onError: " + ex.toString());
+//                Toast.makeText(context, "请求刷新错误", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//                Log.d(TAG, "请求更新结束");
+////                        adpter.onDataChange(questionList);
+//                if (lv_home.getVisibility() == View.GONE) {
+//                    new Handler() {
+//                        @Override
+//                        public void handleMessage(Message msg) {
+//                            loader.setVisibility(View.GONE);
+//                            lv_home.setVisibility(View.VISIBLE);
+//                        }
+//                    }.sendEmptyMessageDelayed(0, 2000);
+//                }
+//            }
+//        });
+//    }
 
     /**
      * 第一次加载
@@ -233,7 +290,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 //        protected void onPostExecute(String request) {
 //            if (request != null) {
 //                if (!request.equals("-1")) {
-//                    adpter = new ImageTextAdpter(context, questionlist);
+//                    adpter = new ImageTextAdpter(context, questionList);
 //                    isFirst = true;
 //                    refreshQuestionList(GET_QUESTION);
 //                    lv_home.setAdapter(adpter);
@@ -399,11 +456,11 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 //                tempList.add(Question);
 //            }
 //            if (msg == REFRESH_QUESTION) {
-//                questionlist.addAll(0, tempList);
+//                questionList.addAll(0, tempList);
 //            } else {
-//                questionlist.addAll(tempList);
+//                questionList.addAll(tempList);
 //            }
-//            adpter.onDataChange(questionlist);
+//            adpter.onDataChange(questionList);
 //
 //        } catch (JSONException e) {
 //            e.printStackTrace();

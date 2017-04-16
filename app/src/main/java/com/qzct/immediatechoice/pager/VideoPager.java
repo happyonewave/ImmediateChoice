@@ -239,7 +239,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
             BasicNameValuePair pair2 =
                     new BasicNameValuePair("type", "video");
             BasicNameValuePair pair3 =
-                    new BasicNameValuePair("user_id", 0+ "");
+                    new BasicNameValuePair("user_id", 0 + "");
             BasicNameValuePair pair4 =
                     new BasicNameValuePair("startTime", startTime);
             BasicNameValuePair pair5 =

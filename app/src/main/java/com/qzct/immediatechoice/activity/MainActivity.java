@@ -23,6 +23,8 @@ import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
@@ -64,7 +66,23 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         mainActivity = this;
 
         userInfoList = new ArrayList<UserInfo>();
-        getFriendInfo();
+        Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
+            @Override
+            public void onSuccess(List<User> userList) {
+                MyApplication.userList = userList;
+                userInfoList.add(MyApplication.user.toUserinfo());
+                for (User user : userList) {
+                    Log.d("qin", user.toUserinfo().getPortraitUri().toString());
+                    userInfoList.add(user.toUserinfo());
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+                Toast.makeText(MainActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
+            }
+        });
+//        getFriendInfo();
         RongIM.setUserInfoProvider(this, true);
         RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override
@@ -80,7 +98,6 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
 
             @Override
             public void onError(RongIMClient.ErrorCode errorCode) {
-
             }
         });
     }
@@ -88,58 +105,57 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     /**
      * 获取好友信息
      */
-    private void getFriendInfo() {
-        final List<User> userList = new ArrayList<User>();
-        RequestParams entity = new RequestParams(Config.url_friend);
-        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
-        x.http().post(entity, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                if (result != null) {
-                    try {
-                        JSONArray friendArray = new JSONArray(result);
-                        for (int i = 0; i < friendArray.length(); i++) {
-                            JSONObject temp = friendArray.getJSONObject(i);
-                            int user_id = temp.getInt("user_id");
-                            String name = temp.getString("name");
-                            String phone_number = temp.getString("phone_number");
-                            String sex = temp.getString("sex");
-                            String portrait_url = temp.getString("portrait_path");
-                            User user = new User(user_id, name, phone_number, sex, portrait_url);
-                            userList.add(user);
-                        }
-                        MyApplication.userList = userList;
-                        userInfoList.add(MyApplication.user.toUserinfo());
-                        for (User user : userList) {
-                            Log.d("qin", user.toUserinfo().getPortraitUri().toString());
-                            userInfoList.add(user.toUserinfo());
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                    }
 
-                }
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Toast.makeText(MainActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
-    }
-
-
+//    private void getFriendInfo() {
+//        final List<User> userList = new ArrayList<User>();
+//        RequestParams entity = new RequestParams(Config.url_friend);
+//        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
+//        x.http().post(entity, new MyCallback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                if (result != null) {
+//                    try {
+//                        JSONArray friendArray = new JSONArray(result);
+//                        for (int i = 0; i < friendArray.length(); i++) {
+//                            JSONObject temp = friendArray.getJSONObject(i);
+//                            int user_id = temp.getInt("user_id");
+//                            String name = temp.getString("name");
+//                            String phone_number = temp.getString("phone_number");
+//                            String sex = temp.getString("sex");
+//                            String portrait_url = temp.getString("portrait_path");
+//                            User user = new User(user_id, name, phone_number, sex, portrait_url);
+//                            userList.add(user);
+//                        }
+//                        MyApplication.userList = userList;
+//                        userInfoList.add(MyApplication.user.toUserinfo());
+//                        for (User user : userList) {
+//                            Log.d("qin", user.toUserinfo().getPortraitUri().toString());
+//                            userInfoList.add(user.toUserinfo());
+//                        }
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                        Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Toast.makeText(MainActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//
+//            }
+//        });
+//    }
     @Override
     public UserInfo getUserInfo(String s) {
 

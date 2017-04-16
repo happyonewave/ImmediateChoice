@@ -56,7 +56,7 @@ public class RegisterFinallyFragment extends baseFragment {
     }
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         RegisterActivity registerActivity = (RegisterActivity) getActivity();
         registerActivity.setTitleColor(1);
         final View v = View.inflate(context, R.layout.fill_password, null);
@@ -224,7 +224,7 @@ public class RegisterFinallyFragment extends baseFragment {
 
 
     @Override
-    public void initdata() {
+    public void initData() {
 
     }
 }

@@ -35,31 +35,31 @@ public class ImageTextAdpter extends BaseAdapter {
 
 
     Activity context;
-    List<Question> questionlist;
+    List<Question> questionList;
     private String CHOICE_ONE = "1";
     SmartImageView image_text_item_img_left;
     SmartImageView image_text_item_img_right;
     View v;
 
-    public ImageTextAdpter(Activity context, List<Question> questionlist) {
+    public ImageTextAdpter(Activity context, List<Question> questionList) {
         this.context = context;
-        this.questionlist = questionlist;
+        this.questionList = questionList;
     }
 
-    public void onDataChange(List<Question> questionlist) {
-        this.questionlist.clear();
-        this.questionlist.addAll(questionlist);
+    public void onDataChange(List<Question> questionList) {
+        this.questionList.clear();
+        this.questionList.addAll(questionList);
         this.notifyDataSetChanged();
         this.notifyDataSetInvalidated();
     }
 
     public Question getQuestionFromItem(int position) {
-        return questionlist.get(position);
+        return questionList.get(position);
     }
 
     @Override
     public int getCount() {
-        return questionlist.size();
+        return questionList.size();
     }
 
     @Override
@@ -93,7 +93,7 @@ public class ImageTextAdpter extends BaseAdapter {
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
 
 
-        Question i = questionlist.get(position);                                    //拿到一个info对象
+        Question i = questionList.get(position);                                    //拿到一个info对象
 
         tv_question.setText(i.getQuestion_content());
 //        image_text_item_img_left.setImageUrl(i.getLeft_url());
@@ -124,7 +124,7 @@ public class ImageTextAdpter extends BaseAdapter {
             public void onClick(View view) {
                 RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
-                entity.addBodyParameter("question_id", questionlist.get(position).getQuestion_id() + "");
+                entity.addBodyParameter("question_id", questionList.get(position).getQuestion_id() + "");
                 entity.addBodyParameter("user_id",
                         String.valueOf(MyApplication.user.getUser_id()));
 
@@ -177,7 +177,7 @@ public class ImageTextAdpter extends BaseAdapter {
 
                 RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
-                entity.addBodyParameter("question_id", questionlist.get(position).getQuestion_id() + "");
+                entity.addBodyParameter("question_id", questionList.get(position).getQuestion_id() + "");
                 entity.addBodyParameter("user_id",
                         String.valueOf(MyApplication.user.getUser_id()));
 

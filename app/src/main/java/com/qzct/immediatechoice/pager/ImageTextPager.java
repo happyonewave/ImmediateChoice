@@ -50,7 +50,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
     private static final String TAG = "qin";
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home;
-    private ArrayList<Question> questionlist = new ArrayList<Question>();
+    private ArrayList<Question> questionList = new ArrayList<Question>();
     private ImageTextAdpter adpter;
     private String minPostTime;
     private JSONArray jsonArray;
@@ -152,7 +152,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
         protected void onPostExecute(String request) {
             if (request != null) {
                 if (!request.equals("-1")) {
-                    adpter = new ImageTextAdpter(context, questionlist);
+                    adpter = new ImageTextAdpter(context, questionList);
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);
@@ -314,11 +314,11 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
                 tempList.add(Question);
             }
             if (msg == REFRESH_QUESTION) {
-                questionlist.addAll(0, tempList);
+                questionList.addAll(0, tempList);
             } else {
-                questionlist.addAll(tempList);
+                questionList.addAll(tempList);
             }
-            adpter.onDataChange(questionlist);
+            adpter.onDataChange(questionList);
 
         } catch (JSONException e) {
             e.printStackTrace();

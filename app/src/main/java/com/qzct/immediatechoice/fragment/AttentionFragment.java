@@ -42,14 +42,14 @@ public class AttentionFragment extends baseFragment {
 
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         v = inflater.inflate(R.layout.view_attention, null);
         lv_home_attention = (ListView) v.findViewById(R.id.lv_home_attention);
         return v;
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
         TextView v = new TextView(context);
         v.setText("关注的话题");
         v.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);

@@ -17,6 +17,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
+import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
@@ -49,7 +50,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private LinearLayout hint_mypush;
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         v = v.inflate(context, R.layout.fragment_user, null);
         user = MyApplication.user;
         tv_username = (TextView) v.findViewById(R.id.user_tv_username);
@@ -62,7 +63,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
         portrait_path = user.getPortrait_path();
         Glide.with(this).load(portrait_path)
                 .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
@@ -168,6 +169,12 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.user_portrait:
+                if (MyApplication.logined) {
+                    Intent userinfoIntent = new Intent(context, UserInfoActivity.class);
+                    userinfoIntent.putExtra("user", user);
+                    startActivity(userinfoIntent);
+                    return;
+                }
                 Intent login = new Intent(context, LoginActivity.class);
                 startActivity(login);
                 break;

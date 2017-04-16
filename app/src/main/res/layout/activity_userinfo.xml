@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#60eb633b"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1"
+        android:background="@drawable/circular_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/user_portrait"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/default_portrait" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/circular_bg"
+        android:columnCount="2"
+        android:padding="10dp"
+        android:rowCount="1">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="昵称" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="性别" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="年龄" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="个人签名" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="手机号码" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_name"
+                style="@style/activity_userinfo_title_style"
+                android:text="name" />
+
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="age" />
+
+            <TextView
+                android:id="@+id/user_sex"
+                style="@style/activity_userinfo_title_style"
+                android:text="sex" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="个人签名" />
+
+            <TextView
+                android:id="@+id/user_phone_num"
+                style="@style/activity_userinfo_title_style"
+                android:text="phone_num" />
+
+        </LinearLayout>
+    </GridLayout>
+
+    <Button
+        android:id="@+id/btn_add_friend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/btn_bg_normal"
+        android:text="加好友"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <RelativeLayout
+        android:id="@+id/rl_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/circular_bg">
+
+    </RelativeLayout>
+</LinearLayout>

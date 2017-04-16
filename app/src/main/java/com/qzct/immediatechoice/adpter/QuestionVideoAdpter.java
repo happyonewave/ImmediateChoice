@@ -509,7 +509,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //        switch (view.getId()) {
 //            case R.id.image_text_item_img_left:
 //                entity.addBodyParameter("left_or_right", "left");
-//                x.http().post(entity, new Callback.CommonCallback<String>() {
+//                x.http().post(entity, new MyCallback.CommonCallback<String>() {
 //                    @Override
 //                    public void onSuccess(String result) {
 //                        if (result != null) {
@@ -537,7 +537,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //                break;
 //            case image_text_item_img_right:
 //                entity.addBodyParameter("left_or_right", "right");
-//                x.http().post(entity, new Callback.CommonCallback<String>() {
+//                x.http().post(entity, new MyCallback.CommonCallback<String>() {
 //                    @Override
 //                    public void onSuccess(String result) {
 //                        if (result != null) {

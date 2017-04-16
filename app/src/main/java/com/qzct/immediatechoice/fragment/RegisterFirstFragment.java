@@ -16,7 +16,7 @@ import com.qzct.immediatechoice.R;
  */
 public class RegisterFirstFragment extends baseFragment {
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         final View v = View.inflate(context, R.layout.fill_tel, null);
         Button bt_register_one_next = (Button) v.findViewById(R.id.bt_register_one_next);
         bt_register_one_next.setOnClickListener(new View.OnClickListener() {
@@ -38,7 +38,7 @@ public class RegisterFirstFragment extends baseFragment {
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
 
 
     }

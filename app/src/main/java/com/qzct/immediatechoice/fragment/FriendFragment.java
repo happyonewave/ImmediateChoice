@@ -42,7 +42,7 @@ public class FriendFragment extends baseFragment {
     private MagicIndicator friend_magic_indicator;
 
     @Override
-    public View initview(LayoutInflater inflater, ViewGroup container) {
+    public View initView(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_friend, null);
         friend_magic_indicator = (MagicIndicator) view.findViewById(R.id.friend_magic_indicator);
         vp_friend = (ViewPager) view.findViewById(R.id.vp_friend);
@@ -53,7 +53,7 @@ public class FriendFragment extends baseFragment {
     }
 
     @Override
-    public void initdata() {
+    public void initData() {
         fragmentList = new ArrayList<Fragment>();
         fragmentList.add(new FriendListFragment());
         fragmentList.add(new CircleFragment());
