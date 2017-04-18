@@ -21,6 +21,9 @@ import io.rong.imlib.model.UserInfo;
  */
 
 public class User implements Serializable {
+    public static int USER_ME = 0;
+    public static int USER_FRIEND = 1;
+    public static int USER_QUERY = 2;
     int user_id;
     String username;
     String password;

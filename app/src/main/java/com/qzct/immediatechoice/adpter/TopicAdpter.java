@@ -9,10 +9,10 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Topic;
@@ -75,7 +75,7 @@ public class TopicAdpter extends BaseAdapter {
             v = view;
         }
         //获取item中的组件
-        SmartImageView view_class_img = (SmartImageView) v.findViewById(R.id.view_topic_img);
+        ImageView view_class_img = (ImageView) v.findViewById(R.id.view_topic_img);
         TextView view_class_text = (TextView) v.findViewById(R.id.view_topic_text);
         final Topic topic = topicList.get(i);
 

@@ -20,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/home_title_image_text"
+                android:textSize="@dimen/indicator_textSize"
                 android:background="@android:color/transparent"
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
@@ -50,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="@string/home_title_video"
+                android:textSize="@dimen/indicator_textSize"
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
             <View
@@ -79,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="@string/home_title_attention"
+                android:textSize="@dimen/indicator_textSize"
                 android:textColor="@drawable/bt_home_title_textcolor"
                 />
             <View

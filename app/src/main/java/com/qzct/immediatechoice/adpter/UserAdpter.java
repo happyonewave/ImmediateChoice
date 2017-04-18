@@ -5,9 +5,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.image.SmartImageView;
+import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
 
@@ -44,15 +45,15 @@ public class UserAdpter extends BaseAdapter {
             v = convertView;
         }
 
-        SmartImageView user_item_img_left = (SmartImageView) v.findViewById(R.id.user_item_img_left);
-        SmartImageView user_item_img_right = (SmartImageView) v.findViewById(R.id.user_item_img_right);
+        ImageView user_item_img_left = (ImageView) v.findViewById(R.id.user_item_img_left);
+        ImageView user_item_img_right = (ImageView) v.findViewById(R.id.user_item_img_right);
         TextView user_tv_question = (TextView) v.findViewById(R.id.user_tv_question);
         //拿到一个info对象
 
         user_tv_question.setText(Question.getQuestion_content());
         System.out.println(Question.getQuestion_content());
-        user_item_img_left.setImageUrl(Question.getLeft_url());
-        user_item_img_right.setImageUrl(Question.getRight_url());
+        Glide.with(context).load(Question.getLeft_url()).into(user_item_img_left);
+        Glide.with(context).load(Question.getRight_url()).into(user_item_img_right);
         return v;
     }
 

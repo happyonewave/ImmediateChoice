@@ -46,4 +46,13 @@ public interface MyCallback {
          */
         void loadMore();
     }
+
+    interface UpdateFriendCallback {
+        String getUpdateType();
+
+        void onSuccess(String msg);
+
+        void onError(Throwable ex);
+
+    }
 }

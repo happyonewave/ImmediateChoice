@@ -169,6 +169,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/item_portrait"
                 android:background="@android:color/transparent"
+                android:textSize="@dimen/userName_textSize"
                 android:text="不语" />
 
             <Button

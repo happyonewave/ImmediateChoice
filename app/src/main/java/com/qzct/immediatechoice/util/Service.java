@@ -1,8 +1,11 @@
 package com.qzct.immediatechoice.util;
 
+import android.content.Intent;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 
@@ -155,4 +158,43 @@ public class Service {
         });
     }
 
+    /**
+     * 修改好友
+     *
+     * @param f_id
+     */
+    public void updateFriend(int f_id, final MyCallback.UpdateFriendCallback updateFriendCallback) {
+        RequestParams entity = new RequestParams(Config.url_friend);
+        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
+        entity.addBodyParameter("f_id", f_id + "");
+        String update_type = updateFriendCallback.getUpdateType();
+        if ("delete".equals(update_type)) {
+            entity.addBodyParameter("update_type", update_type);
+        }
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.d("qin", "result: " + result);
+                updateFriendCallback.onSuccess(result);
+//                Toast.makeText(UserInfoActivity.this, result, Toast.LENGTH_SHORT).show();
+//                setResult(RESULT_OK, new Intent());
+//                finish();
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                updateFriendCallback.onError(ex);
+//                Toast.makeText(UserInfoActivity.this, "请求加好友失败，请重试", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
+    }
 }

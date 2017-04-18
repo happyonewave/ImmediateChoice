@@ -15,7 +15,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.github.alexkolpa.fabtoolbar.FabToolbar;
-import com.loopj.android.image.SmartImageView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
@@ -50,8 +49,8 @@ import static android.content.ContentValues.TAG;
 public class CommentActivity extends AppCompatActivity implements View.OnClickListener, Callback.CommonCallback<String> {
 
     TextView tv_question;
-    SmartImageView image_text_item_img_left;
-    SmartImageView image_text_item_img_right;
+    ImageView image_text_item_img_left;
+    ImageView image_text_item_img_right;
     TextView item_username;
     ImageView item_portrait;
     Button comment_icon;
@@ -97,8 +96,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private void initView() {
         header_layout = (View) View.inflate(this, R.layout.lv_comment_header, null);
         tv_question = (TextView) header_layout.findViewById(R.id.tv_question);    //拿到相应的View对象
-        image_text_item_img_left = (SmartImageView) header_layout.findViewById(R.id.image_text_item_img_left);
-        image_text_item_img_right = (SmartImageView) header_layout.findViewById(R.id.image_text_item_img_right);
+        image_text_item_img_left = (ImageView) header_layout.findViewById(R.id.image_text_item_img_left);
+        image_text_item_img_right = (ImageView) header_layout.findViewById(R.id.image_text_item_img_right);
         gsyVideoPlayer_left = (StandardGSYVideoPlayer) header_layout.findViewById(R.id.video_item_left);
         gsyVideoPlayer_right = (StandardGSYVideoPlayer) header_layout.findViewById(R.id.video_item_right);
         item_username = (TextView) header_layout.findViewById(R.id.item_username);

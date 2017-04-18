@@ -22,6 +22,8 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import org.xutils.common.Callback;
@@ -40,7 +42,7 @@ public class UserInfoActivity extends Activity {
     private TextView tv_user_sex;
     private TextView tv_user_phone_num;
     private ImageView iv_user_portrait;
-    private boolean isMe;
+    private int USER_TYPE;
     private Button btn_add_friend;
     private RelativeLayout rl_layout;
 
@@ -49,7 +51,7 @@ public class UserInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(utils.getUsableView(this, R.layout.activity_userinfo, "个人信息"));
         user = (User) getIntent().getSerializableExtra("user");
-        isMe = getIntent().getBooleanExtra("isMe", true);
+        USER_TYPE = getIntent().getIntExtra("user_type", 0);
         initView();
         initData();
     }
@@ -61,7 +63,7 @@ public class UserInfoActivity extends Activity {
         tv_user_phone_num = (TextView) findViewById(R.id.user_phone_num);
         btn_add_friend = (Button) findViewById(R.id.btn_add_friend);
         rl_layout = (RelativeLayout) findViewById(R.id.rl_layout);
-        if (!isMe) {
+        if (USER_TYPE != User.USER_ME) {
             btn_add_friend.setVisibility(View.VISIBLE);
             rl_layout.setVisibility(View.GONE);
         }
@@ -83,47 +85,94 @@ public class UserInfoActivity extends Activity {
         tv_user_name.setText(user.getUsername());
         tv_user_sex.setText(user.getSex());
         tv_user_phone_num.setText(user.getPhone_number());
-        btn_add_friend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addFriend(user.getUser_id());
-//                if (isSuccess[0]) {
-//                    Toast.makeText(UserInfoActivity.this, "1", Toast.LENGTH_SHORT).show();
-//                    finish();
-//                } else {
-//                    Toast.makeText(UserInfoActivity.this, "2", Toast.LENGTH_SHORT).show();
+        if (USER_TYPE == User.USER_FRIEND) {
+            btn_add_friend.setText("删除好友");
+            btn_add_friend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    deleteFriend(user.getUser_id());
+                    Service.getInstance().updateFriend(user.getUser_id(), new MyCallback.UpdateFriendCallback() {
+                        @Override
+                        public String getUpdateType() {
+                            return "delete";
+                        }
+
+                        @Override
+                        public void onSuccess(String msg) {
+                            Log.d("qin", "result: " + msg);
+                            Toast.makeText(UserInfoActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK);
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(Throwable ex) {
+                            Toast.makeText(UserInfoActivity.this, "请求删除好友失败，请重试", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
 //                }
-            }
-        });
+                }
+            });
+        } else if (USER_TYPE == User.USER_QUERY) {
+            btn_add_friend.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+//                    updateFriend(user.getUser_id());
+                    Service.getInstance().updateFriend(user.getUser_id(), new MyCallback.UpdateFriendCallback() {
+                        @Override
+                        public String getUpdateType() {
+                            return null;
+                        }
+
+                        @Override
+                        public void onSuccess(String msg) {
+                            Log.d("qin", "result: " + msg);
+                            Toast.makeText(UserInfoActivity.this, msg, Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_OK, new Intent());
+                            finish();
+                        }
+
+                        @Override
+                        public void onError(Throwable ex) {
+                            Toast.makeText(UserInfoActivity.this, "请求加好友失败，请重试", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            });
+        }
     }
 
-    private void addFriend(int f_id) {
-        RequestParams entity = new RequestParams(Config.url_friend);
-        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
-        entity.addBodyParameter("f_id", f_id + "");
-        x.http().post(entity, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                Log.d("qin", "result: " + result);
-                Toast.makeText(UserInfoActivity.this, result, Toast.LENGTH_SHORT).show();
-                setResult(RESULT_OK, new Intent());
-                finish();
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                Toast.makeText(UserInfoActivity.this, "请求加好友失败，请重试", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-            }
-        });
-    }
+//    private void updateFriend(int f_id, String update_type) {
+//        RequestParams entity = new RequestParams(Config.url_friend);
+//        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
+//        entity.addBodyParameter("f_id", f_id + "");
+//        if ("delete".equals(update_type)) {
+//            entity.addBodyParameter("update_type", update_type);
+//        }
+//        x.http().post(entity, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                Log.d("qin", "result: " + result);
+//                Toast.makeText(UserInfoActivity.this, result, Toast.LENGTH_SHORT).show();
+//                setResult(RESULT_OK, new Intent());
+//                finish();
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                Toast.makeText(UserInfoActivity.this, "请求加好友失败，请重试", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//
+//            }
+//
+//            @Override
+//            public void onFinished() {
+//            }
+//        });
+//    }
 
 }

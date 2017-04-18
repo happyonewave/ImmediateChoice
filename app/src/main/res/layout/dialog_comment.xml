@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tv_question">
 
-            <com.loopj.android.image.SmartImageView
+            <ImageView
                 android:id="@+id/image_text_item_img_left"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.loopj.android.image.SmartImageView
+            <ImageView
                 android:id="@+id/image_text_item_img_right"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
@@ -53,8 +53,7 @@
 
             <ImageView
                 android:id="@+id/item_portrait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                style="@style/portraitStyle"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/default_portrait" />
 
@@ -65,6 +64,7 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/item_portrait"
                 android:background="@android:color/transparent"
+                android:textSize="@dimen/userName_textSize"
                 android:text="不语" />
 
             <Button

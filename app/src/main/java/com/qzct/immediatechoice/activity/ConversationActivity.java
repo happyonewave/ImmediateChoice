@@ -1,11 +1,16 @@
 package com.qzct.immediatechoice.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.domain.User;
 
 /**
  * Created by qin on 2017/3/25.
@@ -14,6 +19,8 @@ import com.qzct.immediatechoice.R;
 public class ConversationActivity extends FragmentActivity {
 
     private TextView tv_name;
+    private TextView tv_more;
+    private int OPEN_USERINFO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +31,35 @@ public class ConversationActivity extends FragmentActivity {
     }
 
     private void initView() {
-         tv_name =  (TextView) findViewById(R.id.name);
+        tv_name = (TextView) findViewById(R.id.name);
+        tv_more = (TextView) findViewById(R.id.tv_more);
 
     }
 
     private void initData() {
         //获取Id
-         String tergetId= getIntent().getData().getQueryParameter("tergetId");
-         String name = getIntent().getData().getQueryParameter("title");
-
+        final String targetId = getIntent().getData().getQueryParameter("targetId");
+        String name = getIntent().getData().getQueryParameter("title");
+        tv_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(ConversationActivity.this, "打开用户介绍", Toast.LENGTH_SHORT).show();
+                User user = null;
+                for (User temp : MyApplication.userList) {
+                    if (temp.getUser_id() == Integer.parseInt(targetId)) {
+                        user = temp;
+                        break;
+                    }
+                }
+                Intent intent = new Intent(ConversationActivity.this, UserInfoActivity.class);
+                intent.putExtra("user", user);
+                intent.putExtra("user_type", User.USER_FRIEND);
+//                    MyApplication.queryfriend = user;
+//                    sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(context);
+                startActivityForResult(intent, OPEN_USERINFO);
+//                finish();
+            }
+        });
         if (!TextUtils.isEmpty(name)) {
             tv_name.setText(name);
         } else {
@@ -42,5 +69,12 @@ public class ConversationActivity extends FragmentActivity {
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == OPEN_USERINFO) {
+            setResult(RESULT_OK);
+            finish();
+        }
 
+    }
 }

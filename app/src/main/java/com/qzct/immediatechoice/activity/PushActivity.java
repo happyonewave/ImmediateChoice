@@ -461,7 +461,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         option.setScanSpan(span);
         //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
 
-
         option.setIsNeedAddress(true);
         //可选，设置是否需要地址信息，默认不需要
 
@@ -596,9 +595,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             mLocationClient.stop();
         }
 
-        @Override
+//        @Override
         public void onConnectHotSpotMessage(String s, int i) {
-
         }
     }
 

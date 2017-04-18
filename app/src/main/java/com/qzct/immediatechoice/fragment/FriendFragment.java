@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,8 +56,8 @@ public class FriendFragment extends baseFragment {
     @Override
     public void initData() {
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new FriendListFragment());
         fragmentList.add(new CircleFragment());
+        fragmentList.add(new FriendListFragment());
         fragmentList.add(initConversationList());
 //        fragmentList.add();
         vp_friend.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
@@ -71,16 +72,11 @@ public class FriendFragment extends baseFragment {
             }
         });
         setIndicator();
-        vp_friend.setCurrentItem(1);
+//        vp_friend.setCurrentItem(1);
     }
 
 
     private void setIndicator() {
-
-        final List<String> mTitleDataList = new ArrayList<String>();
-        mTitleDataList.add("好友");
-        mTitleDataList.add("小圈");
-
 //
 //        final CommonNavigator commonNavigator = new CommonNavigator(context);
 //        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
@@ -117,29 +113,30 @@ public class FriendFragment extends baseFragment {
 //        titleContainer.setDividerPadding(UIUtil.dip2px(context, 15));
 //        ViewPagerHelper viewPagerHelper = new ViewPagerHelper();
 //        viewPagerHelper.bind(friend_magic_indicator, vp_friend);
-
-        initMagicIndicator1(mTitleDataList, vp_friend, friend_magic_indicator);
-
+        initMagicIndicator1(vp_friend, friend_magic_indicator);
     }
 
 
-    private void initMagicIndicator1(final List<String> mDataList, final ViewPager mViewPager, MagicIndicator magicIndicator) {
+    private void initMagicIndicator1(final ViewPager mViewPager, MagicIndicator magicIndicator) {
 
 
+        final List<String> mTitleDataList = new ArrayList<String>();
+        mTitleDataList.add("小圈");
+        mTitleDataList.add("好友");
         magicIndicator.setBackgroundColor(Color.WHITE);
         CommonNavigator commonNavigator = new CommonNavigator(context);
         commonNavigator.setAdjustMode(true);
         commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
             public int getCount() {
-                return mDataList == null ? 0 : mDataList.size();
+                return mTitleDataList == null ? 0 : mTitleDataList.size();
             }
 
             @Override
             public IPagerTitleView getTitleView(Context context, final int index) {
                 SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
-                simplePagerTitleView.setText(mDataList.get(index));
-                simplePagerTitleView.setTextSize(22);
+                simplePagerTitleView.setText(mTitleDataList.get(index));
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {

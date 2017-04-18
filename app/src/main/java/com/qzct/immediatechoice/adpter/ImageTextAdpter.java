@@ -13,15 +13,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.loopj.android.image.SmartImageView;
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
-import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.List;
@@ -37,8 +35,6 @@ public class ImageTextAdpter extends BaseAdapter {
     Activity context;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
-    SmartImageView image_text_item_img_left;
-    SmartImageView image_text_item_img_right;
     View v;
 
     public ImageTextAdpter(Activity context, List<Question> questionList) {
@@ -72,10 +68,12 @@ public class ImageTextAdpter extends BaseAdapter {
         }
 
         TextView tv_question = (TextView) v.findViewById(R.id.tv_question);    //拿到相应的View对象
-        image_text_item_img_left = (SmartImageView) v.findViewById(R.id.image_text_item_img_left);
-        image_text_item_img_right = (SmartImageView) v.findViewById(R.id.image_text_item_img_right);
+        final ImageView image_text_item_img_left = (ImageView) v.findViewById(R.id.image_text_item_img_left);
+        final ImageView image_text_item_img_right = (ImageView) v.findViewById(R.id.image_text_item_img_right);
         image_text_item_img_left.setVisibility(View.VISIBLE);
         image_text_item_img_right.setVisibility(View.VISIBLE);
+        image_text_item_img_left.clearColorFilter();
+        image_text_item_img_right.clearColorFilter();
         final NumberProgressBar left_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_left_ProgressBar);
         final NumberProgressBar right_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_right_ProgressBar);
         left_ProgressBar.setMax(100);
@@ -100,8 +98,7 @@ public class ImageTextAdpter extends BaseAdapter {
         Glide.with(context).load(i.getLeft_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_left);
 
 
-        if (i.getPortrait_url() != null) {
-            image_text_item_img_right.setImageUrl(i.getRight_url());                                    //设置相应的信息
+        if (i.getPortrait_url() != null) {                                   //设置相应的信息
             Glide.with(context).load(i.getRight_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_right);
             item_username.setText(i.getQuizzer_name());
 //            ImageOptions.Builder builder = new ImageOptions.Builder();
@@ -121,7 +118,8 @@ public class ImageTextAdpter extends BaseAdapter {
         //left点击事件监听
         image_text_item_img_left.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(final View view) {
+                final ImageView imageView = (ImageView) view;
                 RequestParams entity = new RequestParams(Config.url_comment);
                 entity.addBodyParameter("msg", CHOICE_ONE);
                 entity.addBodyParameter("question_id", questionList.get(position).getQuestion_id() + "");
@@ -136,6 +134,8 @@ public class ImageTextAdpter extends BaseAdapter {
                             int percent = Integer.parseInt(result);
                             Toast.makeText(context, "left:" + percent + "%," +
                                     "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
+                            imageView.setColorFilter(Color.parseColor("#99000000"));
+                            image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
                             setProgress(left_ProgressBar, percent);
@@ -165,8 +165,9 @@ public class ImageTextAdpter extends BaseAdapter {
         //right点击事件监听
         image_text_item_img_right.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                image_text_item_img_left.setBackgroundColor(Color.parseColor("#60000000"));
+            public void onClick(final View view) {
+                final ImageView imageView = (ImageView) view;
+//                image_text_item_img_left.setBackgroundColor(Color.parseColor("#60000000"));
 //                Glide.with(context).load(image_text_item_img_left.getResources())
 //                        .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
 //                        .into(image_text_item_img_left);
@@ -189,6 +190,8 @@ public class ImageTextAdpter extends BaseAdapter {
                             int percent = Integer.parseInt(result);
                             Toast.makeText(context, "left:" + (100 - percent) + "%," +
                                     "right:" + percent + "%", Toast.LENGTH_SHORT).show();
+                            image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
+                            imageView.setColorFilter(Color.parseColor("#99000000"));
                             left_ProgressBar.setVisibility(View.VISIBLE);
                             right_ProgressBar.setVisibility(View.VISIBLE);
                             setProgress(left_ProgressBar, 100 - percent);

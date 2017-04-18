@@ -22,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/user_portrait"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/userName_bigPortraitSize"
+                android:layout_height="@dimen/userName_bigPortraitSize"
                 android:background="@android:color/transparent"
                 android:src="@mipmap/default_portrait" />
 

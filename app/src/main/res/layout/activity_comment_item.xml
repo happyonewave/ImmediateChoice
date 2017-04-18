@@ -17,8 +17,7 @@
 
             <ImageView
                 android:id="@+id/comment_portrait"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
+                style="@style/portraitStyle"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:src="@mipmap/portrait_default" />
@@ -36,8 +35,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="评论者账号"
-
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:textSize="@dimen/userName_textSize" />
 
                 <TextView
                     android:id="@+id/comment_date"

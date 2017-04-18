@@ -12,7 +12,7 @@
 		android:background="@drawable/boder"
 		android:layout_height="wrap_content">
 
-		<com.loopj.android.image.SmartImageView
+		<ImageView
 			android:id="@+id/user_item_img_left"
 			android:layout_weight="1"
 			android:layout_width="0dp"
@@ -20,7 +20,7 @@
 			android:src="@mipmap/ic_launcher"
 			android:layout_marginRight="5dp"
 			/>
-		<com.loopj.android.image.SmartImageView
+		<ImageView
 			android:id="@+id/user_item_img_right"
 			android:layout_weight="1"
 			android:layout_width="0dp"

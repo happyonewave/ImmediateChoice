@@ -125,28 +125,28 @@ public class FriendListFragment extends baseFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ADD_FRIEND) {
-            Toast.makeText(context, "从用户介绍界面返回", Toast.LENGTH_SHORT).show();
-            friendlist_search.clearFocus();
-            friendlist_search.setQuery(null, false);
-            lv_friendlist.setAdapter(friendListAdapter);
-            mStrList.clear();
-            mStrList.add("无此用户");
-            Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
-                @Override
-                public void onSuccess(List<User> userList) {
-                    Me.userList = userList;
-                    friendListAdapter.notifyDataSetChanged();
-                }
+//        if (requestCode == ADD_FRIEND) {
+        Toast.makeText(context, "从用户介绍界面返回", Toast.LENGTH_SHORT).show();
+        friendlist_search.clearFocus();
+        friendlist_search.setQuery(null, false);
+        lv_friendlist.setAdapter(friendListAdapter);
+        mStrList.clear();
+        mStrList.add("无此用户");
+        Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
+            @Override
+            public void onSuccess(List<User> userList) {
+                Me.userList = userList;
+                friendListAdapter.notifyDataSetChanged();
+            }
 
-                @Override
-                public void onError(Throwable ex) {
-                    Toast.makeText(context, "获取好友失败", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }
-
+            @Override
+            public void onError(Throwable ex) {
+                Toast.makeText(context, "获取好友失败", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
+//    }
 
     @Override
     public void initData() {
@@ -157,14 +157,15 @@ public class FriendListFragment extends baseFragment {
         lv_friendlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (mStrList.size() != 1) {
-                    Toast.makeText(context, "打开用户介绍", Toast.LENGTH_SHORT).show();
+
+                if (!"无此用户".equals(mStrList.get(0))) {
                     User user = queryfriendList.get(position);
-//                    MyApplication.queryfriend = user;
-//                    sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(context);
+                    Toast.makeText(context, "打开用户介绍", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, UserInfoActivity.class);
                     intent.putExtra("user", user);
-                    intent.putExtra("isMe", false);
+                    intent.putExtra("user_type", User.USER_QUERY);
+//                    MyApplication.queryfriend = user;
+//                    sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(context);
                     startActivityForResult(intent, ADD_FRIEND);
                     return;
                 }
@@ -172,7 +173,6 @@ public class FriendListFragment extends baseFragment {
                         userList.get(position).getUser_id() + "",
                         userList.get(position).getUsername());
                 Log.d("qin", "name:  " + userList.get(position).getUsername());
-
             }
         });
 

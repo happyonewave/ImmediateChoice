@@ -1,8 +1,6 @@
 package com.qzct.immediatechoice.Application;
 
-import android.app.Application;
-import android.content.Context;
-import android.os.Environment;
+import android.support.multidex.MultiDexApplication;
 
 import com.qzct.immediatechoice.BuildConfig;
 import com.qzct.immediatechoice.domain.Question;
@@ -10,7 +8,6 @@ import com.qzct.immediatechoice.domain.User;
 
 import org.xutils.x;
 
-import java.io.File;
 import java.util.List;
 
 import io.rong.imkit.RongIM;
@@ -20,7 +17,7 @@ import io.rong.imkit.RongIM;
  * Created by Qin on 2017-02-27.
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends MultiDexApplication {
 
 
     public static User user;

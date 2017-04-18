@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/apporange"
+            android:background="@drawable/btn_selector"
             android:text="发送验证码"
             android:textColor="@android:color/white" />
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:id="@+id/bt_register_two_next"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/apporange"
+        android:background="@drawable/btn_selector"
         android:text="下一步"
         android:textColor="@android:color/white" />
 

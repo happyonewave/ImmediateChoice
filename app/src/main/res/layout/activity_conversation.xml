@@ -4,14 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/name"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:textSize="20dp"
-        android:background="#000000"
-        android:gravity="bottom"
-        android:textColor="@android:color/white" />
+        android:layout_height="wrap_content"
+        android:background="@color/apporange">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:text="name"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/rc_conversation_name_textSize" />
+
+        <TextView
+            android:id="@+id/tv_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="更多"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
 
     <fragment
         android:id="@+id/conversation"

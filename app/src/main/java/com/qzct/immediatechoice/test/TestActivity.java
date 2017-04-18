@@ -79,12 +79,12 @@ public class TestActivity extends AppCompatActivity {
 //        Line line = new Line(values).setColor(Color.BLUE).setCubic(true);
 //        List<Line> lines = new ArrayList<Line>();
 //        lines.add(line);
-        BubbleChartData data = new BubbleChartData();
-        data.setValues(values);
-//        LineChartView chart = new LineChartView(this);
-//        LineChartView chart = (LineChartView) findViewById(R.id.chart);
-        BubbleChartView bubbleChartView = (BubbleChartView) findViewById(R.id.chart);
-        bubbleChartView.setBubbleChartData(data);
+//        BubbleChartData data = new BubbleChartData();
+//        data.setValues(values);
+////        LineChartView chart = new LineChartView(this);
+////        LineChartView chart = (LineChartView) findViewById(R.id.chart);
+//        BubbleChartView bubbleChartView = (BubbleChartView) findViewById(R.id.chart);
+//        bubbleChartView.setBubbleChartData(data);
     }
 }
 

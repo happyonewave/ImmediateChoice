@@ -14,7 +14,7 @@
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
         android:descendantFocusability="blocksDescendants"
-        android:paddingTop="10dp">
+        android:paddingTop="5dp">
         <!--android:background="@android:color/white"-->
         <!--android:padding="10dp"-->
 
@@ -48,7 +48,7 @@
                     <!--android:layout_gravity="bottom|center_horizontal" />-->
 
 
-                    <com.loopj.android.image.SmartImageView
+                    <ImageView
                         android:id="@+id/image_text_item_img_left"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -68,7 +68,7 @@
                     android:layout_height="227dp"
                     android:layout_weight="1">
 
-                    <com.loopj.android.image.SmartImageView
+                    <ImageView
                         android:id="@+id/image_text_item_img_right"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -118,7 +118,8 @@
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@id/item_portrait"
                 android:background="@android:color/transparent"
-                android:text="不语" />
+                android:text="不语"
+                android:textSize="@dimen/userName_textSize" />
 
 
             <Button
@@ -156,8 +157,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
+            android:padding="5dp"
             android:text="@string/question_content"
-            android:textSize="25dp" />
+            android:textSize="15sp" />
 
     </RelativeLayout>
 

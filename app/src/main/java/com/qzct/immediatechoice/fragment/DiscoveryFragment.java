@@ -8,6 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -244,7 +245,7 @@ public class DiscoveryFragment extends baseFragment {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
                 simplePagerTitleView.setText(mTitleDataList.get(index));
-                simplePagerTitleView.setTextSize(18);
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
@@ -298,7 +299,6 @@ public class DiscoveryFragment extends baseFragment {
     @Event(R.id.discovery_scan)
     private void click(View v) {
         Toast.makeText(context, "点击了discovery_scan", Toast.LENGTH_SHORT).show();
-
     }
 
 }
