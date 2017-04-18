@@ -555,6 +555,9 @@
     <color name="taorecorder_timeline_start_color">#1beb25</color>
     <color name="taorecorder_yellowpressed">#998326</color>
     <color name="title_text_color">@android:color/black</color>
+    <color name="viewfinder_border">#ffafed44</color>
+    <color name="viewfinder_laser">#ffcc0000</color>
+    <color name="viewfinder_mask">#60000000</color>
     <declare-styleable name="AVLoadingIndicatorView"><attr name="indicator"><flag name="BallPulse" value="0"/><flag name="BallGridPulse" value="1"/><flag name="BallClipRotate" value="2"/><flag name="BallClipRotatePulse" value="3"/><flag name="SquareSpin" value="4"/><flag name="BallClipRotateMultiple" value="5"/><flag name="BallPulseRise" value="6"/><flag name="BallRotate" value="7"/><flag name="CubeTransition" value="8"/><flag name="BallZigZag" value="9"/><flag name="BallZigZagDeflect" value="10"/><flag name="BallTrianglePath" value="11"/><flag name="BallScale" value="12"/><flag name="LineScale" value="13"/><flag name="LineScaleParty" value="14"/><flag name="BallScaleMultiple" value="15"/><flag name="BallPulseSync" value="16"/><flag name="BallBeat" value="17"/><flag name="LineScalePulseOut" value="18"/><flag name="LineScalePulseOutRapid" value="19"/><flag name="BallScaleRipple" value="20"/><flag name="BallScaleRippleMultiple" value="21"/><flag name="BallSpinFadeLoader" value="22"/><flag name="LineSpinFadeLoader" value="23"/><flag name="TriangleSkewSpin" value="24"/><flag name="Pacman" value="25"/><flag name="BallGridBeat" value="26"/><flag name="SemiCircleSpin" value="27"/></attr><attr format="color" name="indicator_color"/></declare-styleable>
     <declare-styleable name="ActionBar"><attr name="navigationMode">
             
@@ -642,6 +645,7 @@
             <enum name="depth" value="11"/>
             <enum name="zoom" value="12"/>
         </attr><attr format="reference|color" name="banner_tipTextColor"/><attr format="dimension" name="banner_tipTextSize"/><attr format="reference" name="banner_placeholderDrawable"/><attr format="boolean" name="banner_isNumberIndicator"/><attr format="reference|color" name="banner_numberIndicatorTextColor"/><attr format="dimension" name="banner_numberIndicatorTextSize"/><attr format="reference" name="banner_numberIndicatorBackground"/><attr format="boolean" name="banner_isNeedShowIndicatorOnOnlyOnePage"/><attr format="dimension" name="banner_contentBottomMargin"/><attr name="android:scaleType"/></declare-styleable>
+    <declare-styleable name="BarcodeScannerView"><attr format="boolean" name="shouldScaleToFill"/></declare-styleable>
     <declare-styleable name="BottomNavigationView"><attr name="menu"/><attr name="itemIconTint"/><attr name="itemTextColor"/><attr name="itemBackground"/><attr name="elevation"/></declare-styleable>
     <declare-styleable name="BottomSheetBehavior_Layout"><attr format="dimension" name="behavior_peekHeight">
             
@@ -651,7 +655,6 @@
     <declare-styleable name="CardView"><attr format="color" name="cardBackgroundColor"/><attr format="dimension" name="cardCornerRadius"/><attr format="dimension" name="cardElevation"/><attr format="dimension" name="cardMaxElevation"/><attr format="boolean" name="cardUseCompatPadding"/><attr format="boolean" name="cardPreventCornerOverlap"/><attr format="dimension" name="contentPadding"/><attr format="dimension" name="contentPaddingLeft"/><attr format="dimension" name="contentPaddingRight"/><attr format="dimension" name="contentPaddingTop"/><attr format="dimension" name="contentPaddingBottom"/><attr name="android:minWidth"/><attr name="android:minHeight"/></declare-styleable>
     <declare-styleable name="ChangeBounds"><attr format="boolean" name="resizeClip"/></declare-styleable>
     <declare-styleable name="ChangeTransform"><attr format="boolean" name="reparentWithOverlay"/><attr format="boolean" name="reparent"/></declare-styleable>
-    <declare-styleable name="CircleImageView"><attr format="dimension" name="civ_border_width"/><attr format="color" name="civ_border_color"/><attr format="boolean" name="civ_border_overlay"/><attr format="color" name="civ_fill_color"/></declare-styleable>
     <declare-styleable name="CollapsingToolbarLayout"><attr format="dimension" name="expandedTitleMargin"/><attr format="dimension" name="expandedTitleMarginStart"/><attr format="dimension" name="expandedTitleMarginTop"/><attr format="dimension" name="expandedTitleMarginEnd"/><attr format="dimension" name="expandedTitleMarginBottom"/><attr format="reference" name="expandedTitleTextAppearance"/><attr format="reference" name="collapsedTitleTextAppearance"/><attr format="color" name="contentScrim"/><attr format="color" name="statusBarScrim"/><attr format="reference" name="toolbarId"/><attr format="dimension" name="scrimVisibleHeightTrigger"/><attr format="integer" name="scrimAnimationDuration"/><attr name="collapsedTitleGravity">
             
             <flag name="top" value="0x30"/>
@@ -1246,6 +1249,8 @@
     <integer name="rc_message_recall_interval">120</integer>
     <integer name="show_password_duration">200</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
+    <integer name="viewfinder_border_length">60</integer>
+    <integer name="viewfinder_border_width">4</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
     <string name="abc_action_bar_home_subtitle_description_format">%1$s, %2$s, %3$s</string>
@@ -3468,10 +3473,11 @@
         <item name="android:layout_weight">1</item>
         <item name="android:button">@android:color/transparent</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:drawablePadding">5dip</item>
+        <item name="android:drawablePadding">2dip</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">@drawable/bt_textcolor</item>
-        <item name="android:textSize">14sp</item>
+        <!--<item name="android:textColor">@color/apporange</item>-->
+        <item name="android:textSize">10sp</item>
     </style>
     <style name="comment_Dialog" parent="@android:style/Theme.Dialog">
         <!--<item name="android:windowFrame">@null</item>-->
@@ -3574,6 +3580,16 @@
         <item name="android:textColor">@color/bright_foreground_light_disabled</item>
         <item name="android:textSize">15dp</item>
         <item name="android:gravity">center</item>
+    </style>
+    <style name="setting_text">
+
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:textColor="@android:color/black"-->
+
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
     <style name="top_style">
         <item name="android:textColor">@android:color/white</item>

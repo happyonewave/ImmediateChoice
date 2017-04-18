@@ -10,14 +10,17 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.RegisterActivity;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -32,7 +35,6 @@ import java.io.File;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * Created by Administrator on 2017-02-26.
@@ -42,7 +44,7 @@ public class RegisterFinallyFragment extends baseFragment {
     String phone_number;
     String sex;
     Intent intent;
-    CircleImageView user_portrait;
+    ImageView user_portrait;
     String portrait_path;
     int IMAGE_PORTRAIT_UPLOAD = 0;
 
@@ -61,7 +63,7 @@ public class RegisterFinallyFragment extends baseFragment {
         registerActivity.setTitleColor(1);
         final View v = View.inflate(context, R.layout.fill_password, null);
         Button bt_register_finish = (Button) v.findViewById(R.id.bt_register_finish);
-        user_portrait = (CircleImageView) v.findViewById(R.id.iv_upload_portrait);
+        user_portrait = (ImageView) v.findViewById(R.id.iv_upload_portrait);
         user_portrait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -116,7 +118,8 @@ public class RegisterFinallyFragment extends baseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (data != null) {
-            user_portrait.setImageURI(data.getData());
+//            user_portrait.setImageURI(data.getData());
+            Glide.with(context).load(data.getData()).bitmapTransform(new GlideCircleTransform(context)).into(user_portrait);
             portrait_path = getPathFromActivityResult(data);
         }
 
@@ -181,6 +184,7 @@ public class RegisterFinallyFragment extends baseFragment {
                 entity.addPart("phone_number", new StringBody(phone_number, charset));
                 entity.addPart("sex", new StringBody(sex, charset));
                 entity.addPart("portrait", portrait);
+                entity.addPart("portrait_url", new StringBody(utils.getNetUrlFormLocalPath(portrait_path, "image"), charset));
                 httpPost.setEntity(entity);
                 HttpResponse hr = hc.execute(httpPost);
                 if (hr.getStatusLine().getStatusCode() == 200) {

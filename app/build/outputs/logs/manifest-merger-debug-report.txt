@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-177:12
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-179:12
 	package
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:4:5-39
 		INJECTED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml
@@ -20,19 +20,18 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 uses-sdk
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:multidex:1.0.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.1\AndroidManifest.xml:18:5-42
-MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [org.xutils:xutils:3.3.42] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\AndroidManifest.xml:8:5-10:41
 MERGED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:7:5-9:41
 MERGED from [com.wang.avi:library:1.0.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.wang.avi\library\1.0.1\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:21:5-23:78
-MERGED from [com.android.support:support-v4:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:21:5-23:54
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\AndroidManifest.xml:21:5-23:60
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\AndroidManifest.xml:20:5-43
-MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:recyclerview-v7:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.1.0\AndroidManifest.xml:20:5-43
 MERGED from [com.github.hackware1993:MagicIndicator:1.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.hackware1993\MagicIndicator\1.3.1\AndroidManifest.xml:8:5-10:41
 MERGED from [jp.wasabeef:glide-transformations:2.0.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\jp.wasabeef\glide-transformations\2.0.1\AndroidManifest.xml:8:5-10:41
@@ -60,8 +59,12 @@ MERGED from [com.daimajia.numberprogressbar:library:1.4] C:\Users\tsh2\AndroidSt
 MERGED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:7:5-9:41
 MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:7:5-43
 MERGED from [com.github.lecho:hellocharts-android:v1.5.8] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.lecho\hellocharts-android\v1.5.8\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:zxing:1.9.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zxing\1.9.1\AndroidManifest.xml:7:5-9:41
+MERGED from [me.dm7.barcodescanner:core:1.9.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.9.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:7:5-9:41
+MERGED from [io.reactivex:rxandroid:1.2.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.2.1\AndroidManifest.xml:19:5-43
 	tools:overrideLibrary
-		ADDED from [com.android.support:appcompat-v7:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:23:9-75
+		ADDED from [com.android.support:appcompat-v7:25.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:10:9-38
 		INJECTED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml
@@ -213,20 +216,19 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:81:22-75
 application
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:84:5-175:19
-MERGED from [de.hdodenhof:circleimageview:2.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:9:5-20
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:84:5-177:19
 MERGED from [org.xutils:xutils:3.3.42] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\AndroidManifest.xml:12:5-20
 MERGED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:11:5-15:19
 MERGED from [com.wang.avi:library:1.0.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.wang.avi\library\1.0.1\AndroidManifest.xml:11:5-14:19
-MERGED from [com.android.support:appcompat-v7:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-v4:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:appcompat-v7:25.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:29:5-20
-MERGED from [com.android.support:support-media-compat:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-utils:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-core-ui:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\AndroidManifest.xml:25:5-20
-MERGED from [com.android.support:support-fragment:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\AndroidManifest.xml:26:5-20
-MERGED from [com.android.support:animated-vector-drawable:25.1.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.1\AndroidManifest.xml:22:5-20
 MERGED from [com.github.CarGuo:GSYVideoPlayer:v1.6.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.CarGuo\GSYVideoPlayer\v1.6.0\AndroidManifest.xml:11:5-15:19
 MERGED from [tv.danmaku.ijk.media:ijkplayer-exo:0.7.7.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\tv.danmaku.ijk.media\ijkplayer-exo\0.7.7.1\AndroidManifest.xml:9:5-13:19
 MERGED from [com.andkulikov:transitionseverywhere:1.7.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.andkulikov\transitionseverywhere\1.7.0\AndroidManifest.xml:12:5-20
@@ -245,6 +247,9 @@ MERGED from [com.tuyenmonkey:mkloader:1.2.0] C:\Users\tsh2\AndroidStudioProjects
 MERGED from [cn.youngkaaa:yviewpager:0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.youngkaaa\yviewpager\0.2\AndroidManifest.xml:11:5-15:19
 MERGED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:11:5-15:19
 MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:24:5-102:19
+MERGED from [me.dm7.barcodescanner:zxing:1.9.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\zxing\1.9.1\AndroidManifest.xml:11:5-20
+MERGED from [me.dm7.barcodescanner:core:1.9.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\me.dm7.barcodescanner\core\1.9.1\AndroidManifest.xml:11:5-20
+MERGED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:11:5-15:19
 	android:label
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:88:9-41
 		REJECTED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:13:9-41
@@ -254,6 +259,7 @@ MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidS
 		REJECTED from [com.tuyenmonkey:mkloader:1.2.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.tuyenmonkey\mkloader\1.2.0\AndroidManifest.xml:13:9-41
 		REJECTED from [cn.youngkaaa:yviewpager:0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.youngkaaa\yviewpager\0.2\AndroidManifest.xml:13:9-41
 		REJECTED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:13:9-41
+		REJECTED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:13:9-41
 	android:supportsRtl
 		ADDED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:14:9-35
 	android:allowBackup
@@ -266,6 +272,7 @@ MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidS
 		REJECTED from [cn.youngkaaa:yviewpager:0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\cn.youngkaaa\yviewpager\0.2\AndroidManifest.xml:12:9-35
 		REJECTED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:12:9-35
 		REJECTED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:26:9-36
+		REJECTED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:12:9-35
 	android:icon
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:87:9-43
 	android:theme
@@ -281,22 +288,22 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:93:13-45
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:92:13-50
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:94:13-98:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:95:13-65
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:95:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:97:13-73
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:97:23-70
 activity#com.qzct.immediatechoice.activity.LoginActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:100:9-108:20
 	android:label
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:102:13-45
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:101:13-51
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:103:13-107:29
-action#android.intent.action.MAIN
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:104:17-69
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:104:25-66
-category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:106:17-77
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:106:27-74
 activity#com.qzct.immediatechoice.test.TestActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:109:9-115:20
 	android:name
@@ -367,34 +374,43 @@ activity#com.qzct.immediatechoice.activity.UserInfoActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:160:9-63
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:160:19-60
+activity#com.qzct.immediatechoice.activity.SimpleScannerActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:161:9-68
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:161:19-65
 service#com.baidu.location.f
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:161:9-164:41
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:163:9-166:41
 	android:enabled
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:163:13-35
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:165:13-35
 	android:process
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:164:13-38
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:166:13-38
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:162:13-48
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:164:13-48
 meta-data#com.baidu.lbsapi.API_KEY
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:166:9-168:64
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:168:9-170:64
 	android:value
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:168:13-61
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:170:13-61
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:167:13-52
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:169:13-52
 meta-data#RONG_CLOUD_APP_KEY
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:172:9-174:45
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:174:9-176:45
 MERGED from [ImmediateChoice:IMLib:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMLib\unspecified\AndroidManifest.xml:27:9-29:45
 	android:value
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:174:13-42
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:176:13-42
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:173:13-46
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:175:13-46
 meta-data#android.support.VERSION
-ADDED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:25:5-27:34
+ADDED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.3.1\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\AndroidManifest.xml:22:5-24:34
 	android:value
-		ADDED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:27:9-31
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:27:9-31
 	android:name
-		ADDED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:26:9-47
+		ADDED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:26:9-47
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from [ImmediateChoice:IMKit:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMKit\unspecified\AndroidManifest.xml:11:5-80
 MERGED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:22:5-80

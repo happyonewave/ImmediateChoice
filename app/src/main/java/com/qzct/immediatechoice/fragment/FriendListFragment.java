@@ -68,7 +68,7 @@ public class FriendListFragment extends baseFragment {
         //* 设置true后，右边会出现一个箭头按钮。如果用户没有输入，就不会触发提交（submit）事件
         friendlist_search.setSubmitButtonEnabled(true);
         // * 写上此句后searchView初始展开的，也就是是可以点击输入的状态，如果不写，那么就需要点击下放大镜，才能展开出现输入框
-        friendlist_search.onActionViewExpanded();
+//        friendlist_search.onActionViewExpanded();
         lv_friendlist = new ListView(context);
         v.addView(friendlist_search);
         v.addView(lv_friendlist);
@@ -169,10 +169,14 @@ public class FriendListFragment extends baseFragment {
                     startActivityForResult(intent, ADD_FRIEND);
                     return;
                 }
-                RongIM.getInstance().startPrivateChat(context,
-                        userList.get(position).getUser_id() + "",
-                        userList.get(position).getUsername());
-                Log.d("qin", "name:  " + userList.get(position).getUsername());
+
+//                if (mStrList.size() != 1 && !"无此用户".equals(mStrList.get(0))) {
+                if (friendlist_search.getQuery().toString().isEmpty()) {
+                    RongIM.getInstance().startPrivateChat(context,
+                            userList.get(position).getUser_id() + "",
+                            userList.get(position).getUsername());
+                    Log.d("qin", "name:  " + userList.get(position).getUsername());
+                }
             }
         });
 

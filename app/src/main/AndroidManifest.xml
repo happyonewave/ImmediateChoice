@@ -100,11 +100,11 @@
         <activity
             android:name=".activity.LoginActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".test.TestActivity">
             <!--<intent-filter>-->
@@ -150,14 +150,16 @@
         </activity>
         <activity android:name=".activity.YWRecordVideoActivity" />
         <activity android:name=".activity.SplashActivity">
-            <!--<intent-filter>-->
-            <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-            <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.TopicActivity" />
         <activity android:name=".activity.UserInfoActivity" />
+        <activity android:name=".activity.SimpleScannerActivity" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

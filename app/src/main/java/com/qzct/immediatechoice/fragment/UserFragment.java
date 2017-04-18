@@ -48,6 +48,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private ImageView user_portrait;
     private ImageView bt_setting;
     private LinearLayout hint_mypush;
+    private ImageView iv_userinfo;
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
@@ -58,6 +59,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         user_portrait = (ImageView) v.findViewById(R.id.user_portrait);
         lv = (GridView) v.findViewById(R.id.gv_user);
         bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
+        iv_userinfo = (ImageView) v.findViewById(R.id.iv_userinfo);
         hint_mypush = (LinearLayout) v.findViewById(R.id.hint_mypush);
         return v;
     }
@@ -77,6 +79,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         tv_username.setText(user.getUsername());
         user_portrait.setOnClickListener(this);
         bt_setting.setOnClickListener(this);
+        iv_userinfo.setOnClickListener(this);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -168,6 +171,9 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 Intent intent = new Intent(context, SettingActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.iv_userinfo:
+
+//                break;
             case R.id.user_portrait:
                 if (MyApplication.logined) {
                     Intent userinfoIntent = new Intent(context, UserInfoActivity.class);

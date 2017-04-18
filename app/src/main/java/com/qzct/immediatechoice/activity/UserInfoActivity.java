@@ -32,6 +32,8 @@ import org.xutils.x;
 
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.internal.Utils;
+
 
 /**
  * Created by tsh2 on 2017/4/16.
@@ -45,6 +47,7 @@ public class UserInfoActivity extends Activity {
     private int USER_TYPE;
     private Button btn_add_friend;
     private RelativeLayout rl_layout;
+    private ImageView iv_qrcode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,7 @@ public class UserInfoActivity extends Activity {
         tv_user_phone_num = (TextView) findViewById(R.id.user_phone_num);
         btn_add_friend = (Button) findViewById(R.id.btn_add_friend);
         rl_layout = (RelativeLayout) findViewById(R.id.rl_layout);
+        iv_qrcode = (ImageView) findViewById(R.id.iv_qrcode);
         if (USER_TYPE != User.USER_ME) {
             btn_add_friend.setVisibility(View.VISIBLE);
             rl_layout.setVisibility(View.GONE);
@@ -140,6 +144,10 @@ public class UserInfoActivity extends Activity {
                     });
                 }
             });
+        } else {
+//            rl_layout.setBackground(new BitmapDrawable(utils.generateBitmap("id14", 200, 200)));
+//            rl_layout.setBackground(new BitmapDrawable(utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200)));
+            iv_qrcode.setImageBitmap(utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200));
         }
     }
 

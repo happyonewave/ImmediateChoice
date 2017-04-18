@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.TopicActivity;
+import com.qzct.immediatechoice.adpter.TopicAdpter;
 import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.util.Config;
 
@@ -84,43 +85,45 @@ public class AttentionFragment extends baseFragment {
                             Log.d("qin", "temp: " + temp.toString());
                             topicList.add(topic);
                         }
-                        lv_home_attention.setAdapter(new BaseAdapter() {
-                            @Override
-                            public int getCount() {
-                                return topicList.size();
-                            }
+                        lv_home_attention.setAdapter(new TopicAdpter(context, topicList));
 
-                            @Override
-                            public Object getItem(int position) {
-                                return null;
-                            }
-
-                            @Override
-                            public long getItemId(int position) {
-                                return 0;
-                            }
-
-                            @Override
-                            public View getView(int position, View convertView, ViewGroup parent) {
-                                View v = null;
-                                if (convertView != null) {
-                                    v = convertView;
-                                } else {
-                                    v = View.inflate(context, R.layout.view_attention_item, null);
-                                }
-
-                                ImageView topic_img = (ImageView) v.findViewById(R.id.topic_img);
-                                TextView topic_title = (TextView) v.findViewById(R.id.topic_title);
-
-                                Topic i = topicList.get(position);
-
-//                                ImageOptions options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.notdata).build();
-//                                x.image().bind(topic_img, i.getTopic_img_url(), options);
-                                Glide.with(AttentionFragment.this).load(i.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(topic_img);
-                                topic_title.setText(i.getTopic_title());
-                                return v;
-                            }
-                        });
+//                        lv_home_attention.setAdapter(new BaseAdapter() {
+//                            @Override
+//                            public int getCount() {
+//                                return topicList.size();
+//                            }
+//
+//                            @Override
+//                            public Object getItem(int position) {
+//                                return null;
+//                            }
+//
+//                            @Override
+//                            public long getItemId(int position) {
+//                                return 0;
+//                            }
+//
+//                            @Override
+//                            public View getView(int position, View convertView, ViewGroup parent) {
+//                                View v = null;
+//                                if (convertView != null) {
+//                                    v = convertView;
+//                                } else {
+//                                    v = View.inflate(context, R.layout.view_attention_item, null);
+//                                }
+//
+//                                ImageView topic_img = (ImageView) v.findViewById(R.id.topic_img);
+//                                TextView topic_title = (TextView) v.findViewById(R.id.topic_title);
+//
+//                                Topic i = topicList.get(position);
+//
+////                                ImageOptions options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.notdata).build();
+////                                x.image().bind(topic_img, i.getTopic_img_url(), options);
+//                                Glide.with(AttentionFragment.this).load(i.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(topic_img);
+//                                topic_title.setText(i.getTopic_title());
+//                                return v;
+//                            }
+//                        });
 
                     } catch (JSONException e) {
                         e.printStackTrace();

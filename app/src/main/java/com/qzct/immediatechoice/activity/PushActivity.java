@@ -22,12 +22,14 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
+import com.nanchen.compresshelper.CompressHelper;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.PathUtils;
+import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -76,6 +78,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private JSONArray push_group_ids;
     private boolean isImage;
     private int group_id;
+    private File flle_left;
+    private File file_right;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -305,6 +309,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         switch (what) {
             case IMAGE_LEFT_UPLOAD:
                 left_path = PathUtils.getPathFromActivityResult(this, data);
+                flle_left = CompressHelper.getDefault(this).compressToFile(new File(left_path));
                 if (left_path != null) {
                     push_left.setPadding(0, 0, 0, 0);
                     push_left.setBackgroundColor(Color.TRANSPARENT);
@@ -315,6 +320,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case IMAGE_RIGHT_UPLOAD:
                 right_path = PathUtils.getPathFromActivityResult(this, data);
+                file_right = CompressHelper.getDefault(this).compressToFile(new File(right_path));
                 if (right_path != null) {
                     push_right.setPadding(0, 0, 0, 0);
                     push_right.setBackgroundColor(Color.TRANSPARENT);
@@ -346,13 +352,14 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                     push_left.setPadding(0, 0, 0, 0);
                     push_left.setImageBitmap(bitmap);
                     left_path = path;
-
+                    flle_left = new File(left_path);
 
                     break;
                 case VIDEO_RIGHT_UPLOAD:
                     push_right.setPadding(0, 0, 0, 0);
                     push_right.setImageBitmap(bitmap);
                     right_path = path;
+                    file_right = new File(right_path);
 
 
                     break;
@@ -374,8 +381,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             type = "image";
         }
         Question question = new Question(0, group_id, question_content,
-                getNetUrlFormLocalPath(left_path, type),
-                getNetUrlFormLocalPath(right_path, type),
+                utils.getNetUrlFormLocalPath(left_path, type),
+                utils.getNetUrlFormLocalPath(right_path, type),
                 quizzer_name, user.getPortrait_path(), 0, 0, null,
                 locationDescribe, null
         );
@@ -383,8 +390,10 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         entity.addBodyParameter("question", jsonObject.toString());
 //        entity.addBodyParameter("group_ids", push_group_ids.toString());
         entity.addBodyParameter("msg", type);
-        entity.addBodyParameter("file_left", new File(left_path));
-        entity.addBodyParameter("file_right", new File(right_path));
+        entity.addBodyParameter("file_left", flle_left);
+        entity.addBodyParameter("file_right", file_right);
+//        entity.addBodyParameter("file_left", new File(left_path));
+//        entity.addBodyParameter("file_right", new File(right_path));
         Log.d("qin", "x.http");
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
@@ -413,36 +422,6 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-    }
-
-    /**
-     * 获取对应的网络地址
-     *
-     * @param localPath
-     * @return
-     */
-    private String getNetUrlFormLocalPath(String localPath, String type) {
-        if (type.equals("image")) {
-            return Config.server_img_url + getFileName(localPath);
-        } else if (type.equals("video")) {
-            return Config.server_video_url + getFileName(localPath);
-        } else {
-            return localPath;
-        }
-    }
-
-    /**
-     * 获取文件名（有拓展名）
-     *
-     * @param Path
-     * @return
-     */
-    private String getFileName(String Path) {
-        int index = Path.lastIndexOf("/");
-        if (index > 0) {
-            Path = Path.substring(index + 1);
-        }
-        return Path;
     }
 
 
@@ -595,7 +574,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             mLocationClient.stop();
         }
 
-//        @Override
+        //        @Override
         public void onConnectHotSpotMessage(String s, int i) {
         }
     }

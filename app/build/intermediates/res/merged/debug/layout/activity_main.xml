@@ -32,40 +32,45 @@
         android:id="@+id/rg_nav"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
-        android:layout_weight="1"
+        android:layout_marginTop="1dp"
+        android:layout_weight="1.2"
         android:background="@android:color/white"
         android:gravity="bottom"
         android:orientation="horizontal"
-        android:paddingTop="2dp">
+        android:paddingTop="1dp">
 
         <!--android:text="首页"-->
         <RadioButton
             android:id="@+id/bt_home"
             style="@style/bt_style"
+            android:checked="true"
             android:drawableTop="@drawable/bt_home_bg"
-            android:onClick="click" />
+            android:onClick="click"
+            android:text="首页" />
 
         <!--android:text="发现"-->
         <RadioButton
             android:id="@+id/bt_discovery"
             style="@style/bt_style"
             android:drawableTop="@drawable/bt_discovery_bg"
-            android:onClick="click" />
+            android:onClick="click"
+            android:text="发现" />
 
         <!--android:text="朋友"-->
         <RadioButton
             android:id="@+id/bt_friend"
             style="@style/bt_style"
             android:drawableTop="@drawable/bt_friend_bg"
-            android:onClick="click" />
+            android:onClick="click"
+            android:text="小圈" />
 
         <!--android:text="我的"-->
         <RadioButton
             android:id="@+id/bt_user"
             style="@style/bt_style"
             android:drawableTop="@drawable/bt_my_bg"
-            android:onClick="click" />
+            android:onClick="click"
+            android:text="我的" />
     </RadioGroup>
 
 </LinearLayout>

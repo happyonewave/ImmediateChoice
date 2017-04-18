@@ -383,34 +383,15 @@ public class CircleAdpter extends BaseAdapter {
         @Override
         protected void onPostExecute(Bitmap videoThumbnail) {
             ImageView imageView = new ImageView(context);
-//            Bitmap mBitmap = Bitmap.createBitmap(gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), Bitmap.Config.ARGB_8888);
             if (videoThumbnail != null) {
                 //增加封面
-                Bitmap mBitmap = videoThumbnail.copy(Bitmap.Config.ARGB_8888, true);
-//                mBitmap = Bitmap.createBitmap(videoThumbnail, 0, 0, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
-                zoomImg(mBitmap, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
-//            mBitmap.setWidth(gsyVideoPlayer.getWidth());
-//            mBitmap.setHeight(gsyVideoPlayer.getHeight());
+                Bitmap mBitmap = Bitmap.createScaledBitmap(videoThumbnail, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), true);
                 imageView.setImageBitmap(mBitmap);
                 gsyVideoPlayer.setThumbImageView(imageView);
             }
         }
     }
 
-    public Bitmap zoomImg(Bitmap bm, int newWidth, int newHeight) {
-        // 获得图片的宽高
-        int width = bm.getWidth();
-        int height = bm.getHeight();
-        // 计算缩放比例
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeight) / height;
-        // 取得想要缩放的matrix参数
-        Matrix matrix = new Matrix();
-        matrix.postScale(scaleWidth, scaleHeight);
-        // 得到新的图片   www.2cto.com
-        Bitmap newbm = Bitmap.createBitmap(bm, 0, 0, width, height, matrix, true);
-        return newbm;
-    }
 
     private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
         //增加封面

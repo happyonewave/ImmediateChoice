@@ -1,10 +1,14 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
@@ -21,10 +25,18 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
+import com.qzct.immediatechoice.activity.SimpleScannerActivity;
+import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.pager.BasePager;
 import com.qzct.immediatechoice.pager.TopicPager;
 import com.qzct.immediatechoice.util.Config;
@@ -50,7 +62,9 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import cn.bingoogolapple.bgabanner.BGABanner;
 import cn.bingoogolapple.bgabanner.BGABannerUtil;
@@ -78,6 +92,7 @@ public class DiscoveryFragment extends baseFragment {
     private List<Question> questionList;
     private ArrayAdapter<String> adapter;
     private List<String> mStrList = new ArrayList<String>();
+    private int GET_QRCODE = 0;
 
 
     /**
@@ -245,7 +260,7 @@ public class DiscoveryFragment extends baseFragment {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
                 simplePagerTitleView.setText(mTitleDataList.get(index));
-                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
@@ -299,7 +314,97 @@ public class DiscoveryFragment extends baseFragment {
     @Event(R.id.discovery_scan)
     private void click(View v) {
         Toast.makeText(context, "点击了discovery_scan", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(context, SimpleScannerActivity.class);
+        startActivityForResult(intent, GET_QRCODE);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == GET_QRCODE) {
+            if (data != null) {
+                String qrResult = data.getStringExtra("qrResult");
+                if (isUrl(qrResult)) {//是html的链接直接跳转浏览器，比如apk下载等等
+                    Intent intent = new Intent();
+                    intent.setAction("android.intent.action.VIEW");
+                    Uri content_url = Uri.parse(qrResult);
+                    intent.setData(content_url);
+                    startActivity(intent);
+                } else if (qrResult.contains("id")) {
+                    qrResult = qrResult.substring(2);
+                    RequestParams entity = new RequestParams(Config.url_search);
+                    entity.addBodyParameter("f_id", qrResult);
+                    final String finalQrResult = qrResult;
+                    x.http().get(entity, new Callback.CommonCallback<String>() {
+                        @Override
+                        public void onSuccess(String result) {
+                            if (result != null && !"[]".equals(result)) {
+                                Log.d("qin", "result:   " + result);
+                                try {
+                                    List<User> queryfriendList = new ArrayList<User>();
+                                    JSONArray array = new JSONArray(result);
+                                    for (int i = 0; i < array.length(); i++) {
+                                        User user = User.jsonObjectToUser(array.getJSONObject(i));
+                                        queryfriendList.add(user);
+                                    }
+                                    for (User user : queryfriendList) {
+                                        if (user.getUser_id() == Integer.parseInt(finalQrResult)) {
+                                            Intent intent = new Intent(context, UserInfoActivity.class);
+                                            intent.putExtra("user", user);
+                                            int user_type = User.USER_QUERY;
+                                            if (user.getUser_id() == MyApplication.user.getUser_id()) {
+                                                user_type = User.USER_ME;
+                                            } else {
+                                                for (User temp : MyApplication.userList) {
+                                                    if (temp.getUser_id() == user.getUser_id()) {
+                                                        user_type = User.USER_FRIEND;
+                                                        break;
+                                                    }
+                                                }
+                                            }
+                                            intent.putExtra("user_type", user_type);
+                                            startActivity(intent);
+                                            break;
+                                        }
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onError(Throwable ex, boolean isOnCallback) {
+                            Toast.makeText(context, "连接搜索服务错误", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onCancelled(CancelledException cex) {
+
+                        }
+
+                        @Override
+                        public void onFinished() {
+                        }
+                    });
+                } else {
+                    new AlertDialog.Builder(context).setTitle("扫描结果").setMessage(qrResult).setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    }).show();
+                }
+            }
+        }
+
+    }
+
+    public boolean isUrl(String str) {
+        if (str.contains("http")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 

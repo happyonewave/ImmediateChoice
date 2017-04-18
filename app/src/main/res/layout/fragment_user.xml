@@ -29,6 +29,7 @@
             tools:ignore="RtlHardcoded" />
 
         <ImageView
+            android:id="@+id/iv_userinfo"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_alignParentLeft="true"
@@ -69,7 +70,7 @@
             android:paddingTop="5dp"
             android:text="@string/username"
             android:textColor="@android:color/white"
-            android:textSize="@dimen/userName_textSize"/>
+            android:textSize="@dimen/userName_textSize" />
 
         <LinearLayout
             android:layout_width="wrap_content"

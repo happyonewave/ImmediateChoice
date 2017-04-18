@@ -38,14 +38,14 @@ public class RegisterSecondFragment extends baseFragment {
 
                 EditText et_verification = (EditText) v.findViewById(R.id.et_verification);
                 String verification = et_verification.getText().toString();
-                if (verification.equals("153698")){
-                    RegisterFinallyFragment finish = new RegisterFinallyFragment(phone_number);
-                    FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                    transaction.replace(R.id.fl_register, finish);
-                    transaction.commit();
-                }else{
-                    Toast.makeText(context,"验证码错误，请重新获取验证",Toast.LENGTH_LONG).show();
-                }
+//                if (verification.equals("153698")){
+                RegisterFinallyFragment finish = new RegisterFinallyFragment(phone_number);
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fl_register, finish);
+                transaction.commit();
+//                }else{
+                Toast.makeText(context, "验证码错误，请重新获取验证", Toast.LENGTH_LONG).show();
+//                }
             }
         });
 

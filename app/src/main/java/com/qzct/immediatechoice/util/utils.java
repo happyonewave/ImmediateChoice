@@ -26,6 +26,11 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.qzct.immediatechoice.R;
 
 import org.json.JSONArray;
@@ -36,12 +41,67 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 
 import wseemann.media.FFmpegMediaMetadataRetriever;
 
 
 public class utils {
     private static JSONObject obj;
+
+    /**
+     * 获取对应的网络地址
+     *
+     * @param localPath
+     * @return
+     */
+    public static String getNetUrlFormLocalPath(String localPath, String type) {
+        if (type.equals("image")) {
+            return Config.server_img_url + getFileName(localPath);
+        } else if (type.equals("video")) {
+            return Config.server_video_url + getFileName(localPath);
+        } else {
+            return localPath;
+        }
+    }
+
+    /**
+     * 获取文件名（有拓展名）
+     *
+     * @param Path
+     * @return
+     */
+    public static String getFileName(String Path) {
+        int index = Path.lastIndexOf("/");
+        if (index > 0) {
+            Path = Path.substring(index + 1);
+        }
+        return Path;
+    }
+
+    public static Bitmap generateBitmap(String content, int width, int height) {
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        Map<EncodeHintType, String> hints = new HashMap<>();
+        hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
+        try {
+            BitMatrix encode = qrCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height, hints);
+            int[] pixels = new int[width * height];
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (encode.get(j, i)) {
+                        pixels[i * width + j] = 0x00000000;
+                    } else {
+                        pixels[i * width + j] = 0xffffffff;
+                    }
+                }
+            }
+            return Bitmap.createBitmap(pixels, 0, width, width, height, Bitmap.Config.RGB_565);
+        } catch (WriterException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     public static Uri getUribyId(Context context, int resid) {
         Resources r = context.getResources();
