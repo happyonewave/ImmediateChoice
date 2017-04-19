@@ -176,6 +176,7 @@ public class RegisterFinallyFragment extends baseFragment {
             try {
 
 
+
                 Charset charset = Charset.forName("utf-8");
                 MultipartEntity entity = new MultipartEntity();
                 FileBody portrait = new FileBody(new File(portrait_path));
@@ -184,7 +185,8 @@ public class RegisterFinallyFragment extends baseFragment {
                 entity.addPart("phone_number", new StringBody(phone_number, charset));
                 entity.addPart("sex", new StringBody(sex, charset));
                 entity.addPart("portrait", portrait);
-                entity.addPart("portrait_url", new StringBody(utils.getNetUrlFormLocalPath(portrait_path, "image"), charset));
+                entity.addPart("portrait_url", new StringBody(Config.url + utils.getFileName(portrait_path), charset));
+//                entity.addPart("portrait_url", new StringBody(utils.getNetUrlFormLocalPath(portrait_path, "image"), charset));
                 httpPost.setEntity(entity);
                 HttpResponse hr = hc.execute(httpPost);
                 if (hr.getStatusLine().getStatusCode() == 200) {

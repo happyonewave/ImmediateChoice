@@ -136,7 +136,7 @@ public class FriendFragment extends baseFragment {
             public IPagerTitleView getTitleView(Context context, final int index) {
                 SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
                 simplePagerTitleView.setText(mTitleDataList.get(index));
-                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 19);
                 simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
                 simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
                 simplePagerTitleView.setOnClickListener(new View.OnClickListener() {

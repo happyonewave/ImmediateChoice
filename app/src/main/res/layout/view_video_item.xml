@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:text="@string/question_content"
-            android:textSize="25dp" />
+            android:textSize="15dp" />
 
         <FrameLayout
             android:id="@+id/fl"

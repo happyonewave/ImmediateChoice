@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.jrmf360.rylib.JrmfClient;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
@@ -172,8 +173,8 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.iv_userinfo:
-
-//                break;
+                JrmfClient.intentWallet(getActivity());
+                break;
             case R.id.user_portrait:
                 if (MyApplication.logined) {
                     Intent userinfoIntent = new Intent(context, UserInfoActivity.class);

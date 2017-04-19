@@ -1,1 +1,1 @@
-include ':app', ':zrcListView', ':IMKit', ':IMLib', ':YunWangVideoSDK'
+include ':app', ':zrcListView', ':IMKit', ':IMLib', ':YunWangVideoSDK', ':RedPacket'

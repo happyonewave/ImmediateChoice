@@ -3,6 +3,9 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
     useLibrary 'org.apache.http.legacy'
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
     defaultConfig {
         applicationId "com.qzct.immediatechoice"
         minSdkVersion 19
@@ -130,4 +133,10 @@ dependencies {
     compile 'me.dm7.barcodescanner:zxing:1.9.1'
     //图片压缩
     compile 'com.github.nanchen2251:CompressHelper:1.0.2'
+    //日历
+    compile 'com.github.MorochoRochaDarwin:OneCalendarView:3.1.1'
+    //红包
+    compile project(':RedPacket')
+    //多dex
+//    compile 'com.google.android:multidex:0.1'
 }

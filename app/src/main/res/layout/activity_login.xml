@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.75"
                 android:ems="10"
-                android:text="小梨子"
+                android:text="小青"
                 android:inputType="text" />
 
             <!--android:hint="@string/username_hint"-->

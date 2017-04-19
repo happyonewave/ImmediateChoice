@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CalendarActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
@@ -50,6 +51,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private LinearLayout home_title;
     private FabSpeedDial fabSpeedDial;
     private List<Fragment> fragmentList;
+    private View home_calendar;
+    private View home_search;
+    private QuestionFragment questionFragment;
 
     /**
      * 填充view
@@ -63,7 +67,8 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
         home_attention_line = v.findViewById(R.id.home_attention_line);
-
+        home_calendar = v.findViewById(R.id.home_calendar);
+        home_search = v.findViewById(R.id.home_search);
         fabSpeedDial = (FabSpeedDial) v.findViewById(R.id.fab_speed_dial);
         fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
             @Override
@@ -108,6 +113,13 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      */
     @Override
     public void initData() {
+        home_calendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
         vp_home.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -185,7 +197,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 //        vp_home.setAdapter(pagerAdapter);
 
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new QuestionFragment());
+         questionFragment = new QuestionFragment();
+//        fragmentList.add(new QuestionFragment());
+        fragmentList.add(questionFragment);
         fragmentList.add(new VideoFragment());
         fragmentList.add(new AttentionFragment());
         vp_home.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {

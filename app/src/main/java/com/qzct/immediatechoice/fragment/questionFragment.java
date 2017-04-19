@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
@@ -62,7 +63,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
     private static final String url = Config.url_image_text;
     private ZrcListView lv_home;
     private ArrayList<Question> questionList = new ArrayList<Question>();
-    private ImageTextAdpter adpter;
+    private static ImageTextAdpter adpter;
     private JSONArray jsonArray;
     private MKLoader loader;
     private View v;
@@ -81,6 +82,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 //        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
         adpter = new ImageTextAdpter(context, questionList);
+//        lv_home.setTextFilterEnabled();
         lv_home.setAdapter(adpter);
         initRefreshAndLoad(lv_home, new MyCallback.InitRefreshAndLoadCallBack() {
             @Override
