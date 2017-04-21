@@ -304,7 +304,11 @@ public class QuestionVideoAdpter extends BaseAdapter {
 //                mBitmap = MyThumbnailUtils.zoomImg(mBitmap, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
 //                mBitmap = MyThumbnailUtils.scaleBitmap(mBitmap, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
                 //增加封面
-                Bitmap mBitmap = Bitmap.createScaledBitmap(videoThumbnail, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), true);
+                Bitmap mBitmap = Bitmap.createBitmap(videoThumbnail);
+                if (gsyVideoPlayer.getWidth() > 0) {
+                    mBitmap = Bitmap.createScaledBitmap(videoThumbnail, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), true);
+
+                }
                 imageView.setImageBitmap(mBitmap);
                 gsyVideoPlayer.setThumbImageView(imageView);
 

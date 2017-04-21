@@ -180,6 +180,18 @@
         <activity android:name="com.qzct.immediatechoice.activity.UserInfoActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.SimpleScannerActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.CalendarActivity" />
+        <activity
+            android:name="com.jrmf360.dbo.sdk.ui.JrmfBrowserActivity"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity android:name="com.qzct.immediatechoice.activity.DataActivity" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
 
         <service
             android:name="com.baidu.location.f"

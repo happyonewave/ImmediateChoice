@@ -256,12 +256,12 @@
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-hdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
-        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\notification_bg_normal.9.png",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.1.1\\res\\drawable-hdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_btn_check_to_on_mtrl_000.png",

@@ -79,7 +79,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
     public void initData() {
         lv_home = (ZrcListView) v.findViewById(R.id.lv_home);
         loader = (MKLoader) v.findViewById(R.id.loader);
-//        sendFabIsVisible(lv_home);
+        sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
         adpter = new ImageTextAdpter(context, questionList);
 //        lv_home.setTextFilterEnabled();

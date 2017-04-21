@@ -76,7 +76,7 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
     public void initData() {
         lv_home_video = (ZrcListView) v.findViewById(R.id.lv_home_video);
         loader = (MKLoader) v.findViewById(R.id.loader);
-//        sendFabIsVisible(lv_home_video);
+        sendFabIsVisible(lv_home_video);
         lv_home_video.setOnItemClickListener(this);
         adpter = new QuestionVideoAdpter(context, questionList);
         lv_home_video.setAdapter(adpter);

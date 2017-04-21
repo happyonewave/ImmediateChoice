@@ -22,7 +22,6 @@ public abstract class BasePager {
     public Activity context;
     public View view;
     public LayoutInflater inflater;
-    int oldVisibleItem;
 
     public BasePager(Activity context) {
         this.context = context;
@@ -51,6 +50,7 @@ public abstract class BasePager {
     /**
      * 响应listview滑动事件 发送是否显示悬浮按钮广播
      */
+    int oldVisibleItem;
     public void sendFabIsVisible(final ZrcListView listView) {
 
         listView.setOnScrollListener(new ZrcListView.OnScrollListener() {

@@ -1,94 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:animateLayoutChanges="true"
-    android:orientation="vertical"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
 
-    <!--<LinearLayout-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:background="@color/apporange"-->
-    <!--android:padding="5dp">-->
 
-    <!--<EditText-->
-    <!--android:id="@+id/discovery_search"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_marginLeft="10dp"-->
-    <!--android:layout_weight="7"-->
-    <!--android:background="@color/gray"-->
-    <!--android:drawableLeft="@mipmap/search"-->
-    <!--android:hint="搜索话题/帖子/用户"-->
-    <!--android:paddingLeft="5dp"-->
-    <!--android:textColorHint="@android:color/white" />-->
-
-    <!--<ImageView-->
-    <!--android:layout_width="0dp"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:padding="2dp"-->
-    <!--android:layout_weight="2"-->
-    <!--android:src="@mipmap/attendance" />-->
-
-    <!--<TextView-->
-    <!--android:id="@+id/discovery_scan"-->
-    <!--android:layout_width="0dp"-->
-    <!--android:gravity="center"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:layout_weight="2"-->
-    <!--android:textSize="15dp"-->
-    <!--android:textColor="@android:color/white"-->
-    <!--android:text="每日一签"-->
-    <!--/>-->
-    <!--</LinearLayout>-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/apporange"
-        android:padding="0dp">
-
-        <ImageView
-            android:id="@+id/home_calendar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:padding="10dp"
-            android:src="@mipmap/push_timing" />
-
-        <android.support.v7.widget.SearchView
-            android:id="@+id/home_search"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:background="#60eb633b"
-            android:queryHint="搜索话题/帖子/用户"
-            android:textColorHint="@android:color/white" />
-    </RelativeLayout>
-    <include layout="@layout/home_title_button"></include>
-
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#90cccccc">
+        android:animateLayoutChanges="true"
+        android:background="@android:color/white"
+        android:orientation="vertical">
 
+        <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/apporange"-->
+        <!--android:padding="5dp">-->
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/vp_home"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <!--<EditText-->
+        <!--android:id="@+id/discovery_search"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="10dp"-->
+        <!--android:layout_weight="7"-->
+        <!--android:background="@color/gray"-->
+        <!--android:drawableLeft="@mipmap/search"-->
+        <!--android:hint="搜索话题/帖子/用户"-->
+        <!--android:paddingLeft="5dp"-->
+        <!--android:textColorHint="@android:color/white" />-->
 
+        <!--<ImageView-->
+        <!--android:layout_width="0dp"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:padding="2dp"-->
+        <!--android:layout_weight="2"-->
+        <!--android:src="@mipmap/attendance" />-->
 
-        </android.support.v4.view.ViewPager>
-
+        <!--<TextView-->
+        <!--android:id="@+id/discovery_scan"-->
+        <!--android:layout_width="0dp"-->
+        <!--android:gravity="center"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="2"-->
+        <!--android:textSize="15dp"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--android:text="每日一签"-->
+        <!--/>-->
+        <!--</LinearLayout>-->
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="40dp"
+            android:background="@color/apporange"
+            android:padding="0dp">
 
-            <!--<LinearLayout-->
+            <ImageView
+                android:id="@+id/home_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:padding="10dp"
+                android:src="@mipmap/push_timing" />
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/home_search"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="#60eb633b"
+                android:queryHint="搜索话题/帖子/用户"
+                android:textColorHint="@android:color/white" />
+        </RelativeLayout>
+
+        <include layout="@layout/home_title_button"></include>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#90cccccc">
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+            </android.support.v4.view.ViewPager>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--<LinearLayout-->
 
                 <!--android:id="@+id/fab_question_layout"-->
                 <!--android:layout_width="wrap_content"-->
@@ -98,20 +105,20 @@
                 <!--android:visibility="gone">-->
 
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--android:text="@string/questionnaire_push" />-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="@string/questionnaire_push" />-->
 
                 <!--<android.support.design.widget.FloatingActionButton-->
-                    <!--android:id="@+id/fab_question"-->
-                    <!--android:layout_width="40dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:src="@mipmap/fab" />-->
+                <!--android:id="@+id/fab_question"-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:src="@mipmap/fab" />-->
 
-            <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-            <!--<LinearLayout-->
+                <!--<LinearLayout-->
                 <!--android:id="@+id/fab_push_vote__layout"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -120,20 +127,20 @@
                 <!--android:visibility="gone">-->
 
                 <!--<TextView-->
-                    <!--android:layout_width="wrap_content"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:layout_gravity="center"-->
-                    <!--android:text="@string/push_vote" />-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:text="@string/push_vote" />-->
 
                 <!--<android.support.design.widget.FloatingActionButton-->
-                    <!--android:id="@+id/fab_push"-->
-                    <!--android:layout_width="40dp"-->
-                    <!--android:layout_height="40dp"-->
-                    <!--android:src="@mipmap/fab" />-->
+                <!--android:id="@+id/fab_push"-->
+                <!--android:layout_width="40dp"-->
+                <!--android:layout_height="40dp"-->
+                <!--android:src="@mipmap/fab" />-->
 
-            <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
 
-            <!--<android.support.design.widget.FloatingActionButton-->
+                <!--<android.support.design.widget.FloatingActionButton-->
                 <!--android:id="@+id/fab_home"-->
                 <!--android:layout_width="wrap_content"-->
                 <!--android:layout_height="wrap_content"-->
@@ -150,30 +157,39 @@
                 <!--app:fabSize="normal"-->
                 <!--app:pressedTranslationZ="15dp" />-->
 
-            <!--<com.joaquimley.faboptions.FabOptions-->
-            <!--android:id="@+id/fab_options"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_alignParentBottom="true"-->
-            <!--android:layout_centerInParent="true"-->
-            <!--app:button_menu="@menu/fab_menu"-->
-            <!--app:fab_color="@color/apporange" />-->
+                <!--<com.joaquimley.faboptions.FabOptions-->
+                <!--android:id="@+id/fab_options"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--app:button_menu="@menu/fab_menu"-->
+                <!--app:fab_color="@color/apporange" />-->
 
 
-            <io.github.yavski.fabspeeddial.FabSpeedDial
-                android:id="@+id/fab_speed_dial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_margin="16dp"
-                app:fabBackgroundTint="@color/apporange"
-                app:fabGravity="bottom_end"
-                app:fabMenu="@menu/fab_menu"
-                app:miniFabBackgroundTint="@android:color/white"
-                app:miniFabTitleTextColor="?attr/colorPrimaryDark" />
-        </RelativeLayout>
+            </RelativeLayout>
 
-    </FrameLayout>
+        </FrameLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/shade"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0"
+        android:background="#000"
+        android:visibility="visible" />
+
+    <com.qzct.immediatechoice.util.FabSpeedDial
+        android:id="@+id/fab_speed_dial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:fabBackgroundTint="@color/apporange"
+        app:fabGravity="bottom_end"
+        app:fabMenu="@menu/fab_menu"
+        app:miniFabBackgroundTint="@android:color/white"
+        app:miniFabTitleTextColor="?attr/colorPrimaryDark" />
+</FrameLayout>

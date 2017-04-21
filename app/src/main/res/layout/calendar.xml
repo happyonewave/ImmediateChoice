@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.darwindeveloper.onecalendar.views.OneCalendarView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/calendar"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="7"
+    android:visibility="visible"
+    app:backgroundColorDaysOfAnotherMonth="@color/apporange"
+    app:backgroundColorDaysOfMonth="#53c0c0c1"
+    app:calendarBackgroundColor="@color/apporange"
+    app:calendarLanguage="EN"
+    app:mainBackgroundColor="@color/apporange"
+    app:textColorDaysOfAnotherMonth="#fff"
+    app:textColorDaysOfMonth="#fff"
+    app:textColorMonthAndYear="@color/apporange">
+
+</com.darwindeveloper.onecalendar.views.OneCalendarView>

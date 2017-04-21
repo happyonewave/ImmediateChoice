@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ffeb633b</color>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <color name="colorPrimaryDark">#80eb633b</color>
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <color name="colorAccent">#FF4081</color>
 
     <color name="white">#FFFFFF</color>
@@ -12,6 +14,7 @@
     <color name="black">#3e3a39</color>
     <color name="gray">#ababab</color>
 
+    <!--<color name="blue">#ffeb633b</color>-->
     <color name="blue">#3b93e9</color>
     <color name="background">#f1f1f3</color>
     <color name="transparent">#00000000</color>
@@ -31,12 +34,16 @@
 
 
     <!--我的钱包  -->
-    <color name="title_bar_color">#157efb</color>
-    <color name="trans_title_bar_color">#88157efb</color>
+    <color name="title_bar_color">#ffeb633b</color>
+    <!--<color name="title_bar_color">#157efb</color>-->
+    <color name="trans_title_bar_color">#ffeb633b</color>
+    <!--<color name="trans_title_bar_color">#88157efb</color>-->
 
     <!--充值提现的选择器颜色-->
-    <color name="title_bar_dark_color">#0665d6</color>
-    <color name="color_087efb">#0865fb</color>
+    <color name="title_bar_dark_color">#ffeb633b</color>
+    <!--<color name="title_bar_dark_color">#0665d6</color>-->
+    <color name="color_087efb">#ffeb633b</color>
+    <!--<color name="color_087efb">#0865fb</color>-->
 
 
     <color name="color_bg">#f1f1f3</color>

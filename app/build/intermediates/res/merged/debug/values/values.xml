@@ -417,11 +417,11 @@
     <color name="cardview_shadow_end_color">#03000000</color>
     <color name="cardview_shadow_start_color">#37000000</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#ffeb633b</color>
+    <color name="colorPrimaryDark">#80eb633b</color>
     <color name="color_03a9f4">#03a9f4</color>
     <color name="color_040000">#040000</color>
-    <color name="color_087efb">#0865fb</color>
+    <color name="color_087efb">#ffeb633b</color>
     <color name="color_1bfd00">#1bfd00</color>
     <color name="color_323232">#323232</color>
     <color name="color_434343">#434343</color>
@@ -583,10 +583,10 @@
     <color name="taorecorder_timeline_bg">#fff</color>
     <color name="taorecorder_timeline_start_color">#1beb25</color>
     <color name="taorecorder_yellowpressed">#998326</color>
-    <color name="title_bar_color">#157efb</color>
-    <color name="title_bar_dark_color">#0665d6</color>
+    <color name="title_bar_color">#ffeb633b</color>
+    <color name="title_bar_dark_color">#ffeb633b</color>
     <color name="title_text_color">@android:color/black</color>
-    <color name="trans_title_bar_color">#88157efb</color>
+    <color name="trans_title_bar_color">#ffeb633b</color>
     <color name="transparent">#00000000</color>
     <color name="viewfinder_border">#ffafed44</color>
     <color name="viewfinder_laser">#ffcc0000</color>
@@ -1210,6 +1210,8 @@
     <dimen name="notification_subtext_size">13sp</dimen>
     <dimen name="notification_top_pad">10dp</dimen>
     <dimen name="notification_top_pad_large_text">5dp</dimen>
+    <dimen name="pie_chart_text1_size">42sp</dimen>
+    <dimen name="pie_chart_text2_size">16dp</dimen>
     <dimen name="rc_conversation_item_data_size">14sp</dimen>
     <dimen name="rc_conversation_item_name_size">16sp</dimen>
     <dimen name="rc_conversation_item_time_size">13sp</dimen>
@@ -1222,7 +1224,7 @@
     <dimen name="title_bar_text_size">17sp</dimen>
     <dimen name="titlebar_height">56dp</dimen>
     <dimen name="toolbar_height">72dp</dimen>
-    <dimen name="userName_bigPortraitSize">100dp</dimen>
+    <dimen name="userName_bigPortraitSize">80dp</dimen>
     <dimen name="userName_textSize">14sp</dimen>
     <dimen name="video_progress_dialog_margin_top">80dp</dimen>
     <dimen name="video_volume_dialog_margin_left">24dp</dimen>
@@ -1418,9 +1420,6 @@
     <string name="ijkplayer_dummy"/>
     <string name="imrecorder_dlg_record_quit_message">确定要放弃这段视频吗？</string>
     <string name="imrecorder_mintimeshow_message">至少录到这里哦</string>
-    <string name="info_attention">    关注  9</string>
-    <string name="info_fans">    粉丝  2|    </string>
-    <string name="info_vote">投票  98|   </string>
     <string name="input_amount_error">请输入正确的提现金额</string>
     <string name="input_code">请输入短信验证码</string>
     <string name="input_code_error">请输入正确的验证码</string>

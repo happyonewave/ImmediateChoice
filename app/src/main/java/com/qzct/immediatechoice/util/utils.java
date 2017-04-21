@@ -293,6 +293,9 @@ public class utils {
 
     }
 
+
+
+
     /**
      * drawable转bitmap
      *

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <include layout="@layout/questionnaire_top"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/iv_questionnaire_content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:gravity="start"
+            android:hint="@string/et_vote_content_hint" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/words_number" />
+
+            <TextView
+                android:id="@+id/words_number_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/questionnaire_words_number_limit" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/gray"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/questionnaire_img_two"
+                style="@style/questionnaire_style"
+                android:src="@mipmap/push_img" />
+
+            <ImageView
+                android:id="@+id/questionnaire_video_two"
+                style="@style/questionnaire_style"
+                android:src="@mipmap/push_video" />
+
+            <ImageView
+                android:id="@+id/questionnaire_link_two"
+                style="@style/questionnaire_style"
+                android:src="@mipmap/push_link" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:padding="2dp">
+
+            <Button
+                android:id="@+id/questionnaire_bt_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_add"
+                android:text="@string/push_add"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/questionnaire_bt_scale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_scale"
+                android:text="@string/push_scale"
+                android:textSize="10dp" />
+
+            <Button
+                android:id="@+id/questionnaire_bt_move"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableTop="@mipmap/push_move"
+                android:text="@string/push_move"
+                android:textSize="10dp" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/questionnaire_bt_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:drawableLeft="@mipmap/push_location"
+                android:text="@string/push_location" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,24 +1,22 @@
 package com.qzct.immediatechoice.activity;
 
-import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darwindeveloper.onecalendar.clases.Day;
 import com.darwindeveloper.onecalendar.views.OneCalendarView;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.domain.QuestionnaireItem;
-import com.qzct.immediatechoice.test.TestView;
+import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.utils;
 
 import java.util.ArrayList;
@@ -31,7 +29,8 @@ import java.util.List;
 public class CalendarActivity extends AppCompatActivity {
     private ListView lv_calendar;
     private OneCalendarView calendar;
-    private List<QuestionnaireItem> questionnaire;
+    //    private List<Questionnaire> questionnaireList;
+    private Questionnaire questionnaire;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +42,36 @@ public class CalendarActivity extends AppCompatActivity {
 
     private void initView() {
         lv_calendar = (ListView) findViewById(R.id.lv_calendar);
-//        calendar = new OneCalendarView(this);
-        calendar = (OneCalendarView) findViewById(R.id.calendar);
+        calendar = new OneCalendarView(this);
+        calendar = (OneCalendarView) View.inflate(CalendarActivity.this, R.layout.calendar, null);
+        calendar.setVisibility(View.VISIBLE);
+//        calendar = (OneCalendarView) findViewById(R.id.calendar);
     }
 
     private void initData() {
-        questionnaire = new ArrayList<QuestionnaireItem>();
-        questionnaire.add(new QuestionnaireItem("您的性别", "男", "女", null, null));
-        questionnaire.add(new QuestionnaireItem("您每月得让", "男", "女", null, null));
-        questionnaire.add(new QuestionnaireItem("您的性别", "男", "女", null, null));
+        List<String> options1 = new ArrayList<String>();
+        options1.add("男");
+        options1.add("女");
+        List<String> options2 = new ArrayList<String>();
+        options2.add("1000及以下");
+        options2.add("1000~1500");
+        options2.add("1500以上");
+        List<String> options3 = new ArrayList<String>();
+        options3.add("水果店");
+        options3.add("网上");
+        options3.add("超市");
+        Questionnaire.Entity entity = new Questionnaire.Entity("您的性别", options1);
+        Questionnaire.Entity entity1 = new Questionnaire.Entity("您每月的生活费", options2);
+        Questionnaire.Entity entity2 = new Questionnaire.Entity("您平时常在哪些地方购买水果", options3);
+        List<Questionnaire.Entity> entities = new ArrayList<Questionnaire.Entity>();
+        entities.add(entity);
+        entities.add(entity1);
+        entities.add(entity2);
+        questionnaire = new Questionnaire("关于学校水果店的调查问卷", entities);
         lv_calendar.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
-                return questionnaire.size();
+                return questionnaire.getEntities().size();
             }
 
             @Override
@@ -70,35 +86,17 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                LinearLayout view = new LinearLayout(CalendarActivity.this);
-                view.setOrientation(LinearLayout.VERTICAL);
-                TextView title = new TextView(CalendarActivity.this);
-                RadioGroup radioGroup = new RadioGroup(CalendarActivity.this);
-                title.setText(questionnaire.get(position).getTitle());
-
-                RadioButton a = new RadioButton(CalendarActivity.this);
-                a.setText(questionnaire.get(position).getA());
-                RadioButton b = new RadioButton(CalendarActivity.this);
-                b.setText(questionnaire.get(position).getB());
-                view.addView(title);
-                radioGroup.addView(a);
-                radioGroup.addView(b);
-                if (questionnaire.get(position).getC() != null) {
-                    RadioButton c = new RadioButton(CalendarActivity.this);
-                    c.setText(questionnaire.get(position).getC());
-                    radioGroup.addView(c);
+                View v = View.inflate(CalendarActivity.this, R.layout.activity_calendar_item, null);
+                TextView title = (TextView) v.findViewById(R.id.calendar_title);
+                title.setText(position + 1 + "." + questionnaire.getEntities().get(position).getTitle());
+                RadioGroup radioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
+                for (String str : questionnaire.getEntities().get(position).getOptions()) {
+                    RadioButton option = new RadioButton(CalendarActivity.this);
+                    option.setTextColor(Color.GRAY);
+                    option.setText(str);
+                    radioGroup.addView(option);
                 }
-                if (questionnaire.get(position).getD() != null) {
-                    RadioButton d = new RadioButton(CalendarActivity.this);
-                    d.setText(questionnaire.get(position).getD());
-                    radioGroup.addView(d);
-                }
-                view.addView(radioGroup);
-//                view.addView(a);
-//                view.addView(b);
-//                view.addView(c);
-//                view.addView(d);
-                return view;
+                return v;
             }
         });
         calendar.setOnCalendarChangeListener(new OneCalendarView.OnCalendarChangeListener() {
@@ -118,15 +116,21 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void dateOnClick(Day day, int position) {
-                Toast.makeText(CalendarActivity.this, "点击了" + day.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(CalendarActivity.this, "点击了" + day.getDate(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void dateOnLongClick(Day day, int position) {
-                Toast.makeText(CalendarActivity.this, "长按了" + day.toString(), Toast.LENGTH_SHORT).show();
+            public void dateOnLongClick(Day day, int position)   {
+                Toast.makeText(CalendarActivity.this, "长按了" + day.getDate(), Toast.LENGTH_SHORT).show();
             }
         });
 //        calendar.setVisibility(View.VISIBLE);
-//        lv_calendar.addHeaderView(calendar);
+        lv_calendar.addHeaderView(calendar);
+        Button submit = new Button(CalendarActivity.this);
+        submit.setBackground(getResources().getDrawable(R.drawable.btn_bg_normal));
+        submit.setPadding(0, 5, 0, 5);
+        submit.setWidth(50);
+        submit.setText("提交");
+        lv_calendar.addFooterView(submit);
     }
 }

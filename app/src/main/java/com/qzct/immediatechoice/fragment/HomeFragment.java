@@ -12,9 +12,13 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
@@ -23,6 +27,8 @@ import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.activity.PushActivity;
 import com.qzct.immediatechoice.pager.BasePager;
+import com.qzct.immediatechoice.util.FabSpeedDial;
+import com.qzct.immediatechoice.util.SimpleMenuListenerAdapter;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
@@ -31,8 +37,6 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.yavski.fabspeeddial.FabSpeedDial;
-import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter;
 
 @ContentView(R.layout.fragment_home)
 public class HomeFragment extends baseFragment implements View.OnClickListener {
@@ -54,6 +58,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private View home_calendar;
     private View home_search;
     private QuestionFragment questionFragment;
+    private View shade;
 
     /**
      * 填充view
@@ -69,10 +74,12 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         home_attention_line = v.findViewById(R.id.home_attention_line);
         home_calendar = v.findViewById(R.id.home_calendar);
         home_search = v.findViewById(R.id.home_search);
+        shade = v.findViewById(R.id.shade);
         fabSpeedDial = (FabSpeedDial) v.findViewById(R.id.fab_speed_dial);
         fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter() {
             @Override
             public boolean onMenuItemSelected(MenuItem menuItem) {
+                shade.setAlpha(0);
                 switch (menuItem.getItemId()) {
                     case R.id.fab_push:
 
@@ -103,6 +110,17 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
                 return super.onMenuItemSelected(menuItem);
             }
+
+            @Override
+            public void onOpenMenu() {
+                shade.setAlpha(0.7f);
+            }
+
+            @Override
+            public void onCloseMenu() {
+                shade.setAlpha(0);
+
+            }
         });
         home_title = (LinearLayout) v.findViewById(R.id.home_title);
         return v;
@@ -128,6 +146,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
             @Override
             public void onPageSelected(int position) {
+                setFabVisibility(true);
                 if (position == 2) {
                     if (!MyApplication.logined) {
                         Intent intent = new Intent(context, LoginActivity.class);
@@ -153,7 +172,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
                 Log.e("isvisible", String.valueOf(intent.getBooleanExtra("isvisible", true)));
 
-                setFabvisibility(intent.getBooleanExtra("isvisible", true));
+                setFabVisibility(intent.getBooleanExtra("isvisible", true));
 
 
             }
@@ -197,7 +216,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 //        vp_home.setAdapter(pagerAdapter);
 
         fragmentList = new ArrayList<Fragment>();
-         questionFragment = new QuestionFragment();
+        questionFragment = new QuestionFragment();
 //        fragmentList.add(new QuestionFragment());
         fragmentList.add(questionFragment);
         fragmentList.add(new VideoFragment());
@@ -255,22 +274,33 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     /**
      * 设置悬浮按钮的可见属性
      *
-     * @param isvisible 是否可见
+     * @param isVisible 是否可见
      */
-    public void setFabvisibility(boolean isvisible) {
+    public void setFabVisibility(boolean isVisible) {
 
-        if (isvisible) {
+        if (isVisible && home_title.getVisibility() == View.GONE) {
             fabSpeedDial.show();
+            TranslateAnimation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                    -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+            mShowAction.setDuration(500);
+            home_title.startAnimation(mShowAction);
             home_title.setVisibility(View.VISIBLE);
+            home_title.startAnimation(mShowAction);
             MainActivity.rg_nav.setVisibility(View.VISIBLE);
             Log.e("show", "show");
-        } else {
+        } else if (!isVisible && home_title.getVisibility() != View.GONE) {
             fabSpeedDial.hide();
+            TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
+                    0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
+                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+                    -1.0f);
+            mHiddenAction.setDuration(500);
+            home_title.startAnimation(mHiddenAction);
             home_title.setVisibility(View.GONE);
+            MainActivity.rg_nav.startAnimation(mHiddenAction);
             MainActivity.rg_nav.setVisibility(View.GONE);
             Log.e("hide", "hide");
-
-
         }
 
 

@@ -1,11 +1,11 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +30,7 @@ import java.util.List;
 
 import zrc.widget.SimpleFooter;
 import zrc.widget.SimpleHeader;
+import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
 public abstract class baseFragment extends Fragment {
@@ -201,6 +202,39 @@ public abstract class baseFragment extends Fragment {
 //                        adpter.onDataChange(questionList);
             }
         });
+    }
+
+    /**
+     * 响应listview滑动事件 发送是否显示悬浮按钮广播
+     */
+    int oldVisibleItem;
+
+    public void sendFabIsVisible(final ZrcListView listView) {
+
+        listView.setOnScrollListener(new ZrcListView.OnScrollListener() {
+
+            @Override
+            public void onScrollStateChanged(ZrcAbsListView view, int scrollState) {
+
+            }
+
+            @Override
+            public void onScroll(ZrcAbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
+                Intent intent = new Intent(HomeFragment.ACTION_SET_FAB_VISBILITY);
+                if (firstVisibleItem > oldVisibleItem) {
+                    // 向上滑动
+                    intent.putExtra("isvisible", false);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+                }
+                if (firstVisibleItem < oldVisibleItem) {
+                    // 向下滑动
+                    intent.putExtra("isvisible", true);
+                    LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+                }
+                oldVisibleItem = firstVisibleItem;
+            }
+        });
+
     }
 
 }

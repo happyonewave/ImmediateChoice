@@ -81,24 +81,99 @@
             android:layout_centerInParent="true"
             android:gravity="center">
 
+            <LinearLayout
+                android:id="@+id/user_sign"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:orientation="horizontal">
 
-            <TextView
-                style="@style/info_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_vote" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="match_parent"
+                    android:src="@mipmap/sign" />
 
-            <TextView
-                style="@style/info_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_fans" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="签到"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
 
-            <TextView
-                style="@style/info_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/info_attention" />
+
+            <LinearLayout
+                android:id="@+id/user_wallet"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/wallet" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="钱包"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_questionnaire"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/sign" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="问卷"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_data"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="7dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@mipmap/sign" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:gravity="center"
+                    android:text="数据"
+                    android:textColor="@android:color/white" />
+            </LinearLayout>
+
 
         </LinearLayout>
 

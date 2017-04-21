@@ -62,7 +62,8 @@
             android:configChanges="orientation|keyboardHidden|navigation|screenSize"
             android:exported="false"
             android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustResize|stateHidden"
+            >
 
         </activity>
         <activity

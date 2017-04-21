@@ -38,6 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.rong.imkit.RongIM;
+import io.rong.imkit.mention.RongMentionManager;
 import io.rong.imlib.RongIMClient;
 import io.rong.imlib.model.UserInfo;
 
@@ -51,12 +52,14 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     public static RadioGroup rg_nav;
     private String token = MyApplication.user.getToken();
     private ArrayList<UserInfo> userInfoList;
+//    public static View shade;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(utils.getUsableView(this, R.layout.activity_main, null));
         rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
+//        shade = findViewById(R.id.shade);
         //用来放fragment的帧布局
         fl = (FrameLayout) findViewById(R.id.fl);
         //初始化Fragment为首页
@@ -84,6 +87,13 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         });
 //        getFriendInfo();
         RongIM.setUserInfoProvider(this, true);
+//       new  RongIM().setGroupMembersProvider();
+        RongMentionManager.getInstance().setGroupMembersProvider(new RongIM.IGroupMembersProvider() {
+            @Override
+            public void getGroupMembers(String s, RongIM.IGroupMemberCallback iGroupMemberCallback) {
+                iGroupMemberCallback.onGetGroupMembersResult(userInfoList);
+            }
+        });
         RongIM.connect(token, new RongIMClient.ConnectCallback() {
             @Override
             public void onTokenIncorrect() {
