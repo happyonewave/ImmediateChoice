@@ -108,9 +108,9 @@
         </activity>
         <activity android:name=".test.TestActivity">
             <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.SettingActivity" />
@@ -121,7 +121,7 @@
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
-        <activity android:name=".activity.QuestionnaireActivity" />
+        <activity android:name=".activity.PushQuestionnaireActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.CommentActivity" />
         <activity android:name=".activity.ChoiceGroupActivity" />
@@ -151,9 +151,9 @@
         <activity android:name=".activity.YWRecordVideoActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activity.TopicActivity" />
@@ -163,13 +163,16 @@
         <activity
             android:name="com.jrmf360.dbo.sdk.ui.JrmfBrowserActivity"
             android:theme="@android:style/Theme.Translucent" />
-        <activity android:name=".activity.DataActivity" >
+        <activity android:name=".activity.DataActivity">
             <!--<intent-filter>-->
             <!--<action android:name="android.intent.action.MAIN" />-->
 
             <!--<category android:name="android.intent.category.LAUNCHER" />-->
             <!--</intent-filter>-->
         </activity>
+        <activity android:name=".activity.QuestionnaireInfoActivity" />
+        <activity android:name=".activity.QuestionnaireActivity" />
+
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

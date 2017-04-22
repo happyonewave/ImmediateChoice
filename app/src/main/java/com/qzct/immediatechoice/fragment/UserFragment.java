@@ -20,7 +20,9 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.DataActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
+import com.qzct.immediatechoice.activity.PushQuestionnaireActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
+import com.qzct.immediatechoice.activity.QuestionnaireInfoActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
@@ -125,13 +127,15 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         View.OnClickListener clickListener1 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, QuestionnaireActivity.class);
+                Intent intent = new Intent(context, PushQuestionnaireActivity.class);
                 startActivity(intent);
             }
         };
         View.OnClickListener clickListener2 = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(context, QuestionnaireActivity.class);
+                startActivity(intent);
                 Toast.makeText(context, "查看问卷", Toast.LENGTH_SHORT).show();
             }
         };

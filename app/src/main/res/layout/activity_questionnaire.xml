@@ -2,70 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
     android:orientation="vertical">
 
-    <ScrollView
+    <ListView
+        android:id="@+id/lv_questionnaire"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="11"></ListView>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/questionnaire_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="问卷标题" />
-
-            <EditText
-                android:id="@+id/questionnaire_hint"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:hint="问卷前言" />
-
-            <LinearLayout
-                android:id="@+id/questions"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" />
-        </LinearLayout>
-
-    </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_horizontal">
-
-        <Button
-            android:id="@+id/questionnaire_question_add"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/btn_bg_normal"
-            android:text="添加"
-            android:textColor="@android:color/white" />
-
-        <Button
-            android:id="@+id/questionnaire_question_push"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@+id/questionnaire_question_add"
-            android:background="@drawable/btn_bg_normal"
-            android:text="发布"
-            android:textColor="@android:color/white" />
-
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/push__questionnaire"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/btn_bg_normal"
+        android:text="发布问卷"
+        android:textColor="@android:color/white" />
 </LinearLayout>

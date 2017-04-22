@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="jrmf-sdk-android">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/libs/jrmf-sdk-android.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,139 +1,109 @@
 package com.qzct.immediatechoice.activity;
 
-
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ListView;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.utils;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 问卷调查Activity
+ * Created by tsh2 on 2017/4/22.
  */
-public class QuestionnaireActivity extends AppCompatActivity {
 
-    private EditText questionnaire_title;
-    private EditText questionnaire_hint;
-    private Button push;
-    private Button add;
-    private EditText et_title;
-    private LinearLayout questions;
+public class QuestionnaireActivity extends Activity {
+    private Context context = this;
+    private ListView lv_questionnaire;
+    private Questionnaire questionnaire;
+    private List<Questionnaire> questionnaireList = new ArrayList<Questionnaire>();
+    private List<String> mtitleList = new ArrayList<String>();
+    private Button push__questionnaire;
+    private int PUSH_QUESTIONNAIRE = 0;
+    private ArrayAdapter<String> adapter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_questionnaire, "发布问卷"));
+        setContentView(utils.getUsableView((Activity) context, R.layout.activity_questionnaire, "查看问卷"));
         initView();
         initData();
     }
 
     private void initView() {
-        questionnaire_title = (EditText) findViewById(R.id.questionnaire_title);
-        questionnaire_hint = (EditText) findViewById(R.id.questionnaire_hint);
-        add = (Button) findViewById(R.id.questionnaire_question_add);
-        push = (Button) findViewById(R.id.questionnaire_question_push);
-        questions = (LinearLayout) findViewById(R.id.questions);
+        lv_questionnaire = (ListView) findViewById(R.id.lv_questionnaire);
+        push__questionnaire = (Button) findViewById(R.id.push__questionnaire);
     }
 
     private void initData() {
-        push.setOnClickListener(new View.OnClickListener() {
+        getData();
+        adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mtitleList);
+        lv_questionnaire.setAdapter(adapter);
+        lv_questionnaire.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                if (!et_title.getText().toString().isEmpty()) {
-                    finish();
-                    Toast.makeText(QuestionnaireActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(QuestionnaireActivity.this, "您未填写信息", Toast.LENGTH_SHORT).show();
-                }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, QuestionnaireInfoActivity.class);
+                intent.putExtra("questionnaire", questionnaireList.get(position));
+                startActivity(intent);
             }
         });
-        add.setOnClickListener(new View.OnClickListener() {
-            public AlertDialog dialog;
-
+        push__questionnaire.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(QuestionnaireActivity.this);
-                final View view = View.inflate(QuestionnaireActivity.this, R.layout.dialog_add_questionnaire_question, null);
-                et_title = (EditText) view.findViewById(R.id.title);
-                final LinearLayout options = (LinearLayout) view.findViewById(R.id.options);
-                final Button add = (Button) view.findViewById(R.id.questionnaire_option_add);
-                Button finish = (Button) view.findViewById(R.id.finish);
-                final List<LinearLayout> optionList = new ArrayList<LinearLayout>();
-                add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        LinearLayout option = (LinearLayout) View.inflate(QuestionnaireActivity.this, R.layout.questionnaire_question_option, null);
-                        optionList.add(option);
-                        options.addView(option);
-                    }
-                });
-                finish.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        add(optionList);
-                        dialog.cancel();
-                    }
-                });
-                builder.setView(view);
-                dialog = builder.create();
-                dialog.show();
-
+                Intent intent = new Intent(context, PushQuestionnaireActivity.class);
+                startActivityForResult(intent, PUSH_QUESTIONNAIRE);
             }
         });
     }
 
-    public void add(List<LinearLayout> optionList) {
-        RadioGroup group = new RadioGroup(QuestionnaireActivity.this);
-        for (LinearLayout option : optionList) {
-//            EditText et_title = (EditText) option.findViewById(R.id.title);
-            EditText et_num = (EditText) option.findViewById(R.id.num);
-            EditText et_content = (EditText) option.findViewById(R.id.content);
-//            String title = et_title.getText().toString();
-            String num = et_num.getText().toString();
-            String content = et_content.getText().toString();
-            RadioButton button = new RadioButton(QuestionnaireActivity.this);
-            button.setText(content);
-            group.addView(button);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == PUSH_QUESTIONNAIRE) {
+                questionnaire = (Questionnaire) data.getSerializableExtra("questionnaire");
+                questionnaireList.add(questionnaire);
+                mtitleList.add(questionnaire.getTitle());
+                adapter.notifyDataSetChanged();
+
+            }
         }
-        String title = et_title.getText().toString();
-        TextView tv_title = new TextView(QuestionnaireActivity.this);
-        tv_title.setText(title);
-        questions.addView(tv_title);
-        questions.addView(group);
+    }
+
+    private void getData() {
+        List<String> options1 = new ArrayList<String>();
+        options1.add("男");
+        options1.add("女");
+        List<String> options2 = new ArrayList<String>();
+        options2.add("1000及以下");
+        options2.add("1000~1500");
+        options2.add("1500以上");
+        List<String> options3 = new ArrayList<String>();
+        options3.add("水果店");
+        options3.add("网上");
+        options3.add("超市");
+        Questionnaire.Question entity = new Questionnaire.Question("您的性别", options1);
+        Questionnaire.Question entity1 = new Questionnaire.Question("您每月的生活费", options2);
+        Questionnaire.Question entity2 = new Questionnaire.Question("您平时常在哪些地方购买水果", options3);
+        List<Questionnaire.Question> entities = new ArrayList<Questionnaire.Question>();
+        entities.add(entity);
+        entities.add(entity1);
+        entities.add(entity2);
+        questionnaire = new Questionnaire("关于学校水果店的调查问卷", "谢谢您的调查", entities);
+        questionnaireList.add(questionnaire);
+        for (Questionnaire questionnaire : questionnaireList) {
+            mtitleList.add(questionnaire.getTitle());
+        }
 
     }
 }
-
-
-//public class QuestionnaireActivity extends AppCompatActivity {
-//
-//    @ViewInject(R.id.iv_questionnaire_back)
-//    private ImageView iv_back;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_questionnaire);
-//        //返回view
-//        iv_back = (ImageView) findViewById(R.id.iv_questionnaire_back);
-//        iv_back.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                QuestionnaireActivity.this.finish();
-//            }
-//        });
-//    }
-//}

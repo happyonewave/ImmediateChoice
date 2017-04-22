@@ -1,17 +1,18 @@
 package com.qzct.immediatechoice.domain;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by tsh2 on 2017/4/19.
  */
 
-public class Questionnaire {
+public class Questionnaire implements Serializable {
     String title;
     String hint;
-    List<Entity> entities;
+    List<Question> entities;
 
-    public List<Entity> getEntities() {
+    public List<Question> getEntities() {
         return entities;
     }
 
@@ -23,7 +24,7 @@ public class Questionnaire {
         return hint;
     }
 
-    public Questionnaire(String title, List<Entity> entities) {
+    public Questionnaire(String title, List<Question> entities) {
         this.title = title;
         this.entities = entities;
     }
@@ -33,28 +34,34 @@ public class Questionnaire {
         this.title = title;
     }
 
-    public Questionnaire(List<Entity> entities, String title, String hint) {
+    public Questionnaire(String title, String hint, List<Question> entities) {
+        this.title = title;
+        this.hint = hint;
+        this.entities = entities;
+    }
+
+    public Questionnaire(List<Question> entities, String title, String hint) {
         this.entities = entities;
         this.title = title;
         this.hint = hint;
     }
 
-   public static class Entity {
+    public static class Question  implements  Serializable{
         String title;
         List<String> options;
 
-       public String getTitle() {
-           return title;
-       }
+        public String getTitle() {
+            return title;
+        }
 
-       public List<String> getOptions() {
-           return options;
-       }
+        public List<String> getOptions() {
+            return options;
+        }
 
-       public Entity(String title, List<String> options) {
-           this.title = title;
-           this.options = options;
-       }
-   }
+        public Question(String title, List<String> options) {
+            this.title = title;
+            this.options = options;
+        }
+    }
 }
 

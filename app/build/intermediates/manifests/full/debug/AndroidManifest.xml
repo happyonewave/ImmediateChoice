@@ -140,7 +140,7 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
-        <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.PushQuestionnaireActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.RegisterActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.CommentActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.ChoiceGroupActivity" />
@@ -192,6 +192,8 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireInfoActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireActivity" />
 
         <service
             android:name="com.baidu.location.f"

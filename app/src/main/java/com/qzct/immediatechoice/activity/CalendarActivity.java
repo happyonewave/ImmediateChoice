@@ -60,10 +60,10 @@ public class CalendarActivity extends AppCompatActivity {
         options3.add("水果店");
         options3.add("网上");
         options3.add("超市");
-        Questionnaire.Entity entity = new Questionnaire.Entity("您的性别", options1);
-        Questionnaire.Entity entity1 = new Questionnaire.Entity("您每月的生活费", options2);
-        Questionnaire.Entity entity2 = new Questionnaire.Entity("您平时常在哪些地方购买水果", options3);
-        List<Questionnaire.Entity> entities = new ArrayList<Questionnaire.Entity>();
+        Questionnaire.Question entity = new Questionnaire.Question("您的性别", options1);
+        Questionnaire.Question entity1 = new Questionnaire.Question("您每月的生活费", options2);
+        Questionnaire.Question entity2 = new Questionnaire.Question("您平时常在哪些地方购买水果", options3);
+        List<Questionnaire.Question> entities = new ArrayList<Questionnaire.Question>();
         entities.add(entity);
         entities.add(entity1);
         entities.add(entity2);
@@ -120,7 +120,7 @@ public class CalendarActivity extends AppCompatActivity {
             }
 
             @Override
-            public void dateOnLongClick(Day day, int position)   {
+            public void dateOnLongClick(Day day, int position) {
                 Toast.makeText(CalendarActivity.this, "长按了" + day.getDate(), Toast.LENGTH_SHORT).show();
             }
         });

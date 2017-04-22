@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-189:12
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:2:1-192:12
 	package
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:4:5-39
 		INJECTED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml
@@ -218,7 +218,7 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:81:22-75
 application
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:84:5-187:19
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:84:5-190:19
 MERGED from [org.xutils:xutils:3.3.42] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\org.xutils\xutils\3.3.42\AndroidManifest.xml:12:5-20
 MERGED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:11:5-15:19
 MERGED from [com.wang.avi:library:1.0.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.wang.avi\library\1.0.1\AndroidManifest.xml:11:5-14:19
@@ -312,10 +312,10 @@ activity#com.qzct.immediatechoice.activity.PushActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:117:9-123:20
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:117:19-56
-activity#com.qzct.immediatechoice.activity.QuestionnaireActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:9-68
+activity#com.qzct.immediatechoice.activity.PushQuestionnaireActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:9-72
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:19-65
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:19-69
 activity#com.qzct.immediatechoice.activity.RegisterActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:125:9-63
 	android:name
@@ -365,13 +365,13 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:153:13-157:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:13-65
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:17-69
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:21-62
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:13-73
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:17-77
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:23-70
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:27-74
 activity#com.qzct.immediatechoice.activity.TopicActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:159:9-60
 	android:name
@@ -398,27 +398,35 @@ activity#com.qzct.immediatechoice.activity.DataActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:166:9-172:20
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:166:19-56
+activity#com.qzct.immediatechoice.activity.QuestionnaireInfoActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:173:9-72
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:173:19-69
+activity#com.qzct.immediatechoice.activity.QuestionnaireActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:174:9-68
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:174:19-65
 service#com.baidu.location.f
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:173:9-176:41
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:176:9-179:41
 	android:enabled
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:175:13-35
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:178:13-35
 	android:process
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:176:13-38
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:179:13-38
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:174:13-48
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:177:13-48
 meta-data#com.baidu.lbsapi.API_KEY
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:178:9-180:64
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:181:9-183:64
 	android:value
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:180:13-61
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:183:13-61
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:179:13-52
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:182:13-52
 meta-data#RONG_CLOUD_APP_KEY
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:184:9-186:45
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:187:9-189:45
 MERGED from [ImmediateChoice:IMLib:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\IMLib\unspecified\AndroidManifest.xml:27:9-29:45
 	android:value
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:186:13-42
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:189:13-42
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:185:13-46
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:188:13-46
 meta-data#android.support.VERSION
 ADDED from [com.android.support:support-v4:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:25:5-27:34
 MERGED from [com.android.support:support-compat:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:25:5-27:34
