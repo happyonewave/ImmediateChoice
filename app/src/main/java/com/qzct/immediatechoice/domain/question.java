@@ -3,11 +3,13 @@ package com.qzct.immediatechoice.domain;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017-02-26.
  */
 
-public class Question {
+public class Question implements Serializable {
     int question_id;
     int group_id;
     String question_content;
@@ -20,6 +22,24 @@ public class Question {
     String comment;
     String location;
     String post_time;
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "question_id=" + question_id +
+                ", group_id=" + group_id +
+                ", question_content='" + question_content + '\'' +
+                ", left_url='" + left_url + '\'' +
+                ", right_url='" + right_url + '\'' +
+                ", quizzer_name='" + quizzer_name + '\'' +
+                ", portrait_url='" + portrait_url + '\'' +
+                ", share_count=" + share_count +
+                ", comment_count=" + comment_count +
+                ", comment='" + comment + '\'' +
+                ", location='" + location + '\'' +
+                ", post_time='" + post_time + '\'' +
+                '}';
+    }
 
     public Question(int question_id, int group_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
         this.question_id = question_id;
@@ -123,17 +143,17 @@ public class Question {
     }
 
     public static Question jsonObjectToQuestion(JSONObject jsonObject) throws JSONException {
-        int question_id = jsonObject.getInt("question_id");
-        String question_content = jsonObject.getString("question_content");
-        String left_url = jsonObject.getString("left_url");
-        String right_url = jsonObject.getString("right_url");
-        String quizzer_name = jsonObject.getString("quizzer_name");
-        String portrait_url = jsonObject.getString("portrait_url");
-        int share_count = jsonObject.getInt("share_count");
-        int comment_count = jsonObject.getInt("comment_count");
-        String comment = jsonObject.getString("comment");
-        String location = jsonObject.getString("location");
-//        String post_time = jsonObject.getString("post_time");
+        int question_id = jsonObject.optInt("question_id");
+        String question_content = jsonObject.optString("question_content");
+        String left_url = jsonObject.optString("left_url");
+        String right_url = jsonObject.optString("right_url");
+        String quizzer_name = jsonObject.optString("quizzer_name");
+        String portrait_url = jsonObject.optString("portrait_url");
+        int share_count = jsonObject.optInt("share_count");
+        int comment_count = jsonObject.optInt("comment_count");
+        String comment = jsonObject.optString("comment");
+        String location = jsonObject.optString("location");
+//        String post_time = jsonObject.optString("post_time");
         return new Question(question_id, question_content,
                 left_url, right_url, quizzer_name,
                 portrait_url, share_count,

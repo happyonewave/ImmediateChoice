@@ -123,9 +123,10 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     @Override
     public void onItemClick(ZrcListView adapterView, View view, int i, long l) {
         Question question = adpter.getQuestionFromItem(i);
-        MyApplication.question = question;
+//        MyApplication.question = question;
         MyApplication.isQuestion = false;
         Intent intent = new Intent(context, CommentActivity.class);
+        intent.putExtra("question", question);
         context.startActivity(intent);
         Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
@@ -274,9 +275,9 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
             ArrayList<Question> tempList = new ArrayList<Question>();
             //遍历传入的jsonArray
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject temp = jsonArray.getJSONObject(i);
+                JSONObject temp = jsonArray.optJSONObject(i);
                 //读取相应内容
-                int question_id = temp.getInt("question_id");
+                int question_id = temp.optInt("question_id");
                 String post_time = temp.getString("post_time");
 
                 //设置值
@@ -303,8 +304,8 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
                 String right_url = temp.getString("right_url");
                 String quizzer_name = temp.getString("quizzer_name");
                 String portrait_url = temp.getString("portrait_url");
-                int share_count = temp.getInt("share_count");
-                int comment_count = temp.getInt("comment_count");
+                int share_count = temp.optInt("share_count");
+                int comment_count = temp.optInt("comment_count");
                 String comment = temp.getString("comment");
                 Question Question = new Question(question_id, question_content,
                         left_url, right_url, quizzer_name,

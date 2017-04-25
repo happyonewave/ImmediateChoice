@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.util;
 
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.domain.User;
 
 import java.util.ArrayList;
@@ -54,5 +55,38 @@ public interface MyCallback {
 
         void onError(Throwable ex);
 
+    }
+
+    interface GetQuestionnaireCallback {
+        int getQuestionnaireId();
+
+        int getUserId();
+
+        void onSuccess(Questionnaire questionnaire);
+
+        void onSuccess(List<Questionnaire> list);
+
+        void onError(Throwable ex);
+
+    }
+
+    interface PushQuestionnaireCallback {
+        void onSuccess();
+
+        void onFailure();
+
+        void onError(Throwable ex);
+    }
+
+    interface GetQuestionnaireIdsCallback {
+        void onSuccess(List<Integer> idList);
+
+        void onError(Throwable ex);
+    }
+
+    interface ChooseQuestionOptionCallback {
+        void onSuccess();
+
+        void onError(Throwable ex);
     }
 }

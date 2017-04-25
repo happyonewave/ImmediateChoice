@@ -172,6 +172,8 @@
         </activity>
         <activity android:name=".activity.QuestionnaireInfoActivity" />
         <activity android:name=".activity.QuestionnaireActivity" />
+        <activity android:name=".activity.ConversationListActivity" />
+        <activity android:name=".activity.GradeActivity" />
 
         <service
             android:name="com.baidu.location.f"

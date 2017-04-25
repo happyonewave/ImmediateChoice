@@ -134,6 +134,11 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         home_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!MyApplication.logined) {
+                    Intent intent = new Intent(context, LoginActivity.class);
+                    startActivity(intent);
+                    return;
+                }
                 Intent intent = new Intent(context, CalendarActivity.class);
                 startActivity(intent);
             }
@@ -280,25 +285,25 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
         if (isVisible && home_title.getVisibility() == View.GONE) {
             fabSpeedDial.show();
-            TranslateAnimation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                    -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
-            mShowAction.setDuration(500);
-            home_title.startAnimation(mShowAction);
+//            TranslateAnimation mShowAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
+//                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+//                    -1.0f, Animation.RELATIVE_TO_SELF, 0.0f);
+//            mShowAction.setDuration(500);
+//            home_title.startAnimation(mShowAction);
             home_title.setVisibility(View.VISIBLE);
-            home_title.startAnimation(mShowAction);
+//            home_title.startAnimation(mShowAction);
             MainActivity.rg_nav.setVisibility(View.VISIBLE);
             Log.e("show", "show");
         } else if (!isVisible && home_title.getVisibility() != View.GONE) {
             fabSpeedDial.hide();
-            TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
-                    0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
-                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                    -1.0f);
-            mHiddenAction.setDuration(500);
-            home_title.startAnimation(mHiddenAction);
+//            TranslateAnimation mHiddenAction = new TranslateAnimation(Animation.RELATIVE_TO_SELF,
+//                    0.0f, Animation.RELATIVE_TO_SELF, 0.0f,
+//                    Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
+//                    -1.0f);
+//            mHiddenAction.setDuration(500);
+//            home_title.startAnimation(mHiddenAction);
             home_title.setVisibility(View.GONE);
-            MainActivity.rg_nav.startAnimation(mHiddenAction);
+//            MainActivity.rg_nav.startAnimation(mHiddenAction);
             MainActivity.rg_nav.setVisibility(View.GONE);
             Log.e("hide", "hide");
         }

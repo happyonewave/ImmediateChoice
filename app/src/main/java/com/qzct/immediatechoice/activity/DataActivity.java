@@ -2,6 +2,7 @@ package com.qzct.immediatechoice.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 
 /**
@@ -43,15 +45,19 @@ public class DataActivity extends Activity {
 
     private void initData() {
         data_title.setText(questionEntity.getTitle());
-        for (String str : questionEntity.getOptions()) {
+        for (Questionnaire.Question.Option option : questionEntity.getOptions()) {
             TextView textView = new TextView(context);
-            textView.setText(str);
+            if (option.getNum() != null) {
+                textView.setText(option.getNum() + "." + option.getContent());
+            }
             data_options.addView(textView);
         }
         data_wv1.getSettings().setJavaScriptEnabled(true);
 //        data_wv2.getSettings().setJavaScriptEnabled(true);
-        data_wv1.loadUrl("file:///android_asset/index.html");
-        final int questionnaire_question_id = 1;
+//        data_wv1.loadUrl("file:///android_asset/index.html");
+        data_wv1.loadUrl(Config.url_chart + "showData.html");
+        final int questionnaire_question_id = questionEntity.getQuestionnaire_question_id();
+        Log.d("qin", "questionnaire_question_id: " + questionnaire_question_id);
         WebViewClient client = new WebViewClient() {
             @Override
             public void onPageFinished(WebView view, String url) {

@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.support.v7.widget.AppCompatSpinner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -42,28 +44,55 @@ import java.nio.charset.Charset;
 public class RegisterFinallyFragment extends baseFragment {
 
     String phone_number;
-    String sex;
+    String sex = "男";
     Intent intent;
     ImageView user_portrait;
     String portrait_path;
     int IMAGE_PORTRAIT_UPLOAD = 0;
-
-    public RegisterFinallyFragment() {
-        super();
-    }
+    int user_type;
+    private View v;
+    private AppCompatSpinner spinner;
+    private Button bt_register_finish;
+    private EditText et_user_id;
 
     @SuppressLint("ValidFragment")
-    public RegisterFinallyFragment(String phone_number) {
+    public RegisterFinallyFragment(String phone_number, int user_type) {
         this.phone_number = phone_number;
+        this.user_type = user_type;
     }
+
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
         RegisterActivity registerActivity = (RegisterActivity) getActivity();
         registerActivity.setTitleColor(1);
-        final View v = View.inflate(context, R.layout.fill_password, null);
-        Button bt_register_finish = (Button) v.findViewById(R.id.bt_register_finish);
+        v = View.inflate(context, R.layout.fill_password, null);
+        bt_register_finish = (Button) v.findViewById(R.id.bt_register_finish);
         user_portrait = (ImageView) v.findViewById(R.id.iv_upload_portrait);
+        spinner = (AppCompatSpinner) v.findViewById(R.id.spinner);
+        et_user_id = (EditText) v.findViewById(R.id.et_user_id);
+        return v;
+
+
+    }
+
+    @Override
+    public void initData() {
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    sex = "男";
+                } else {
+                    sex = "女";
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         user_portrait.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,19 +106,22 @@ public class RegisterFinallyFragment extends baseFragment {
 
             }
         });
-        RadioButton radio_man = (RadioButton) v.findViewById(R.id.radio_man);
-        RadioButton radio_woman = (RadioButton) v.findViewById(R.id.radio_woman);
-        radio_man.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
-        radio_woman.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
+//        RadioButton radio_man = (RadioButton) v.findViewById(R.id.radio_man);
+//        RadioButton radio_woman = (RadioButton) v.findViewById(R.id.radio_woman);
+//        radio_man.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
+//        radio_woman.setOnCheckedChangeListener(new MyOnCheckedChangeListener());
         bt_register_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View bt_v) {
-
+                if (portrait_path == null) {
+                    Toast.makeText(context, "请上传头像", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 EditText et_name = (EditText) v.findViewById(R.id.et_name);
                 String name = et_name.getText().toString();
                 EditText et_password = (EditText) v.findViewById(R.id.et_password);
                 String password = et_password.getText().toString();
-                User user = new User(name, password, phone_number, portrait_path, sex);
+                User user = new User(name, user_type, password, phone_number, portrait_path, sex);
                 RegisterTask registerTask = new RegisterTask(user);
                 registerTask.execute();
 
@@ -97,12 +129,7 @@ public class RegisterFinallyFragment extends baseFragment {
             }
         });
 
-
-        return v;
-
-
     }
-
 
     public String getPathFromActivityResult(Intent data) {
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
@@ -127,32 +154,33 @@ public class RegisterFinallyFragment extends baseFragment {
     }
 
 
-    class MyOnCheckedChangeListener implements CompoundButton.OnCheckedChangeListener {
-
-        @Override
-        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-
-            switch (buttonView.getId()) {
-                case R.id.radio_man:
-                    if (isChecked) {
-                        sex = "男";
-                    }
-
-                    break;
-
-                case R.id.radio_woman:
-                    if (isChecked) {
-                        sex = "女";
-                    }
-
-                    break;
-            }
-
-        }
-    }
+//    class MyOnCheckedChangeListener implements CompoundButton.OnCheckedChangeListener {
+//
+//        @Override
+//        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//
+//            switch (buttonView.getId()) {
+//                case R.id.radio_man:
+//                    if (isChecked) {
+//                        sex = "男";
+//                    }
+//
+//                    break;
+//
+//                case R.id.radio_woman:
+//                    if (isChecked) {
+//                        sex = "女";
+//                    }
+//
+//                    break;
+//            }
+//
+//        }
+//    }
 
     class RegisterTask extends AsyncTask<String, String, String> {
+        int user_type;
         String name;
         String password;
         String phone_number;
@@ -161,6 +189,7 @@ public class RegisterFinallyFragment extends baseFragment {
 
         public RegisterTask(User user) {
             this.name = user.getUsername();
+            this.user_type = user.getUser_type();
             this.password = user.getPassword();
             this.phone_number = user.getPhone_number();
             this.sex = user.getSex();
@@ -174,25 +203,22 @@ public class RegisterFinallyFragment extends baseFragment {
             String url = Config.url_register;
             HttpPost httpPost = new HttpPost(url);
             try {
-
-
-
                 Charset charset = Charset.forName("utf-8");
                 MultipartEntity entity = new MultipartEntity();
                 FileBody portrait = new FileBody(new File(portrait_path));
                 entity.addPart("name", new StringBody(name, charset));
+                entity.addPart("user_type", new StringBody(user_type + "", charset));
                 entity.addPart("password", new StringBody(password, charset));
                 entity.addPart("phone_number", new StringBody(phone_number, charset));
                 entity.addPart("sex", new StringBody(sex, charset));
                 entity.addPart("portrait", portrait);
-                entity.addPart("portrait_url", new StringBody(Config.url + utils.getFileName(portrait_path), charset));
+                entity.addPart("portrait_url", new StringBody(Config.server_img_url + utils.getFileName(portrait_path), charset));
 //                entity.addPart("portrait_url", new StringBody(utils.getNetUrlFormLocalPath(portrait_path, "image"), charset));
                 httpPost.setEntity(entity);
                 HttpResponse hr = hc.execute(httpPost);
                 if (hr.getStatusLine().getStatusCode() == 200) {
                     InputStream is = hr.getEntity().getContent();
-                    String text = utils.getTextFromStream(is);
-                    return text;
+                    return utils.getTextFromStream(is);
                 } else {
                     return "2";
                 }
@@ -205,32 +231,30 @@ public class RegisterFinallyFragment extends baseFragment {
 
         @Override
         protected void onPostExecute(String text) {
-            switch (text) {
-                case "0":
-                    Toast.makeText(context, "注册失败，此账号可能已被使用!", Toast.LENGTH_LONG).show();
-                    break;
+            if (text != null) {
+                switch (text) {
+                    case "0":
+                        Toast.makeText(context, "注册失败，此账号可能已被使用!", Toast.LENGTH_LONG).show();
+                        break;
 
-                case "1":
-                    Toast.makeText(context, "注册成功", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(context, LoginActivity.class);
-                    startActivity(intent);
-                    break;
+                    case "1":
+                        Toast.makeText(context, "注册成功", Toast.LENGTH_LONG).show();
+                        Intent intent = new Intent(context, LoginActivity.class);
+                        startActivity(intent);
+                        break;
 
-                case "2":
-                    Toast.makeText(context, "连接服务器失败", Toast.LENGTH_LONG).show();
-                    break;
+                    case "2":
+                        Toast.makeText(context, "连接服务器失败", Toast.LENGTH_LONG).show();
+                        break;
 
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
             }
 
         }
     }
 
 
-    @Override
-    public void initData() {
-
-    }
 }

@@ -152,16 +152,16 @@ public abstract class baseFragment extends Fragment {
                         //遍历传入的jsonArray
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject temp = null;
-                            temp = jsonArray.getJSONObject(i);
-                            int question_id = temp.getInt("question_id");
+                            temp = jsonArray.optJSONObject(i);
+                            int question_id = temp.optInt("question_id");
 //                            String post_time = temp.getString("post_time");
                             String question_content = temp.getString("question_content");
                             String left_url = temp.getString("left_url");
                             String right_url = temp.getString("right_url");
                             String quizzer_name = temp.getString("quizzer_name");
                             String portrait_url = temp.getString("portrait_url");
-                            int share_count = temp.getInt("share_count");
-                            int comment_count = temp.getInt("comment_count");
+                            int share_count = temp.optInt("share_count");
+                            int comment_count = temp.optInt("comment_count");
                             String comment = temp.getString("comment");
                             Question Question = new Question(question_id, question_content,
                                     left_url, right_url, quizzer_name,

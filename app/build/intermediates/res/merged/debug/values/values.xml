@@ -367,6 +367,15 @@
         <item>.dot</item>
         <item>.docx</item>
     </array>
+    <string-array name="sex">
+        <item>男</item>
+        <item>女</item>
+    </string-array>
+    <string-array name="type">
+        <item>用户类型</item>
+        <item>普通</item>
+        <item>提供问卷</item>
+    </string-array>
     <attr format="reference" name="drawerArrowStyle"/>
     <attr format="dimension" name="height"/>
     <attr format="boolean" name="isLightTheme"/>
@@ -1302,6 +1311,8 @@
     <item name="runningTransitions" type="id"/>
     <item name="scene_layoutid_cache" type="id"/>
     <item name="split_action_bar" type="id"/>
+    <item name="tag_num" type="id">0</item>
+    <item name="tag_questionnaire_question_id" type="id">1</item>
     <item name="textinput_counter" type="id"/>
     <item name="textinput_error" type="id"/>
     <item name="titleBar" type="id"/>
@@ -1400,7 +1411,7 @@
     <string name="economy">省流量模式</string>
     <string name="et_vote_content_hint">请输入您的话题...</string>
     <string name="fill_tel">输入手机号</string>
-    <string name="fill_tel_hint">请输入你的手机号</string>
+    <string name="fill_tel_hint">请输入你的邮箱账号</string>
     <string name="fill_tel_protocol_agree_hint">注册即表示同意</string>
     <string name="fill_verification_code">输入验证码</string>
     <string name="forget_pwd">重置支付密码</string>
@@ -1470,10 +1481,10 @@
     <string name="other_rp_has_left">已领取%1$d/%2$d</string>
     <string name="other_rp_no_left">已领取%1$d/%2$d，已被领完</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
-    <string name="path_password_eye">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
-    <string name="path_password_eye_mask_strike_through">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
-    <string name="path_password_eye_mask_visible">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
-    <string name="path_password_strike_through">M3.27,4.27 L19.74,20.74</string>
+    <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
+    <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
+    <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
     <string name="pay_failure">支付失败</string>
     <string name="pay_protocol"> 钱包快捷支付协议</string>
     <string name="pay_waiting">支付结果确认中</string>
@@ -1487,6 +1498,7 @@
     <string name="push_add">添加项目</string>
     <string name="push_location">发布位置</string>
     <string name="push_move">移动图片</string>
+    <string name="push_questionnaire">发布问卷</string>
     <string name="push_scale">缩放图片</string>
     <string name="push_timing">定时选择</string>
     <string name="push_topic">选择话题</string>
@@ -3760,6 +3772,16 @@
         <item name="android:backgroundDimEnabled">true</item>
 
         <item name="android:backgroundDimAmount">0.6</item>
+    </style>
+    <style name="grade_style">
+
+        <!--android:layout_margin="5dp"-->
+        <!--android:background="@drawable/circular_bg"-->
+        <!--android:padding="5dp"-->
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@drawable/circular_bg</item>
+        <item name="android:padding">5dp</item>
+
     </style>
     <style name="horizontal_light_thin_divider">
         <item name="android:layout_height">0.5dp</item>

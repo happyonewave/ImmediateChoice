@@ -4,5 +4,7 @@
     <!-- Button正常状态下的背景 -->
     <item android:drawable="@drawable/btn_bg_normal" android:state_pressed="false" />
     <!-- Button按下时的背景 -->
-    <item android:drawable="@drawable/btn_bg_pressed" android:state_pressed="true" />
+    <item android:drawable="@drawable/btn_bg_normal" android:state_pressed="true" />
+    <!--&lt;!&ndash; Button按下时的背景 &ndash;&gt;-->
+    <!--<item android:drawable="@drawable/btn_bg_pressed" android:state_pressed="true" />-->
 </selector>

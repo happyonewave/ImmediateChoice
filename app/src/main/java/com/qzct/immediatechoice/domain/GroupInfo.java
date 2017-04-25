@@ -33,8 +33,8 @@ public class GroupInfo {
     public static List<GroupInfo> tolistFrom(JSONArray jsonArray) throws JSONException {
         List<GroupInfo> infoList = new ArrayList<GroupInfo>();
         for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject temp = jsonArray.getJSONObject(i);
-            GroupInfo info = new GroupInfo(temp.getInt("group_id"), temp.getString("name"));
+            JSONObject temp = jsonArray.optJSONObject(i);
+            GroupInfo info = new GroupInfo(temp.optInt("group_id"), temp.optString("name"));
             infoList.add(info);
         }
         return infoList;

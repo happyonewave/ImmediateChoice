@@ -134,6 +134,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     class LoginTask extends AsyncTask<String, String, String> {
         String url;
         int user_id;
+        int user_type;
         String username;
         String password;
         String phone_number;
@@ -194,18 +195,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     try {
                         JSONObject json = new JSONObject(result);
                         //获取User信息
-                        user_id = json.getInt("user_id");
-                        phone_number = json.getString("phone_number");
-                        sex = json.getString("sex");
-                        portrait_path = json.getString("portrait_path");
-                        token = json.getString("token");
+                        user_id = json.optInt("user_id");
+                        user_type = json.optInt("user_type");
+                        phone_number = json.optString("phone_number");
+                        sex = json.optString("sex");
+                        portrait_path = json.optString("portrait_path");
+                        token = json.optString("token");
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
-                    User user_all = new User(user_id, username, password, phone_number, portrait_path, sex,token);
+                    User user_all = new User(user_id, user_type, username, password, phone_number, portrait_path, sex, token);
                     //存储User到Application
                     MyApplication.user = user_all;
                     MyApplication.logined = true;
+                    if (user_type == 0) {
+                        MyApplication.isQuestionnaireProvider = true;
+                    }
                     //进入主界面
                     Intent intent = new Intent();
                     intent.setClass(getBaseContext(), MainActivity.class);

@@ -21,9 +21,10 @@ public class MyApplication extends MultiDexApplication {
 
 
     public static User user;
-    public static Question question;
+    //    public static Question question;
     public static boolean isQuestion = false;
     public static boolean logined = false;
+    public static boolean isQuestionnaireProvider = false;
     public static List<User> userList;
 
     @Override

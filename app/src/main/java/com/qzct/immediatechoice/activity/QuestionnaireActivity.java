@@ -11,9 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import java.util.ArrayList;
@@ -49,7 +52,6 @@ public class QuestionnaireActivity extends Activity {
     private void initData() {
         getData();
         adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mtitleList);
-        lv_questionnaire.setAdapter(adapter);
         lv_questionnaire.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,29 +83,60 @@ public class QuestionnaireActivity extends Activity {
     }
 
     private void getData() {
-        List<String> options1 = new ArrayList<String>();
-        options1.add("男");
-        options1.add("女");
-        List<String> options2 = new ArrayList<String>();
-        options2.add("1000及以下");
-        options2.add("1000~1500");
-        options2.add("1500以上");
-        List<String> options3 = new ArrayList<String>();
-        options3.add("水果店");
-        options3.add("网上");
-        options3.add("超市");
-        Questionnaire.Question entity = new Questionnaire.Question("您的性别", options1);
-        Questionnaire.Question entity1 = new Questionnaire.Question("您每月的生活费", options2);
-        Questionnaire.Question entity2 = new Questionnaire.Question("您平时常在哪些地方购买水果", options3);
-        List<Questionnaire.Question> entities = new ArrayList<Questionnaire.Question>();
-        entities.add(entity);
-        entities.add(entity1);
-        entities.add(entity2);
-        questionnaire = new Questionnaire("关于学校水果店的调查问卷", "谢谢您的调查", entities);
-        questionnaireList.add(questionnaire);
-        for (Questionnaire questionnaire : questionnaireList) {
-            mtitleList.add(questionnaire.getTitle());
-        }
+        Service.getInstance().getQuestionnaire(new MyCallback.GetQuestionnaireCallback() {
+            @Override
+            public int getQuestionnaireId() {
+                return 0;
+            }
+
+            @Override
+            public int getUserId() {
+                return 1;
+            }
+
+            @Override
+            public void onSuccess(Questionnaire questionnaire) {
+
+            }
+
+            @Override
+            public void onSuccess(List<Questionnaire> list) {
+                questionnaireList = list;
+                for (Questionnaire questionnaire : questionnaireList) {
+                    mtitleList.add(questionnaire.getTitle());
+                }
+                lv_questionnaire.setAdapter(adapter);
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+                Toast.makeText(context, "获取问卷失败", Toast.LENGTH_SHORT).show();
+            }
+
+        });
+//        List<String> options1 = new ArrayList<String>();
+//        options1.add("男");
+//        options1.add("女");
+//        List<String> options2 = new ArrayList<String>();
+//        options2.add("1000及以下");
+//        options2.add("1000~1500");
+//        options2.add("1500以上");
+//        List<String> options3 = new ArrayList<String>();
+//        options3.add("水果店");
+//        options3.add("网上");
+//        options3.add("超市");
+//        Questionnaire.Question entity = new Questionnaire.Question("您的性别", options1);
+//        Questionnaire.Question entity1 = new Questionnaire.Question("您每月的生活费", options2);
+//        Questionnaire.Question entity2 = new Questionnaire.Question("您平时常在哪些地方购买水果", options3);
+//        List<Questionnaire.Question> entities = new ArrayList<Questionnaire.Question>();
+//        entities.add(entity);
+//        entities.add(entity1);
+//        entities.add(entity2);
+//        questionnaire = new Questionnaire("关于学校水果店的调查问卷", "谢谢您的调查", entities);
+//        questionnaireList.add(questionnaire);
+//        for (Questionnaire questionnaire : questionnaireList) {
+//            mtitleList.add(questionnaire.getTitle());
+//        }
 
     }
 }

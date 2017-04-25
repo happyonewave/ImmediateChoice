@@ -59,17 +59,17 @@
                 style="@style/activity_userinfo_title_style"
                 android:text="性别" />
 
-            <TextView
-                style="@style/activity_userinfo_title_style"
-                android:text="年龄" />
+            <!--<TextView-->
+            <!--style="@style/activity_userinfo_title_style"-->
+            <!--android:text="年龄" />-->
+
+            <!--<TextView-->
+                <!--style="@style/activity_userinfo_title_style"-->
+                <!--android:text="个人签名" />-->
 
             <TextView
                 style="@style/activity_userinfo_title_style"
-                android:text="个人签名" />
-
-            <TextView
-                style="@style/activity_userinfo_title_style"
-                android:text="手机号码" />
+                android:text="邮箱地址" />
 
         </LinearLayout>
 
@@ -86,17 +86,17 @@
 
 
             <TextView
-                style="@style/activity_userinfo_title_style"
-                android:text="age" />
-
-            <TextView
                 android:id="@+id/user_sex"
                 style="@style/activity_userinfo_title_style"
                 android:text="sex" />
 
-            <TextView
-                style="@style/activity_userinfo_title_style"
-                android:text="个人签名" />
+            <!--<TextView-->
+            <!--style="@style/activity_userinfo_title_style"-->
+            <!--android:text="age" />-->
+
+            <!--<TextView-->
+                <!--style="@style/activity_userinfo_title_style"-->
+                <!--android:text="个人签名" />-->
 
             <TextView
                 android:id="@+id/user_phone_num"

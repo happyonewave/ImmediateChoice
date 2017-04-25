@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#60eb633b"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp">
+
+            <LinearLayout
+                style="@style/grade_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的积分"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/grade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="right"
+                    android:text="255分"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                style="@style/grade_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="积分介绍"
+                android:textSize="15sp" />
+
+            <TextView
+                style="@style/grade_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.用户均可使用积分进行礼品兑换\n2.用户可以进行每日签到活动和填写得到相应积分\n3.积分不可转送或出售，如发现并证实，积分予以作废处理。"
+                android:textSize="15sp" />
+
+            <TextView
+                style="@style/grade_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="兑换礼品(兑完为止)"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/circular_bg"
+                android:padding="5dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp"
+                    android:background="@mipmap/gift" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

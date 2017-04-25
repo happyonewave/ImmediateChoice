@@ -1,23 +1,29 @@
 package com.qzct.immediatechoice.activity;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import java.util.ArrayList;
@@ -26,21 +32,24 @@ import java.util.List;
 /**
  * 问卷调查Activity
  */
-public class PushQuestionnaireActivity extends AppCompatActivity {
+public class PushQuestionnaireActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText questionnaire_title;
     private EditText questionnaire_hint;
-    private Button push;
-    private Button add;
+    private ImageView push;
+    private FloatingActionButton add;
     private EditText et_title;
     private LinearLayout questions;
-    Context context = this;
+    Activity context = this;
     private List<Questionnaire.Question> questionEntityList = new ArrayList<Questionnaire.Question>();
+    private ImageView iv_back;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_push_questionnaire, "发布问卷"));
+//        setContentView(R.layout.activity_push_questionnaire);
+//        setContentView(utils.getUsableView(this, R.layout.activity_push_questionnaire, "发布问卷"));
+        setContentView(utils.getUsableView(this, R.layout.activity_push_questionnaire, null));
         initView();
         initData();
     }
@@ -48,33 +57,80 @@ public class PushQuestionnaireActivity extends AppCompatActivity {
     private void initView() {
         questionnaire_title = (EditText) findViewById(R.id.questionnaire_title);
         questionnaire_hint = (EditText) findViewById(R.id.questionnaire_hint);
-        add = (Button) findViewById(R.id.questionnaire_question_add);
-        push = (Button) findViewById(R.id.questionnaire_question_push);
+        add = (FloatingActionButton) findViewById(R.id.questionnaire_question_add);
+        iv_back = (ImageView) findViewById(R.id.iv_push_back);
+        push = (ImageView) findViewById(R.id.questionnaire_question_push);
         questions = (LinearLayout) findViewById(R.id.questions);
     }
 
     private void initData() {
-        push.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        iv_back.setOnClickListener(this);
+        push.setOnClickListener(this);
+        add.setOnClickListener(this);
+    }
+
+    public void add(List<LinearLayout> optionList) {
+        RadioGroup group = new RadioGroup(context);
+        List<Questionnaire.Question.Option> options = new ArrayList<Questionnaire.Question.Option>();
+        for (LinearLayout option : optionList) {
+//            EditText et_title = (EditText) option.findViewById(R.id.title);
+            EditText et_num = (EditText) option.findViewById(R.id.num);
+            EditText et_content = (EditText) option.findViewById(R.id.content);
+//            String title = et_title.getText().toString();
+            String num = et_num.getText().toString();
+            String content = et_content.getText().toString();
+            options.add(new Questionnaire.Question.Option(num, content));
+            RadioButton button = new RadioButton(context);
+            button.setText(content);
+            group.addView(button);
+        }
+        String title = et_title.getText().toString();
+        TextView tv_title = new TextView(context);
+        tv_title.setText(title);
+        Questionnaire.Question questionEntity = new Questionnaire.Question(title, options);
+        questionEntityList.add(questionEntity);
+        questions.addView(tv_title);
+        questions.addView(group);
+
+    }
+
+
+    AlertDialog dialog;
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.questionnaire_question_push:
                 if (!questionnaire_title.getText().toString().isEmpty()) {
                     String title = questionnaire_title.getText().toString();
                     String hint = questionnaire_hint.getText().toString();
-                    Intent data = new Intent();
-                    data.putExtra("questionnaire", new Questionnaire(title, hint, questionEntityList));
-                    setResult(RESULT_OK, data);
-                    finish();
-                    Toast.makeText(context, "发布成功", Toast.LENGTH_SHORT).show();
+                    final Questionnaire questionnaire = new Questionnaire(title, hint, MyApplication.user.getUser_id(), questionEntityList);
+                    Service.getInstance().pushQuestionnaire(questionnaire, new MyCallback.PushQuestionnaireCallback() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(context, "发布成功", Toast.LENGTH_SHORT).show();
+                            Intent data = new Intent();
+                            data.putExtra("questionnaire", questionnaire);
+                            setResult(RESULT_OK, data);
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure() {
+                            Toast.makeText(context, "发布失败", Toast.LENGTH_SHORT).show();
+                        }
+
+                        @Override
+                        public void onError(Throwable ex) {
+                            Toast.makeText(context, "连接服务器失败", Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
                 } else {
                     Toast.makeText(context, "您未填写信息", Toast.LENGTH_SHORT).show();
                 }
-            }
-        });
-        add.setOnClickListener(new View.OnClickListener() {
-            public AlertDialog dialog;
-
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.questionnaire_question_add:
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 final View view = View.inflate(context, R.layout.dialog_add_questionnaire_question, null);
                 et_title = (EditText) view.findViewById(R.id.title);
@@ -100,34 +156,11 @@ public class PushQuestionnaireActivity extends AppCompatActivity {
                 builder.setView(view);
                 dialog = builder.create();
                 dialog.show();
-
-            }
-        });
-    }
-
-    public void add(List<LinearLayout> optionList) {
-        RadioGroup group = new RadioGroup(context);
-        List<String> options = new ArrayList<String>();
-        for (LinearLayout option : optionList) {
-//            EditText et_title = (EditText) option.findViewById(R.id.title);
-            EditText et_num = (EditText) option.findViewById(R.id.num);
-            EditText et_content = (EditText) option.findViewById(R.id.content);
-//            String title = et_title.getText().toString();
-            String num = et_num.getText().toString();
-            String content = et_content.getText().toString();
-            options.add(content);
-            RadioButton button = new RadioButton(context);
-            button.setText(content);
-            group.addView(button);
+                break;
+            case R.id.iv_push_back:
+                finish();
+                break;
         }
-        String title = et_title.getText().toString();
-        TextView tv_title = new TextView(context);
-        tv_title.setText(title);
-        Questionnaire.Question questionEntity = new Questionnaire.Question(title, options);
-        questionEntityList.add(questionEntity);
-        questions.addView(tv_title);
-        questions.addView(group);
-
     }
 }
 

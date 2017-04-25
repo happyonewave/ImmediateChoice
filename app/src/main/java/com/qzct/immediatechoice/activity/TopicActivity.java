@@ -75,13 +75,14 @@ public class TopicActivity extends Activity implements View.OnClickListener {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Question question = questionList.get(position);
-                MyApplication.question = question;
+//                MyApplication.question = question;
                 if (question.getLeft_url().contains("image")) {
                     MyApplication.isQuestion = true;
                 } else {
                     MyApplication.isQuestion = false;
                 }
                 Intent intent = new Intent(TopicActivity.this, CommentActivity.class);
+                intent.putExtra("question", question);
                 startActivity(intent);
             }
         });
@@ -102,8 +103,8 @@ public class TopicActivity extends Activity implements View.OnClickListener {
                         questionList = new ArrayList<Question>();
                         JSONArray jsonArray = new JSONArray(result);
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            Question question = Question.jsonObjectToQuestion(jsonArray.getJSONObject(i));
-                            Log.d("qin", "question: " + jsonArray.getJSONObject(i).toString());
+                            Question question = Question.jsonObjectToQuestion(jsonArray.optJSONObject(i));
+                            Log.d("qin", "question: " + jsonArray.optJSONObject(i).toString());
                             questionList.add(question);
                         }
                         Log.d("qin", "questionList: " + questionList.toString());

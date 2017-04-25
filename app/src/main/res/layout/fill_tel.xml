@@ -10,7 +10,13 @@
         android:id="@+id/et_tel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/fill_tel_hint"/>
+        android:hint="@string/fill_tel_hint" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/type" />
 
     <Button
         android:id="@+id/bt_register_one_next"
@@ -22,19 +28,20 @@
         android:textColor="@android:color/white" />
 
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/bright_foreground_light_disabled"
-            android:text="@string/fill_tel_protocol_agree_hint" />
+            android:text="@string/fill_tel_protocol_agree_hint"
+            android:textColor="@color/bright_foreground_light_disabled" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/apporange"
-            android:text="@string/protocol_name"/>
+            android:text="@string/protocol_name"
+            android:textColor="@color/apporange" />
     </LinearLayout>
 </LinearLayout>

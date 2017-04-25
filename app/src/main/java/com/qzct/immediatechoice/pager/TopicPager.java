@@ -108,9 +108,9 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
         try {
             //遍历传入的jsonArray
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject temp = jsonArray.getJSONObject(i);
+                JSONObject temp = jsonArray.optJSONObject(i);
                 //读取相应内容.
-                int topic_id = temp.getInt("topic_id");
+                int topic_id = temp.optInt("topic_id");
                 String topic_title = temp.getString("topic_title");
                 String topic_img_url = temp.getString("topic_img_url");
                 Topic topic = new Topic(topic_id,topic_title, topic_img_url);

@@ -30,6 +30,7 @@
     <string name="home_title_attention">关注</string>
     <string name="question_content">你更喜欢冬天还是夏天？</string>
     <string name="push_vote">发起投票</string>
+    <string name="push_questionnaire">发布问卷</string>
     <string name="questionnaire_push">问卷调查</string>
     <string name="register">注册</string>
     <string name="et_vote_content_hint">请输入您的话题...</string>
@@ -45,7 +46,7 @@
     <string name="fill_tel">输入手机号</string>
     <string name="fill_verification_code">输入验证码</string>
     <string name="set_password">设置密码</string>
-    <string name="fill_tel_hint">请输入你的手机号</string>
+    <string name="fill_tel_hint">请输入你的邮箱账号</string>
     <string name="fill_tel_protocol_agree_hint">注册即表示同意</string>
     <string name="protocol_name">《隐私权声明》</string>
 

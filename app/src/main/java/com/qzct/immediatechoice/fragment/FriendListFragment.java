@@ -203,7 +203,7 @@ public class FriendListFragment extends baseFragment {
                                     mStrList.clear();
                                     JSONArray array = new JSONArray(result);
                                     for (int i = 0; i < array.length(); i++) {
-                                        User user = User.jsonObjectToUser(array.getJSONObject(i));
+                                        User user = User.jsonObjectToUser(array.optJSONObject(i));
                                         mStrList.add(user.getUsername());
                                         queryfriendList.add(user);
                                     }

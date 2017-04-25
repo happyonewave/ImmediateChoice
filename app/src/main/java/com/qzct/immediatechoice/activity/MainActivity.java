@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
+import com.qzct.immediatechoice.fragment.QuestionnaireFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
 import com.qzct.immediatechoice.util.Config;
@@ -59,6 +61,12 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         super.onCreate(savedInstanceState);
         setContentView(utils.getUsableView(this, R.layout.activity_main, null));
         rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
+        RadioButton bt_friend = (RadioButton) findViewById(R.id.bt_friend);
+        if (MyApplication.isQuestionnaireProvider) {
+            bt_friend.setText("问卷");
+            bt_friend.setCompoundDrawablesWithIntrinsicBounds(null, getResources().getDrawable(R.drawable.bt_questionnaire_bg), null, null);
+//            bt_friend.setCompoundDrawables(null, getResources().getDrawable(R.drawable.bt_questionnaire_bg), null, null);
+        }
 //        shade = findViewById(R.id.shade);
         //用来放fragment的帧布局
         fl = (FrameLayout) findViewById(R.id.fl);
@@ -127,8 +135,8 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
 //                    try {
 //                        JSONArray friendArray = new JSONArray(result);
 //                        for (int i = 0; i < friendArray.length(); i++) {
-//                            JSONObject temp = friendArray.getJSONObject(i);
-//                            int user_id = temp.getInt("user_id");
+//                            JSONObject temp = friendArray.optJSONObject(i);
+//                            int user_id = temp.optInt()("user_id");
 //                            String name = temp.getString("name");
 //                            String phone_number = temp.getString("phone_number");
 //                            String sex = temp.getString("sex");
@@ -216,6 +224,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
      * @param v
      */
     public void click(View v) {
+        RadioButton btn = (RadioButton) v;
         int id = v.getId();
         int index = 0;
         boolean change = true;
@@ -240,6 +249,11 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 break;
             //我的
             case R.id.bt_user:
+                if (!MyApplication.logined) {
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    return;
+                }
                 index = 3;
                 break;
 
@@ -275,7 +289,11 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                     baseFragment = new DiscoveryFragment();
                     break;
                 case 2:
-                    baseFragment = new FriendFragment();
+                    if (MyApplication.isQuestionnaireProvider) {
+                        baseFragment = new QuestionnaireFragment();
+                    } else {
+                        baseFragment = new FriendFragment();
+                    }
                     break;
                 case 3:
                     baseFragment = new UserFragment();

@@ -25,6 +25,7 @@ public class User implements Serializable {
     public static int USER_FRIEND = 1;
     public static int USER_QUERY = 2;
     int user_id;
+    int user_type;
     String username;
     String password;
     String phone_number;
@@ -58,6 +59,16 @@ public class User implements Serializable {
         this.sex = sex;
         this.token = token;
     }
+    public User(int user_id,int user_type, String username, String password, String phone_number, String portrait_path, String sex, String token) {
+        this.user_id = user_id;
+        this.user_type = user_type;
+        this.username = username;
+        this.password = password;
+        this.phone_number = phone_number;
+        this.portrait_path = portrait_path;
+        this.sex = sex;
+        this.token = token;
+    }
 
 
     public int getUser_id() {
@@ -73,6 +84,18 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
+    public int getUser_type() {
+        return user_type;
+    }
+
+    public User(String username, int user_type, String password, String phone_number, String portrait_path, String sex) {
+        this.username = username;
+        this.user_type = user_type;
+        this.password = password;
+        this.phone_number = phone_number;
+        this.portrait_path = portrait_path;
+        this.sex = sex;
+    }
     public User(String username, String password) {
         this.username = username;
         this.password = password;
@@ -133,8 +156,8 @@ public class User implements Serializable {
 
         List<User> memberList = new ArrayList<User>();
         for (int i = 0; i < members.length(); i++) {
-            JSONObject temp = members.getJSONObject(i);
-            User user = new User(temp.getInt("f_id"));
+            JSONObject temp = members.optJSONObject(i);
+            User user = new User(temp.optInt("f_id"));
             memberList.add(user);
         }
         return memberList;
@@ -143,16 +166,16 @@ public class User implements Serializable {
     }
 
     public static User jsonObjectToUser(JSONObject jsonObject) throws JSONException {
-        int user_id = jsonObject.getInt("user_id");
-        String username = jsonObject.getString("name");
-//        String password = jsonObject.getString("password");
-        String password = jsonObject.has("password") ? jsonObject.getString("password") : "";
-//        String phone_number = jsonObject.getString("phone_number");
-        String phone_number = jsonObject.has("phone_number") ? jsonObject.getString("phone_number") : "";
-        String portrait_path = jsonObject.getString("portrait_path");
-        String sex = jsonObject.getString("sex");
-        String token = jsonObject.has("token") ? jsonObject.getString("token") : "";
-//        String token = jsonObject.getString("token");
+        int user_id = jsonObject.optInt("user_id");
+        String username = jsonObject.optString("name");
+//        String password = jsonObject.optString("password");
+        String password = jsonObject.has("password") ? jsonObject.optString("password") : "";
+//        String phone_number = jsonObject.optString("phone_number");
+        String phone_number = jsonObject.has("phone_number") ? jsonObject.optString("phone_number") : "";
+        String portrait_path = jsonObject.optString("portrait_path");
+        String sex = jsonObject.optString("sex");
+        String token = jsonObject.has("token") ? jsonObject.optString("token") : "";
+//        String token = jsonObject.optString("token");
 
         return new User(user_id, username, password, phone_number, portrait_path, sex, token);
     }

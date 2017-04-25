@@ -1,12 +1,16 @@
 package com.qzct.immediatechoice.util;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.domain.User;
 
 import org.json.JSONArray;
@@ -48,11 +52,12 @@ public class Service {
             @Override
             public void onSuccess(String result) {
                 if (result != null) {
+                    Log.d("qin:", "friendInfo: " + result);
                     try {
                         JSONArray friendArray = new JSONArray(result);
                         for (int i = 0; i < friendArray.length(); i++) {
-                            JSONObject temp = friendArray.getJSONObject(i);
-                            int user_id = temp.getInt("user_id");
+                            JSONObject temp = friendArray.optJSONObject(i);
+                            int user_id = temp.optInt("user_id");
                             String name = temp.getString("name");
                             String phone_number = temp.getString("phone_number");
                             String sex = temp.getString("sex");
@@ -114,16 +119,16 @@ public class Service {
                         //遍历传入的jsonArray
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject temp = null;
-                            temp = jsonArray.getJSONObject(i);
-                            int question_id = temp.getInt("question_id");
+                            temp = jsonArray.optJSONObject(i);
+                            int question_id = temp.optInt("question_id");
 //                            String post_time = temp.getString("post_time");
                             String question_content = temp.getString("question_content");
                             String left_url = temp.getString("left_url");
                             String right_url = temp.getString("right_url");
                             String quizzer_name = temp.getString("quizzer_name");
                             String portrait_url = temp.getString("portrait_url");
-                            int share_count = temp.getInt("share_count");
-                            int comment_count = temp.getInt("comment_count");
+                            int share_count = temp.optInt("share_count");
+                            int comment_count = temp.optInt("comment_count");
                             String comment = temp.getString("comment");
                             Question Question = new Question(question_id, question_content,
                                     left_url, right_url, quizzer_name,
@@ -198,5 +203,200 @@ public class Service {
         });
     }
 
-//    public void getQuestionnaire(int questionnaire_id,)
+    /**
+     * 获取问卷
+     *
+     * @param getQuestionnaireCallback
+     */
+    public void getQuestionnaire(final MyCallback.GetQuestionnaireCallback getQuestionnaireCallback) {
+        final RequestParams entity = new RequestParams(Config.url_questionnaire);
+        final int questionnaire_id = getQuestionnaireCallback.getQuestionnaireId();
+        int user_id = getQuestionnaireCallback.getUserId();
+        if (questionnaire_id != 0) {
+            entity.addBodyParameter("questionnaire_id", questionnaire_id + "");
+        } else {
+            entity.addBodyParameter("user_id", user_id + "");
+        }
+        entity.addBodyParameter("type", "getQuestionnaire");
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    try {
+                        Log.d("qin", "result: " + result);
+                        JSONArray jsonArray = new JSONArray(result);
+                        List<Questionnaire> questionnaireList = new ArrayList<Questionnaire>();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            Questionnaire questionnaire = Questionnaire.jsonObjectToQuestionnaire(jsonArray.optJSONObject(i));
+                            Log.d("qin", "questionnaire: " + jsonArray.optJSONObject(i));
+                            questionnaireList.add(questionnaire);
+                        }
+                        if (questionnaire_id != 0) {
+                            getQuestionnaireCallback.onSuccess(questionnaireList.get(0));
+                            return;
+                        }
+                        getQuestionnaireCallback.onSuccess(questionnaireList);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                getQuestionnaireCallback.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    //    public void getQuestionnaire(int questionnaire_id,)
+
+    /**
+     * 发布问卷
+     *
+     * @param questionnaire
+     * @param pushQuestionnaireCallback
+     * @throws JSONException
+     */
+    public void pushQuestionnaire(Questionnaire questionnaire, final MyCallback.PushQuestionnaireCallback pushQuestionnaireCallback) {
+        JSONObject questionnaireObject = null;
+        try {
+            questionnaireObject = questionnaire.questionnaireToJSONObject(questionnaire);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        RequestParams entity = new RequestParams(Config.url_questionnaire);
+        entity.addBodyParameter("type", "pushQuestionnaire");
+        entity.addBodyParameter("questionnaireObject", questionnaireObject.toString());
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    if ("1".equals(result)) {
+                        pushQuestionnaireCallback.onSuccess();
+                    } else {
+                        pushQuestionnaireCallback.onFailure();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                pushQuestionnaireCallback.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
+    }
+
+    public void getQuestionnaireIds(final MyCallback.GetQuestionnaireIdsCallback getQuestionnaireIdsCallback) {
+        RequestParams entity = new RequestParams(Config.url_questionnaire);
+        entity.addBodyParameter("type", "getQuestionnaireIds");
+        x.http().get(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    try {
+                        JSONArray array = new JSONArray(result);
+                        List<Integer> idList = new ArrayList<Integer>();
+                        for (int i = 0; i < array.length(); i++) {
+                            idList.add(array.getInt(i));
+                        }
+                        getQuestionnaireIdsCallback.onSuccess(idList);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                getQuestionnaireIdsCallback.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    public void chooseQuestionOption(List<Questionnaire.Choice> choiceList, final MyCallback.ChooseQuestionOptionCallback chooseQuestionOptionCallback) {
+        RequestParams entity = new RequestParams(Config.url_questionnaire);
+        entity.addBodyParameter("type", "chooseQuestionOption");
+        JSONArray choice = new JSONArray();
+        for (Questionnaire.Choice choice1 : choiceList) {
+            JSONObject temp = new JSONObject();
+            int questionnaire_question_id = choice1.getQuestionnaire_question_id();
+            String num = choice1.getNum();
+            int user_id = choice1.getUser_id();
+            try {
+                temp.put("questionnaire_question_id", questionnaire_question_id);
+                temp.put("num", num);
+                temp.put("user_id", user_id);
+                choice.put(temp);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        entity.addBodyParameter("choice", choice.toString());
+        Log.d("qin", "choice: " + choice.toString());
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    if ("1".equals(result)) {
+                        chooseQuestionOptionCallback.onSuccess();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                chooseQuestionOptionCallback.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    public void gradeAdd(Activity context, int num) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences("grade", Context.MODE_PRIVATE);
+        int userGrade = sharedPreferences.getInt("grade", 0);
+        userGrade += num;
+        sharedPreferences.edit().putInt("grade", userGrade).commit();
+    }
 }

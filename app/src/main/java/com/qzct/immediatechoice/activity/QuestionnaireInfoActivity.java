@@ -6,8 +6,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -75,12 +78,27 @@ public class QuestionnaireInfoActivity extends Activity {
                 TextView title = (TextView) v.findViewById(R.id.questionnaire_info_title);
                 title.setText(position + 1 + "." + questionnaire.getEntities().get(position).getTitle());
                 LinearLayout options = (LinearLayout) v.findViewById(R.id.options);
-                for (String str : questionnaire.getEntities().get(position).getOptions()) {
-                    TextView option = new TextView(QuestionnaireInfoActivity.this);
-                    option.setTextColor(Color.GRAY);
-                    option.setText(str);
-                    options.addView(option);
+                for (Questionnaire.Question.Option option : questionnaire.getEntities().get(position).getOptions()) {
+                    TextView tv_option = new TextView(QuestionnaireInfoActivity.this);
+                    tv_option.setTextColor(Color.GRAY);
+                    tv_option.setText(option.getNum() + "." + option.getContent());
+                    options.addView(tv_option);
                 }
+//                WebView webView = new WebView(context);
+//                webView.getSettings().setJavaScriptEnabled(true);
+//                webView.loadUrl("file:///android_asset/index.html");
+//                final int questionnaire_question_id = questionnaire.getEntities().get(position).getQuestionnaire_question_id();
+//                Log.d("qin", "questionnaire_question_id: " + questionnaire_question_id);
+//                WebViewClient client = new WebViewClient() {
+//                    @Override
+//                    public void onPageFinished(WebView view, String url) {
+////                super.onPageFinished(view, url);
+//                        view.loadUrl("javascript:refrech(" + questionnaire_question_id + ")");
+//
+//                    }
+//                };
+//                webView.setWebViewClient(client);
+//                options.addView(webView);
                 return v;
             }
         });

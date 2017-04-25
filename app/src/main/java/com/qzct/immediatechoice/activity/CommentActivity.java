@@ -1,6 +1,9 @@
 package com.qzct.immediatechoice.activity;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -18,6 +21,7 @@ import com.github.alexkolpa.fabtoolbar.FabToolbar;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
@@ -76,6 +80,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     private FabToolbar fab_toolbar;
     private View header_layout;
     private String TRANSITION = "TRANSITION";
+    private Context context = this;
 
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -85,7 +90,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(utils.getUsableView(this, R.layout.activity_comment, null));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
         title.setText("评价");
-        question = MyApplication.question;
+//        question = MyApplication.question;
+        question = (Question) getIntent().getSerializableExtra("question");
         isTransition = getIntent().getBooleanExtra(TRANSITION, false);
         initView();
         initData();
@@ -148,12 +154,50 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     }
 
 
+    public class SetThumbImageTask extends AsyncTask<String, String, Bitmap> {
+        StandardGSYVideoPlayer gsyVideoPlayer;
+        String url;
+
+        public SetThumbImageTask(StandardGSYVideoPlayer gsyVideoPlayer, String url) {
+            this.gsyVideoPlayer = gsyVideoPlayer;
+            this.url = url;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            return utils.createVideoThumbnail(url);
+        }
+
+        //        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        @Override
+        protected void onPostExecute(Bitmap videoThumbnail) {
+            ImageView imageView = new ImageView(context);
+//            Bitmap mBitmap = Bitmap.createBitmap(gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), Bitmap.Config.ARGB_8888);
+            if (videoThumbnail != null) {
+//                mBitmap = MyThumbnailUtils.zoomImg(mBitmap, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
+//                mBitmap = MyThumbnailUtils.scaleBitmap(mBitmap, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight());
+                //增加封面
+                Bitmap mBitmap = Bitmap.createBitmap(videoThumbnail);
+                if (gsyVideoPlayer.getWidth() > 0) {
+                    mBitmap = Bitmap.createScaledBitmap(videoThumbnail, gsyVideoPlayer.getWidth(), gsyVideoPlayer.getHeight(), true);
+
+                }
+                imageView.setImageBitmap(mBitmap);
+                gsyVideoPlayer.setThumbImageView(imageView);
+
+            }
+        }
+    }
+
     private void initVideoPlayer(final StandardGSYVideoPlayer gsyVideoPlayer, String url) {
 
         //增加封面
-        ImageView imageView = new ImageView(this);
-        imageView.setImageBitmap(utils.createVideoThumbnail(url));
-        gsyVideoPlayer.setThumbImageView(imageView);
+//        ImageView imageView = new ImageView(this);
+//        imageView.setImageBitmap(utils.createVideoThumbnail(url));
+//        gsyVideoPlayer.setThumbImageView(imageView);
+        //增加封面
+        SetThumbImageTask setThumbImageTask = new SetThumbImageTask(gsyVideoPlayer, url);
+        setThumbImageTask.execute();
         //url
         //设置播放url，第一个url，第二个开始缓存，第三个使用默认缓存路径，第四个设置title
         gsyVideoPlayer.setUp(url, true, null, "");
@@ -220,8 +264,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             if (isTransition && Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 super.onBackPressed();
             } else {
-                Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
-//                finish();
+//                Toast.makeText(this, "退出", Toast.LENGTH_SHORT).show();
+                finish();
                 overridePendingTransition(R.anim.abc_fade_in, R.anim.abc_fade_out);
             }
 
@@ -317,7 +361,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //            jsonArray = new JSONArray();
             //遍历传入的jsonArray
             for (int i = jsonArray.length() - 1; i > -1; i--) {
-                JSONObject temp = jsonArray.getJSONObject(i);
+                JSONObject temp = jsonArray.optJSONObject(i);
                 //读取相应内容.
                 String comment_content = temp.getString("comment_content");
                 String commenter_date = temp.getString("commenter_date");

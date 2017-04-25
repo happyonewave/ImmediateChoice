@@ -80,7 +80,7 @@ public class AttentionFragment extends baseFragment {
                         JSONArray resultJson = new JSONArray(result);
                         topicList = new ArrayList<Topic>();
                         for (int i = 0; i < resultJson.length(); i++) {
-                            JSONObject temp = resultJson.getJSONObject(i);
+                            JSONObject temp = resultJson.optJSONObject(i);
                             Topic topic = Topic.jsonObjectToTotic(temp);
                             Log.d("qin", "temp: " + temp.toString());
                             topicList.add(topic);

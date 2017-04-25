@@ -107,11 +107,11 @@ public class ChoiceGroupActivity extends AppCompatActivity {
                 if (result != null) {
                     try {
                         JSONArray resultJsonArray = new JSONArray(result);
-                        groupInfoList = GroupInfo.tolistFrom(resultJsonArray.getJSONArray(0));
+                        groupInfoList = GroupInfo.tolistFrom(resultJsonArray.optJSONArray(0));
                         membersList = new ArrayList<List<User>>();
                         for (int i = 1; i < resultJsonArray.length(); i++) {
-                            JSONObject temp = resultJsonArray.getJSONObject(i);
-                            List<User> memberList = User.toMemberListFrom(temp.getJSONArray("members"));
+                            JSONObject temp = resultJsonArray.optJSONObject(i);
+                            List<User> memberList = User.toMemberListFrom(temp.optJSONArray("members"));
                             membersList.add(memberList);
                         }
                         lv_group.setAdapter(new SpinnerAdapter());

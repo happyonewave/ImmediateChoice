@@ -18,11 +18,14 @@ import com.qzct.immediatechoice.activity.RegisterActivity;
 @SuppressLint("ValidFragment")
 public class RegisterSecondFragment extends baseFragment {
     String phone_number;
+    int user_type;
 
     @SuppressLint("ValidFragment")
-    public RegisterSecondFragment(String phone_number) {
+    public RegisterSecondFragment(String phone_number, int user_type) {
         this.phone_number = phone_number;
+        this.user_type = user_type;
     }
+
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
@@ -39,12 +42,12 @@ public class RegisterSecondFragment extends baseFragment {
                 EditText et_verification = (EditText) v.findViewById(R.id.et_verification);
                 String verification = et_verification.getText().toString();
 //                if (verification.equals("153698")){
-                RegisterFinallyFragment finish = new RegisterFinallyFragment(phone_number);
+                RegisterFinallyFragment finish = new RegisterFinallyFragment(phone_number, user_type);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
                 transaction.replace(R.id.fl_register, finish);
                 transaction.commit();
 //                }else{
-                Toast.makeText(context, "验证码错误，请重新获取验证", Toast.LENGTH_LONG).show();
+//                Toast.makeText(context, "验证码错误，请重新获取验证", Toast.LENGTH_LONG).show();
 //                }
             }
         });

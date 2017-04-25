@@ -280,7 +280,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
         handler.postDelayed(runnable, 50);
     }
 
-    private class SetThumbImageTask extends AsyncTask<String, String, Bitmap> {
+    public class SetThumbImageTask extends AsyncTask<String, String, Bitmap> {
         StandardGSYVideoPlayer gsyVideoPlayer;
         String url;
 
@@ -291,8 +291,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            Bitmap videoThumbnail = utils.createVideoThumbnail(url);
-            return videoThumbnail;
+            return utils.createVideoThumbnail(url);
         }
 
         //        @RequiresApi(api = Build.VERSION_CODES.KITKAT)

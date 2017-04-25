@@ -12,9 +12,9 @@ public class Topic {
     String topic_img_url;
 
     public static Topic jsonObjectToTotic(JSONObject object) throws JSONException {
-        int id = object.getInt("topic_id");
-        String title = object.getString("topic_title");
-        String img_url = object.getString("topic_img_url");
+        int id = object.optInt("topic_id");
+        String title = object.optString("topic_title");
+        String img_url = object.optString("topic_img_url");
         return new Topic(id, title, img_url);
     }
 

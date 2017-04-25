@@ -122,7 +122,7 @@ public class DiscoveryFragment extends baseFragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Question question = questionList.get(position);
-                MyApplication.question = question;
+//                MyApplication.question = question;
                 if (!questionList.isEmpty()) {
                     if (question.getLeft_url().contains("image")) {
                         MyApplication.isQuestion = true;
@@ -130,6 +130,7 @@ public class DiscoveryFragment extends baseFragment {
                         MyApplication.isQuestion = false;
                     }
                     Intent intent = new Intent(context, CommentActivity.class);
+                    intent.putExtra("question", question);
                     context.startActivity(intent);
                 }
 
@@ -159,7 +160,7 @@ public class DiscoveryFragment extends baseFragment {
                                     mStrList.clear();
                                     JSONArray array = new JSONArray(result);
                                     for (int i = 0; i < array.length(); i++) {
-                                        Question question = Question.jsonObjectToQuestion(array.getJSONObject(i));
+                                        Question question = Question.jsonObjectToQuestion(array.optJSONObject(i));
                                         mStrList.add(question.getQuestion_content());
                                         questionList.add(question);
                                     }
@@ -343,7 +344,7 @@ public class DiscoveryFragment extends baseFragment {
                                     List<User> queryfriendList = new ArrayList<User>();
                                     JSONArray array = new JSONArray(result);
                                     for (int i = 0; i < array.length(); i++) {
-                                        User user = User.jsonObjectToUser(array.getJSONObject(i));
+                                        User user = User.jsonObjectToUser(array.optJSONObject(i));
                                         queryfriendList.add(user);
                                     }
                                     for (User user : queryfriendList) {

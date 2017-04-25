@@ -194,6 +194,8 @@
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireInfoActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.QuestionnaireActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.ConversationListActivity" />
+        <activity android:name="com.qzct.immediatechoice.activity.GradeActivity" />
 
         <service
             android:name="com.baidu.location.f"

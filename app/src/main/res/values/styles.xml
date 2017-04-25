@@ -129,4 +129,15 @@
         <item name="android:textColor">@android:color/black</item>
     </style>
 
+    <style name="grade_style">
+
+        <!--android:layout_margin="5dp"-->
+        <!--android:background="@drawable/circular_bg"-->
+        <!--android:padding="5dp"-->
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:background">@drawable/circular_bg</item>
+        <item name="android:padding">5dp</item>
+
+    </style>
+
 </resources>
