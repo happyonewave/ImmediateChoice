@@ -6,14 +6,18 @@ import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.util.TypedValue;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.util.NoScrollViewPager;
 import com.qzct.immediatechoice.util.ScaleTransitionPagerTitleView;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
@@ -38,7 +42,7 @@ import io.rong.imlib.model.Conversation;
  */
 public class FriendFragment extends baseFragment {
 
-    private ViewPager vp_friend;
+    public static NoScrollViewPager vp_friend;
     private List<Fragment> fragmentList;
     private MagicIndicator friend_magic_indicator;
 
@@ -46,7 +50,7 @@ public class FriendFragment extends baseFragment {
     public View initView(LayoutInflater inflater, ViewGroup container) {
         View view = inflater.inflate(R.layout.fragment_friend, null);
         friend_magic_indicator = (MagicIndicator) view.findViewById(R.id.friend_magic_indicator);
-        vp_friend = (ViewPager) view.findViewById(R.id.vp_friend);
+        vp_friend = (NoScrollViewPager) view.findViewById(R.id.vp_friend);
 
 
         return view;
@@ -71,12 +75,30 @@ public class FriendFragment extends baseFragment {
                 return fragmentList.size();
             }
         });
+        vp_friend.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.d(TAG, "onPageScrolled: " + "position:" + position);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
         setIndicator();
 //        vp_friend.setCurrentItem(1);
     }
 
 
     private void setIndicator() {
+
 //
 //        final CommonNavigator commonNavigator = new CommonNavigator(context);
 //        commonNavigator.setAdapter(new CommonNavigatorAdapter() {

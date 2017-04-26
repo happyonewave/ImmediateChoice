@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Topic;
+import com.qzct.immediatechoice.util.GlideRoundTransform;
 
 import java.util.List;
 
@@ -80,7 +81,7 @@ public class TopicAdpter extends BaseAdapter {
         final Topic topic = topicList.get(i);
 
 //        view_class_img.setImageUrl(topic.getTopic_img_url());
-        Glide.with(context).load(topic.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(view_class_img);
+        Glide.with(context).load(topic.getTopic_img_url()).bitmapTransform(new GlideRoundTransform(context, 5)).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(view_class_img);
 
         view_class_text.setText(topic.getTopic_title());
 

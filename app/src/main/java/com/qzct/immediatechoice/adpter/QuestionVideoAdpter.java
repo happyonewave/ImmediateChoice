@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.adpter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
@@ -9,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,9 +19,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyz.actionsheet.ActionSheet;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.MainActivity;
@@ -46,14 +50,14 @@ import java.util.List;
 public class QuestionVideoAdpter extends BaseAdapter {
 
 
-    Activity context;
+    AppCompatActivity context;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
 //    View v;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_left;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_right;
 
-    public QuestionVideoAdpter(Activity context, List<Question> questionList) {
+    public QuestionVideoAdpter(AppCompatActivity context, List<Question> questionList) {
         this.context = context;
         this.questionList = questionList;
     }
@@ -146,6 +150,57 @@ public class QuestionVideoAdpter extends BaseAdapter {
         }
         holder.comment_icon.setText(i.getComment_count() + "");
         holder.share_icon.setText(i.getShare_count() + "");
+
+        holder.share_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+                        .setCancelButtonTitle("取消")
+                        .setOtherButtonTitles("微信好友", "朋友圈", "QQ空间")
+                        .setCancelableOnTouchOutside(true)
+                        .setListener(new ActionSheet.ActionSheetListener() {
+                            @Override
+                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+                                if (isCancel) {
+                                    actionSheet.dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+//                                Toast.makeText(context, "click item index = " + index,
+//                                        Toast.LENGTH_SHORT).show();
+                                switch (index) {
+                                    case 0:
+                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 1:
+                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 2:
+                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                }
+
+                            }
+                        }).show();
+
+            }
+        });
+        holder.comment_icon.setTag(questionList.get(position));
+
+        holder.comment_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Question question = (Question) v.getTag();
+                MyApplication.isQuestion = false;
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("question", question);
+                context.startActivity(intent);
+            }
+        });
         holder.item_comment.setText(i.getComment());
         holder.tpv_left.setOnThumbUp(new ThumbUpView.OnThumbUp() {
             @Override

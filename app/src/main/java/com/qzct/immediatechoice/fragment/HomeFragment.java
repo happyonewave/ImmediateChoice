@@ -156,6 +156,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
                     if (!MyApplication.logined) {
                         Intent intent = new Intent(context, LoginActivity.class);
                         startActivity(intent);
+                        context.finish();
                     }
                 }
             }

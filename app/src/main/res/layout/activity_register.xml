@@ -3,61 +3,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <include layout="@layout/register_top"></include>
 
 
     <LinearLayout
-        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
 
         <TextView
             android:id="@+id/tv_fill_tel"
-            android:layout_marginLeft="-10dp"
-            android:layout_weight="1"
+            style="@style/register_nav_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_marginLeft="-10dp"
+            android:layout_weight="1"
             android:text="@string/fill_tel"
-            android:textColor="@color/apporange"
-            style="@style/register_nav_style"/>
+            android:textColor="@color/apporange" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=">>"
-            />
+            android:text=">>" />
+
         <TextView
             android:id="@+id/tv_fill_verification_code"
-            android:layout_weight="1"
+            style="@style/register_nav_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/fill_verification_code"
-            style="@style/register_nav_style"/>
+            android:layout_weight="1"
+            android:text="@string/fill_verification_code" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=">>"
-            />
+            android:text=">>" />
+
         <TextView
             android:id="@+id/tv_set_password"
-            android:layout_weight="1"
+            style="@style/register_nav_style"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="@string/set_password"
-            style="@style/register_nav_style"/>
+            android:layout_weight="1"
+            android:text="@string/set_password" />
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/fl_register"
-        android:layout_marginTop="20dp"
-        android:layout_weight="15"
         android:layout_width="match_parent"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight="15">
 
     </FrameLayout>
 </LinearLayout>

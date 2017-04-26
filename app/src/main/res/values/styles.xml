@@ -16,9 +16,24 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- 无标题 -->
         <item name="android:windowNoTitle">true</item>
+        <item name="actionSheetStyle">@style/ActionSheetStyleIOS7</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
-
+    <!-- IOS7样式 -->
+    <style name="ActionSheetStyleIOS7">
+        <item name="actionSheetBackground">@android:color/transparent</item>
+        <item name="cancelButtonBackground">@drawable/slt_as_ios7_cancel_bt</item>
+        <item name="otherButtonTopBackground">@drawable/slt_as_ios7_other_bt_top</item>
+        <item name="otherButtonMiddleBackground">@drawable/slt_as_ios7_other_bt_middle</item>
+        <item name="otherButtonBottomBackground">@drawable/slt_as_ios7_other_bt_bottom</item>
+        <item name="otherButtonSingleBackground">@drawable/slt_as_ios7_other_bt_single</item>
+        <item name="cancelButtonTextColor">#1E82FF</item>
+        <item name="otherButtonTextColor">#1E82FF</item>
+        <item name="actionSheetPadding">10dp</item>
+        <item name="otherButtonSpacing">0dp</item>
+        <item name="cancelButtonMarginTop">10dp</item>
+        <item name="actionSheetTextSize">12sp</item>
+    </style>
     <style name="info_style">
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20dp</item>
@@ -91,11 +106,11 @@
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#FF530D</item>
-        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_size">15sp</item>
         <item name="progress_text_color">#FF530D</item>
 
-        <item name="progress_reached_bar_height">1.5dp</item>
-        <item name="progress_unreached_bar_height">0.75dp</item>
+        <item name="progress_reached_bar_height">10dp</item>
+        <item name="progress_unreached_bar_height">10dp</item>
     </style>
 
     <style name="activity_userinfo_title_style">

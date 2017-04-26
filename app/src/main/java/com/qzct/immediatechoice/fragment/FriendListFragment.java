@@ -2,26 +2,37 @@ package com.qzct.immediatechoice.fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.bumptech.glide.Glide;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.activity.ConversationActivity;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
@@ -29,6 +40,7 @@ import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
+import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,17 +49,20 @@ import org.xutils.http.RequestParams;
 import org.xutils.x;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 import io.rong.imkit.RongIM;
+
+import static com.jrmf360.rylib.wallet.JrmfWalletClient.getApplicationContext;
 
 /**
  * Created by qin on 2017/3/28.
  */
 public class FriendListFragment extends baseFragment {
 
-    private ListView lv_friendlist;
+    private SwipeMenuListView lv_friendlist;
     List<User> userList = MyApplication.userList;
     private SearchView friendlist_search;
     private LinearLayout v;
@@ -58,21 +73,49 @@ public class FriendListFragment extends baseFragment {
     private SharedPreferences sharedPreferences;
     private int ADD_FRIEND = 0;
     private FriendListFragment Me = this;
+    private View view;
+    private EditText et_searchView;
+    private TextView tv_searchView;
+    private LinearLayout ll;
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
-        v = new LinearLayout(context);
+//        v = new LinearLayout(context);
+        v = (LinearLayout) inflater.inflate(R.layout.fragment_friendlist, null);
         v.setOrientation(LinearLayout.VERTICAL);
-        friendlist_search = new SearchView(context);
+        friendlist_search = (SearchView) v.findViewById(R.id.friendlist_search);
+//        friendlist_search = new SearchView(context);
         friendlist_search.setQueryHint("用户Id");
         //* 设置true后，右边会出现一个箭头按钮。如果用户没有输入，就不会触发提交（submit）事件
-        friendlist_search.setSubmitButtonEnabled(true);
+//        friendlist_search.setSubmitButtonEnabled(true);
         // * 写上此句后searchView初始展开的，也就是是可以点击输入的状态，如果不写，那么就需要点击下放大镜，才能展开出现输入框
 //        friendlist_search.onActionViewExpanded();
-        lv_friendlist = new ListView(context);
-        v.addView(friendlist_search);
-        v.addView(lv_friendlist);
+//        lv_friendlist = new SwipeMenuListView(context);
+        lv_friendlist = (SwipeMenuListView) v.findViewById(R.id.lv_friend_list);
+        tv_searchView = (TextView) v.findViewById(R.id.tv_searchView);
+//        ll = (LinearLayout) v.findViewById(R.id.ll);
+//
+//        if (friendlist_search != null) {
+//            try {        //--拿到字节码
+//                Class<?> argClass = friendlist_search.getClass();
+//                //--指定某个私有属性,mSearchPlate是搜索框父布局的名字
+//                Field ownField = argClass.getDeclaredField("ll");
+//                //--暴力反射,只有暴力反射才能拿到私有属性
+//                ownField.setAccessible(true);
+//                View mView = (View) ownField.get(friendlist_search);
+//                //--设置背景
+//                mView.setBackgroundColor(Color.TRANSPARENT);
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }}
 
+//        view = (View) v.findViewById(R.id.view);
+
+//        lv_friendlist = new ListView(context);
+//        v.addView(friendlist_search);
+//        v.addView(lv_friendlist);
         return v;
     }
 
@@ -115,18 +158,20 @@ public class FriendListFragment extends baseFragment {
             btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "已点击btn_delete", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "已点击btn_delete", Toast.LENGTH_SHORT).show();
                 }
             });
 
             return v;
         }
+
+
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        if (requestCode == ADD_FRIEND) {
-        Toast.makeText(context, "从用户介绍界面返回", Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "从用户介绍界面返回", Toast.LENGTH_SHORT).show();
         friendlist_search.clearFocus();
         friendlist_search.setQuery(null, false);
         lv_friendlist.setAdapter(friendListAdapter);
@@ -146,10 +191,103 @@ public class FriendListFragment extends baseFragment {
         });
     }
 
-//    }
+    //    }
+    public float firstX;
 
     @Override
     public void initData() {
+        v.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d(TAG, "onTouch: " + "event:" + event.toString());
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    firstX = event.getX();
+                }
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    if (event.getX() > firstX + 100) {
+                        new FriendFragment().vp_friend.setCurrentItem(0);
+                    }
+                }
+                return true;
+            }
+        });
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
+
+            @Override
+            public void create(SwipeMenu menu) {
+                SwipeMenuItem openItem = new SwipeMenuItem(context);
+                openItem.setBackground(new ColorDrawable(getResources().getColor(R.color.apporange)));
+                openItem.setWidth(utils.Dp2Px(context, 90));
+                openItem.setTitle("更多");
+                openItem.setTitleSize(15);
+                openItem.setTitleColor(Color.WHITE);
+                menu.addMenuItem(openItem);
+
+//                // create "delete" item
+//                SwipeMenuItem deleteItem = new SwipeMenuItem(
+//                        getApplicationContext());
+//                // set item background
+//                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+//                        0x3F, 0x25)));
+//                // set item width
+//
+//                deleteItem.setWidth(180);
+//                // set a icon
+//                deleteItem.setIcon(R.drawable.ic_delete);
+//                // add to menu
+//                menu.addMenuItem(deleteItem);
+            }
+        };
+
+// set creator
+        lv_friendlist.setMenuCreator(creator);
+        // Right
+        lv_friendlist.setSwipeDirection(SwipeMenuListView.DIRECTION_LEFT);
+        lv_friendlist.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+                        // open
+
+//                        Toast.makeText(context, "打开用户介绍", Toast.LENGTH_SHORT).show();
+                        User user = userList.get(position);
+//                        for (User temp : MyApplication.userList) {
+//                            if (temp.getUser_id() == Integer.parseInt(targetId)) {
+//                                user = temp;
+//                                break;
+//                            }
+//                        }
+                        Intent intent = new Intent(context, UserInfoActivity.class);
+                        intent.putExtra("user", user);
+                        intent.putExtra("user_type", User.USER_FRIEND);
+//                    MyApplication.queryfriend = user;
+//                    sharedPreferences =  PreferenceManager.getDefaultSharedPreferences(context);
+                        startActivity(intent);
+//                        Toast.makeText(context, "open", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        // delete
+                        break;
+                }
+                // false : close the menu; true : not close the menu
+                return false;
+            }
+        });
+        // 监测用户在ListView的SwipeMenu侧滑事件。
+//        lv_friendlist.setOnSwipeListener(new SwipeMenuListView.OnSwipeListener() {
+//
+//            @Override
+//            public void onSwipeStart(int pos) {
+//                Log.d("位置:" + pos, "开始侧滑...");
+//            }
+//
+//            @Override
+//            public void onSwipeEnd(int pos) {
+//                Log.d("位置:" + pos, "侧滑结束.");
+//            }
+//        });
+
         friendListAdapter = new FriendListAdapter();
         mStrList.add("无此用户");
         searchAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mStrList);
@@ -160,7 +298,7 @@ public class FriendListFragment extends baseFragment {
 
                 if (!"无此用户".equals(mStrList.get(0))) {
                     User user = queryfriendList.get(position);
-                    Toast.makeText(context, "打开用户介绍", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "打开用户介绍", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, UserInfoActivity.class);
                     intent.putExtra("user", user);
                     intent.putExtra("user_type", User.USER_QUERY);
@@ -240,12 +378,19 @@ public class FriendListFragment extends baseFragment {
                 return false;
             }
         });
+        friendlist_search.setOnSearchClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchView.setVisibility(View.GONE);
+            }
+        });
         friendlist_search.setOnCloseListener(new SearchView.OnCloseListener() {
             @Override
             public boolean onClose() {
 //                mStrList.clear();
 //                mStrList.add("无此用户");
 //                lv_friendlist.setAdapter(friendListAdapter);
+                tv_searchView.setVisibility(View.VISIBLE);
                 return false;
             }
         });

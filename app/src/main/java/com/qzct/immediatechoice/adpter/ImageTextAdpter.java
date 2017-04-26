@@ -1,8 +1,9 @@
 package com.qzct.immediatechoice.adpter;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -11,10 +12,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyz.actionsheet.ActionSheet;
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 
@@ -32,12 +35,12 @@ import java.util.List;
 public class ImageTextAdpter extends BaseAdapter {
 
 
-    Activity context;
+    AppCompatActivity context;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
     View v;
 
-    public ImageTextAdpter(Activity context, List<Question> questionList) {
+    public ImageTextAdpter(AppCompatActivity context, List<Question> questionList) {
         this.context = context;
         this.questionList = questionList;
     }
@@ -77,7 +80,7 @@ public class ImageTextAdpter extends BaseAdapter {
         final NumberProgressBar left_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_left_ProgressBar);
         final NumberProgressBar right_ProgressBar = (NumberProgressBar) v.findViewById(R.id.image_text_item_right_ProgressBar);
         left_ProgressBar.setMax(100);
-        right_ProgressBar.setMax(100);
+//        right_ProgressBar.setMax(100);
         left_ProgressBar.setVisibility(View.GONE);
         right_ProgressBar.setVisibility(View.GONE);
         left_ProgressBar.setProgress(0);
@@ -95,11 +98,13 @@ public class ImageTextAdpter extends BaseAdapter {
 
         tv_question.setText(i.getQuestion_content());
 //        image_text_item_img_left.setImageUrl(i.getLeft_url());
-        Glide.with(context).load(i.getLeft_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_left);
+        Glide.with(context).load(i.getLeft_url()).into(image_text_item_img_left);
+//        Glide.with(context).load(i.getLeft_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_left);
 
 
         if (i.getPortrait_url() != null) {                                   //设置相应的信息
-            Glide.with(context).load(i.getRight_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_right);
+            Glide.with(context).load(i.getRight_url()).into(image_text_item_img_right);
+//            Glide.with(context).load(i.getRight_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(image_text_item_img_right);
             item_username.setText(i.getQuizzer_name());
 //            ImageOptions.Builder builder = new ImageOptions.Builder();
 //            builder.setCircular(true);
@@ -112,6 +117,55 @@ public class ImageTextAdpter extends BaseAdapter {
         }
         comment_icon.setText(i.getComment_count() + "");
         share_icon.setText(i.getShare_count() + "");
+        share_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+                        .setCancelButtonTitle("取消")
+                        .setOtherButtonTitles("微信好友", "朋友圈", "QQ空间")
+                        .setCancelableOnTouchOutside(true)
+                        .setListener(new ActionSheet.ActionSheetListener() {
+                            @Override
+                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+                                if (isCancel) {
+                                    actionSheet.dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+//                                Toast.makeText(context, "click item index = " + index,
+//                                        Toast.LENGTH_SHORT).show();
+                                switch (index) {
+                                    case 0:
+                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 1:
+                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 2:
+                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                }
+
+                            }
+                        }).show();
+
+            }
+        });
+        comment_icon.setTag(questionList.get(position));
+        comment_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Question question = (Question) v.getTag();
+                MyApplication.isQuestion = true;
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("question", question);
+                context.startActivity(intent);
+            }
+        });
         item_comment.setText(i.getComment());
         System.out.println(i.getLeft_url());
         System.out.println(i.getRight_url());
@@ -132,8 +186,8 @@ public class ImageTextAdpter extends BaseAdapter {
                     public void onSuccess(String result) {
                         if (result != null) {
                             int percent = Integer.parseInt(result);
-                            Toast.makeText(context, "left:" + percent + "%," +
-                                    "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context, "left:" + percent + "%," +
+//                                    "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
                             imageView.setColorFilter(Color.parseColor("#99000000"));
                             image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
                             left_ProgressBar.setVisibility(View.VISIBLE);
@@ -188,8 +242,8 @@ public class ImageTextAdpter extends BaseAdapter {
                     public void onSuccess(String result) {
                         if (result != null) {
                             int percent = Integer.parseInt(result);
-                            Toast.makeText(context, "left:" + (100 - percent) + "%," +
-                                    "right:" + percent + "%", Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context, "left:" + (100 - percent) + "%," +
+//                                    "right:" + percent + "%", Toast.LENGTH_SHORT).show();
                             image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
                             imageView.setColorFilter(Color.parseColor("#99000000"));
                             left_ProgressBar.setVisibility(View.VISIBLE);
@@ -225,6 +279,7 @@ public class ImageTextAdpter extends BaseAdapter {
     public void setProgress(final NumberProgressBar numberProgressBar, final int num) {
 
         final Handler handler = new Handler();
+//        numberProgressBar.setCircleColor();
         numberProgressBar.setProgress(0);
         Runnable runnable = new Runnable() {
             int counter = 0;

@@ -49,8 +49,8 @@
                         android:id="@+id/image_text_item_img_left"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/ic_launcher" />
+                        android:background="@color/gray"
+                        android:scaleType="fitXY" />
 
                     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                         android:id="@+id/view_video_item_left"
@@ -84,7 +84,7 @@
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_left_ProgressBar"
                         style="@style/NumberProgressBar_Funny_Orange"
-                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_gravity="center_vertical|center_horizontal"
                         android:visibility="gone">
 
                     </com.daimajia.numberprogressbar.NumberProgressBar>
@@ -100,8 +100,8 @@
                         android:id="@+id/image_text_item_img_right"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/ic_launcher" />
+                        android:background="@color/gray"
+                        android:scaleType="fitXY" />
 
                     <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
                         android:id="@+id/view_video_item_right"
@@ -135,7 +135,7 @@
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_right_ProgressBar"
                         style="@style/NumberProgressBar_Funny_Orange"
-                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_gravity="center_vertical|center_horizontal"
                         android:visibility="gone">
 
                     </com.daimajia.numberprogressbar.NumberProgressBar>

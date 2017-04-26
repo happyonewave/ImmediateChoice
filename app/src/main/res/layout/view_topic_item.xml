@@ -11,12 +11,14 @@
         android:orientation="vertical"
         android:padding="5dp">
 
+
         <!--android:layout_marginBottom="10dp"-->
 
         <ImageView
             android:id="@+id/view_topic_img"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:background="@drawable/circular_bg"
             android:src="@mipmap/notdata" />
 
         <TextView

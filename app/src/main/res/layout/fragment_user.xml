@@ -6,250 +6,278 @@
     android:orientation="vertical">
 
 
-    <RelativeLayout
-        android:id="@+id/rl_bg"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="4"
-        android:background="@color/apporange">
-
-        <ImageView
-            android:id="@+id/iv_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-        <ImageView
-            android:id="@+id/bt_setting"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/seting"
-            tools:ignore="RtlHardcoded" />
-
-        <ImageView
-            android:id="@+id/iv_userinfo"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:src="@mipmap/message"
-            tools:ignore="RtlHardcoded" />
-
-        <!--<de.hdodenhof.circleimageview.CircleImageView-->
-        <!--android:id="@+id/user_portrait"-->
-        <!--android:layout_width="120dp"-->
-        <!--android:layout_height="120dp"-->
-        <!--android:layout_marginTop="20dp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:src="@mipmap/ic_launcher"/>-->
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
         <LinearLayout
-            android:id="@+id/user_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/user_portrait"
-                android:layout_width="@dimen/userName_bigPortraitSize"
-                android:layout_height="@dimen/userName_bigPortraitSize"
-                android:src="@mipmap/default_portrait" />
-
-            <!--<ImageView-->
-            <!--android:id="@+id/user_portrait"-->
-            <!--android:layout_width="120dp"-->
-            <!--android:layout_height="120dp"-->
-            <!--android:layout_marginTop="20dp"-->
-            <!--android:layout_centerHorizontal="true"-->
-            <!--android:src="@mipmap/default_portrait"/>-->
-            <TextView
-                android:id="@+id/user_tv_username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="@string/username"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/userName_textSize" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_below="@id/user_layout"
-            android:layout_centerInParent="true"
-            android:gravity="center">
-
             <LinearLayout
-                android:id="@+id/user_sign"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="7dp"
+                android:id="@+id/header_layout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:gravity="end"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="match_parent"
-                    android:src="@mipmap/sign" />
-
-                <TextView
+                <RelativeLayout
+                    android:id="@+id/rl_bg"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center"
-                    android:text="签到"
-                    android:textColor="@android:color/white" />
+                    android:layout_height="200dp"
+                    android:background="@color/apporange">
+
+
+                    <ImageView
+                        android:id="@+id/iv_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent">
+
+                        <ImageView
+                            android:id="@+id/bt_setting"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@mipmap/seting" />
+
+                        <ImageView
+                            android:id="@+id/iv_userinfo"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:src="@mipmap/message" />
+                    </RelativeLayout>
+
+                    <!--<de.hdodenhof.circleimageview.CircleImageView-->
+                    <!--android:id="@+id/user_portrait"-->
+                    <!--android:layout_width="120dp"-->
+                    <!--android:layout_height="120dp"-->
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:layout_centerHorizontal="true"-->
+                    <!--android:src="@mipmap/ic_launcher"/>-->
+
+                    <LinearLayout
+                        android:id="@+id/user_layout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/user_portrait"
+                            android:layout_width="@dimen/userName_bigPortraitSize"
+                            android:layout_height="@dimen/userName_bigPortraitSize"
+                            android:src="@mipmap/default_portrait" />
+
+                        <!--<ImageView-->
+                        <!--android:id="@+id/user_portrait"-->
+                        <!--android:layout_width="120dp"-->
+                        <!--android:layout_height="120dp"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:layout_centerHorizontal="true"-->
+                        <!--android:src="@mipmap/default_portrait"/>-->
+                        <TextView
+                            android:id="@+id/user_tv_username"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="5dp"
+                            android:text="@string/username"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/userName_textSize" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/user_layout"
+                        android:layout_centerInParent="true"
+                        android:gravity="center">
+
+                        <LinearLayout
+                            android:id="@+id/user_sign"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="7dp"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="match_parent"
+                                android:src="@mipmap/sign" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center"
+                                android:text="签到"
+                                android:textColor="@android:color/white" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/user_wallet"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="7dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:src="@mipmap/wallet" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="5dp"
+                                android:gravity="center"
+                                android:text="钱包"
+                                android:textColor="@android:color/white" />
+                        </LinearLayout>
+
+                        <!--<LinearLayout-->
+                        <!--android:id="@+id/user_questionnaire"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="7dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                        <!--android:layout_width="20dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:src="@mipmap/sign" />-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="5dp"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="问卷"-->
+                        <!--android:textColor="@android:color/white" />-->
+                        <!--</LinearLayout>-->
+
+                        <!--<LinearLayout-->
+                        <!--android:id="@+id/user_data"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="7dp"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<ImageView-->
+                        <!--android:layout_width="20dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:src="@mipmap/sign" />-->
+
+                        <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:layout_marginLeft="5dp"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="数据"-->
+                        <!--android:textColor="@android:color/white" />-->
+                        <!--</LinearLayout>-->
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:src="@mipmap/post" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/my_post"
+                            android:textColor="@color/apporange"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <!--<RelativeLayout -->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="0dp"-->
+                <!--android:layout_weight="1"-->
+                <!--&gt;-->
+                <!--<EditText -->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:id="@+id/et_chat"-->
+                <!--/>-->
+                <!--<Button -->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:text="发送"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--/>-->
+                <!---->
+                <!--</RelativeLayout>-->
             </LinearLayout>
 
 
             <LinearLayout
-                android:id="@+id/user_wallet"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="20dp"
+                <Button
+                    android:id="@+id/hint_mypush"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@mipmap/wallet" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
+                    android:background="@android:color/transparent"
+                    android:drawableTop="@mipmap/notdata"
                     android:gravity="center"
-                    android:text="钱包"
-                    android:textColor="@android:color/white" />
+                    android:text="请登入后查看"
+                    android:textColor="#900000ff"
+                    android:textSize="18sp" />
+
+                <com.qzct.immediatechoice.util.ScrollableGridView
+                    android:id="@+id/gv_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:numColumns="auto_fit" />
             </LinearLayout>
-
-            <!--<LinearLayout-->
-            <!--android:id="@+id/user_questionnaire"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="7dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<ImageView-->
-            <!--android:layout_width="20dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:src="@mipmap/sign" />-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="5dp"-->
-            <!--android:gravity="center"-->
-            <!--android:text="问卷"-->
-            <!--android:textColor="@android:color/white" />-->
-            <!--</LinearLayout>-->
-
-            <!--<LinearLayout-->
-            <!--android:id="@+id/user_data"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="7dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:orientation="horizontal">-->
-
-            <!--<ImageView-->
-            <!--android:layout_width="20dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center"-->
-            <!--android:src="@mipmap/sign" />-->
-
-            <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:layout_marginLeft="5dp"-->
-            <!--android:gravity="center"-->
-            <!--android:text="数据"-->
-            <!--android:textColor="@android:color/white" />-->
-            <!--</LinearLayout>-->
-
-
         </LinearLayout>
 
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/post" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="@string/my_post"
-                android:textColor="@android:color/black"
-                android:textSize="15dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/hint_mypush"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:drawableTop="@mipmap/notdata"
-                android:gravity="center"
-                android:text="请登入后查看"
-                android:textColor="#900000ff"
-                android:textSize="18dp"></Button>
-        </LinearLayout>
-
-        <GridView
-            android:id="@+id/gv_user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:numColumns="auto_fit"></GridView>
-
-    </LinearLayout>
-    <!--<RelativeLayout -->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="0dp"-->
-    <!--android:layout_weight="1"-->
-    <!--&gt;-->
-    <!--<EditText -->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:id="@+id/et_chat"-->
-    <!--/>-->
-    <!--<Button -->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="match_parent"-->
-    <!--android:text="发送"-->
-    <!--android:layout_alignParentRight="true"-->
-    <!--/>-->
-    <!---->
-    <!--</RelativeLayout>-->
+    </ScrollView>
 </LinearLayout>

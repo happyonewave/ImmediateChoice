@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.pager;
 
 import android.app.Activity;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,7 @@ public class AttentionPager extends BasePager {
     private List<Topic> topicList;
 
 
-    public AttentionPager(Activity context) {
+    public AttentionPager(AppCompatActivity context) {
         super(context);
     }
 

@@ -25,27 +25,34 @@
         android:text="好友"
         android:textSize="20sp" />
 
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/group_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    </android.support.v7.widget.AppCompatSpinner>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <RadioButton
-            android:id="@+id/choice_group"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
-            android:button="@android:color/transparent"
-            android:drawableLeft="@drawable/bt_sex_bg"
-            android:gravity="center_vertical"
-            android:spinnerMode="dropdown"
-            android:text="部分好友"
-            android:textSize="20sp"></RadioButton>
+        <!--<RadioButton-->
+            <!--android:id="@+id/choice_group"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:button="@android:color/transparent"-->
+            <!--android:drawableLeft="@drawable/bt_sex_bg"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:spinnerMode="dropdown"-->
+            <!--android:text="部分好友"-->
+            <!--android:textSize="20sp"></RadioButton>-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:text="v" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="v" />-->
 
     </RelativeLayout>
 

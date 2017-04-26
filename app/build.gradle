@@ -140,4 +140,10 @@ dependencies {
     //多dex
     //    compile 'com.google.android:multidex:0.1'
 //    compile files('libs/jrmf-sdk-android.jar')
+    //ActionSheet
+    compile 'com.baoyz.actionsheet:library:1.1.7'
+//一个图片加载进度控件
+    compile 'ch.halcyon:squareprogressbar:1.6.1'
+//    Item侧滑菜单listView
+    compile 'com.baoyz.swipemenulistview:library:1.3.0'
 }

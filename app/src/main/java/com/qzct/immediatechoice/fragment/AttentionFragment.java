@@ -19,6 +19,7 @@ import com.qzct.immediatechoice.activity.TopicActivity;
 import com.qzct.immediatechoice.adpter.TopicAdpter;
 import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.ScrollableGridView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -37,7 +38,7 @@ import java.util.List;
  */
 public class AttentionFragment extends baseFragment {
 
-    ListView lv_home_attention;
+    ScrollableGridView lv_home_attention;
     private List<Topic> topicList;
     private View v;
 
@@ -45,24 +46,26 @@ public class AttentionFragment extends baseFragment {
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
         v = inflater.inflate(R.layout.view_attention, null);
-        lv_home_attention = (ListView) v.findViewById(R.id.lv_home_attention);
+        lv_home_attention = (ScrollableGridView) v.findViewById(R.id.lv_home_attention);
         return v;
     }
 
     @Override
     public void initData() {
-        TextView v = new TextView(context);
-        v.setText("关注的话题");
-        v.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
-        v.setWidth(context.getWindowManager().getDefaultDisplay().getWidth());
-        lv_home_attention.addHeaderView(v);
+//        TextView tv = (TextView) v.findViewById(R.id.tv);
+//        tv.setVisibility(View.VISIBLE);
+//        TextView v = new TextView(context);
+//        tv.setText("关注的话题");
+//        tv.setTextAlignment(View.TEXT_ALIGNMENT_TEXT_START);
+//        tv.setWidth(context.getWindowManager().getDefaultDisplay().getWidth());
+//        lv_home_attention.addHeaderView(tv);
         getAttentionTopic();
         lv_home_attention.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(context, TopicActivity.class);
-                intent.putExtra("topic_info", topicList.get(position - 1).toStringArray());
-                Log.d("qin1", "topic_info" + topicList.get(position - 1).toStringArray()[1]);
+                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+                Log.d("qin1", "topic_info" + topicList.get(position).toStringArray()[1]);
                 context.startActivity(intent);
             }
         });

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,14 +35,14 @@ import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
 public abstract class baseFragment extends Fragment {
-    Activity context;
+    AppCompatActivity context;
     MyApplication myApplication;
     public int current_page;
     String TAG = "qin";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        context = getActivity();
+        context = (AppCompatActivity) getActivity();
         myApplication = (MyApplication) context.getApplication();
         super.onCreate(savedInstanceState);
     }

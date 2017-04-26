@@ -11,11 +11,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.util.GlideRoundTransform;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -43,7 +47,7 @@ public class UserAdpter extends BaseAdapter {
         Log.i("now", "getView");
         Question question = questionList.get(position);
         if (convertView == null) {
-            v = v.inflate(context, R.layout.fragment_user_item, null);
+            v = View.inflate(context, R.layout.fragment_user_item, null);
             System.out.println("调用：" + position);
         } else {
             v = convertView;
@@ -64,8 +68,8 @@ public class UserAdpter extends BaseAdapter {
             setRightThumbImageTask.execute();
             return v;
         }
-        Glide.with(context).load(question.getLeft_url()).into(user_item_img_left);
-        Glide.with(context).load(question.getRight_url()).into(user_item_img_right);
+        Glide.with(context).load(question.getLeft_url()).bitmapTransform(new GlideRoundTransform(context, 5)).into(user_item_img_left);
+        Glide.with(context).load(question.getRight_url()).bitmapTransform(new GlideRoundTransform(context, 5)).into(user_item_img_right);
         return v;
     }
 
@@ -100,7 +104,11 @@ public class UserAdpter extends BaseAdapter {
 //                if (imageView.getWidth() > 0) {
 //                    mBitmap = Bitmap.createScaledBitmap(videoThumbnail, imageView.getWidth(), imageView.getHeight(), true);
 //                }
-                imageView.setImageBitmap(mBitmap);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                mBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] bytes = baos.toByteArray();
+                Glide.with(context.getApplicationContext()).load(bytes).bitmapTransform(new GlideRoundTransform(context, 20)).into(imageView);
+//                imageView.setImageBitmap(mBitmap);
             }
         }
     }

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
@@ -242,6 +243,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 if (!MyApplication.logined) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
 //                    change = false;
                     return;
                 }
@@ -252,6 +254,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
                 if (!MyApplication.logined) {
                     Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                     startActivity(intent);
+                    finish();
                     return;
                 }
                 index = 3;

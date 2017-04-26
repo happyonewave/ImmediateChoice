@@ -1,5 +1,6 @@
 package com.qzct.immediatechoice.Application;
 
+import android.content.Context;
 import android.support.multidex.MultiDexApplication;
 
 import com.qzct.immediatechoice.BuildConfig;
@@ -21,6 +22,7 @@ public class MyApplication extends MultiDexApplication {
 
 
     public static User user;
+
     //    public static Question question;
     public static boolean isQuestion = false;
     public static boolean logined = false;

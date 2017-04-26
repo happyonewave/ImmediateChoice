@@ -210,6 +210,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     MyApplication.logined = true;
                     if (user_type == 0) {
                         MyApplication.isQuestionnaireProvider = true;
+                    } else {
+                        MyApplication.isQuestionnaireProvider = false;
                     }
                     //进入主界面
                     Intent intent = new Intent();

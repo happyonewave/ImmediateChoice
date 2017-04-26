@@ -2,6 +2,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -53,8 +54,8 @@
                         android:id="@+id/image_text_item_img_left"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/ic_launcher" />
+                        android:background="@color/gray"
+                        android:scaleType="fitXY" />
 
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/image_text_item_left_ProgressBar"
@@ -73,8 +74,8 @@
                         android:id="@+id/image_text_item_img_right"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scaleType="fitXY"
-                        android:src="@mipmap/ic_launcher" />
+                        android:background="@color/gray"
+                        android:scaleType="fitXY" />
 
                     <!--<ProgressBar-->
                     <!--android:id="@+id/image_text_item_right_ProgressBar"-->
@@ -89,6 +90,11 @@
                         android:layout_gravity="center_vertical|center_horizontal">
 
                     </com.daimajia.numberprogressbar.NumberProgressBar>
+
+                    <!--<com.qzct.immediatechoice.util.ZYDownloading-->
+                    <!--android:id="@+id/image_text_item_right_ProgressBar"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" />-->
 
                 </FrameLayout>
 

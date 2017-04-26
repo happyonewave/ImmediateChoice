@@ -1,12 +1,15 @@
 package com.qzct.immediatechoice.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatSpinner;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -35,10 +38,16 @@ import java.util.List;
 
 public class ChoiceGroupActivity extends AppCompatActivity {
     private List<GroupInfo> groupInfoList;
-    private List<List<User>> membersList;
-    private ListView lv_group;
-    private RadioButton choice_group;
+    private List<List<User>> membersList = new ArrayList<List<User>>();
+    //    private ListView lv_group;
+//    private RadioButton choice_group;
     private List<String> groupIdList = new ArrayList<String>();
+    private AppCompatSpinner group_spinner;
+    private TextView look_all;
+    private Context context = this;
+    private ArrayAdapter<String> adapter;
+    private List<String> mStrList = new ArrayList<String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +60,10 @@ public class ChoiceGroupActivity extends AppCompatActivity {
 
 
     private void initView() {
-        choice_group = (RadioButton) findViewById(R.id.choice_group);
-        lv_group = (ListView) findViewById(R.id.lv_group);
+//        choice_group = (RadioButton) findViewById(R.id.choice_group);
+//        lv_group = (ListView) findViewById(R.id.lv_group);
+        group_spinner = (AppCompatSpinner) findViewById(R.id.group_spinner);
+        look_all = (TextView) findViewById(R.id.look_all);
 
     }
 
@@ -62,15 +73,48 @@ public class ChoiceGroupActivity extends AppCompatActivity {
 //        setResult(RESULT_OK, intent);
         Button new_group = new Button(getApplicationContext());
         new_group.setText("新建");
-        choice_group.setOnClickListener(new View.OnClickListener() {
+//        choice_group.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (lv_group.getVisibility() == View.VISIBLE) {
+//                    lv_group.setVisibility(View.GONE);
+//                } else {
+//                    lv_group.setVisibility(View.VISIBLE);
+//
+//                }
+//            }
+//        });
+        look_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (lv_group.getVisibility() == View.VISIBLE) {
-                    lv_group.setVisibility(View.GONE);
-                } else {
-                    lv_group.setVisibility(View.VISIBLE);
+                finish();
+            }
+        });
+        mStrList.add("部分可见");
+        adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mStrList);
+        group_spinner.setAdapter(adapter);
+        group_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position != 0 && position != mStrList.size() - 1) {
+                    Intent intent = new Intent(ChoiceGroupActivity.this, PushActivity.class);
+                    intent.putExtra("group_id", groupInfoList.get(position - 1).getGroup_id());
+//                intent.putExtra("group_id", groupInfoList.get(position - 1).getGroup_id());
+                    setResult(RESULT_OK, intent);
+                    finish();
+                    return;
+//                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
+//                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
+                }
+                if (position == parent.getChildCount() - 1) {
 
                 }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
         new_group.setOnClickListener(new View.OnClickListener() {
@@ -81,19 +125,19 @@ public class ChoiceGroupActivity extends AppCompatActivity {
 //                lv_group.addView();
             }
         });
-        lv_group.addHeaderView(new_group);
-        lv_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Intent intent = new Intent(ChoiceGroupActivity.this, PushActivity.class);
-                intent.putExtra("group_id", groupInfoList.get(position - 1).getGroup_id());
-                setResult(RESULT_OK, intent);
-                finish();
-//                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
-//                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
-            }
-        });
+//        lv_group.addHeaderView(new_group);
+//        lv_group.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//                Intent intent = new Intent(ChoiceGroupActivity.this, PushActivity.class);
+//                intent.putExtra("group_id", groupInfoList.get(position - 1).getGroup_id());
+//                setResult(RESULT_OK, intent);
+//                finish();
+////                groupIdList.add(groupInfoList.get(position - 1).getGroup_id() + "");
+////                Log.d("qin", groupInfoList.get(position - 1).getGroup_id() + "");
+//            }
+//        });
         getGroup();
     }
 
@@ -108,13 +152,19 @@ public class ChoiceGroupActivity extends AppCompatActivity {
                     try {
                         JSONArray resultJsonArray = new JSONArray(result);
                         groupInfoList = GroupInfo.tolistFrom(resultJsonArray.optJSONArray(0));
-                        membersList = new ArrayList<List<User>>();
+//                        membersList = new ArrayList<List<User>>();
                         for (int i = 1; i < resultJsonArray.length(); i++) {
                             JSONObject temp = resultJsonArray.optJSONObject(i);
                             List<User> memberList = User.toMemberListFrom(temp.optJSONArray("members"));
                             membersList.add(memberList);
                         }
-                        lv_group.setAdapter(new SpinnerAdapter());
+                        for (int i = 0; i < groupInfoList.size(); i++) {
+                            mStrList.add(groupInfoList.get(i).getName() + "(" + membersList.get(i).size() + ")");
+                        }
+                        mStrList.add("从好友中选择");
+                        adapter.notifyDataSetChanged();
+//                        lv_group.setAdapter(new SpinnerAdapter());
+//                        group_spinner.setAdapter(new SpinnerAdapter());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -165,7 +215,11 @@ public class ChoiceGroupActivity extends AppCompatActivity {
                 v = new TextView(getApplicationContext());
             }
 //            v.setCompoundDrawables(getDrawable(R.drawable.bt_sex_bg), null, null, null);
-            v.setText(groupInfoList.get(position).getName() + " (" + membersList.get(position).size() + ")");
+            if (position == 0) {
+                v.setText("可见群组");
+                return v;
+            }
+            v.setText(groupInfoList.get(position - 1).getName() + " (" + membersList.get(position - 1).size() + ")");
             return v;
         }
     }

@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -42,6 +43,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
 
@@ -70,6 +72,7 @@ public class CircleFragment extends baseFragment implements ZrcListView.OnItemCl
         view = inflater.inflate(R.layout.fragment_circle, null);
         return view;
     }
+
 
     @Override
     public void initData() {

@@ -1,13 +1,18 @@
 package com.qzct.immediatechoice.adpter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.Matrix;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,14 +22,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyz.actionsheet.ActionSheet;
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -46,14 +54,15 @@ import jp.wasabeef.glide.transformations.CropCircleTransformation;
 public class CircleAdpter extends BaseAdapter {
 
 
-    Activity context;
+    AppCompatActivity context;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
+    private float firstX;
 //    View v;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_left;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_right;
 
-    public CircleAdpter(Activity context, List<Question> questionList) {
+    public CircleAdpter(AppCompatActivity context, List<Question> questionList) {
         this.context = context;
         this.questionList = questionList;
     }
@@ -101,6 +110,8 @@ public class CircleAdpter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
             holder.left_ProgressBar.setVisibility(View.GONE);
             holder.right_ProgressBar.setVisibility(View.GONE);
+            holder.image_text_item_img_left.clearColorFilter();
+            holder.image_text_item_img_right.clearColorFilter();
         }
 
 //        v = null;
@@ -128,7 +139,21 @@ public class CircleAdpter extends BaseAdapter {
 //        holder.right_ProgressBar.setVisibility(View.GONE);
 //        holder.left_ProgressBar.setProgress(0);
 //        holder.right_ProgressBar.setProgress(0);
-
+        convertView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Log.d("qin", "onTouch: " + "event:" + event.toString());
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    firstX = event.getX();
+                }
+                if (event.getAction() == MotionEvent.ACTION_MOVE) {
+                    if (event.getX() < firstX - 100) {
+                        new FriendFragment().vp_friend.setCurrentItem(1);
+                    }
+                }
+                return true;
+            }
+        });
         final Question i = questionList.get(position);                                    //拿到一个Question对象
         if (i.getLeft_url().contains("/image/")) {
             holder.view_item_img_layout.setOrientation(LinearLayout.HORIZONTAL);
@@ -141,12 +166,16 @@ public class CircleAdpter extends BaseAdapter {
             holder.image_text_item_img_left.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    holder.image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
+                    holder.image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
                     likeThis(holder, "left", i.getQuestion_id());
                 }
             });
             holder.image_text_item_img_right.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    holder.image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
+                    holder.image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
                     likeThis(holder, "right", i.getQuestion_id());
                 }
             });
@@ -175,6 +204,54 @@ public class CircleAdpter extends BaseAdapter {
         holder.comment_icon.setText(i.getComment_count() + "");
         holder.share_icon.setText(i.getShare_count() + "");
         holder.item_comment.setText(i.getComment());
+        holder.share_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+                        .setCancelButtonTitle("取消")
+                        .setOtherButtonTitles("微信好友", "朋友圈", "QQ空间")
+                        .setCancelableOnTouchOutside(true)
+                        .setListener(new ActionSheet.ActionSheetListener() {
+                            @Override
+                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+                                if (isCancel) {
+                                    actionSheet.dismiss();
+                                }
+                            }
+
+                            @Override
+                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+//                                Toast.makeText(context, "click item index = " + index,
+//                                        Toast.LENGTH_SHORT).show();
+                                switch (index) {
+                                    case 0:
+                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 1:
+                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+                                        break;
+                                    case 2:
+                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+                                        break;
+
+                                }
+
+                            }
+                        }).show();
+            }
+        });
+        holder.comment_icon.setTag(questionList.get(position));
+        holder.comment_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Question question = (Question) v.getTag();
+                MyApplication.isQuestion = true;
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("question", question);
+                context.startActivity(intent);
+            }
+        });
         holder.tpv_left.setOnThumbUp(new ThumbUpView.OnThumbUp() {
             @Override
             public void like(boolean like) {
@@ -324,7 +401,6 @@ public class CircleAdpter extends BaseAdapter {
         entity.addBodyParameter("question_id", question_id + "");
         entity.addBodyParameter("user_id",
                 String.valueOf(MyApplication.user.getUser_id()));
-
         entity.addBodyParameter("left_or_right", type);
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
@@ -334,13 +410,13 @@ public class CircleAdpter extends BaseAdapter {
                     holder.left_ProgressBar.setVisibility(View.VISIBLE);
                     holder.right_ProgressBar.setVisibility(View.VISIBLE);
                     if ("left".equals(type)) {
-                        Toast.makeText(context, "left:" + percent + "%," +
-                                "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "left:" + percent + "%," +
+//                                "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
                         setProgress(holder.left_ProgressBar, percent);
                         setProgress(holder.right_ProgressBar, 100 - percent);
                     } else {
-                        Toast.makeText(context, "left:" + (100 - percent) + "%," +
-                                "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(context, "left:" + (100 - percent) + "%," +
+//                                "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
                         setProgress(holder.left_ProgressBar, 100 - percent);
                         setProgress(holder.right_ProgressBar, percent);
                     }

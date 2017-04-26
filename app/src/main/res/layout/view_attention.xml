@@ -4,12 +4,40 @@
     android:id="@+id/home_attention_refreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <ListView
-        android:id="@+id/lv_home_attention"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </ListView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@drawable/attention_circular_bg"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="关注的话题"
+                android:textColor="@color/apporange"
+                android:textSize="20dp" />
+
+            <com.qzct.immediatechoice.util.ScrollableGridView
+                android:id="@+id/lv_home_attention"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="2"
+                android:scrollbars="none"
+                android:divider="@null">
+
+            </com.qzct.immediatechoice.util.ScrollableGridView>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

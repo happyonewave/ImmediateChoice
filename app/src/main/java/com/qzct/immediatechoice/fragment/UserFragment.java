@@ -1,13 +1,11 @@
 package com.qzct.immediatechoice.fragment;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -21,19 +19,16 @@ import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.ConversationListActivity;
-import com.qzct.immediatechoice.activity.DataActivity;
 import com.qzct.immediatechoice.activity.GradeActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.PushQuestionnaireActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
-import com.qzct.immediatechoice.activity.QuestionnaireInfoActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.HintPopupWindow;
 import com.qzct.immediatechoice.util.Service;
 
 import org.json.JSONArray;
@@ -59,7 +54,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private ImageView blurImageView;
     private ImageView user_portrait;
     private ImageView bt_setting;
-    private LinearLayout hint_mypush;
+    private Button hint_mypush;
     private ImageView iv_userinfo;
     private LinearLayout user_sign;
     private LinearLayout user_wallet;
@@ -79,7 +74,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         lv = (GridView) v.findViewById(R.id.gv_user);
         bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
         iv_userinfo = (ImageView) v.findViewById(R.id.iv_userinfo);
-        hint_mypush = (LinearLayout) v.findViewById(R.id.hint_mypush);
+        hint_mypush = (Button) v.findViewById(R.id.hint_mypush);
         user_sign = (LinearLayout) v.findViewById(R.id.user_sign);
         user_wallet = (LinearLayout) v.findViewById(R.id.user_wallet);
 //        user_questionnaire = (LinearLayout) v.findViewById(R.id.user_questionnaire);
@@ -192,10 +187,6 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-                Log.i("空1", context.toString());
-
-                Log.i("空2", lv.toString());
                 //设置适配器
                 lv.setAdapter(new UserAdpter(context, questionList));
             }

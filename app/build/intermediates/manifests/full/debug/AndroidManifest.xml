@@ -121,6 +121,13 @@
             <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             <!-- </intent-filter> -->
         </activity>
+        <activity android:name="com.qzct.immediatechoice.activity.SplashActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.qzct.immediatechoice.test.TestActivity" >
 
             <!-- <intent-filter> -->
@@ -169,13 +176,6 @@
             </intent-filter>
         </activity>
         <activity android:name="com.qzct.immediatechoice.activity.YWRecordVideoActivity" />
-        <activity android:name="com.qzct.immediatechoice.activity.SplashActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name="com.qzct.immediatechoice.activity.TopicActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.UserInfoActivity" />
         <activity android:name="com.qzct.immediatechoice.activity.SimpleScannerActivity" />

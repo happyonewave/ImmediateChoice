@@ -4,10 +4,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/boder"
+        android:padding="5dp">
 
-    <ListView
+        <android.support.v7.widget.SearchView
+            android:id="@+id/friendlist_search"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+        </android.support.v7.widget.SearchView>
+
+        <TextView
+            android:id="@+id/tv_searchView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="5sp"
+            android:text="请输入好友ID"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
         android:id="@+id/lv_friend_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

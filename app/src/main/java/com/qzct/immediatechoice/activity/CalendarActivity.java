@@ -112,14 +112,14 @@ public class CalendarActivity extends AppCompatActivity {
                             String num = (String) buttonView.getTag(R.id.tag_num);
                             int questionnaire_question_id = (int) buttonView.getTag(R.id.tag_questionnaire_question_id);
                             if (isChecked) {
-                                Toast.makeText(CalendarActivity.this, "选择了questionnaire_question_id:   " + questionnaire_question_id + "num:   " + num, Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(CalendarActivity.this, "选择了questionnaire_question_id:   " + questionnaire_question_id + "num:   " + num, Toast.LENGTH_SHORT).show();
                                 Questionnaire.Choice choice = new Questionnaire.Choice(num, MyApplication.user.getUser_id(), questionnaire_question_id);
                                 choiceList.add(choice);
                             } else {
                                 for (Choice choice : choiceList) {
                                     if (choice.getQuestionnaire_question_id() == questionnaire_question_id && num.equals(choice.getNum())) {
                                         choiceList.remove(choice);
-                                        Toast.makeText(CalendarActivity.this, "移除了questionnaire_question_id:   " + questionnaire_question_id + "num:   " + num, Toast.LENGTH_SHORT).show();
+//                                        Toast.makeText(CalendarActivity.this, "移除了questionnaire_question_id:   " + questionnaire_question_id + "num:   " + num, Toast.LENGTH_SHORT).show();
                                         break;
                                     }
                                 }
@@ -210,12 +210,12 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void dateOnClick(Day day, int position) {
-                Toast.makeText(CalendarActivity.this, "点击了" + day.getDate(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CalendarActivity.this, "点击了" + day.getDate(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void dateOnLongClick(Day day, int position) {
-                Toast.makeText(CalendarActivity.this, "长按了" + day.getDate(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(CalendarActivity.this, "长按了" + day.getDate(), Toast.LENGTH_SHORT).show();
             }
         });
 //        calendar.setVisibility(View.VISIBLE);

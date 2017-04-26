@@ -9,6 +9,10 @@
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="match_parent" />-->
 
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.baoyz.swipemenulistview.SwipeMenuListView>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,17 +24,17 @@
         android:layout_height="200dp"
         android:orientation="horizontal">
 
-        <WebView
-            android:id="@+id/webView1"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"></WebView>
+        <!--<WebView-->
+            <!--android:id="@+id/webView1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"></WebView>-->
 
-        <WebView
-            android:id="@+id/webView2"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"></WebView>
+        <!--<WebView-->
+            <!--android:id="@+id/webView2"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"></WebView>-->
     </LinearLayout>
 
 </LinearLayout>

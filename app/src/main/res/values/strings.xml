@@ -43,7 +43,7 @@
     <string name="push_location">发布位置</string>
     <string name="push_topic">选择话题</string>
     <string name="push_timing">定时选择</string>
-    <string name="fill_tel">输入手机号</string>
+    <string name="fill_tel">输入邮箱地址</string>
     <string name="fill_verification_code">输入验证码</string>
     <string name="set_password">设置密码</string>
     <string name="fill_tel_hint">请输入你的邮箱账号</string>

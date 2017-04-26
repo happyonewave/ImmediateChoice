@@ -54,8 +54,8 @@ public class DataActivity extends Activity {
         }
         data_wv1.getSettings().setJavaScriptEnabled(true);
 //        data_wv2.getSettings().setJavaScriptEnabled(true);
-//        data_wv1.loadUrl("file:///android_asset/index.html");
-        data_wv1.loadUrl(Config.url_chart + "showData.html");
+        data_wv1.loadUrl("file:///android_asset/showData.html");
+//        data_wv1.loadUrl(Config.url_chart + "showData.html");
         final int questionnaire_question_id = questionEntity.getQuestionnaire_question_id();
         Log.d("qin", "questionnaire_question_id: " + questionnaire_question_id);
         WebViewClient client = new WebViewClient() {

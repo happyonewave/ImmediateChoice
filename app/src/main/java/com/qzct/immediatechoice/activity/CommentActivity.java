@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -126,6 +127,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //                .setFailureDrawableId(R.mipmap.default_portrait).build();
 //        x.image().bind(item_portrait, question.getPortrait_url(), options);
         Glide.with(CommentActivity.this).load(question.getPortrait_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(item_portrait);
+        item_portrait.setOnClickListener(this);
         comment_icon.setText(question.getComment_count() + "");
         share_icon.setText(question.getShare_count() + "");
         question_id = question.getQuestion_id();
@@ -243,7 +245,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
             if (val == 66816) {//全屏
 //                gsyVideoPlayer_left.clearFullscreenLayout();
 //                gsyVideoPlayer_right.clearFullscreenLayout();
-                Toast.makeText(this, "退出全屏", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(this, "退出全屏", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -344,6 +346,11 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
             case R.id.top_back:
                 finish();
+                break;
+
+            case R.id.item_portrait:
+//                Intent intent = new Intent(context, UserInfoActivity.class);
+//                intent.putExtra()
                 break;
 
             default:

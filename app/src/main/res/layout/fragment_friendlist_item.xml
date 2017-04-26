@@ -21,6 +21,7 @@
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@+id/friend_portrait"
         android:text="name"
+        android:textColor="@color/apporange"
         android:textSize="@dimen/userName_textSize"/>
 
     <Button

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -57,7 +58,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
     private MKLoader loader;
 
 
-    public VideoPager(Activity context) {
+    public VideoPager(AppCompatActivity context) {
         super(context);
     }
 

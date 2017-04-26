@@ -11,10 +11,10 @@
 
     </net.lucode.hackware.magicindicator.MagicIndicator>
 
-    <android.support.v4.view.ViewPager
+    <com.qzct.immediatechoice.util.NoScrollViewPager
         android:id="@+id/vp_friend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-    </android.support.v4.view.ViewPager>
+    </com.qzct.immediatechoice.util.NoScrollViewPager>
 </LinearLayout>

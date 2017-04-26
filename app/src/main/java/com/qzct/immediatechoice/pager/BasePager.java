@@ -3,6 +3,7 @@ package com.qzct.immediatechoice.pager;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -19,11 +20,11 @@ import zrc.widget.ZrcListView;
 
 public abstract class BasePager {
 
-    public Activity context;
+    public AppCompatActivity context;
     public View view;
     public LayoutInflater inflater;
 
-    public BasePager(Activity context) {
+    public BasePager(AppCompatActivity context) {
         this.context = context;
         inflater = LayoutInflater.from(context);
         view = initView();

@@ -43,7 +43,7 @@ public class ConversationActivity extends FragmentActivity {
         tv_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ConversationActivity.this, "打开用户介绍", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(ConversationActivity.this, "打开用户介绍", Toast.LENGTH_SHORT).show();
                 User user = null;
                 for (User temp : MyApplication.userList) {
                     if (temp.getUser_id() == Integer.parseInt(targetId)) {

@@ -65,6 +65,9 @@ MERGED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidS
 MERGED from [io.reactivex:rxandroid:1.2.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\io.reactivex\rxandroid\1.2.1\AndroidManifest.xml:19:5-43
 MERGED from [com.github.MorochoRochaDarwin:OneCalendarView:3.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.MorochoRochaDarwin\OneCalendarView\3.1.1\AndroidManifest.xml:7:5-9:41
 MERGED from [ImmediateChoice:RedPacket:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\RedPacket\unspecified\AndroidManifest.xml:7:5-9:41
+MERGED from [com.baoyz.actionsheet:library:1.1.7] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.baoyz.actionsheet\library\1.1.7\AndroidManifest.xml:7:5-9:41
+MERGED from [ch.halcyon:squareprogressbar:1.6.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ch.halcyon\squareprogressbar\1.6.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.baoyz.swipemenulistview:library:1.3.0] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.baoyz.swipemenulistview\library\1.3.0\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\AndroidManifest.xml:23:9-75
 	android:targetSdkVersion
@@ -254,6 +257,7 @@ MERGED from [me.dm7.barcodescanner:core:1.9.1] C:\Users\tsh2\AndroidStudioProjec
 MERGED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:11:5-15:19
 MERGED from [com.github.MorochoRochaDarwin:OneCalendarView:3.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.MorochoRochaDarwin\OneCalendarView\3.1.1\AndroidManifest.xml:11:5-15:19
 MERGED from [ImmediateChoice:RedPacket:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\RedPacket\unspecified\AndroidManifest.xml:19:5-80:19
+MERGED from [ch.halcyon:squareprogressbar:1.6.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ch.halcyon\squareprogressbar\1.6.1\AndroidManifest.xml:11:5-14:19
 	android:label
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:88:9-41
 		REJECTED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:13:9-41
@@ -265,6 +269,7 @@ MERGED from [ImmediateChoice:RedPacket:unspecified] C:\Users\tsh2\AndroidStudioP
 		REJECTED from [com.ldoublem.thumbUplib:ThumbUplib:0.5] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.ldoublem.thumbUplib\ThumbUplib\0.5\AndroidManifest.xml:13:9-41
 		REJECTED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:13:9-41
 		REJECTED from [com.github.MorochoRochaDarwin:OneCalendarView:3.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.MorochoRochaDarwin\OneCalendarView\3.1.1\AndroidManifest.xml:13:9-41
+		REJECTED from [ch.halcyon:squareprogressbar:1.6.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ch.halcyon\squareprogressbar\1.6.1\AndroidManifest.xml:13:9-41
 	android:supportsRtl
 		ADDED from [com.lcodecorex:tkrefreshlayout:1.0.4] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.lcodecorex\tkrefreshlayout\1.0.4\AndroidManifest.xml:14:9-35
 	android:allowBackup
@@ -279,6 +284,7 @@ MERGED from [ImmediateChoice:RedPacket:unspecified] C:\Users\tsh2\AndroidStudioP
 		REJECTED from [ImmediateChoice:YunWangVideoSDK:unspecified] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ImmediateChoice\YunWangVideoSDK\unspecified\AndroidManifest.xml:26:9-36
 		REJECTED from [com.github.nanchen2251:CompressHelper:1.0.2] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.nanchen2251\CompressHelper\1.0.2\AndroidManifest.xml:12:9-35
 		REJECTED from [com.github.MorochoRochaDarwin:OneCalendarView:3.1.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\com.github.MorochoRochaDarwin\OneCalendarView\3.1.1\AndroidManifest.xml:12:9-35
+		REJECTED from [ch.halcyon:squareprogressbar:1.6.1] C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\build\intermediates\exploded-aar\ch.halcyon\squareprogressbar\1.6.1\AndroidManifest.xml:12:9-35
 	android:icon
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:87:9-43
 	android:theme
@@ -300,78 +306,78 @@ ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\Andr
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:102:13-45
 	android:name
 		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:101:13-51
-activity#com.qzct.immediatechoice.test.TestActivity
+activity#com.qzct.immediatechoice.activity.SplashActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:109:9-115:20
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:109:19-52
-activity#com.qzct.immediatechoice.activity.SettingActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:116:9-62
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:116:19-59
-activity#com.qzct.immediatechoice.activity.PushActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:117:9-123:20
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:117:19-56
-activity#com.qzct.immediatechoice.activity.PushQuestionnaireActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:9-72
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:19-69
-activity#com.qzct.immediatechoice.activity.RegisterActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:125:9-63
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:125:19-60
-activity#com.qzct.immediatechoice.activity.CommentActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:126:9-62
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:126:19-59
-activity#com.qzct.immediatechoice.activity.ChoiceGroupActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:127:9-66
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:127:19-63
-activity#com.qzct.immediatechoice.activity.ConversationActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:128:9-140:20
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:128:19-64
-intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:130:13-138:29
-action#android.intent.action.VIEW
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:131:17-69
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:131:25-66
-category#android.intent.category.DEFAULT
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:132:17-76
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:132:27-73
-data
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:134:17-137:45
-	android:host
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:135:21-60
-	android:scheme
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:137:21-42
-	android:pathPrefix
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:136:21-56
-activity#com.qzct.immediatechoice.activity.SubConversationListActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:141:9-150:20
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:141:19-71
-activity#com.qzct.immediatechoice.activity.YWRecordVideoActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:151:9-68
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:151:19-65
-activity#com.qzct.immediatechoice.activity.SplashActivity
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:152:9-158:20
-	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:152:19-58
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:109:19-58
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:153:13-157:29
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:110:13-114:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:17-69
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:111:17-69
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:154:25-66
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:111:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:17-77
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:113:17-77
 	android:name
-		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:156:27-74
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:113:27-74
+activity#com.qzct.immediatechoice.test.TestActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:116:9-122:20
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:116:19-52
+activity#com.qzct.immediatechoice.activity.SettingActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:123:9-62
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:123:19-59
+activity#com.qzct.immediatechoice.activity.PushActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:9-130:20
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:124:19-56
+activity#com.qzct.immediatechoice.activity.PushQuestionnaireActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:131:9-72
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:131:19-69
+activity#com.qzct.immediatechoice.activity.RegisterActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:132:9-63
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:132:19-60
+activity#com.qzct.immediatechoice.activity.CommentActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:133:9-62
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:133:19-59
+activity#com.qzct.immediatechoice.activity.ChoiceGroupActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:134:9-66
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:134:19-63
+activity#com.qzct.immediatechoice.activity.ConversationActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:135:9-147:20
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:135:19-64
+intent-filter#android.intent.action.VIEW+android.intent.category.DEFAULT
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:137:13-145:29
+action#android.intent.action.VIEW
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:138:17-69
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:138:25-66
+category#android.intent.category.DEFAULT
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:139:17-76
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:139:27-73
+data
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:141:17-144:45
+	android:host
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:142:21-60
+	android:scheme
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:144:21-42
+	android:pathPrefix
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:143:21-56
+activity#com.qzct.immediatechoice.activity.SubConversationListActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:148:9-157:20
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:148:19-71
+activity#com.qzct.immediatechoice.activity.YWRecordVideoActivity
+ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:158:9-68
+	android:name
+		ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:158:19-65
 activity#com.qzct.immediatechoice.activity.TopicActivity
 ADDED from C:\Users\tsh2\AndroidStudioProjects\ImmediateChoice\app\src\main\AndroidManifest.xml:159:9-60
 	android:name

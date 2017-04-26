@@ -127,7 +127,7 @@ public class TopicActivity extends Activity implements View.OnClickListener {
 
             @Override
             public void onFinished() {
-                Toast.makeText(TopicActivity.this, "话题请求完成", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(TopicActivity.this, "话题请求完成", Toast.LENGTH_SHORT).show();
             }
         });
     }
