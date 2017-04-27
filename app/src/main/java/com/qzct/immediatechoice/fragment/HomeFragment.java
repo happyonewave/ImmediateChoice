@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -59,6 +60,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private View home_search;
     private QuestionFragment questionFragment;
     private View shade;
+    private ImageView searchButton;
 
     /**
      * 填充view
@@ -123,6 +125,8 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
             }
         });
         home_title = (LinearLayout) v.findViewById(R.id.home_title);
+        searchButton = (ImageView) home_search.findViewById(R.id.search_button);
+
         return v;
     }
 
@@ -131,6 +135,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      */
     @Override
     public void initData() {
+        searchButton.setImageResource(R.mipmap.search);
         home_calendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

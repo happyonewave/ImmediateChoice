@@ -19,7 +19,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baoyz.actionsheet.ActionSheet;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
 import com.qzct.immediatechoice.R;
@@ -28,6 +27,7 @@ import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.MyThumbnailUtils;
 import com.qzct.immediatechoice.util.utils;
@@ -156,7 +156,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
             public void onClick(View v) {
                 ActionSheet.createBuilder(context, context.getSupportFragmentManager())
                         .setCancelButtonTitle("取消")
-                        .setOtherButtonTitles("微信好友", "朋友圈", "QQ空间")
+                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
+                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
                         .setCancelableOnTouchOutside(true)
                         .setListener(new ActionSheet.ActionSheetListener() {
                             @Override

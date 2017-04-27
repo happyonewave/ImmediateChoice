@@ -4,24 +4,24 @@
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\RedPacket\\unspecified\\res\\layout\\_activity_getdeposit.xml"
     },
     {
-        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\_browsers.xml",
-        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\RedPacket\\unspecified\\res\\layout\\_browsers.xml"
-    },
-    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_close_item_material.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_action_mode_close_item_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\_browsers.xml",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\RedPacket\\unspecified\\res\\layout\\_browsers.xml"
     },
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fab_speed_dial_top.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\io.github.yavski\\fab-speed-dial\\1.0.6\\res\\layout\\fab_speed_dial_top.xml"
     },
     {
-        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\w_activity_set_pay_pwd.xml",
-        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\RedPacket\\unspecified\\res\\layout\\w_activity_set_pay_pwd.xml"
-    },
-    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\aliwx_sv_recorder_timeline.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\YunWangVideoSDK\\unspecified\\res\\layout\\aliwx_sv_recorder_timeline.xml"
+    },
+    {
+        "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\w_activity_set_pay_pwd.xml",
+        "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\RedPacket\\unspecified\\res\\layout\\w_activity_set_pay_pwd.xml"
     },
     {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\w_activity_recharge.xml",

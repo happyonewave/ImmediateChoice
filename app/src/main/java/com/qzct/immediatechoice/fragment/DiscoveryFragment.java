@@ -93,6 +93,7 @@ public class DiscoveryFragment extends baseFragment {
     private ArrayAdapter<String> adapter;
     private List<String> mStrList = new ArrayList<String>();
     private int GET_QRCODE = 0;
+    private ImageView searchButton;
 
 
     /**
@@ -106,6 +107,7 @@ public class DiscoveryFragment extends baseFragment {
     public View initView(LayoutInflater inflater, ViewGroup container) {
         v = x.view().inject(this, inflater, container);
         discovery_search = (SearchView) v.findViewById(R.id.discovery_search);
+        searchButton = (ImageView) discovery_search.findViewById(R.id.search_button);
         ll_layout = (LinearLayout) v.findViewById(R.id.ll_layout);
         return v;
     }
@@ -137,6 +139,7 @@ public class DiscoveryFragment extends baseFragment {
             }
         });
 //        lv_search.setTextFilterEnabled(true);
+        searchButton.setImageResource(R.mipmap.search);
         discovery_search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

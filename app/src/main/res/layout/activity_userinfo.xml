@@ -64,8 +64,8 @@
             <!--android:text="年龄" />-->
 
             <!--<TextView-->
-                <!--style="@style/activity_userinfo_title_style"-->
-                <!--android:text="个人签名" />-->
+            <!--style="@style/activity_userinfo_title_style"-->
+            <!--android:text="个人签名" />-->
 
             <TextView
                 style="@style/activity_userinfo_title_style"
@@ -95,8 +95,8 @@
             <!--android:text="age" />-->
 
             <!--<TextView-->
-                <!--style="@style/activity_userinfo_title_style"-->
-                <!--android:text="个人签名" />-->
+            <!--style="@style/activity_userinfo_title_style"-->
+            <!--android:text="个人签名" />-->
 
             <TextView
                 android:id="@+id/user_phone_num"

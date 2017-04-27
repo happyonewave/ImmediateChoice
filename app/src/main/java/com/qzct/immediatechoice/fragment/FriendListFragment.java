@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
@@ -77,6 +78,9 @@ public class FriendListFragment extends baseFragment {
     private EditText et_searchView;
     private TextView tv_searchView;
     private LinearLayout ll;
+    private ImageView searchButton;
+    private SearchView.SearchAutoComplete mSearchSrcTextView;
+    private ImageView close_search;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -84,7 +88,11 @@ public class FriendListFragment extends baseFragment {
 //        v = new LinearLayout(context);
         v = (LinearLayout) inflater.inflate(R.layout.fragment_friendlist, null);
         v.setOrientation(LinearLayout.VERTICAL);
+        close_search = (ImageView) v.findViewById(R.id.close);
         friendlist_search = (SearchView) v.findViewById(R.id.friendlist_search);
+        searchButton = (ImageView) friendlist_search.findViewById(R.id.search_button);
+//        mSearchSrcTextView = (SearchView.SearchAutoComplete) friendlist_search.findViewById(R.id.search_src_text);
+//        searchButton.setImageResource(R.mipmap.search);
 //        friendlist_search = new SearchView(context);
         friendlist_search.setQueryHint("用户Id");
         //* 设置true后，右边会出现一个箭头按钮。如果用户没有输入，就不会触发提交（submit）事件
@@ -145,6 +153,7 @@ public class FriendListFragment extends baseFragment {
             } else {
                 v = convertView;
             }
+
             ImageView portrait = (ImageView) v.findViewById(R.id.friend_portrait);
             TextView name = (TextView) v.findViewById(R.id.friend_name);
             Button btn_delete = (Button) v.findViewById(R.id.friend_delete);
@@ -196,6 +205,25 @@ public class FriendListFragment extends baseFragment {
 
     @Override
     public void initData() {
+        close_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.setVisibility(View.GONE);
+                tv_searchView.setVisibility(View.VISIBLE);
+                friendlist_search.onActionViewCollapsed();
+            }
+        });
+        tv_searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                friendlist_search.onActionViewExpanded();
+                v.setVisibility(View.GONE);
+//                mSearchSrcTextView.setText("");
+//                int mCollapsedImeOptions = mSearchSrcTextView.getImeOptions();
+//                mSearchSrcTextView.setImeOptions(mCollapsedImeOptions | EditorInfo.IME_FLAG_NO_FULLSCREEN);
+//                mSearchSrcTextView.setText("");
+            }
+        });
         v.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -382,6 +410,7 @@ public class FriendListFragment extends baseFragment {
             @Override
             public void onClick(View v) {
                 tv_searchView.setVisibility(View.GONE);
+                close_search.setVisibility(View.VISIBLE);
             }
         });
         friendlist_search.setOnCloseListener(new SearchView.OnCloseListener() {

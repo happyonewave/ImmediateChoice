@@ -28,6 +28,14 @@
             android:text="请输入好友ID"
             android:textSize="15sp" />
 
+
+        <ImageView
+            android:id="@+id/close"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:src="@mipmap/close_search" />
     </LinearLayout>
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
