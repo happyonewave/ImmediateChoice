@@ -27,7 +27,6 @@
             android:layout_height="180dp"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher"
             android:visibility="gone" />
 
         <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
@@ -35,7 +34,6 @@
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_weight="1"
-            android:src="@mipmap/ic_launcher"
             android:visibility="gone" />
 
         <ImageView
@@ -43,15 +41,13 @@
             android:layout_width="0dp"
             android:layout_height="180dp"
             android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_weight="1" />
 
         <ImageView
             android:id="@+id/image_text_item_img_right"
             android:layout_width="0dp"
             android:layout_height="180dp"
-            android:layout_weight="1"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_weight="1" />
 
     </LinearLayout>
 

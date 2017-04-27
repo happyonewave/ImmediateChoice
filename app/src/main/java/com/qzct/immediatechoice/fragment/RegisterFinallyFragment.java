@@ -41,6 +41,7 @@ import java.nio.charset.Charset;
 /**
  * Created by Administrator on 2017-02-26.
  */
+@SuppressLint("ValidFragment")
 public class RegisterFinallyFragment extends baseFragment {
 
     String phone_number;
@@ -56,6 +57,9 @@ public class RegisterFinallyFragment extends baseFragment {
     private EditText et_user_id;
 
     @SuppressLint("ValidFragment")
+    public RegisterFinallyFragment() {
+    }
+
     public RegisterFinallyFragment(String phone_number, int user_type) {
         this.phone_number = phone_number;
         this.user_type = user_type;
