@@ -209,7 +209,6 @@
     <orderEntry type="module" module-name="IMKit" exported="" />
     <orderEntry type="module" module-name="zrcListView" exported="" />
     <orderEntry type="module" module-name="YunWangVideoSDK" exported="" />
-    <orderEntry type="library" exported="" name="android-android-25" level="project" />
     <orderEntry type="library" exported="" name="org.apache.http.legacy-android-25" level="project" />
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
     <orderEntry type="library" exported="" name="jrmfry-1.4.1" level="project" />
