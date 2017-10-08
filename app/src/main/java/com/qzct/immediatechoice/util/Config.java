@@ -1,14 +1,12 @@
 package com.qzct.immediatechoice.util;
 
-import org.xutils.http.RequestParams;
-
 /**
  * Created by qin on 2017/3/19.
  */
 
 public class Config {
-    //                public static String url = "http://123.207.31.213/ImmediateChoice_service/";
-    public static String url = "http://server.luckboyqin.cn/ImmediateChoice_service/";
+                    public static String url = "http://123.207.31.213/ImmediateChoice_service/";
+//    public static String url = "http://server.luckboyqin.cn/ImmediateChoice_service/";
 //    public static String url = "http://192.168.1.200:8080/Server/";
 
     public static String url_login = url + "LoginServlet";

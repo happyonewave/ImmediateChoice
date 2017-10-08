@@ -1,49 +1,27 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.adpter.CircleAdpter;
-import com.qzct.immediatechoice.adpter.ImageTextAdpter;
-import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
-import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
 
-import java.io.InputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
-import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
 
