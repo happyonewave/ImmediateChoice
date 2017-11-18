@@ -41,8 +41,8 @@
 
                         <ImageView
                             android:id="@+id/bt_setting"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="10dp"
                             android:layout_marginTop="5dp"
@@ -50,8 +50,8 @@
 
                         <ImageView
                             android:id="@+id/iv_userinfo"
-                            android:layout_width="35dp"
-                            android:layout_height="35dp"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
                             android:layout_alignParentLeft="true"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
@@ -226,7 +226,8 @@
                             android:layout_gravity="center_vertical"
                             android:text="@string/my_post"
                             android:textColor="@color/apporange"
-                            android:textSize="15dp" />
+                            android:textSize="15sp"
+                            android:id="@+id/textView" />
                     </LinearLayout>
 
 

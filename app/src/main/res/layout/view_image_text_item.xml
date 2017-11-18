@@ -35,7 +35,6 @@
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="227dp"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1">
                     <!--android:layout_marginRight="5dp"-->
 
@@ -127,24 +126,47 @@
                 android:text="不语"
                 android:textSize="@dimen/userName_textSize" />
 
-
-            <Button
-                android:id="@+id/comment_icon"
+            <LinearLayout
+                android:id="@+id/comment_icon_ll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@mipmap/comment"
-                android:text="65" />
+                >
+                <ImageView
+                    android:id="@+id/comment_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/comment"/>
+                <TextView
+                    android:id="@+id/tv_comment_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="65"/>
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/share_icon"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/comment_icon"
-                android:background="@android:color/transparent"
-                android:drawableLeft="@mipmap/share"
-                android:text="65" />
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@id/comment_icon_ll">
+                <ImageView
+                    android:id="@+id/share_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:src="@mipmap/share"/>
+                <TextView
+                    android:id="@+id/tv_share_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="65"/>
+            </LinearLayout>
+
+
+
 
         </RelativeLayout>
 

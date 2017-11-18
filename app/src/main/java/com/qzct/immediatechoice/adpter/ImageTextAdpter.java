@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -89,9 +88,12 @@ public class ImageTextAdpter extends BaseAdapter {
 //        image_text_item_img_right.setImageBitmap(null);
         TextView item_username = (TextView) v.findViewById(R.id.item_username);
         ImageView item_portrait = (ImageView) v.findViewById(R.id.item_portrait);
-        Button comment_icon = (Button) v.findViewById(R.id.comment_icon);
-        Button share_icon = (Button) v.findViewById(R.id.share_icon);
+        ImageView comment_icon = (ImageView) v.findViewById(R.id.comment_icon);
+        ImageView share_icon = (ImageView) v.findViewById(R.id.share_icon);
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
+
+        TextView tv_comment_icon = (TextView) v.findViewById(R.id.tv_comment_icon);
+        TextView tv_share_icon = (TextView) v.findViewById(R.id.tv_share_icon);
 
 
         Question i = questionList.get(position);                                    //拿到一个info对象
@@ -115,8 +117,8 @@ public class ImageTextAdpter extends BaseAdapter {
 //            x.image().bind(item_portrait, i.getPortrait_url(), options);
             Glide.with(context).load(i.getPortrait_url()).placeholder(R.mipmap.default_portrait).error(R.mipmap.default_portrait).into(item_portrait);
         }
-        comment_icon.setText(i.getComment_count() + "");
-        share_icon.setText(i.getShare_count() + "");
+        tv_comment_icon.setText(i.getComment_count() + "");
+        tv_share_icon.setText(i.getShare_count() + "");
         share_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
