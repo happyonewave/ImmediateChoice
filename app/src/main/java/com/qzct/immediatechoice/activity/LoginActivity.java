@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,8 +54,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Button bt_login = (Button) findViewById(R.id.bt_login);
         //注册
         TextView tv_register = (TextView) findViewById(R.id.tv_register);
+        //返回
+        ImageView iv_back = (ImageView) findViewById(R.id.iv_back);
         bt_login.setOnClickListener(this);
         tv_register.setOnClickListener(this);
+        iv_back.setOnClickListener(this);
 
     }
 
@@ -75,6 +79,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(intent);
 
+                break;
+            //返回
+            case R.id.iv_back:
+                finish();
                 break;
             default:
 
