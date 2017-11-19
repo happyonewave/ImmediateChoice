@@ -9,20 +9,16 @@ import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.PixelFormat;
 import android.graphics.drawable.Drawable;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Environment;
 import android.os.Message;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -192,24 +188,24 @@ public class utils {
             tv_title.setText(title);
             viewGroup.addView(top, 0);
         }
-        //支持4.4以上
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            Window window = activity.getWindow();
-            //设置状态栏背景透明
-            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            TextView bar = new TextView(activity);
-            bar.setWidth(activity.getWindow().getWindowManager().getDefaultDisplay().getWidth());
-            bar.setHeight(getStatusBarHeight(activity));
-            bar.setBackgroundColor(Color.parseColor("#ffeb633b"));
-//            View firstView = view.getChildAt(0);
-//            View firstView1 = firstView;
-//            view.removeView(firstView);
-//            firstView1.setPadding(0, getStatusBarHeight(activity), 0, 0);
-//            view.addView(firstView1, 0);
-            viewGroup.addView(bar, 0);
-            //设置导航栏透明
-//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+//        //支持4.4以上
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            Window window = activity.getWindow();
+//            //设置状态栏背景透明
+//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+//            TextView bar = new TextView(activity);
+//            bar.setWidth(activity.getWindow().getWindowManager().getDefaultDisplay().getWidth());
+//            bar.setHeight(getStatusBarHeight(activity));
+//            bar.setBackgroundColor(Color.parseColor("#ffeb633b"));
+////            View firstView = view.getChildAt(0);
+////            View firstView1 = firstView;
+////            view.removeView(firstView);
+////            firstView1.setPadding(0, getStatusBarHeight(activity), 0, 0);
+////            view.addView(firstView1, 0);
+//            viewGroup.addView(bar, 0);
+//            //设置导航栏透明
+////            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//        }
         return viewGroup;
 
     }

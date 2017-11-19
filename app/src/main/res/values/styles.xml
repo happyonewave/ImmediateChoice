@@ -18,6 +18,9 @@
         <item name="android:windowNoTitle">true</item>
         <item name="actionSheetStyle">@style/ActionSheetStyleIOS7</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <!--<item name="colorAccent">@color/white</item>-->
+
     </style>
     <!-- IOS7样式 -->
     <style name="ActionSheetStyleIOS7">

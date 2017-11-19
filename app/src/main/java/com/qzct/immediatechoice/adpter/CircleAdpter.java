@@ -1,11 +1,9 @@
 package com.qzct.immediatechoice.adpter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.Matrix;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
@@ -16,7 +14,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -102,8 +99,10 @@ public class CircleAdpter extends BaseAdapter {
             holder.right_ProgressBar = (NumberProgressBar) convertView.findViewById(R.id.view_video_item_right_ProgressBar);
             holder.item_username = (TextView) convertView.findViewById(R.id.item_username);
             holder.item_portrait = (ImageView) convertView.findViewById(R.id.item_portrait);
-            holder.comment_icon = (Button) convertView.findViewById(R.id.comment_icon);
-            holder.share_icon = (Button) convertView.findViewById(R.id.share_icon);
+            holder.comment_icon = (ImageView) convertView.findViewById(R.id.comment_icon);
+            holder.share_icon = (ImageView) convertView.findViewById(R.id.share_icon);
+            holder.tv_comment_icon = (TextView) convertView.findViewById(R.id.tv_comment_icon);
+            holder.tv_share_icon = (TextView) convertView.findViewById(R.id.tv_share_icon);
             holder.item_comment = (TextView) convertView.findViewById(R.id.item_comment);
             convertView.setTag(holder);
         } else {
@@ -201,8 +200,8 @@ public class CircleAdpter extends BaseAdapter {
 //            ImageOptions options = builder.build();
 //            x.image().bind(holder.item_portrait, i.getPortrait_url(), options);
         }
-        holder.comment_icon.setText(i.getComment_count() + "");
-        holder.share_icon.setText(i.getShare_count() + "");
+        holder.tv_comment_icon.setText(i.getComment_count() + "");
+        holder.tv_share_icon.setText(i.getShare_count() + "");
         holder.item_comment.setText(i.getComment());
         holder.share_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -360,8 +359,10 @@ public class CircleAdpter extends BaseAdapter {
         NumberProgressBar right_ProgressBar;
         TextView item_username;
         ImageView item_portrait;
-        Button comment_icon;
-        Button share_icon;
+        ImageView comment_icon;
+        ImageView share_icon;
+        TextView tv_comment_icon;
+        TextView tv_share_icon;
         TextView item_comment;
         LinearLayout view_item_img_layout;
     }

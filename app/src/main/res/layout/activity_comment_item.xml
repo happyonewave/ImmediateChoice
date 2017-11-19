@@ -52,6 +52,13 @@
                     android:textColor="@android:color/black" />
             </LinearLayout>
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ccc"
+            android:layout_marginLeft="60dp"
+            />
     </LinearLayout>
 
 </LinearLayout>

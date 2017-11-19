@@ -1,7 +1,6 @@
 package com.qzct.immediatechoice.activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -19,10 +18,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.github.alexkolpa.fabtoolbar.FabToolbar;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.adpter.CommentAdpter;
-import com.qzct.immediatechoice.Application.MyApplication;
-import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
@@ -36,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
-import org.xutils.image.ImageOptions;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -58,8 +55,10 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     ImageView image_text_item_img_right;
     TextView item_username;
     ImageView item_portrait;
-    Button comment_icon;
-    Button share_icon;
+    ImageView comment_icon;
+    ImageView share_icon;
+    TextView tv_comment_icon;
+    TextView tv_share_icon;
     List<Comment> commentList;
     CommentAdpter adpter;
     ListView lv_comment;
@@ -90,7 +89,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(utils.getUsableView(this, R.layout.activity_comment, null));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
-        title.setText("评价");
+        title.setText("评论");
 //        question = MyApplication.question;
         question = (Question) getIntent().getSerializableExtra("question");
         isTransition = getIntent().getBooleanExtra(TRANSITION, false);
@@ -109,8 +108,10 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         gsyVideoPlayer_right = (StandardGSYVideoPlayer) header_layout.findViewById(R.id.video_item_right);
         item_username = (TextView) header_layout.findViewById(R.id.item_username);
         item_portrait = (ImageView) header_layout.findViewById(R.id.item_portrait);
-        comment_icon = (Button) header_layout.findViewById(R.id.comment_icon);
-        share_icon = (Button) header_layout.findViewById(R.id.share_icon);
+        comment_icon = (ImageView) header_layout.findViewById(R.id.comment_icon);
+        share_icon = (ImageView) header_layout.findViewById(R.id.share_icon);
+        tv_comment_icon = (TextView) header_layout.findViewById(R.id.tv_comment_icon);
+        tv_share_icon = (TextView) header_layout.findViewById(R.id.tv_share_icon);
         lv_comment = (ListView) findViewById(R.id.lv_comment);
         hint_new_comment = (TextView) findViewById(R.id.hint_new_comment);
         et_add_comment_content = (TextView) findViewById(R.id.et_add_comment_content);
@@ -128,8 +129,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //        x.image().bind(item_portrait, question.getPortrait_url(), options);
         Glide.with(CommentActivity.this).load(question.getPortrait_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(item_portrait);
         item_portrait.setOnClickListener(this);
-        comment_icon.setText(question.getComment_count() + "");
-        share_icon.setText(question.getShare_count() + "");
+        tv_comment_icon.setText(question.getComment_count() + "");
+        tv_share_icon.setText(question.getShare_count() + "");
         question_id = question.getQuestion_id();
         bt_add_comment.setOnClickListener(this);
         top_back.setOnClickListener(this);

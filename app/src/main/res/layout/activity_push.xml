@@ -19,12 +19,42 @@
             android:layout_weight="5"
             android:orientation="vertical">
 
-            <EditText
-                android:id="@+id/push_question_content"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="4"
-                android:hint="@string/et_vote_content_hint" />
+                android:orientation="horizontal"
+                >
+
+                <EditText
+                    android:id="@+id/push_question_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="9"
+                    android:hint="@string/et_vote_content_hint"
+                    android:layout_height="match_parent" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_gravity="center">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/words_number" />
+
+                    <TextView
+                        android:id="@+id/words_number_limit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/words_number_limit" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/location_hint"
@@ -36,30 +66,12 @@
         </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_gravity="center"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/words_number" />
-
-            <TextView
-                android:id="@+id/words_number_limit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/words_number_limit" />
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,45 +134,46 @@
         android:layout_weight="3"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:padding="2dp">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="2dp">-->
 
-            <Button
-                android:id="@+id/puish_bt_add"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:drawableTop="@mipmap/push_add"
-                android:text="@string/push_add"
-                android:textSize="10dp" />
+            <!--<Button-->
+                <!--android:id="@+id/puish_bt_add"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:drawableTop="@mipmap/push_add"-->
+                <!--android:text="@string/push_add"-->
+                <!--android:textSize="10dp" />-->
 
-            <Button
-                android:id="@+id/push_bt_scale"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:drawableTop="@mipmap/push_scale"
-                android:text="@string/push_scale"
-                android:textSize="10dp" />
+            <!--<Button-->
+                <!--android:id="@+id/push_bt_scale"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:drawableTop="@mipmap/push_scale"-->
+                <!--android:text="@string/push_scale"-->
+                <!--android:textSize="10dp" />-->
 
-            <Button
-                android:id="@+id/push_bt_move"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:drawableTop="@mipmap/push_move"
-                android:text="@string/push_move"
-                android:textSize="10dp" />
-        </LinearLayout>
+            <!--<Button-->
+                <!--android:id="@+id/push_bt_move"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:drawableTop="@mipmap/push_move"-->
+                <!--android:text="@string/push_move"-->
+                <!--android:textSize="10dp" />-->
+        <!--</LinearLayout>-->
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:layout_marginTop="20dp"
             android:padding="10dp">
 
             <Button
@@ -192,7 +205,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@mipmap/push_topic"
+                android:drawableLeft="@mipmap/push_timing"
                 android:text="@string/push_timing" />
 
             <Button
@@ -201,8 +214,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:background="@android:color/transparent"
-                android:drawableLeft="@mipmap/push_topic"
-                android:text="所有人可见" />
+                android:drawableLeft="@mipmap/push_visible"
+                android:text="谁能看见" />
         </RelativeLayout>
 
     </LinearLayout>
