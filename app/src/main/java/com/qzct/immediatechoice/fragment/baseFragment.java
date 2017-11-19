@@ -1,6 +1,5 @@
 package com.qzct.immediatechoice.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -84,6 +83,7 @@ public abstract class baseFragment extends Fragment {
         SimpleHeader header = new SimpleHeader(context);
         header.setTextColor(0xff0066aa);
         header.setCircleColor(0xff33bbee);
+        header.setTextSize(30);
         listView.setHeadable(header);
         // 设置加载更多的样式
         SimpleFooter footer = new SimpleFooter(context);

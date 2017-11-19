@@ -59,17 +59,26 @@
                     <!--android:layout_gravity="center"-->
                     <!--android:src="@mipmap/play_img" />-->
 
-                    <com.ldoublem.thumbUplib.ThumbUpView
+                    <!--<com.ldoublem.thumbUplib.ThumbUpView-->
+                        <!--android:id="@+id/tpv_left1"-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_gravity="left|center_vertical"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--app:cracksColor="#33475f"-->
+                        <!--app:edgeColor="#9d55b8"-->
+                        <!--android:visibility="gone"-->
+                        <!--app:fillColor="#ea8010"-->
+                        <!--app:unlikeType="1" />-->
+                    <Button
                         android:id="@+id/tpv_left"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
                         android:layout_gravity="left|center_vertical"
-                        android:layout_marginLeft="20dp"
-                        app:cracksColor="#33475f"
-                        app:edgeColor="#9d55b8"
-                        app:fillColor="#ea8010"
-                        app:unlikeType="1" />
-
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:drawableTop="@drawable/bt_like_bg"
+                        />
 
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_left_ProgressBar"
@@ -104,17 +113,24 @@
                     <!--android:layout_marginRight="5dp"-->
 
 
-                    <com.ldoublem.thumbUplib.ThumbUpView
+                    <!--<com.ldoublem.thumbUplib.ThumbUpView-->
+                        <!--android:id="@+id/tpv_right"-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_gravity="left|center_vertical"-->
+                        <!--android:layout_marginLeft="20dp"-->
+                        <!--app:cracksColor="#33475f"-->
+                        <!--app:edgeColor="#9d55b8"-->
+                        <!--app:fillColor="#ea8010"-->
+                        <!--app:unlikeType="1" />-->
+                    <Button
                         android:id="@+id/tpv_right"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@color/transparent"
+                        android:drawableTop="@drawable/bt_like_bg"
                         android:layout_gravity="left|center_vertical"
-                        android:layout_marginLeft="20dp"
-                        app:cracksColor="#33475f"
-                        app:edgeColor="#9d55b8"
-                        app:fillColor="#ea8010"
-                        app:unlikeType="1" />
-
+                        android:layout_marginLeft="5dp"/>
                     <com.daimajia.numberprogressbar.NumberProgressBar
                         android:id="@+id/view_video_item_right_ProgressBar"
                         style="@style/NumberProgressBar_Funny_Orange"

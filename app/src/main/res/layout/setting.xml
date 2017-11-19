@@ -10,79 +10,106 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:orientation="vertical"
-        android:padding="20dp">
+        android:padding="10dp">
 
         <Switch
             android:id="@+id/switch_push"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/push"
-            android:textSize="20dp" />
+            style="@style/setting_text" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <Switch
             android:id="@+id/switch_economy"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginBottom="10dp"
             android:text="@string/economy"
-            android:textSize="20dp" />
+            android:layout_marginBottom="5dp"
+            style="@style/setting_text"/>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <Switch
             android:id="@+id/switch_night_model"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/night_model"
-            android:textSize="20dp" />
+            style="@style/setting_text" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            >
 
             <TextView
                 android:id="@+id/tv_clean_cache"
                 style="@style/setting_text"
-                android:text="@string/clean_cache"
-                android:textSize="20dp" />
+                android:text="@string/clean_cache" />
 
             <TextView
                 android:id="@+id/cache_value"
                 style="@style/setting_text"
                 android:layout_alignParentRight="true"
                 android:gravity="center"
-                android:text="102MB"
-                android:textSize="20dp" />
+                android:text="102MB" />
 
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_look_update"
                 style="@style/setting_text"
-                android:text="@string/look_update"
-                android:textSize="20dp" />
+                android:text="@string/look_update"/>
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_appraise"
                 style="@style/setting_text"
-                android:text="@string/appraise"
-                android:textSize="20dp" />
+                android:text="@string/appraise" />
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -91,10 +118,14 @@
             <TextView
                 android:id="@+id/tv_user_protocol"
                 style="@style/setting_text"
-                android:text="@string/user_protocol"
-                android:textSize="20dp" />
+                android:text="@string/user_protocol"/>
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="10dp"
+            android:background="#ccc"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,17 +134,17 @@
             <TextView
                 android:id="@+id/tv_privacy_statement"
                 style="@style/setting_text"
-                android:text="@string/privacy_statement"
-                android:textSize="20dp" />
+                android:text="@string/privacy_statement"/>
         </RelativeLayout>
 
         <Button
             android:id="@+id/logout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/btn_selector"
             android:padding="10dp"
+            android:textSize="16sp"
             android:text="@string/logout"
             android:textColor="@android:color/white" />
 

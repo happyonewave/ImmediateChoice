@@ -4,10 +4,10 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IMKit/IMKit.iml" filepath="$PROJECT_DIR$/IMKit/IMKit.iml" />
       <module fileurl="file://$PROJECT_DIR$/IMLib/IMLib.iml" filepath="$PROJECT_DIR$/IMLib/IMLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ImmediateChoice.iml" filepath="$PROJECT_DIR$/ImmediateChoice.iml" />
       <module fileurl="file://$PROJECT_DIR$/RedPacket/RedPacket.iml" filepath="$PROJECT_DIR$/RedPacket/RedPacket.iml" />
       <module fileurl="file://$PROJECT_DIR$/YunWangVideoSDK/YunWangVideoSDK.iml" filepath="$PROJECT_DIR$/YunWangVideoSDK/YunWangVideoSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/immediatechoice.iml" filepath="$PROJECT_DIR$/immediatechoice.iml" />
       <module fileurl="file://$PROJECT_DIR$/zrcListView/zrcListView.iml" filepath="$PROJECT_DIR$/zrcListView/zrcListView.iml" />
     </modules>
   </component>

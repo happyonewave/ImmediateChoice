@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:padding="5dp">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:background="@drawable/circular_bg">
 
         <LinearLayout
             android:id="@+id/user_item_img_layout"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/boder">
 
@@ -19,10 +19,9 @@
                 android:id="@+id/user_item_img_left"
                 android:layout_width="0dp"
                 android:layout_height="150dp"
-                android:layout_marginRight="5dp"
                 android:layout_weight="1"
                 android:background="@color/gray"
-                android:scaleType="fitXY" />
+                android:scaleType="center" />
 
             <ImageView
                 android:id="@+id/user_item_img_right"
@@ -30,7 +29,7 @@
                 android:layout_height="150dp"
                 android:layout_weight="1"
                 android:background="@color/gray"
-                android:scaleType="fitXY" />
+                android:scaleType="center" />
 
         </LinearLayout>
 
@@ -42,11 +41,13 @@
             android:background="@drawable/user_item_circular_bg"
             android:padding="5dp"
             android:radius="10dp"
+            android:gravity="center"
+            android:textColor="@color/white"
             android:singleLine="false"
             android:text="@string/question_content"
-            android:textSize="15dp" />
+            android:textSize="14sp" />
 
 
-    </RelativeLayout>
+    </FrameLayout>
 
 </RelativeLayout>

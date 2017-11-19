@@ -22,6 +22,7 @@ public class SimpleHeader implements Headable {
     private float mFontOffset;
     private String mMsg;
     private boolean isClipCanvas = true;
+    private float mTextSize;
 
     public SimpleHeader(Context context) {
         mPaint = new Paint();
@@ -48,6 +49,9 @@ public class SimpleHeader implements Headable {
         mTextColor = color;
     }
 
+    public void setTextSize(int size) {
+        mTextSize = size;
+    }
     public void setCircleColor(int color) {
         mPointColor = color;
     }
@@ -150,6 +154,7 @@ public class SimpleHeader implements Headable {
                     canvas.drawCircle(x, y + top, mPointRadius, mPaint);
                 }
                 mPaint.setColor(mTextColor);
+                mPaint.setTextSize(mTextSize);
                 mPaint.setAlpha(time * 255 / 30);
                 String text = mMsg != null ? mMsg : mState == STATE_SUCCESS ? "加载成功" : "加载失败";
                 float y;
@@ -161,6 +166,7 @@ public class SimpleHeader implements Headable {
                 canvas.drawText(text, width / 2, y + top + mFontOffset, mPaint);
             } else {
                 mPaint.setColor(mTextColor);
+                mPaint.setTextSize(mTextSize);
                 String text = mMsg != null ? mMsg : mState == STATE_SUCCESS ? "加载成功" : "加载失败";
                 float y;
                 if (offset < height) {

@@ -4,10 +4,10 @@
     <solid android:color="#FFFFFF" />
 
     <!-- 矩形的圆角弧度 -->
-    <corners android:radius="10dp" />
-    <stroke
-        android:width="0.01dp"
-        android:color="#50eb633b" />
+    <!--<corners android:radius="10dp" />-->
+    <!--<stroke-->
+        <!--android:width="0.01dp"-->
+        <!--android:color="#50eb633b" />-->
 
     <!--<padding-->
         <!--android:bottom="1dp"-->

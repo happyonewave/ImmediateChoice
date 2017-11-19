@@ -1,15 +1,10 @@
 package com.qzct.immediatechoice.adpter;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.media.ThumbnailUtils;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +15,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
-import com.ldoublem.thumbUplib.ThumbUpView;
+import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
-import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.MyThumbnailUtils;
 import com.qzct.immediatechoice.util.utils;
-import com.shuyu.gsyvideoplayer.listener.StandardVideoAllCallBack;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
@@ -53,6 +45,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
     AppCompatActivity context;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
+    private boolean like = false;
+    private boolean right_like = false;
 //    View v;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_left;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_right;
@@ -88,8 +82,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
             holder.tv_question = (TextView) convertView.findViewById(R.id.tv_question);    //拿到相应的View对象
             holder.gsyVideoPlayer_left = (StandardGSYVideoPlayer) convertView.findViewById(R.id.view_video_item_left);
             holder.gsyVideoPlayer_right = (StandardGSYVideoPlayer) convertView.findViewById(R.id.view_video_item_right);
-            holder.tpv_left = (ThumbUpView) convertView.findViewById(R.id.tpv_left);
-            holder.tpv_right = (ThumbUpView) convertView.findViewById(R.id.tpv_right);
+            holder.tpv_left = (Button) convertView.findViewById(R.id.tpv_left);
+            holder.tpv_right = (Button) convertView.findViewById(R.id.tpv_right);
             holder.left_ProgressBar = (NumberProgressBar) convertView.findViewById(R.id.view_video_item_left_ProgressBar);
             holder.right_ProgressBar = (NumberProgressBar) convertView.findViewById(R.id.view_video_item_right_ProgressBar);
             holder.item_username = (TextView) convertView.findViewById(R.id.item_username);
@@ -203,9 +197,55 @@ public class QuestionVideoAdpter extends BaseAdapter {
             }
         });
         holder.item_comment.setText(i.getComment());
-        holder.tpv_left.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+//        holder.tpv_left.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+//            @Override
+//            public void like(boolean like) {
+//                if (like) {
+//                    RequestParams entity = new RequestParams(Config.url_comment);
+//                    entity.addBodyParameter("msg", CHOICE_ONE);
+//                    entity.addBodyParameter("question_id", questionList.get(position).getQuestion_id() + "");
+//                    entity.addBodyParameter("user_id",
+//                            String.valueOf(MyApplication.user.getUser_id()));
+//
+//                    entity.addBodyParameter("left_or_right", "left");
+//                    x.http().post(entity, new Callback.CommonCallback<String>() {
+//                        @Override
+//                        public void onSuccess(String result) {
+//                            if (result != null) {
+//                                int percent = Integer.parseInt(result);
+//                                Toast.makeText(context, "left:" + percent + "%," +
+//                                        "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
+////                            showBar(percent, 100 - percent);
+//                                holder.left_ProgressBar.setVisibility(View.VISIBLE);
+//                                holder.right_ProgressBar.setVisibility(View.VISIBLE);
+//                                setProgress(holder.left_ProgressBar, percent);
+//                                setProgress(holder.right_ProgressBar, 100 - percent);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onError(Throwable ex, boolean isOnCallback) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(CancelledException cex) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onFinished() {
+//
+//                        }
+//                    });
+//
+//                }
+//            }
+//        });
+        holder.tpv_left.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void like(boolean like) {
+            public void onClick(View v) {
+                like = !like;
                 if (like) {
                     RequestParams entity = new RequestParams(Config.url_comment);
                     entity.addBodyParameter("msg", CHOICE_ONE);
@@ -248,9 +288,56 @@ public class QuestionVideoAdpter extends BaseAdapter {
                 }
             }
         });
-        holder.tpv_right.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+//        holder.tpv_right.setOnThumbUp(new ThumbUpView.OnThumbUp() {
+//            @Override
+//            public void like(boolean like) {
+//                if (like) {
+//                    RequestParams entity = new RequestParams(Config.url_comment);
+//                    entity.addBodyParameter("msg", CHOICE_ONE);
+//                    entity.addBodyParameter("question_id", questionList.get(position).getQuestion_id() + "");
+//                    entity.addBodyParameter("user_id",
+//                            String.valueOf(MyApplication.user.getUser_id()));
+//
+//                    entity.addBodyParameter("left_or_right", "right");
+//                    x.http().post(entity, new Callback.CommonCallback<String>() {
+//                        @Override
+//                        public void onSuccess(String result) {
+//                            if (result != null) {
+//                                int percent = Integer.parseInt(result);
+//                                Toast.makeText(context, "left:" + (100 - percent) + "%," +
+//                                        "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
+////                            showBar(percent, 100 - percent);
+//                                holder.left_ProgressBar.setVisibility(View.VISIBLE);
+//                                holder.right_ProgressBar.setVisibility(View.VISIBLE);
+//                                setProgress(holder.left_ProgressBar, 100 - percent);
+//                                setProgress(holder.right_ProgressBar, percent);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void onError(Throwable ex, boolean isOnCallback) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onCancelled(CancelledException cex) {
+//
+//                        }
+//
+//                        @Override
+//                        public void onFinished() {
+//
+//                        }
+//                    });
+//
+//                }
+//            }
+//        });
+
+        holder.tpv_right.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void like(boolean like) {
+            public void onClick(View v) {
+                right_like = !right_like;
                 if (like) {
                     RequestParams entity = new RequestParams(Config.url_comment);
                     entity.addBodyParameter("msg", CHOICE_ONE);
@@ -294,7 +381,6 @@ public class QuestionVideoAdpter extends BaseAdapter {
             }
         });
 
-
         return convertView;
     }
 
@@ -302,8 +388,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
         TextView tv_question;
         StandardGSYVideoPlayer gsyVideoPlayer_left;
         StandardGSYVideoPlayer gsyVideoPlayer_right;
-        ThumbUpView tpv_left;
-        ThumbUpView tpv_right;
+        Button tpv_left;
+        Button tpv_right;
         NumberProgressBar left_ProgressBar;
         NumberProgressBar right_ProgressBar;
         TextView item_username;
