@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sun Nov 19 15:33:13 CST 2017
+#Sun Nov 19 15:42:28 CST 2017
 1073.file=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\rc_icon_admin_hover.png
 1090.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 1007.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_
