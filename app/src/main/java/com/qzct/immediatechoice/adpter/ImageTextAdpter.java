@@ -19,6 +19,7 @@ import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.GlideCircleTransform;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -115,8 +116,20 @@ public class ImageTextAdpter extends BaseAdapter {
 //            builder.setSize(100, 100);
 //            ImageOptions options = builder.build();
 //            x.image().bind(item_portrait, i.getPortrait_url(), options);
-            Glide.with(context).load(i.getPortrait_url()).placeholder(R.mipmap.default_portrait).error(R.mipmap.default_portrait).into(item_portrait);
+            Glide.with(context).load(i.getPortrait_url()).placeholder(R.mipmap.default_portrait).error(R.mipmap.default_portrait).bitmapTransform(new GlideCircleTransform(context)).into(item_portrait);
         }
+
+//        if (i.getPortrait_url() != null) {
+//            item_username.setText(i.getQuizzer_name());
+//            ImageOptions.Builder builder = new ImageOptions.Builder();
+//            builder.setCircular(true);
+//            builder.setLoadingDrawableId(R.mipmap.default_portrait);//加载中默认显示图片
+//            builder.setFailureDrawableId(R.mipmap.default_portrait);
+//            builder.setSize(100, 100);
+//            ImageOptions options = builder.build();
+//            x.image().bind(item_portrait, i.getPortrait_url(), options);
+//        }
+
         tv_comment_icon.setText(i.getComment_count() + "");
         tv_share_icon.setText(i.getShare_count() + "");
         share_icon.setOnClickListener(new View.OnClickListener() {

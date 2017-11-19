@@ -24,6 +24,7 @@ import com.qzct.immediatechoice.adpter.CommentAdpter;
 import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -127,7 +128,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 //        ImageOptions options = new ImageOptions.Builder().setCircular(true)
 //                .setFailureDrawableId(R.mipmap.default_portrait).build();
 //        x.image().bind(item_portrait, question.getPortrait_url(), options);
-        Glide.with(CommentActivity.this).load(question.getPortrait_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(item_portrait);
+        Glide.with(CommentActivity.this).load(question.getPortrait_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).bitmapTransform(new GlideCircleTransform(context)).into(item_portrait);
         item_portrait.setOnClickListener(this);
         tv_comment_icon.setText(question.getComment_count() + "");
         tv_share_icon.setText(question.getShare_count() + "");
