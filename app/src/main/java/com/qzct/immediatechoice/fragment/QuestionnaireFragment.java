@@ -1,139 +1,147 @@
 package com.qzct.immediatechoice.fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.graphics.Color;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 
-import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.activity.PushQuestionnaireActivity;
-import com.qzct.immediatechoice.activity.QuestionnaireInfoActivity;
-import com.qzct.immediatechoice.domain.Questionnaire;
-import com.qzct.immediatechoice.util.MyCallback;
-import com.qzct.immediatechoice.util.Service;
+import com.qzct.immediatechoice.util.ScaleTransitionPagerTitleView;
+
+import net.lucode.hackware.magicindicator.MagicIndicator;
+import net.lucode.hackware.magicindicator.ViewPagerHelper;
+import net.lucode.hackware.magicindicator.buildins.UIUtil;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTitleView;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator;
+import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.SimplePagerTitleView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
 /**
- * Created by tsh2 on 2017/4/25.
+ * Created by qin on 2017/3/24.
  */
 public class QuestionnaireFragment extends baseFragment {
 
-    private ListView lv_questionnaire;
-    private Questionnaire questionnaire;
-    private List<Questionnaire> questionnaireList = new ArrayList<Questionnaire>();
-    private List<String> mtitleList = new ArrayList<String>();
-    private ImageView push__questionnaire;
-    private int PUSH_QUESTIONNAIRE = 0;
-    private ArrayAdapter<String> adapter;
+    public static ViewPager vp_questionnaire;
+    private List<Fragment> fragmentList;
+    private MagicIndicator questionnaire_magic_indicator;
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
-        View v = inflater.inflate(R.layout.fragment_questionnaire, null);
-        lv_questionnaire = (ListView) v.findViewById(R.id.lv_questionnaire);
-        push__questionnaire = (ImageView) v.findViewById(R.id.push__questionnaire);
-        return v;
-    }
+        View view = inflater.inflate(R.layout.fragment_questionnaire, null);
+        questionnaire_magic_indicator = (MagicIndicator) view.findViewById(R.id.questionnaire_magic_indicator);
+        vp_questionnaire = (ViewPager) view.findViewById(R.id.vp_questionnaire);
 
-    public void initData() {
-        getData();
-        adapter = new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, mtitleList);
-        lv_questionnaire.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(context, QuestionnaireInfoActivity.class);
-                intent.putExtra("questionnaire", questionnaireList.get(position));
-                startActivity(intent);
-            }
-        });
-        push__questionnaire.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, PushQuestionnaireActivity.class);
-                startActivityForResult(intent, PUSH_QUESTIONNAIRE);
-            }
-        });
+
+        return view;
+
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PUSH_QUESTIONNAIRE) {
-                questionnaire = (Questionnaire) data.getSerializableExtra("questionnaire");
-                questionnaireList.add(questionnaire);
-                mtitleList.add(questionnaire.getTitle());
-                adapter.notifyDataSetChanged();
+    public void initData() {
+        fragmentList = new ArrayList<Fragment>();
+        fragmentList.add(new QuestionnaireSurveyingFragment());
+        fragmentList.add(new QuestionnaireSurveyedFragment());
+//        fragmentList.add(initConversationList());
+//        fragmentList.add();
+        vp_questionnaire.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return fragmentList.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return fragmentList.size();
+            }
+        });
+        vp_questionnaire.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                Log.d(TAG, "onPageScrolled: " + "position:" + position);
+            }
+
+            @Override
+            public void onPageSelected(int position) {
 
             }
-        }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        setIndicator();
     }
 
-    private void getData() {
-        Service.getInstance().getQuestionnaire(new MyCallback.GetQuestionnaireCallback() {
+
+    private void setIndicator() {
+        initMagicIndicator1(vp_questionnaire, questionnaire_magic_indicator);
+    }
+
+
+    private void initMagicIndicator1(final ViewPager mViewPager, MagicIndicator magicIndicator) {
+
+
+        final List<String> mTitleDataList = new ArrayList<String>();
+        mTitleDataList.add("当前");
+        mTitleDataList.add("历史");
+        magicIndicator.setBackgroundColor(Color.WHITE);
+        CommonNavigator commonNavigator = new CommonNavigator(context);
+        commonNavigator.setAdjustMode(true);
+        commonNavigator.setAdapter(new CommonNavigatorAdapter() {
             @Override
-            public int getQuestionnaireId() {
-                return 0;
+            public int getCount() {
+                return mTitleDataList == null ? 0 : mTitleDataList.size();
             }
 
             @Override
-            public int getUserId() {
-                return MyApplication.user.getUser_id();
+            public IPagerTitleView getTitleView(Context context, final int index) {
+                SimplePagerTitleView simplePagerTitleView = new ScaleTransitionPagerTitleView(context);
+                simplePagerTitleView.setText(mTitleDataList.get(index));
+                simplePagerTitleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                simplePagerTitleView.setNormalColor(Color.parseColor("#616161"));
+                simplePagerTitleView.setSelectedColor(Color.parseColor("#f57c00"));
+                simplePagerTitleView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mViewPager.setCurrentItem(index);
+                    }
+                });
+                return simplePagerTitleView;
             }
 
             @Override
-            public void onSuccess(Questionnaire questionnaire) {
-
-            }
-
-            @Override
-            public void onSuccess(List<Questionnaire> list) {
-                questionnaireList = list;
-                for (Questionnaire questionnaire : questionnaireList) {
-                    mtitleList.add(questionnaire.getTitle());
-                }
-                lv_questionnaire.setAdapter(adapter);
-            }
-
-            @Override
-            public void onError(Throwable ex) {
-                Toast.makeText(context, "连接失败或你没有发布过问卷", Toast.LENGTH_SHORT).show();
+            public IPagerIndicator getIndicator(Context context) {
+                LinePagerIndicator indicator = new LinePagerIndicator(context);
+                indicator.setStartInterpolator(new AccelerateInterpolator());
+                indicator.setEndInterpolator(new DecelerateInterpolator(1.6f));
+                indicator.setYOffset(UIUtil.dip2px(context, 39));
+                indicator.setLineHeight(UIUtil.dip2px(context, 1));
+                indicator.setColors(Color.parseColor("#f57c00"));
+                return indicator;
             }
 
         });
-//        List<String> options1 = new ArrayList<String>();
-//        options1.add("男");
-//        options1.add("女");
-//        List<String> options2 = new ArrayList<String>();
-//        options2.add("1000及以下");
-//        options2.add("1000~1500");
-//        options2.add("1500以上");
-//        List<String> options3 = new ArrayList<String>();
-//        options3.add("水果店");
-//        options3.add("网上");
-//        options3.add("超市");
-//        Questionnaire.Question entity = new Questionnaire.Question("您的性别", options1);
-//        Questionnaire.Question entity1 = new Questionnaire.Question("您每月的生活费", options2);
-//        Questionnaire.Question entity2 = new Questionnaire.Question("您平时常在哪些地方购买水果", options3);
-//        List<Questionnaire.Question> entities = new ArrayList<Questionnaire.Question>();
-//        entities.add(entity);
-//        entities.add(entity1);
-//        entities.add(entity2);
-//        questionnaire = new Questionnaire("关于学校水果店的调查问卷", "谢谢您的调查", entities);
-//        questionnaireList.add(questionnaire);
-//        for (Questionnaire questionnaire : questionnaireList) {
-//            mtitleList.add(questionnaire.getTitle());
-//        }
+        magicIndicator.setNavigator(commonNavigator);
+        ViewPagerHelper.bind(magicIndicator, mViewPager);
+
 
     }
+
+
 }

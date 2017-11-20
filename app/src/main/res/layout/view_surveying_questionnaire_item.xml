@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:background="#ddd" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_surveying_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:src="@mipmap/surveying_sign" />
+
+        <TextView
+            android:id="@+id/surveying_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:layout_toRightOf="@id/iv_surveying_sign"
+            android:text="问卷标题"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/survey_arrow" />
+
+        <TextView
+            android:id="@+id/tv_grade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/surveying_title"
+            android:layout_below="@id/surveying_title"
+            android:paddingRight="15dp"
+            android:text="20"
+            android:textColor="@color/apporange"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/surveying_title"
+            android:layout_toRightOf="@id/tv_grade"
+            android:src="@mipmap/survey_gold" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tv_grade"
+            android:layout_alignLeft="@id/surveying_title"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="8dp"
+            android:background="#70cccccc" />
+
+        <ImageView
+            android:id="@+id/iv_survey_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/line"
+            android:layout_below="@id/line"
+            android:src="@mipmap/survey_time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/iv_survey_time"
+            android:text="预计截止时间：2017-11-21"
+            android:textSize="12sp" />
+    </RelativeLayout>
+</LinearLayout>

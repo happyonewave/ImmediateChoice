@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -96,11 +97,13 @@ public class CalendarActivity extends AppCompatActivity {
 //                }
                 TextView title = (TextView) v.findViewById(R.id.calendar_title);
                 title.setText(position + 1 + "." + questionnaire.getEntities().get(position).getTitle());
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
 //                RadioGroup radioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
                 LinearLayout checkGroup = (LinearLayout) v.findViewById(R.id.checkGroup);
                 for (Question.Option option : questionnaire.getEntities().get(position).getOptions()) {
                     CheckBox cb_option = new CheckBox(CalendarActivity.this);
                     cb_option.setTextColor(Color.GRAY);
+                    cb_option.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
                     cb_option.setButtonDrawable(getResources().getDrawable(R.drawable.bt_check_box_bg));
                     cb_option.setText(option.getNum() + "." + option.getContent());
                     cb_option.setTag(R.id.tag_num, option.getNum());
@@ -225,6 +228,7 @@ public class CalendarActivity extends AppCompatActivity {
 //        submit.setPadding(100, 5, 100, 5);
         submit.setWidth(50);
         submit.setText("提交");
+        submit.setTextColor(Color.WHITE);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
