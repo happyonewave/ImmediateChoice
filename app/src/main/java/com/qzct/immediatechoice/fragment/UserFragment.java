@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,9 +25,12 @@ import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.PushQuestionnaireActivity;
 import com.qzct.immediatechoice.activity.QuestionnaireActivity;
 import com.qzct.immediatechoice.activity.SettingActivity;
+import com.qzct.immediatechoice.activity.TopicActivity;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
+import com.qzct.immediatechoice.adpter.TopicAdpter;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.domain.Question;
+import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.Service;
@@ -48,6 +52,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private View v;
     List<Question> questionList;
     GridView lv;
+    GridView gv_attention;
     User user;
     private String portrait_path;
     private TextView tv_username;
@@ -62,6 +67,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
 //    private LinearLayout user_questionnaire;
 //    private LinearLayout user_data;
     private LinearLayout user_layout;
+    private ArrayList<Topic> topicList;
 
     @Override
     public View initView(LayoutInflater inflater, ViewGroup container) {
@@ -72,6 +78,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         user_portrait = (ImageView) v.findViewById(R.id.user_portrait);
         user_layout = (LinearLayout) v.findViewById(R.id.user_layout);
         lv = (GridView) v.findViewById(R.id.gv_user);
+        gv_attention = (GridView) v.findViewById(R.id.gv_attention);
         bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
         iv_userinfo = (ImageView) v.findViewById(R.id.iv_userinfo);
         hint_mypush = (Button) v.findViewById(R.id.hint_mypush);
@@ -118,9 +125,23 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                 context.startActivity(intent);
             }
         });
+
+
+        gv_attention.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(context, TopicActivity.class);
+                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+                Log.d("qin1", "topic_info" + topicList.get(position).toStringArray()[1]);
+                context.startActivity(intent);
+            }
+        });
+
         if (MyApplication.logined) {
             hint_mypush.setVisibility(View.GONE);
+            getAttentionTopic();
             getMyPush();
+
         }
         //下面的操作是初始化弹出数据
         ArrayList<String> strList = new ArrayList<>();
@@ -208,6 +229,85 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         });
 
     }
+
+    private void getAttentionTopic() {
+        RequestParams entity = new RequestParams(Config.url_topic);
+        entity.addBodyParameter("user_id", MyApplication.user.getUser_id() + "");
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    try {
+                        JSONArray resultJson = new JSONArray(result);
+                        topicList = new ArrayList<Topic>();
+                        for (int i = 0; i < resultJson.length(); i++) {
+                            JSONObject temp = resultJson.optJSONObject(i);
+                            Topic topic = Topic.jsonObjectToTotic(temp);
+                            Log.d("qin", "temp: " + temp.toString());
+                            topicList.add(topic);
+                        }
+                        gv_attention.setAdapter(new TopicAdpter(context, topicList));
+
+//                        lv_home_attention.setAdapter(new BaseAdapter() {
+//                            @Override
+//                            public int getCount() {
+//                                return topicList.size();
+//                            }
+//
+//                            @Override
+//                            public Object getItem(int position) {
+//                                return null;
+//                            }
+//
+//                            @Override
+//                            public long getItemId(int position) {
+//                                return 0;
+//                            }
+//
+//                            @Override
+//                            public View getView(int position, View convertView, ViewGroup parent) {
+//                                View v = null;
+//                                if (convertView != null) {
+//                                    v = convertView;
+//                                } else {
+//                                    v = View.inflate(context, R.layout.view_attention_item, null);
+//                                }
+//
+//                                ImageView topic_img = (ImageView) v.findViewById(R.id.topic_img);
+//                                TextView topic_title = (TextView) v.findViewById(R.id.topic_title);
+//
+//                                Topic i = topicList.get(position);
+//
+////                                ImageOptions options = new ImageOptions.Builder().setLoadingDrawableId(R.mipmap.notdata).build();
+////                                x.image().bind(topic_img, i.getTopic_img_url(), options);
+//                                Glide.with(AttentionFragment.this).load(i.getTopic_img_url()).placeholder(R.mipmap.notdata).error(R.mipmap.notdata).into(topic_img);
+//                                topic_title.setText(i.getTopic_title());
+//                                return v;
+//                            }
+//                        });
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                Toast.makeText(context, "请求话题失败，请重试", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
+    }
+
 
     @Override
     public void onClick(View v) {

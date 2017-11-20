@@ -34,6 +34,7 @@
                         android:id="@+id/iv_bg"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -202,36 +203,7 @@
 
                 </RelativeLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight=".8"
-                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:padding="5dp">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="5dp"
-                            android:src="@mipmap/post" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:text="@string/my_post"
-                            android:textColor="@color/apporange"
-                            android:textSize="15sp"
-                            android:id="@+id/textView" />
-                    </LinearLayout>
-
-
-                </LinearLayout>
                 <!--<RelativeLayout -->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="0dp"-->
@@ -252,12 +224,99 @@
                 <!--</RelativeLayout>-->
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:src="@mipmap/attention" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/my_attention"
+                            android:textColor="@color/apporange"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!--<Button-->
+                    <!--android:id="@+id/hint_mypush"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@android:color/transparent"-->
+                    <!--android:drawableTop="@mipmap/notdata"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="请登入后查看"-->
+                    <!--android:textColor="#900000ff"-->
+                    <!--android:textSize="18sp" />-->
+
+                <com.qzct.immediatechoice.util.ScrollableGridView
+                    android:id="@+id/gv_attention"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:numColumns="3" />
+            </LinearLayout>
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight=".8"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:src="@mipmap/post" />
+
+                        <TextView
+                            android:id="@+id/textView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="@string/my_post"
+                            android:textColor="@color/apporange"
+                            android:textSize="15sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <Button
                     android:id="@+id/hint_mypush"
@@ -278,6 +337,7 @@
                     android:layout_gravity="center_horizontal"
                     android:numColumns="auto_fit" />
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

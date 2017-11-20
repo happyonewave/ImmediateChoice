@@ -12,14 +12,10 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
@@ -51,7 +47,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
     private List<BasePager> pagers = new ArrayList<BasePager>();
     View home_image_text_line;
     View home_video_line;
-    View home_attention_line;
+//    View home_attention_line;
     public final static String ACTION_SET_FAB_VISBILITY = "ACTION_SET_FAB_VISBILITY";
     private LinearLayout home_title;
     private FabSpeedDial fabSpeedDial;
@@ -73,7 +69,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         vp_home = (ViewPager) v.findViewById(R.id.vp_home);
         home_image_text_line = v.findViewById(R.id.home_image_text_line);
         home_video_line = v.findViewById(R.id.home_video_line);
-        home_attention_line = v.findViewById(R.id.home_attention_line);
+//        home_attention_line = v.findViewById(R.id.home_attention_line);
         home_calendar = v.findViewById(R.id.home_calendar);
         home_search = v.findViewById(R.id.home_search);
         shade = v.findViewById(R.id.shade);
@@ -231,7 +227,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 //        fragmentList.add(new QuestionFragment());
         fragmentList.add(questionFragment);
         fragmentList.add(new VideoFragment());
-        fragmentList.add(new AttentionFragment());
+//        fragmentList.add(new AttentionFragment());
         vp_home.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
 
             @Override
@@ -260,9 +256,9 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
                     case VIDEO:
                         home_video_line.setVisibility(View.VISIBLE);
                         break;
-                    case ATTENTTION:
-                        home_attention_line.setVisibility(View.VISIBLE);
-                        break;
+//                    case ATTENTTION:
+//                        home_attention_line.setVisibility(View.VISIBLE);
+//                        break;
 
 
                     default:
@@ -323,7 +319,8 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
      *
      * @param v 点击后返回的对应的对象
      */
-    @Event({R.id.bt_home_title_image, R.id.bt_home_title_video, R.id.bt_home_title_attention})
+//    @Event({R.id.bt_home_title_image, R.id.bt_home_title_video, R.id.bt_home_title_attention})
+    @Event({R.id.bt_home_title_image, R.id.bt_home_title_video})
     private void titleOnClick(View v) {
         reSetLine();
         switch (v.getId()) {
@@ -338,10 +335,10 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
                 home_video_line.setVisibility(View.VISIBLE);
                 break;
 
-            case R.id.bt_home_title_attention:
-                vp_home.setCurrentItem(ATTENTTION);
-                home_attention_line.setVisibility(View.VISIBLE);
-                break;
+//            case R.id.bt_home_title_attention:
+//                vp_home.setCurrentItem(ATTENTTION);
+//                home_attention_line.setVisibility(View.VISIBLE);
+//                break;
             default:
                 break;
 
@@ -356,7 +353,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
 
         home_image_text_line.setVisibility(View.GONE);
         home_video_line.setVisibility(View.GONE);
-        home_attention_line.setVisibility(View.GONE);
+//        home_attention_line.setVisibility(View.GONE);
     }
 
     /**

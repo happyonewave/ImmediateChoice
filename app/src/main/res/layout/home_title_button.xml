@@ -1,106 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/home_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/home_title"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/apporange">
+        android:background="@color/apporange"
+        android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <Button
                 android:id="@+id/bt_home_title_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/home_title_image_text"
-                android:textSize="@dimen/indicator_textSize"
                 android:background="@android:color/transparent"
+                android:text="@string/home_title_image_text"
                 android:textColor="@drawable/bt_home_title_textcolor"
-                />
+                android:textSize="@dimen/indicator_textSize" />
+
             <View
                 android:id="@+id/home_image_text_line"
                 android:layout_width="80dp"
                 android:layout_height="2dp"
-                android:background="@android:color/white"
                 android:layout_gravity="center_horizontal"
-                />
+                android:background="@android:color/white" />
         </LinearLayout>
 
         <!--<View-->
-            <!--android:layout_width="2dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="@android:color/black"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--/>-->
+        <!--android:layout_width="2dp"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="@android:color/black"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--/>-->
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
+
             <Button
                 android:id="@+id/bt_home_title_video"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:text="@string/home_title_video"
-                android:textSize="@dimen/indicator_textSize"
                 android:textColor="@drawable/bt_home_title_textcolor"
-                />
+                android:textSize="@dimen/indicator_textSize" />
+
             <View
                 android:id="@+id/home_video_line"
                 android:layout_width="80dp"
                 android:layout_height="2dp"
-                android:visibility="gone"
-                android:background="@android:color/white"
                 android:layout_gravity="center_horizontal"
-                />
+                android:background="@android:color/white"
+                android:visibility="gone" />
         </LinearLayout>
         <!--<View-->
-            <!--android:layout_width="2dp"-->
-            <!--android:layout_height="40dp"-->
-            <!--android:background="@android:color/black"-->
-            <!--android:layout_gravity="center_horizontal"-->
-            <!--/>-->
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
-            <Button
-                android:id="@+id/bt_home_title_attention"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:text="@string/home_title_attention"
-                android:textSize="@dimen/indicator_textSize"
-                android:textColor="@drawable/bt_home_title_textcolor"
-                />
-            <View
-                android:id="@+id/home_attention_line"
-                android:layout_width="80dp"
-
-                android:layout_height="2dp"
-                android:visibility="gone"
-                android:background="@android:color/white"
-                android:layout_gravity="center_horizontal"
-                />
-        </LinearLayout>
-    </LinearLayout>
-
-    <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="2dp"-->
+        <!--android:layout_width="2dp"-->
+        <!--android:layout_height="40dp"-->
         <!--android:background="@android:color/black"-->
         <!--android:layout_gravity="center_horizontal"-->
         <!--/>-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/bt_home_title_attention"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:text="@string/home_title_attention"-->
+                <!--android:textColor="@drawable/bt_home_title_textcolor"-->
+                <!--android:textSize="@dimen/indicator_textSize" />-->
+
+            <!--<View-->
+                <!--android:id="@+id/home_attention_line"-->
+                <!--android:layout_width="80dp"-->
+
+                <!--android:layout_height="2dp"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:visibility="gone" />-->
+        <!--</LinearLayout>-->
+    </LinearLayout>
+
+    <!--<View-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="2dp"-->
+    <!--android:background="@android:color/black"-->
+    <!--android:layout_gravity="center_horizontal"-->
+    <!--/>-->
 
 </LinearLayout>
