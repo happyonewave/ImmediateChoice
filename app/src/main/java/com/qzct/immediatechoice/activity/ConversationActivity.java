@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
@@ -20,6 +20,7 @@ public class ConversationActivity extends FragmentActivity {
 
     private TextView tv_name;
     private TextView tv_more;
+    private ImageView iv_top_back;
     private int OPEN_USERINFO = 0;
 
     @Override
@@ -31,6 +32,7 @@ public class ConversationActivity extends FragmentActivity {
     }
 
     private void initView() {
+        iv_top_back = (ImageView) findViewById(R.id.top_back);
         tv_name = (TextView) findViewById(R.id.name);
         tv_more = (TextView) findViewById(R.id.tv_more);
 
@@ -40,6 +42,12 @@ public class ConversationActivity extends FragmentActivity {
         //获取Id
         final String targetId = getIntent().getData().getQueryParameter("targetId");
         String name = getIntent().getData().getQueryParameter("title");
+        iv_top_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         tv_more.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

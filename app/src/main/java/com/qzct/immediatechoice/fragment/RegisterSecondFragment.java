@@ -44,7 +44,7 @@ public class RegisterSecondFragment extends baseFragment {
 //                if (verification.equals("153698")){
                 RegisterFinallyFragment finish = new RegisterFinallyFragment(phone_number, user_type);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fl_register, finish);
+//                transaction.replace(R.id.fl_register, finish);
                 transaction.commit();
 //                }else{
 //                Toast.makeText(context, "验证码错误，请重新获取验证", Toast.LENGTH_LONG).show();

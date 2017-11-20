@@ -2,63 +2,71 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#60eb633b"
     android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="10dp"
         android:layout_weight="1"
-        android:background="@drawable/circular_bg">
+        android:background="@color/white">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_portrait_bg"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="30dp"
+                android:src="#80eb633b" />
 
             <ImageView
                 android:id="@+id/user_portrait"
                 android:layout_width="@dimen/userName_bigPortraitSize"
                 android:layout_height="@dimen/userName_bigPortraitSize"
-                android:background="@android:color/transparent"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/user_info_portrait_bg"
                 android:src="@mipmap/default_portrait" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+        </FrameLayout>
 
     </RelativeLayout>
 
-    <GridLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_weight="1"
-        android:background="@drawable/circular_bg"
-        android:columnCount="2"
-        android:padding="10dp"
-        android:rowCount="1">
+        android:layout_weight="1"   
+        android:background="@color/white"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="4"
             android:orientation="vertical">
 
             <TextView
                 style="@style/activity_userinfo_title_style"
                 android:text="昵称" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#70cccccc" />
+
             <TextView
                 style="@style/activity_userinfo_title_style"
                 android:text="性别" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#70cccccc" />
             <!--<TextView-->
             <!--style="@style/activity_userinfo_title_style"-->
             <!--android:text="年龄" />-->
@@ -69,14 +77,15 @@
 
             <TextView
                 style="@style/activity_userinfo_title_style"
-                android:text="邮箱地址" />
+                android:text="手机号码" />
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_weight="6"
             android:orientation="vertical">
 
             <TextView
@@ -85,11 +94,20 @@
                 android:text="name" />
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#70cccccc" />
+
             <TextView
                 android:id="@+id/user_sex"
                 style="@style/activity_userinfo_title_style"
                 android:text="sex" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#70cccccc" />
             <!--<TextView-->
             <!--style="@style/activity_userinfo_title_style"-->
             <!--android:text="age" />-->
@@ -104,7 +122,7 @@
                 android:text="phone_num" />
 
         </LinearLayout>
-    </GridLayout>
+    </LinearLayout>
 
     <Button
         android:id="@+id/btn_add_friend"
@@ -119,15 +137,19 @@
         android:textColor="@android:color/white"
         android:visibility="gone" />
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:background="#70cccccc" />
+
     <RelativeLayout
         android:id="@+id/rl_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_weight="1"
-        android:background="@drawable/circular_bg">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/iv_qrcode"

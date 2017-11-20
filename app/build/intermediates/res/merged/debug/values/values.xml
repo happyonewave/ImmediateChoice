@@ -1226,7 +1226,7 @@
     <dimen name="rc_conversation_item_data_size">14sp</dimen>
     <dimen name="rc_conversation_item_name_size">16sp</dimen>
     <dimen name="rc_conversation_item_time_size">13sp</dimen>
-    <dimen name="rc_conversation_name_textSize">30sp</dimen>
+    <dimen name="rc_conversation_name_textSize">17sp</dimen>
     <dimen name="rc_extension_board_height">282dp</dimen>
     <dimen name="rc_popup_dialog_distance_to_edge">40dp</dimen>
     <dimen name="round_radius">6dip</dimen>
@@ -1418,7 +1418,7 @@
     <string name="fill_tel_protocol_agree_hint">注册即表示同意</string>
     <string name="fill_verification_code">输入验证码</string>
     <string name="forget_pwd">重置支付密码</string>
-    <string name="forgot_password_text">忘记密码？| </string>
+    <string name="forgot_password_text">忘记密码</string>
     <string name="get_code">重新获取验证码</string>
     <string name="get_deposit_low">您的金额不足以支付手续费</string>
     <string name="get_deposit_over">提现金额超限</string>
@@ -1451,11 +1451,12 @@
     <string name="library_FloatingActionButton_licenseId">mit</string>
     <string name="library_FloatingActionButton_repositoryLink">https://github.com/makovkastar/FloatingActionButton</string>
     <string name="loading">加载中...</string>
-    <string name="login_text">立即登录</string>
+    <string name="login_text">登录</string>
     <string name="logout">退出登录</string>
     <string name="look_banks">查看支持银行</string>
     <string name="look_update">检查更新</string>
     <string name="luck_rp">拼手气红包</string>
+    <string name="my_attention">我关注的</string>
     <string name="my_bank_title">银行卡设置</string>
     <string name="my_post">我发起的</string>
     <string name="my_rp_title">我的红包</string>
@@ -1778,7 +1779,7 @@
     <string name="recharge_suc">充值成功</string>
     <string name="red_envelope_blessing">红包祝福语最多输入25个字噢～</string>
     <string name="register">注册</string>
-    <string name="register_text"> 立即注册</string>
+    <string name="register_text"> 注册用户</string>
     <string name="req_code">请先获得验证码</string>
     <string name="rp_expire">该红包已超过24小时。如已领取,可在"我的红包"中查看</string>
     <string name="search_menu_title">Search</string>
@@ -3839,7 +3840,7 @@
     </style>
     <style name="info_style">
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:textSize">17sp</item>
     </style>
     <style name="jrmf_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>

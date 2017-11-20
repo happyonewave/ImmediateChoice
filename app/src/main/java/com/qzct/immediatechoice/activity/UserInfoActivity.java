@@ -1,10 +1,8 @@
 package com.qzct.immediatechoice.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,24 +13,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
-
-import java.util.List;
-
-import jp.wasabeef.glide.transformations.internal.Utils;
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 
 /**
@@ -48,6 +38,8 @@ public class UserInfoActivity extends Activity {
     private Button btn_add_friend;
     private RelativeLayout rl_layout;
     private ImageView iv_qrcode;
+    private ImageView iv_portrait_bg;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +52,7 @@ public class UserInfoActivity extends Activity {
     }
 
     private void initView() {
+        iv_portrait_bg = (ImageView) findViewById(R.id.iv_portrait_bg);
         iv_user_portrait = (ImageView) findViewById(R.id.user_portrait);
         tv_user_name = (TextView) findViewById(R.id.user_name);
         tv_user_sex = (TextView) findViewById(R.id.user_sex);
@@ -84,6 +77,10 @@ public class UserInfoActivity extends Activity {
 //        Glide.with(this).load(user.getPortrait_path()).asBitmap().into(simpleTarget);
 
 //        tv_user_portrait.setCompoundDrawablesWithIntrinsicBounds(null, top, null, null);
+
+        Glide.with(this).load(user.getPortrait_path())
+                .bitmapTransform(new BlurTransformation(context, 25), new CenterCrop(context))
+                .into(iv_portrait_bg);
         Glide.with(this).load(user.getPortrait_path()).bitmapTransform(new GlideCircleTransform(this)).into(iv_user_portrait);
 
         tv_user_name.setText(user.getUsername());

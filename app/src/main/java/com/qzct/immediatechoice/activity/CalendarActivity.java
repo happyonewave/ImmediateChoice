@@ -15,7 +15,6 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,13 +27,12 @@ import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static com.qzct.immediatechoice.domain.Questionnaire.*;
+import static com.qzct.immediatechoice.domain.Questionnaire.Choice;
+import static com.qzct.immediatechoice.domain.Questionnaire.Question;
 
 /**
  * Created by tsh2 on 2017/4/19.
@@ -103,6 +101,7 @@ public class CalendarActivity extends AppCompatActivity {
                 for (Question.Option option : questionnaire.getEntities().get(position).getOptions()) {
                     CheckBox cb_option = new CheckBox(CalendarActivity.this);
                     cb_option.setTextColor(Color.GRAY);
+                    cb_option.setButtonDrawable(getResources().getDrawable(R.drawable.bt_check_box_bg));
                     cb_option.setText(option.getNum() + "." + option.getContent());
                     cb_option.setTag(R.id.tag_num, option.getNum());
                     cb_option.setTag(R.id.tag_questionnaire_question_id, questionnaire.getEntities().get(position).getQuestionnaire_question_id());
@@ -126,6 +125,7 @@ public class CalendarActivity extends AppCompatActivity {
                             }
                         }
                     });
+
 //                    radioButtonList.add(rb_option);
 //                    radioGroup.addView(rb_option);
                     checkGroup.addView(cb_option);

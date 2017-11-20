@@ -48,7 +48,7 @@ public class RegisterFirstFragment extends baseFragment {
                 }
                 RegisterSecondFragment Second = new RegisterSecondFragment(phone_number, user_type);
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.fl_register, Second);
+//                transaction.replace(R.id.fl_register, Second);
                 transaction.commit();
             }
         });
