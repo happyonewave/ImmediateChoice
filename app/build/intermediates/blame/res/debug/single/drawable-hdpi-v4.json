@@ -236,6 +236,10 @@
         "source": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\show_grade_bg.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\src\\main\\res\\drawable-hdpi\\show_grade_bg.xml"
+    },
+    {
         "merged": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
         "source": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable-hdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
