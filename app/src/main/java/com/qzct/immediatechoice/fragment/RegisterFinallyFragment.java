@@ -10,10 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -183,7 +181,7 @@ public class RegisterFinallyFragment extends baseFragment {
 //        }
 //    }
 
-    class RegisterTask extends AsyncTask<String, String, String> {
+    public class RegisterTask extends AsyncTask<String, String, String> {
         int user_type;
         String name;
         String password;
