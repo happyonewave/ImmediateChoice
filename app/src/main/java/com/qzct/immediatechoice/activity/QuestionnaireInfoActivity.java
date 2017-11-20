@@ -4,28 +4,19 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.LinearGradient;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.utils;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by tsh2 on 2017/4/22.
@@ -55,7 +46,7 @@ public class QuestionnaireInfoActivity extends Activity {
 
     private void initData() {
         tv_title.setText(questionnaire.getTitle());
-        tv_hint.setText(questionnaire.getHint());
+        tv_hint.setText("  " + questionnaire.getHint());
         lv_show_questionnaire.setAdapter(new BaseAdapter() {
             @Override
             public int getCount() {
@@ -76,11 +67,13 @@ public class QuestionnaireInfoActivity extends Activity {
             public View getView(int position, View convertView, ViewGroup parent) {
                 View v = View.inflate(QuestionnaireInfoActivity.this, R.layout.activity_questionnaire_info_item, null);
                 TextView title = (TextView) v.findViewById(R.id.questionnaire_info_title);
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
                 title.setText(position + 1 + "." + questionnaire.getEntities().get(position).getTitle());
                 LinearLayout options = (LinearLayout) v.findViewById(R.id.options);
                 for (Questionnaire.Question.Option option : questionnaire.getEntities().get(position).getOptions()) {
                     TextView tv_option = new TextView(QuestionnaireInfoActivity.this);
                     tv_option.setTextColor(Color.GRAY);
+                    tv_option.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
                     tv_option.setText(option.getNum() + "." + option.getContent());
                     options.addView(tv_option);
                 }

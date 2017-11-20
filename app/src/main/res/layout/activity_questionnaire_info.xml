@@ -12,7 +12,7 @@
         android:layout_gravity="center"
         android:text="title"
         android:padding="5dp"
-        android:textSize="25sp" />
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/tv_hint"
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="hint"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
     <ListView
         android:id="@+id/lv_show_questionnaire"

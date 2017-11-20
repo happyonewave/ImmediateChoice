@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Nov 20 19:52:33 CST 2017
+#Mon Nov 20 20:27:58 CST 2017
 1073.file=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\view_topic.xml
 1090.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 1007.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\transforms\\mergeJniLibs\\debug\\folders\\2000\\1f\\main
