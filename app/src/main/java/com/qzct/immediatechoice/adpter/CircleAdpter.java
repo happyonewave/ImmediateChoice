@@ -17,7 +17,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
@@ -29,7 +28,6 @@ import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.fragment.FriendFragment;
-import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -100,7 +98,7 @@ public class CircleAdpter extends BaseAdapter {
             holder.item_username = (TextView) convertView.findViewById(R.id.item_username);
             holder.item_portrait = (ImageView) convertView.findViewById(R.id.item_portrait);
             holder.comment_icon = (ImageView) convertView.findViewById(R.id.comment_icon);
-            holder.share_icon = (ImageView) convertView.findViewById(R.id.share_icon);
+//            holder.share_icon = (ImageView) convertView.findViewById(R.id.share_icon);
             holder.tv_comment_icon = (TextView) convertView.findViewById(R.id.tv_comment_icon);
             holder.tv_share_icon = (TextView) convertView.findViewById(R.id.tv_share_icon);
             holder.item_comment = (TextView) convertView.findViewById(R.id.item_comment);
@@ -203,44 +201,44 @@ public class CircleAdpter extends BaseAdapter {
         holder.tv_comment_icon.setText(i.getComment_count() + "");
         holder.tv_share_icon.setText(i.getShare_count() + "");
         holder.item_comment.setText(i.getComment());
-        holder.share_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
-                        .setCancelButtonTitle("取消")
-                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
-                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
-                        .setCancelableOnTouchOutside(true)
-                        .setListener(new ActionSheet.ActionSheetListener() {
-                            @Override
-                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
-//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
-                                if (isCancel) {
-                                    actionSheet.dismiss();
-                                }
-                            }
-
-                            @Override
-                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
-//                                Toast.makeText(context, "click item index = " + index,
-//                                        Toast.LENGTH_SHORT).show();
-                                switch (index) {
-                                    case 0:
-                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 1:
-                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 2:
-                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
-                                        break;
-
-                                }
-
-                            }
-                        }).show();
-            }
-        });
+//        holder.share_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+//                        .setCancelButtonTitle("取消")
+//                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
+//                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
+//                        .setCancelableOnTouchOutside(true)
+//                        .setListener(new ActionSheet.ActionSheetListener() {
+//                            @Override
+//                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+////                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+//                                if (isCancel) {
+//                                    actionSheet.dismiss();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+////                                Toast.makeText(context, "click item index = " + index,
+////                                        Toast.LENGTH_SHORT).show();
+//                                switch (index) {
+//                                    case 0:
+//                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 1:
+//                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 2:
+//                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+//                                        break;
+//
+//                                }
+//
+//                            }
+//                        }).show();
+//            }
+//        });
         holder.comment_icon.setTag(questionList.get(position));
         holder.comment_icon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -360,7 +358,7 @@ public class CircleAdpter extends BaseAdapter {
         TextView item_username;
         ImageView item_portrait;
         ImageView comment_icon;
-        ImageView share_icon;
+//        ImageView share_icon;
         TextView tv_comment_icon;
         TextView tv_share_icon;
         TextView item_comment;

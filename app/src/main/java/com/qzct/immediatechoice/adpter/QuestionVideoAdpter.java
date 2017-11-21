@@ -22,7 +22,6 @@ import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
-import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -144,45 +143,45 @@ public class QuestionVideoAdpter extends BaseAdapter {
         holder.comment_icon.setText(i.getComment_count() + "");
         holder.share_icon.setText(i.getShare_count() + "");
 
-        holder.share_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
-                        .setCancelButtonTitle("取消")
-                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
-                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
-                        .setCancelableOnTouchOutside(true)
-                        .setListener(new ActionSheet.ActionSheetListener() {
-                            @Override
-                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
-//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
-                                if (isCancel) {
-                                    actionSheet.dismiss();
-                                }
-                            }
-
-                            @Override
-                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
-//                                Toast.makeText(context, "click item index = " + index,
-//                                        Toast.LENGTH_SHORT).show();
-                                switch (index) {
-                                    case 0:
-                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 1:
-                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 2:
-                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
-                                        break;
-
-                                }
-
-                            }
-                        }).show();
-
-            }
-        });
+//        holder.share_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+//                        .setCancelButtonTitle("取消")
+//                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
+//                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
+//                        .setCancelableOnTouchOutside(true)
+//                        .setListener(new ActionSheet.ActionSheetListener() {
+//                            @Override
+//                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+////                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+//                                if (isCancel) {
+//                                    actionSheet.dismiss();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+////                                Toast.makeText(context, "click item index = " + index,
+////                                        Toast.LENGTH_SHORT).show();
+//                                switch (index) {
+//                                    case 0:
+//                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 1:
+//                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 2:
+//                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+//                                        break;
+//
+//                                }
+//
+//                            }
+//                        }).show();
+//
+//            }
+//        });
         holder.comment_icon.setTag(questionList.get(position));
 
         holder.comment_icon.setOnClickListener(new View.OnClickListener() {

@@ -164,6 +164,7 @@ public class RegisterActivity extends AppCompatActivity {
                     String password = et_password.getText().toString();
                     User user = new User(name, user_type, password, name, portrait_path, sex);
                     RegisterTask registerTask = new RegisterTask(user);
+                    Toast.makeText(context, "请稍等", Toast.LENGTH_SHORT).show();
                     registerTask.execute();
 
 //                    Toast.makeText(context, "性别：" + sex + "用户类型：" + user_type + "用户名：" + name + "密码： " + password, Toast.LENGTH_LONG).show();

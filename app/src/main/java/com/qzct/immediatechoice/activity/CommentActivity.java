@@ -57,7 +57,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     TextView item_username;
     ImageView item_portrait;
     ImageView comment_icon;
-    ImageView share_icon;
+//    ImageView share_icon;
     TextView tv_comment_icon;
     TextView tv_share_icon;
     List<Comment> commentList;
@@ -110,7 +110,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
         item_username = (TextView) header_layout.findViewById(R.id.item_username);
         item_portrait = (ImageView) header_layout.findViewById(R.id.item_portrait);
         comment_icon = (ImageView) header_layout.findViewById(R.id.comment_icon);
-        share_icon = (ImageView) header_layout.findViewById(R.id.share_icon);
+//        share_icon = (ImageView) header_layout.findViewById(R.id.share_icon);
         tv_comment_icon = (TextView) header_layout.findViewById(R.id.tv_comment_icon);
         tv_share_icon = (TextView) header_layout.findViewById(R.id.tv_share_icon);
         lv_comment = (ListView) findViewById(R.id.lv_comment);

@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
@@ -58,6 +59,10 @@ public class ConversationActivity extends FragmentActivity {
                         user = temp;
                         break;
                     }
+                }
+                if (user == null) {
+                    Toast.makeText(ConversationActivity.this, "加该用户为好友后才能查看", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 Intent intent = new Intent(ConversationActivity.this, UserInfoActivity.class);
                 intent.putExtra("user", user);
