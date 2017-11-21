@@ -129,7 +129,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
         Intent intent = new Intent(context, CommentActivity.class);
         intent.putExtra("question", question);
         context.startActivity(intent);
-        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
 
     /**

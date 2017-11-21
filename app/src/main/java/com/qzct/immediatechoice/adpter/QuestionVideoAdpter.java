@@ -12,7 +12,6 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
@@ -211,8 +210,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
                         public void onSuccess(String result) {
                             if (result != null) {
                                 int percent = Integer.parseInt(result);
-                                Toast.makeText(context, "left:" + percent + "%," +
-                                        "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(context, "left:" + percent + "%," +
+//                                        "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
 //                            showBar(percent, 100 - percent);
                                 holder.left_ProgressBar.setVisibility(View.VISIBLE);
                                 holder.right_ProgressBar.setVisibility(View.VISIBLE);
@@ -256,8 +255,8 @@ public class QuestionVideoAdpter extends BaseAdapter {
                         public void onSuccess(String result) {
                             if (result != null) {
                                 int percent = Integer.parseInt(result);
-                                Toast.makeText(context, "left:" + (100 - percent) + "%," +
-                                        "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
+//                                Toast.makeText(context, "left:" + (100 - percent) + "%," +
+//                                        "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
 //                            showBar(percent, 100 - percent);
                                 holder.left_ProgressBar.setVisibility(View.VISIBLE);
                                 holder.right_ProgressBar.setVisibility(View.VISIBLE);
