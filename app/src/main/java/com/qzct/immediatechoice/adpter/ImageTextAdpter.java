@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
@@ -17,7 +16,6 @@ import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Question;
-import com.qzct.immediatechoice.util.ActionSheet;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 
@@ -90,7 +88,7 @@ public class ImageTextAdpter extends BaseAdapter {
         TextView item_username = (TextView) v.findViewById(R.id.item_username);
         ImageView item_portrait = (ImageView) v.findViewById(R.id.item_portrait);
         ImageView comment_icon = (ImageView) v.findViewById(R.id.comment_icon);
-        ImageView share_icon = (ImageView) v.findViewById(R.id.share_icon);
+//        ImageView share_icon = (ImageView) v.findViewById(R.id.share_icon);
         TextView item_comment = (TextView) v.findViewById(R.id.item_comment);
 
         TextView tv_comment_icon = (TextView) v.findViewById(R.id.tv_comment_icon);
@@ -132,45 +130,45 @@ public class ImageTextAdpter extends BaseAdapter {
 
         tv_comment_icon.setText(i.getComment_count() + "");
         tv_share_icon.setText(i.getShare_count() + "");
-        share_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
-                        .setCancelButtonTitle("取消")
-                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
-                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
-                        .setCancelableOnTouchOutside(true)
-                        .setListener(new ActionSheet.ActionSheetListener() {
-                            @Override
-                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
-//                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
-                                if (isCancel) {
-                                    actionSheet.dismiss();
-                                }
-                            }
-
-                            @Override
-                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
-//                                Toast.makeText(context, "click item index = " + index,
-//                                        Toast.LENGTH_SHORT).show();
-                                switch (index) {
-                                    case 0:
-                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 1:
-                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
-                                        break;
-                                    case 2:
-                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
-                                        break;
-
-                                }
-
-                            }
-                        }).show();
-
-            }
-        });
+//        share_icon.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ActionSheet.createBuilder(context, context.getSupportFragmentManager())
+//                        .setCancelButtonTitle("取消")
+//                        .setOtherButtonTitles("微信好友", "朋友圈   ", "QQ空间  ")
+//                        .setOtherButtonDrawables(R.mipmap.wechat_friend, R.mipmap.wechat_circle, R.mipmap.qzone)
+//                        .setCancelableOnTouchOutside(true)
+//                        .setListener(new ActionSheet.ActionSheetListener() {
+//                            @Override
+//                            public void onDismiss(ActionSheet actionSheet, boolean isCancel) {
+////                                Toast.makeText(context, "dismissed isCancle = " + isCancel, Toast.LENGTH_SHORT).show();
+//                                if (isCancel) {
+//                                    actionSheet.dismiss();
+//                                }
+//                            }
+//
+//                            @Override
+//                            public void onOtherButtonClick(ActionSheet actionSheet, int index) {
+////                                Toast.makeText(context, "click item index = " + index,
+////                                        Toast.LENGTH_SHORT).show();
+//                                switch (index) {
+//                                    case 0:
+//                                        Toast.makeText(context, "微信好友", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 1:
+//                                        Toast.makeText(context, "朋友圈", Toast.LENGTH_SHORT).show();
+//                                        break;
+//                                    case 2:
+//                                        Toast.makeText(context, "QQ空间", Toast.LENGTH_SHORT).show();
+//                                        break;
+//
+//                                }
+//
+//                            }
+//                        }).show();
+//
+//            }
+//        });
         comment_icon.setTag(questionList.get(position));
         comment_icon.setOnClickListener(new View.OnClickListener() {
             @Override
