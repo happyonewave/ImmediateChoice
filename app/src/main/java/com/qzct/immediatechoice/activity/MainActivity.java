@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,9 +16,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
-import com.qzct.immediatechoice.domain.Topic;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
@@ -25,17 +25,9 @@ import com.qzct.immediatechoice.fragment.HomeFragment;
 import com.qzct.immediatechoice.fragment.QuestionnaireFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
-import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.xutils.common.Callback;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     public static RadioGroup rg_nav;
     private String token = MyApplication.user.getToken();
     private ArrayList<UserInfo> userInfoList;
+    private String TAG = "main";
 //    public static View shade;
 
     @Override
@@ -307,4 +300,49 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
             return baseFragment;
         }
     };
+
+
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        super.onActivityResult(requestCode, resultCode, data);
+        FragmentManager fragmentManager=getSupportFragmentManager();
+        for(int indext=0;indext<fragmentManager.getFragments().size();indext++)
+        {
+            Fragment fragment=fragmentManager.getFragments().get(indext); //找到第一层Fragment
+            if(fragment==null)
+                Log.w(TAG, "Activity result no fragment exists for index: 0x"
+                        + Integer.toHexString(requestCode));
+            else
+                handleResult(fragment,requestCode,resultCode,data);
+        }
+    }
+    /**
+     * 递归调用，对所有的子Fragment生效
+     * @param fragment
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+    private void handleResult(Fragment fragment,int requestCode,int resultCode,Intent data)
+    {
+        fragment.onActivityResult(requestCode, resultCode, data);//调用每个Fragment的onActivityResult
+        Log.e(TAG, "MyBaseFragmentActivity");
+        List<Fragment> childFragment = fragment.getChildFragmentManager().getFragments(); //找到第二层Fragment
+        if(childFragment!=null)
+            for(Fragment f:childFragment)
+                if(f!=null)
+                {
+                    handleResult(f, requestCode, resultCode, data);
+                }
+        if(childFragment==null)
+            Log.e(TAG, "MyBaseFragmentActivity1111");
+    }
+
+
+
+
+
 }

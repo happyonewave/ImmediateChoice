@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -347,6 +348,8 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.top_back:
+                Intent intent = new Intent();
+                setResult(RESULT_OK,intent);
                 finish();
                 break;
 
