@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Thu Nov 23 11:32:22 CST 2017
+#Thu Nov 23 12:05:13 CST 2017
 1073.file=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\aliwx_sv_st_shiny_pre.png
 1090.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_
 1007.base=E\:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\resources-debug.ap_
