@@ -2,13 +2,10 @@ package com.qzct.immediatechoice.util;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
-import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.domain.User;
@@ -202,6 +199,49 @@ public class Service {
             }
         });
     }
+
+
+
+
+
+
+    /**
+     * 登录
+     *
+     */
+    public void login(User user, final MyCallback.LoginCallback loginCallback) {
+        final RequestParams entity = new RequestParams(Config.url_login);
+        entity.addBodyParameter("name",user.getUsername());
+        entity.addBodyParameter("password",user.getPassword());
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+                    loginCallback.onSuccess(result);
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                loginCallback.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+
+
+
+
 
     /**
      * 获取问卷
