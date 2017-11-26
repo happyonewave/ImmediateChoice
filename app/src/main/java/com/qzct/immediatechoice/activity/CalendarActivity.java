@@ -13,7 +13,6 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -44,12 +43,14 @@ public class CalendarActivity extends AppCompatActivity {
     private OneCalendarView calendar;
     //    private List<Questionnaire> questionnaireList;
     private Questionnaire questionnaire;
-    private ListAdapter adapter;
+    private BaseAdapter adapter;
     private List<RadioButton> radioButtonList = new ArrayList<RadioButton>();
     private List<Questionnaire.Choice> choiceList = new ArrayList<Questionnaire.Choice>();
     private TextView tv_questionnaire_title;
     private LinearLayout headerView;
     private Activity context = this;
+    private List<Integer> idList;
+    private List<Integer> wroteIdList = new ArrayList<Integer>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,13 +98,13 @@ public class CalendarActivity extends AppCompatActivity {
 //                }
                 TextView title = (TextView) v.findViewById(R.id.calendar_title);
                 title.setText(position + 1 + "." + questionnaire.getEntities().get(position).getTitle());
-                title.setTextSize(TypedValue.COMPLEX_UNIT_SP,14);
+                title.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
 //                RadioGroup radioGroup = (RadioGroup) v.findViewById(R.id.radioGroup);
                 LinearLayout checkGroup = (LinearLayout) v.findViewById(R.id.checkGroup);
                 for (Question.Option option : questionnaire.getEntities().get(position).getOptions()) {
                     CheckBox cb_option = new CheckBox(CalendarActivity.this);
                     cb_option.setTextColor(Color.GRAY);
-                    cb_option.setTextSize(TypedValue.COMPLEX_UNIT_SP,12);
+                    cb_option.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12);
                     cb_option.setButtonDrawable(getResources().getDrawable(R.drawable.bt_check_box_bg));
                     cb_option.setText(option.getNum() + "." + option.getContent());
                     cb_option.setTag(R.id.tag_num, option.getNum());
@@ -140,8 +141,9 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onSuccess(final List<Integer> idList) {
 //                int randNumber = new Random().nextInt(MAX - MIN + 1) + MIN;
+                CalendarActivity.this.idList = idList;
                 final int randNumber = new Random().nextInt(idList.size());
-                Log.d("qin", "count: " + (idList.size() - 1));
+                Log.d("qin", "count: " + (idList.size()));
                 Log.d("qin", "randNumber: " + randNumber);
                 Service.getInstance().getQuestionnaire(new MyCallback.GetQuestionnaireCallback() {
                     @Override
@@ -158,6 +160,7 @@ public class CalendarActivity extends AppCompatActivity {
                     public void onSuccess(Questionnaire questionnaire) {
                         CalendarActivity.this.questionnaire = questionnaire;
                         lv_calendar.setAdapter(adapter);
+                        wroteIdList.add(idList.get(randNumber));
                     }
 
                     @Override
@@ -238,8 +241,16 @@ public class CalendarActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess() {
                             Service.getInstance().gradeAdd(context, 5);
-                            Toast.makeText(CalendarActivity.this, "提交成功,您的积分已+5", Toast.LENGTH_SHORT).show();
-                            finish();
+                            if (wroteIdList.size() < 2) {
+                                Toast.makeText(CalendarActivity.this, "提交成功,您的积分已+5", Toast.LENGTH_SHORT).show();
+                            }
+                            choiceList.clear();
+                            if (wroteIdList.size() == 2) {
+                                Toast.makeText(context, "提交成功,每天最多只能填写两份问卷，谢谢！", Toast.LENGTH_SHORT).show();
+                                finish();
+                            } else {
+                                refreshQuestionnaire();
+                            }
                         }
 
                         @Override
@@ -254,5 +265,50 @@ public class CalendarActivity extends AppCompatActivity {
             }
         });
         lv_calendar.addFooterView(submit);
+    }
+
+    private void refreshQuestionnaire() {
+        int randNumberTemp = new Random().nextInt(idList.size());
+        boolean isRepetition = false;
+        do {
+            isRepetition = false;
+            for (int idTemp : wroteIdList) {
+                if (idTemp == idList.get(randNumberTemp)) {
+                    randNumberTemp = new Random().nextInt(idList.size());
+                    isRepetition = true;
+                }
+            }
+        } while (isRepetition);
+        final int randNumber = randNumberTemp;
+        Log.d("qin", "count: " + (idList.size()));
+        Log.d("qin", "randNumber: " + randNumber);
+        Service.getInstance().getQuestionnaire(new MyCallback.GetQuestionnaireCallback() {
+            @Override
+            public int getQuestionnaireId() {
+                return idList.get(randNumber);
+            }
+
+            @Override
+            public int getUserId() {
+                return 0;
+            }
+
+            @Override
+            public void onSuccess(Questionnaire questionnaire) {
+                CalendarActivity.this.questionnaire = questionnaire;
+                adapter.notifyDataSetChanged();
+                wroteIdList.add(idList.get(randNumber));
+            }
+
+            @Override
+            public void onSuccess(List<Questionnaire> list) {
+
+            }
+
+            @Override
+            public void onError(Throwable ex) {
+
+            }
+        });
     }
 }

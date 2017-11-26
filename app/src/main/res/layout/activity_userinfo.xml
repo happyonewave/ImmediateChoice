@@ -39,7 +39,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"   
+        android:layout_weight="1"
         android:background="@color/white"
         android:paddingLeft="40dp"
         android:paddingRight="40dp">
@@ -52,7 +52,11 @@
 
             <TextView
                 style="@style/activity_userinfo_title_style"
-                android:text="昵称" />
+                android:text="用户ID" />
+
+            <TextView
+                style="@style/activity_userinfo_title_style"
+                android:text="用户名" />
 
             <View
                 android:layout_width="match_parent"
@@ -87,6 +91,11 @@
             android:layout_gravity="center"
             android:layout_weight="6"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/user_id"
+                style="@style/activity_userinfo_title_style"
+                android:text="id" />
 
             <TextView
                 android:id="@+id/user_name"
@@ -151,8 +160,19 @@
         android:layout_weight="1"
         android:background="@color/white">
 
+        <TextView
+            android:id="@+id/scan_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:text="扫一扫，加我好友！"
+            android:textSize="14sp"
+            />
+
         <ImageView
             android:id="@+id/iv_qrcode"
+            android:layout_below="@id/scan_hint"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </RelativeLayout>

@@ -14,10 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import org.apache.http.HttpResponse;
@@ -124,13 +125,61 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         EditText et_username = (EditText) findViewById(R.id.et_username);
         EditText et_password = (EditText) findViewById(R.id.et_password);
 
-        String username = et_username.getText().toString();
+        final String username = et_username.getText().toString();
         String password = et_password.getText().toString();
         user = new User(username, password);
         //判断网络连接
         if (isNetworkAvailable(getApplication())) {
-            LoginTask loginTask = new LoginTask(Config.url_login, user);
-            loginTask.execute();
+//            LoginTask loginTask = new LoginTask(Config.url_login, user);
+//            loginTask.execute();
+
+            Service.getInstance().login(user, new MyCallback.LoginCallback() {
+                @Override
+                public void onError(Throwable ex) {
+
+                    Toast.makeText(LoginActivity.this, "连接网站失败", Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onSuccess(String result) {
+                    switch (result) {
+                        case "0":
+                            Toast.makeText(LoginActivity.this, "帐号或密码错误！请重新登录！", Toast.LENGTH_SHORT).show();
+                            break;
+                        default:
+                            //登录成功
+                            JSONObject json = null;
+                            try {
+                                json = new JSONObject(result);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            //获取User信息
+                            int user_id = json.optInt("user_id");
+                            int user_type = json.optInt("user_type");
+                            String phone_number = json.optString("phone_number");
+                            String sex = json.optString("sex");
+                            String portrait_path = json.optString("portrait_path");
+                                token = json.optString("token");
+                            User user_all = new User(user_id, user_type, user.getUsername(), user.getPassword(), phone_number, portrait_path, sex, token);
+                            //存储User到Application
+                            MyApplication.user = user_all;
+                            MyApplication.logined = true;
+                            if (user_type == 0) {
+                                MyApplication.isQuestionnaireProvider = true;
+                            } else {
+                                MyApplication.isQuestionnaireProvider = false;
+                            }
+                            //进入主界面
+                            Intent intent = new Intent();
+                            intent.setClass(getBaseContext(), MainActivity.class);
+                            startActivity(intent);
+                            LoginActivity.this.finish();
+                            break;
+                    }
+                }
+            });
+
         } else {
             Toast.makeText(this, "你确定网络可以用吗？", Toast.LENGTH_SHORT).show();
         }

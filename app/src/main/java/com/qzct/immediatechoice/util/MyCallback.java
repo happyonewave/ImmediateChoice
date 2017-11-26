@@ -70,6 +70,12 @@ public interface MyCallback {
 
     }
 
+    interface LoginCallback {
+
+        void onError(Throwable ex);
+
+        void onSuccess(String result);
+    }
     interface PushQuestionnaireCallback {
         void onSuccess();
 
