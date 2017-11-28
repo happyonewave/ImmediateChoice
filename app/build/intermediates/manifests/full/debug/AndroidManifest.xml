@@ -78,11 +78,12 @@
 
     <uses-permission android:name="cn.rongcloud.im.permission.C2D_MESSAGE" />
 
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <meta-data
         android:name="android.support.VERSION"
         android:value="25.3.1" />
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
@@ -211,6 +212,7 @@
             android:name="RONG_CLOUD_APP_KEY"
             android:value="x18ywvqfxlw3c" />
 
+        <activity android:name="com.qzct.immediatechoice.activity.ReferenceChoiceActivity" />
         <activity android:name="io.rong.imkit.plugin.location.AMapLocationActivity" />
         <activity android:name="io.rong.imkit.plugin.location.AMapPreviewActivity" />
         <activity android:name="io.rong.imkit.plugin.location.AMapRealTimeActivity" />
