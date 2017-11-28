@@ -2,13 +2,12 @@ package com.qzct.immediatechoice.activity;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,8 +21,10 @@ import android.widget.Toast;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.util.FabSpeedDial;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
+import com.qzct.immediatechoice.util.SimpleMenuListenerAdapter;
 import com.qzct.immediatechoice.util.utils;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class PushQuestionnaireActivity extends AppCompatActivity implements View
     private EditText questionnaire_title;
     private EditText questionnaire_hint;
     private ImageView push;
-    private FloatingActionButton add;
+    private FabSpeedDial add;
     private EditText et_title;
     private LinearLayout questions;
     Activity context = this;
@@ -57,7 +58,7 @@ public class PushQuestionnaireActivity extends AppCompatActivity implements View
     private void initView() {
         questionnaire_title = (EditText) findViewById(R.id.questionnaire_title);
         questionnaire_hint = (EditText) findViewById(R.id.questionnaire_hint);
-        add = (FloatingActionButton) findViewById(R.id.questionnaire_question_add);
+        add = (FabSpeedDial) findViewById(R.id.questionnaire_question_add);
         iv_back = (ImageView) findViewById(R.id.iv_push_back);
         push = (ImageView) findViewById(R.id.questionnaire_question_push);
         questions = (LinearLayout) findViewById(R.id.questions);
@@ -66,7 +67,61 @@ public class PushQuestionnaireActivity extends AppCompatActivity implements View
     private void initData() {
         iv_back.setOnClickListener(this);
         push.setOnClickListener(this);
-        add.setOnClickListener(this);
+//        add.setOnClickListener(this);
+        add.setMenuListener(new SimpleMenuListenerAdapter() {
+            @Override
+            public boolean onMenuItemSelected(MenuItem menuItem) {
+                switch (menuItem.getItemId()) {
+                    case R.id.fab_import:
+                        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                        final View view = View.inflate(context, R.layout.dialog_add_questionnaire_question, null);
+                        et_title = (EditText) view.findViewById(R.id.title);
+                        final LinearLayout options = (LinearLayout) view.findViewById(R.id.options);
+                        final Button add = (Button) view.findViewById(R.id.questionnaire_option_add);
+                        Button finish = (Button) view.findViewById(R.id.finish);
+                        final List<LinearLayout> optionList = new ArrayList<LinearLayout>();
+                        add.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                LinearLayout option = (LinearLayout) View.inflate(context, R.layout.questionnaire_question_option, null);
+                                optionList.add(option);
+                                options.addView(option);
+                            }
+                        });
+                        finish.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                add(optionList);
+                                dialog.cancel();
+                            }
+                        });
+                        builder.setView(view);
+                        dialog = builder.create();
+                        dialog.show();
+                        break;
+                    case R.id.fab_reference:
+                        Intent intent = new Intent(context, ReferenceChoiceActivity.class);
+                        startActivity(intent);
+
+                        break;
+
+                    default:
+
+                        break;
+                }
+
+                return super.onMenuItemSelected(menuItem);
+            }
+
+            @Override
+            public void onOpenMenu() {
+            }
+
+            @Override
+            public void onCloseMenu() {
+
+            }
+        });
     }
 
     public void add(List<LinearLayout> optionList) {
@@ -130,33 +185,33 @@ public class PushQuestionnaireActivity extends AppCompatActivity implements View
                     Toast.makeText(context, "您未填写信息", Toast.LENGTH_SHORT).show();
                 }
                 break;
-            case R.id.questionnaire_question_add:
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                final View view = View.inflate(context, R.layout.dialog_add_questionnaire_question, null);
-                et_title = (EditText) view.findViewById(R.id.title);
-                final LinearLayout options = (LinearLayout) view.findViewById(R.id.options);
-                final Button add = (Button) view.findViewById(R.id.questionnaire_option_add);
-                Button finish = (Button) view.findViewById(R.id.finish);
-                final List<LinearLayout> optionList = new ArrayList<LinearLayout>();
-                add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        LinearLayout option = (LinearLayout) View.inflate(context, R.layout.questionnaire_question_option, null);
-                        optionList.add(option);
-                        options.addView(option);
-                    }
-                });
-                finish.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        add(optionList);
-                        dialog.cancel();
-                    }
-                });
-                builder.setView(view);
-                dialog = builder.create();
-                dialog.show();
-                break;
+//            case R.id.questionnaire_question_add:
+//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+//                final View view = View.inflate(context, R.layout.dialog_add_questionnaire_question, null);
+//                et_title = (EditText) view.findViewById(R.id.title);
+//                final LinearLayout options = (LinearLayout) view.findViewById(R.id.options);
+//                final Button add = (Button) view.findViewById(R.id.questionnaire_option_add);
+//                Button finish = (Button) view.findViewById(R.id.finish);
+//                final List<LinearLayout> optionList = new ArrayList<LinearLayout>();
+//                add.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        LinearLayout option = (LinearLayout) View.inflate(context, R.layout.questionnaire_question_option, null);
+//                        optionList.add(option);
+//                        options.addView(option);
+//                    }
+//                });
+//                finish.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        add(optionList);
+//                        dialog.cancel();
+//                    }
+//                });
+//                builder.setView(view);
+//                dialog = builder.create();
+//                dialog.show();
+//                break;
             case R.id.iv_push_back:
                 finish();
                 break;

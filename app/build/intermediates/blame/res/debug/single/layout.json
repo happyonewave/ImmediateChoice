@@ -1532,6 +1532,10 @@
         "source": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_text_input_password_icon.xml"
     },
     {
+        "merged": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_reference_choice.xml",
+        "source": "E:\\Android\\AndroidStudioProjects\\immediatechoice\\app\\src\\main\\res\\layout\\activity_reference_choice.xml"
+    },
+    {
         "merged": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\res\\merged\\debug\\layout\\rc_input_pager_layout.xml",
         "source": "C:\\Users\\tsh2\\AndroidStudioProjects\\ImmediateChoice\\app\\build\\intermediates\\exploded-aar\\ImmediateChoice\\IMKit\\unspecified\\res\\layout\\rc_input_pager_layout.xml"
     },

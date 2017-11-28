@@ -103,13 +103,15 @@
         <!--</RelativeLayout>-->
     </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
+    <com.qzct.immediatechoice.util.FabSpeedDial
         android:id="@+id/questionnaire_question_add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="10dp"
-        android:src="@mipmap/push_questionnaire"
-        app:backgroundTint="@color/apporange" />
+        android:layout_gravity="bottom|right"
+        android:layout_margin="16dp"
+        app:fabBackgroundTint="@color/apporange"
+        app:fabGravity="bottom_end"
+        app:fabMenu="@menu/fab_menu_add_choice"
+        app:miniFabBackgroundTint="@android:color/white"
+        app:miniFabTitleTextColor="?attr/colorPrimaryDark"/>
 </FrameLayout>
