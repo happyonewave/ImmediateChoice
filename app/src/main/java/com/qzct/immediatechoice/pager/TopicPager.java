@@ -139,7 +139,7 @@ public class TopicPager extends BasePager implements AdapterView.OnItemClickList
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Toast.makeText(context, "点击了：" + i, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(context, "点击了：" + i, Toast.LENGTH_SHORT).show();
         Intent intent = new Intent(context, TopicActivity.class);
         intent.putExtra("topic_info", topicList.get(i).toStringArray());
         context.startActivity(intent);

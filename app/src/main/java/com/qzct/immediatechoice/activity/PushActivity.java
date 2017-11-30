@@ -23,8 +23,8 @@ import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.baidu.location.Poi;
 import com.nanchen.compresshelper.CompressHelper;
-import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
@@ -32,7 +32,6 @@ import com.qzct.immediatechoice.util.PathUtils;
 import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -91,8 +90,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case GET_LOCATION_SUCCESS:
-                        location_hint.setText(locationDescribe);
-                        Toast.makeText(getApplicationContext(), "获取位置信息成功", Toast.LENGTH_LONG).show();
+//                        location_hint.setText(locationDescribe);
+//                        Toast.makeText(getApplicationContext(), "获取位置信息成功", Toast.LENGTH_LONG).show();
                         break;
                     case GET_LOCATION_FAILURE:
                         Toast.makeText(getApplicationContext(), "获取位置信息失败,请重新获取", Toast.LENGTH_LONG).show();
