@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -45,6 +46,8 @@ public class ReferenceChoiceActivity extends AppCompatActivity {
         lv_questionnaire = (ListView) findViewById(R.id.lv_questionnaire);
         ImageView back = (ImageView) findViewById(R.id.top_back);
         TextView tv_title = (TextView) findViewById(R.id.top_title);
+        TextView tv_key_word = (TextView) findViewById(R.id.tv_key_word);
+        final SearchView search = (SearchView) findViewById(R.id.search);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +55,12 @@ public class ReferenceChoiceActivity extends AppCompatActivity {
             }
         });
         tv_title.setText("参考问卷库");
+        tv_key_word.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search.onActionViewExpanded();
+            }
+        });
     }
 
 

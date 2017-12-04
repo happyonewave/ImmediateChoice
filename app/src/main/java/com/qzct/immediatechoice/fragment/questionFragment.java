@@ -162,7 +162,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
         intent.putExtra("question", question);
 //        context.startActivity(intent);
         context.startActivityForResult(intent,INTENT_COMMENT);
-        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
+//        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
 
     @Override
