@@ -71,6 +71,11 @@
                     android:gravity="center"
                     android:hint="问卷前言" />
 
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:hint="关键字" />
                 <LinearLayout
                     android:id="@+id/questions"
                     android:layout_width="match_parent"
