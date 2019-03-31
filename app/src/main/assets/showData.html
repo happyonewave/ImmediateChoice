@@ -32,10 +32,10 @@
 			//					              data: []
 			//					          }]
 			//					      });
-			refrech(1);
+			//efrech(1);
 
-			function refrech(questionId) {
-				$.post("http://123.207.31.213/ImmediateChoice_service/QuestionnaireServlet", {
+			function refrech(questionId,url) {
+				$.post(url, {
 						type: "getChartData",
 						questionnaire_question_id: questionId
 					},
@@ -54,7 +54,7 @@
 							myChart.setOption({
 								tooltip: {
 									trigger: 'item',
-									formatter: "{a} <br/>{b}: {c} ({d}%)"
+									formatter: "{b}: {c} %"
 								},
 								legend: {
 									orient: 'vertical',
@@ -90,8 +90,13 @@
 						} else {
 							myChart.setOption({
 								title: {},
-								tooltip: {},
+								tooltip: {
+									trigger: 'item',
+									formatter: "{b}: {c} %"
+								},
 								legend: {
+									orient: 'vertical',
+									x: 'left',
 									data: [name]
 								},
 								xAxis: {
@@ -101,6 +106,26 @@
 								series: [{
 									name: name,
 									type: 'bar',
+									radius: ['100%', '70%'],
+									avoidLabelOverlap: true,
+									label: {
+										normal: {
+											show: false,
+											position: 'center'
+										},
+										emphasis: {
+											show: true,
+											textStyle: {
+												fontSize: '30',
+												fontWeight: 'bold'
+											}
+										}
+									},
+									labelLine: {
+										normal: {
+											show: true
+										}
+									},
 
 									data: option_value
 								}]
