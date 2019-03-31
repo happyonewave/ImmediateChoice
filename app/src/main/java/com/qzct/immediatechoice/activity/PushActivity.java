@@ -90,8 +90,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             public void handleMessage(Message msg) {
                 switch (msg.what) {
                     case GET_LOCATION_SUCCESS:
-//                        location_hint.setText(locationDescribe);
-//                        Toast.makeText(getApplicationContext(), "获取位置信息成功", Toast.LENGTH_LONG).show();
+                        location_hint.setText(locationDescribe);
+                        Toast.makeText(getApplicationContext(), "获取位置信息成功", Toast.LENGTH_LONG).show();
                         break;
                     case GET_LOCATION_FAILURE:
                         Toast.makeText(getApplicationContext(), "获取位置信息失败,请重新获取", Toast.LENGTH_LONG).show();
