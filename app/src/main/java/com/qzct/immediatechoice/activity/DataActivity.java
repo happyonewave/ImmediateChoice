@@ -62,7 +62,7 @@ public class DataActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
 //                super.onPageFinished(view, url);
-                view.loadUrl("javascript:refrech(" + questionnaire_question_id + ")");
+                view.loadUrl("javascript:refrech(" + questionnaire_question_id +",'"+Config.url_questionnaire+ "')");
 
             }
         };
