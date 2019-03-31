@@ -271,12 +271,11 @@
                     <!--android:textColor="#900000ff"-->
                     <!--android:textSize="18sp" />-->
 
-                <com.qzct.immediatechoice.util.ScrollableGridView
-                    android:id="@+id/gv_attention"
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_attention"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_gravity="center_horizontal"
-                    android:numColumns="3" />
+                    android:layout_gravity="center_horizontal" />
             </LinearLayout>
 
 

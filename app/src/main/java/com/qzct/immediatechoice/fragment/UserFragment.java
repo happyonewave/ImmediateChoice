@@ -1,6 +1,11 @@
 package com.qzct.immediatechoice.fragment;
 
 import android.content.Intent;
+import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +33,7 @@ import com.qzct.immediatechoice.activity.SettingActivity;
 import com.qzct.immediatechoice.activity.TopicActivity;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.adpter.TopicAdpter;
+import com.qzct.immediatechoice.adpter.TopicRecyclerAdpter;
 import com.qzct.immediatechoice.adpter.UserAdpter;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Topic;
@@ -52,7 +58,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
     private View v;
     List<Question> questionList;
     GridView lv;
-    GridView gv_attention;
+    RecyclerView rv_attention;
     User user;
     private String portrait_path;
     private TextView tv_username;
@@ -78,7 +84,7 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
         user_portrait = (ImageView) v.findViewById(R.id.user_portrait);
         user_layout = (LinearLayout) v.findViewById(R.id.user_layout);
         lv = (GridView) v.findViewById(R.id.gv_user);
-        gv_attention = (GridView) v.findViewById(R.id.gv_attention);
+        rv_attention = (RecyclerView) v.findViewById(R.id.rv_attention);
         bt_setting = (ImageView) v.findViewById(R.id.bt_setting);
         iv_userinfo = (ImageView) v.findViewById(R.id.iv_userinfo);
         hint_mypush = (Button) v.findViewById(R.id.hint_mypush);
@@ -126,16 +132,33 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
             }
         });
 
-
-        gv_attention.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(context, TopicActivity.class);
-                intent.putExtra("topic_info", topicList.get(position).toStringArray());
-                Log.d("qin1", "topic_info" + topicList.get(position).toStringArray()[1]);
-                context.startActivity(intent);
-            }
-        });
+        LinearLayoutManager layoutManager = new GridLayoutManager(context, 3);
+        //设置布局管理器
+        rv_attention.setLayoutManager(layoutManager);
+        //设置为垂直布局，这也是默认的
+        layoutManager.setOrientation(OrientationHelper.VERTICAL);
+        //设置Adapter
+//        rv_attention.setAdapter(new TopicRecyclerAdpter(context,));
+        //设置分隔线
+//        rv_attention.addItemDecoration(new DividerGridItemDecoration(this));
+        //设置增加或删除条目的动画
+        rv_attention.setItemAnimator(new DefaultItemAnimator());
+//        rv_attention.setOnClickListener(new View.OnClickListener() {
+//
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//        rv_attention.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(context, TopicActivity.class);
+//                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+//                Log.d("qin1", "topic_info" + topicList.get(position).toStringArray()[1]);
+//                context.startActivity(intent);
+//            }
+//        });
 
         if (MyApplication.logined) {
             hint_mypush.setVisibility(View.GONE);
@@ -246,7 +269,18 @@ public class UserFragment extends baseFragment implements View.OnClickListener {
                             Log.d("qin", "temp: " + temp.toString());
                             topicList.add(topic);
                         }
-                        gv_attention.setAdapter(new TopicAdpter(context, topicList));
+                        TopicRecyclerAdpter adpter = new TopicRecyclerAdpter(context, topicList);
+                        adpter.setOnItemClickListener(new TopicRecyclerAdpter.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(View view, int position) {
+                                Intent intent = new Intent(context, TopicActivity.class);
+                                intent.putExtra("topic_info", topicList.get(position).toStringArray());
+                                Log.d("qin1", "topic_info" + topicList.get(position).toStringArray()[1]);
+                                context.startActivity(intent);
+                            }
+                        });
+                        rv_attention.setAdapter(adpter);
+
 
 //                        lv_home_attention.setAdapter(new BaseAdapter() {
 //                            @Override
