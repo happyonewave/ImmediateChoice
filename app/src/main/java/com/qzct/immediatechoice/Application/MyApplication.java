@@ -35,6 +35,8 @@ public class MyApplication extends MultiDexApplication {
         user = User.getDefaultUser(getApplicationContext());
         //融云IM初始化
         RongIM.init(this);
+        //设置消息体内是否携带用户信息。
+        RongIM.getInstance().setMessageAttachedUserInfo(true);
         //初始化xUtils
         x.Ext.init(this);
         // 是否输出debug日志, 开启debug会影响性能.

@@ -88,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
             }
         });
 //        getFriendInfo();
-        RongIM.setUserInfoProvider(this, true);
+//        RongIM.setUserInfoProvider(this, true);
+        RongIM.getInstance().setCurrentUserInfo(MyApplication.user.toUserinfo());
 //       new  RongIM().setGroupMembersProvider();
         RongMentionManager.getInstance().setGroupMembersProvider(new RongIM.IGroupMembersProvider() {
             @Override
