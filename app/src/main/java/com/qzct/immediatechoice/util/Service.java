@@ -2,10 +2,12 @@ package com.qzct.immediatechoice.util;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.qzct.immediatechoice.Application.MyApplication;
+import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.domain.User;
@@ -73,6 +75,52 @@ public class Service {
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 friendInfoCallBack.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+    }
+
+    /**
+     * 获取陌生人(非好友用户)信息
+     */
+    public void getOtherInfo(final MyCallback.OtherInfoCallBack otherInfoCallBack) {
+        final List<User> userList = new ArrayList<User>();
+        RequestParams entity = new RequestParams(Config.url_search);
+       final String userId =   otherInfoCallBack.getUserId();
+        entity.addBodyParameter("f_id", otherInfoCallBack.getUserId());
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+
+            @Override
+            public void onSuccess(String result) {
+                if (result != null && !"[]".equals(result)) {
+                    Log.d("qin", "result:   " + result);
+                    try {
+                        JSONArray array = new JSONArray(result);
+                        for (int i = 0; i < array.length(); i++) {
+                            User user = User.jsonObjectToUser(array.optJSONObject(i));
+                            if (user.getUser_id() == Integer.parseInt(userId)) {
+                                otherInfoCallBack.onSuccess(user);
+                                break;
+                            }
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                otherInfoCallBack.onError(ex);
             }
 
             @Override

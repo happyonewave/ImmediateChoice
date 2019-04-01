@@ -95,4 +95,12 @@ public interface MyCallback {
 
         void onError(Throwable ex);
     }
+
+    public interface OtherInfoCallBack {
+        String getUserId();
+
+        void onSuccess(User other);
+
+        void onError(Throwable ex);
+    }
 }

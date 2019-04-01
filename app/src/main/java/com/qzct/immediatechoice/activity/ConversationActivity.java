@@ -12,6 +12,8 @@ import android.widget.Toast;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
+import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.Service;
 
 /**
  * Created by qin on 2017/3/25.
@@ -53,6 +55,7 @@ public class ConversationActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(ConversationActivity.this, "打开用户介绍", Toast.LENGTH_SHORT).show();
+
                 User user = null;
                 for (User temp : MyApplication.userList) {
                     if (temp.getUser_id() == Integer.parseInt(targetId)) {
@@ -61,9 +64,31 @@ public class ConversationActivity extends FragmentActivity {
                     }
                 }
                 if (user == null) {
-                    Toast.makeText(ConversationActivity.this, "加该用户为好友后才能查看", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ConversationActivity.this, "加该用户为好友后才能查看", Toast.LENGTH_SHORT).show();
+
+                    Service.getInstance().getOtherInfo(new MyCallback.OtherInfoCallBack() {
+                        @Override
+                        public String getUserId() {
+                            return targetId;
+                        }
+
+                        @Override
+                        public void onSuccess(User other) {
+                            User user = other;
+                            Intent intent = new Intent(ConversationActivity.this, UserInfoActivity.class);
+                            intent.putExtra("user", user);
+                            intent.putExtra("user_type", User.USER_QUERY);
+                            startActivityForResult(intent, OPEN_USERINFO);
+                        }
+
+                        @Override
+                        public void onError(Throwable ex) {
+                            Toast.makeText(getApplicationContext(), "连接服务器错误", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                     return;
                 }
+
                 Intent intent = new Intent(ConversationActivity.this, UserInfoActivity.class);
                 intent.putExtra("user", user);
                 intent.putExtra("user_type", User.USER_FRIEND);
