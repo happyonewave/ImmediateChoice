@@ -310,21 +310,24 @@ public class QuestionVideoAdpter extends BaseAdapter {
     public void setProgress(final NumberProgressBar numberProgressBar, final int num) {
         final Handler handler = new Handler();
         numberProgressBar.setProgress(0);
-        Runnable runnable = new Runnable() {
-            int counter = 0;
 
-            @Override
-            public void run() {
-                counter++;
-                numberProgressBar.setProgress(counter);
-                if (counter == num) {
-                    counter = 0;
-                } else {
-                    handler.postDelayed(this, 50);
+        if (num != 0) {
+            Runnable runnable = new Runnable() {
+                int counter = 0;
+
+                @Override
+                public void run() {
+                    counter++;
+                    numberProgressBar.setProgress(counter);
+                    if (counter == num) {
+                        counter = 0;
+                    } else {
+                        handler.postDelayed(this, 50);
+                    }
                 }
-            }
-        };
-        handler.postDelayed(runnable, 50);
+            };
+            handler.postDelayed(runnable, 50);
+        }
     }
 
     public class SetThumbImageTask extends AsyncTask<String, String, Bitmap> {

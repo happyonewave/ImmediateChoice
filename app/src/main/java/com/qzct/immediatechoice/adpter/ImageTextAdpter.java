@@ -295,21 +295,23 @@ public class ImageTextAdpter extends BaseAdapter {
         final Handler handler = new Handler();
 //        numberProgressBar.setCircleColor();
         numberProgressBar.setProgress(0);
-        Runnable runnable = new Runnable() {
-            int counter = 0;
+        if (num != 0) {
+            Runnable runnable = new Runnable() {
+                int counter = 0;
 
-            @Override
-            public void run() {
-                counter++;
-                numberProgressBar.setProgress(counter);
-                if (counter == num) {
-                    counter = 0;
-                } else {
-                    handler.postDelayed(this, 50);
+                @Override
+                public void run() {
+                    counter++;
+                    numberProgressBar.setProgress(counter);
+                    if (counter == num) {
+                        counter = 0;
+                    } else {
+                        handler.postDelayed(this, 50);
+                    }
                 }
-            }
-        };
-        handler.postDelayed(runnable, 50);
+            };
+            handler.postDelayed(runnable, 50);
+        }
     }
 
     @Override
