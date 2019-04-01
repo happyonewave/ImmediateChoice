@@ -79,6 +79,7 @@ public class ConversationActivity extends FragmentActivity {
                             intent.putExtra("user", user);
                             intent.putExtra("user_type", User.USER_QUERY);
                             startActivityForResult(intent, OPEN_USERINFO);
+//                            finish();
                         }
 
                         @Override

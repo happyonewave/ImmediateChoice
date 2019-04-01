@@ -1,9 +1,11 @@
 package com.qzct.immediatechoice.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
@@ -54,7 +56,9 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.rong.imkit.RongContext;
 import io.rong.imkit.RongIM;
+import io.rong.imlib.model.Conversation;
 
 import static com.jrmf360.rylib.wallet.JrmfWalletClient.getApplicationContext;
 
@@ -73,6 +77,7 @@ public class FriendListFragment extends baseFragment {
     private List<User> queryfriendList;
     private SharedPreferences sharedPreferences;
     private int ADD_FRIEND = 0;
+    private int START_PRIVATE_CHAT = 1;
     private FriendListFragment Me = this;
     private View view;
     private EditText et_searchView;
@@ -186,18 +191,21 @@ public class FriendListFragment extends baseFragment {
         lv_friendlist.setAdapter(friendListAdapter);
         mStrList.clear();
         mStrList.add("无此用户");
-        Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
-            @Override
-            public void onSuccess(List<User> userList) {
-                Me.userList = userList;
-                friendListAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onError(Throwable ex) {
-                Toast.makeText(context, "获取好友失败", Toast.LENGTH_SHORT).show();
-            }
-        });
+//        Me.userList = MyApplication.userList;
+//        friendListAdapter.notifyDataSetChanged();
+//        Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
+//            @Override
+//            public void onSuccess(List<User> userList) {
+//                Me.userList = userList;
+//                friendListAdapter.notifyDataSetChanged();
+//            }
+//
+//            @Override
+//            public void onError(Throwable ex) {
+//                Toast.makeText(context, "获取好友失败", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     //    }
@@ -338,7 +346,7 @@ public class FriendListFragment extends baseFragment {
 
 //                if (mStrList.size() != 1 && !"无此用户".equals(mStrList.get(0))) {
                 if (friendlist_search.getQuery().toString().isEmpty()) {
-                    RongIM.getInstance().startPrivateChat(context,
+                    startPrivateChat(
                             userList.get(position).getUser_id() + "",
                             userList.get(position).getUsername());
                     Log.d("qin", "name:  " + userList.get(position).getUsername());
@@ -423,5 +431,26 @@ public class FriendListFragment extends baseFragment {
                 return false;
             }
         });
+    }
+
+    public void startPrivateChat(String targetUserId, String title) {
+        if (context != null && !TextUtils.isEmpty(targetUserId)) {
+            if (RongContext.getInstance() == null) {
+                throw new ExceptionInInitializerError("RongCloud SDK not init");
+            } else {
+                Uri uri = Uri.parse("rong://" + context.getApplicationInfo().packageName).buildUpon().appendPath("conversation").appendPath(Conversation.ConversationType.PRIVATE.getName().toLowerCase()).appendQueryParameter("targetId", targetUserId).appendQueryParameter("title", title).build();
+                startActivityForResult(new Intent("android.intent.action.VIEW", uri), START_PRIVATE_CHAT);
+            }
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d("qin","onResume");
+        Me.userList = MyApplication.userList;
+        friendListAdapter.notifyDataSetChanged();
     }
 }

@@ -104,6 +104,14 @@ public class UserInfoActivity extends Activity {
                         @Override
                         public void onSuccess(String msg) {
                             Log.d("qin", "result: " + msg);
+                            if ("删除好友成功！".equals(msg)){
+                                for (int i = 0; i < MyApplication.userList.size(); i++) {
+                                    if (MyApplication.userList.get(i).getUser_id()==user.getUser_id()){
+                                        MyApplication.userList.remove(i);
+                                        break;
+                                    }
+                                }
+                            }
                             Toast.makeText(UserInfoActivity.this, msg, Toast.LENGTH_SHORT).show();
                             setResult(RESULT_OK);
                             finish();
@@ -132,6 +140,9 @@ public class UserInfoActivity extends Activity {
                         @Override
                         public void onSuccess(String msg) {
                             Log.d("qin", "result: " + msg);
+                            if ("加好友成功！".equals(msg)){
+                                MyApplication.userList.add(user);
+                            }
                             Toast.makeText(UserInfoActivity.this, msg, Toast.LENGTH_SHORT).show();
                             setResult(RESULT_OK, new Intent());
                             finish();
