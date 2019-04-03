@@ -1,6 +1,7 @@
 package com.qzct.immediatechoice.activity;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,12 +9,14 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,10 +31,13 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
+import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.PathUtils;
+import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -67,6 +73,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     final int VIDEO_LEFT_UPLOAD = 4;
     final int VIDEO_RIGHT_UPLOAD = 5;
     final int CHOICE_GROUP = 6;
+    final int CHOICE_TOPIC = 7;
     final private String url = Config.url_upload;
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
@@ -74,11 +81,14 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private boolean isUploadImage = false;
     private EditText et_push_question_content;
     private Button choice_group;
+    private Button bt_topic;
     private JSONArray push_group_ids;
     private boolean isImage;
     private int group_id;
+    private int topic_id;
     private File flle_left;
     private File file_right;
+    private JSONArray json_topics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +132,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         iv_push_go.setOnClickListener(this);
         bt_location.setOnClickListener(this);
         choice_group.setOnClickListener(this);
+        bt_topic.setOnClickListener(this);
         //定位
         mLocationClient = new LocationClient(getApplicationContext());
         //声明LocationClient类
@@ -144,6 +155,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 //        push_video_left = (ImageView) findViewById(R.id.push_video_left);
 //        push_video_right = (ImageView) findViewById(R.id.push_video_right);
         iv_push_go = (ImageView) findViewById(R.id.iv_push_go);
+        bt_topic = (Button) findViewById(R.id.bt_topic);
         choice_group = (Button) findViewById(R.id.choice_group);
         bt_location = (Button) findViewById(R.id.bt_location);
         location_hint = (TextView) findViewById(R.id.location_hint);
@@ -232,6 +244,88 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.choice_group:
                 Intent group = new Intent(PushActivity.this, ChoiceGroupActivity.class);
                 startActivityForResult(group, CHOICE_GROUP);
+                break;
+            //选择话题
+            case R.id.bt_topic:
+                Log.d("qin", "bt_topic");
+                Service.getInstance().getTopicListfromServer(new MyCallback.TopicsCallBack() {
+                    @Override
+                    public void onSuccess(JSONArray jsonArray) {
+
+//                        Log.d("qin", "onSuccess");
+                        json_topics = jsonArray;
+                        final String[] topics = new String[jsonArray.length()];
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            JSONObject topic = jsonArray.optJSONObject(i);
+                            String title = topic.optString("topic_title");
+                            topics[i] = title;
+                        }
+
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(PushActivity.this);
+//                builder.setIcon(R.drawable.ic_launcher);
+                        builder.setTitle("请选择话题");
+                        //    设置一个单项选择下拉框
+                        /**
+                         * 第一个参数指定我们要显示的一组下拉单选框的数据集合
+                         * 第二个参数代表索引，指定默认哪一个单选框被勾选上，1表示默认'' 会被勾选上
+                         * 第三个参数给每一个单选项绑定一个监听器
+                         */
+                        builder.setSingleChoiceItems(topics, 1, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(PushActivity.this, "topic为：" + json_topics.optJSONObject(which).optString("topic_id"), Toast.LENGTH_SHORT).show();
+
+                                try {
+                                    topic_id = Integer.parseInt(json_topics.getJSONObject(which).getString("topic_id"));
+                                } catch (Exception e) {
+                                    Toast.makeText(PushActivity.this, "选择时遇到错误", Toast.LENGTH_SHORT).show();
+//                                    e.printStackTrace();
+                                } finally {
+                                    dialog.cancel();
+                                }
+                            }
+                        });
+                        builder.setPositiveButton("添加", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+//                                Toast.makeText(PushActivity.this, "add", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+//                                Toast.makeText(PushActivity.this, "取消", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        builder.show();
+                    }
+
+                    @Override
+                    public void onFail() {
+
+                        Toast.makeText(PushActivity.this, "选择时遇到错误", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onIsNull() {
+
+                        Toast.makeText(PushActivity.this, "选择时遇到错误", Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Throwable ex) {
+
+                        Toast.makeText(PushActivity.this, "选择时遇到错误", Toast.LENGTH_SHORT).show();
+//                        ex.printStackTrace();
+                    }
+                });
+
+
+//                Intent group = new Intent(PushActivity.this, ChoiceGroupActivity.class);
+//                startActivityForResult(group, CHOICE_TOPIC);
                 break;
             //获取定位
             case R.id.bt_location:
@@ -379,7 +473,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         if (isUploadImage) {
             type = "image";
         }
-        Question question = new Question(0, group_id, question_content,
+        Question question = new Question(0, group_id, topic_id, question_content,
                 utils.getNetUrlFormLocalPath(left_path, type),
                 utils.getNetUrlFormLocalPath(right_path, type),
                 quizzer_name, user.getPortrait_path(), 0, 0, null,

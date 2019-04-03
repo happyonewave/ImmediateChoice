@@ -22,6 +22,8 @@ import org.xutils.x;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by tsh2 on 2017/4/16.
  */
@@ -133,6 +135,52 @@ public class Service {
 
             }
         });
+    }
+
+
+    /**
+     * 从服务器获取topicList
+     */
+    public void getTopicListfromServer(final MyCallback.TopicsCallBack topicsCallBack) {
+        RequestParams entity = new RequestParams(Config.url_topic);
+        x.http().post(entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                if (result != null) {
+
+                    if (result != "-1") {
+                        try {
+                            JSONArray jsonArray = new JSONArray(result);
+
+                            topicsCallBack.onSuccess(jsonArray);
+                        } catch (JSONException e) {
+                            Log.d(TAG, "不是合法的json");
+                            e.printStackTrace();
+                        }
+                    } else {
+                        topicsCallBack.onFail();
+                    }
+                } else {
+                    topicsCallBack.onIsNull();
+                }
+            }
+
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                topicsCallBack.onError(ex);
+            }
+
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+
+            }
+        });
+
     }
 
     /**

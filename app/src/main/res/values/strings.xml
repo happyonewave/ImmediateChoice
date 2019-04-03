@@ -50,5 +50,7 @@
     <string name="fill_tel_hint">请输入你的邮箱账号</string>
     <string name="fill_tel_protocol_agree_hint">注册即表示同意</string>
     <string name="protocol_name">《隐私权声明》</string>
+    <string name="choice_text">选择</string>
+    <string name="add_text">添加</string>
 
 </resources>

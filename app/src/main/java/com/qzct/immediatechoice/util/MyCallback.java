@@ -4,6 +4,8 @@ import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.domain.User;
 
+import org.json.JSONArray;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -100,6 +102,16 @@ public interface MyCallback {
         String getUserId();
 
         void onSuccess(User other);
+
+        void onError(Throwable ex);
+    }
+
+    public interface TopicsCallBack {
+        void onSuccess(JSONArray jsonArray);
+
+        void onFail();
+
+        void onIsNull();
 
         void onError(Throwable ex);
     }

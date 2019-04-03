@@ -12,6 +12,7 @@ import java.io.Serializable;
 public class Question implements Serializable {
     int question_id;
     int group_id;
+    int topic_id;
     String question_content;
     String left_url;
     String right_url;
@@ -41,7 +42,22 @@ public class Question implements Serializable {
                 '}';
     }
 
-    public Question(int question_id, int group_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
+    public Question(int question_id, int group_id, int topic_id,String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
+        this.question_id = question_id;
+        this.group_id = group_id;
+        this.topic_id = topic_id;
+        this.question_content = question_content;
+        this.left_url = left_url;
+        this.right_url = right_url;
+        this.quizzer_name = quizzer_name;
+        this.portrait_url = portrait_url;
+        this.share_count = share_count;
+        this.comment_count = comment_count;
+        this.comment = comment;
+        this.location = location;
+        this.post_time = post_time;
+    }
+    public Question(int question_id, int group_id,String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
         this.question_id = question_id;
         this.group_id = group_id;
         this.question_content = question_content;
@@ -55,7 +71,6 @@ public class Question implements Serializable {
         this.location = location;
         this.post_time = post_time;
     }
-
     public Question() {
     }
 
@@ -124,6 +139,7 @@ public class Question implements Serializable {
         try {
             jsonObject.put("question_id", question_id);
             jsonObject.put("group_id", group_id);
+            jsonObject.put("topic_id", topic_id);
             jsonObject.put("question_content", question_content);
             jsonObject.put("left_url", left_url);
             jsonObject.put("right_url", right_url);
