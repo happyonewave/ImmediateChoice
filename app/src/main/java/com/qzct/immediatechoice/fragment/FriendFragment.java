@@ -60,7 +60,7 @@ public class FriendFragment extends baseFragment {
     @Override
     public void initData() {
         fragmentList = new ArrayList<Fragment>();
-        fragmentList.add(new CircleFragment());
+//        fragmentList.add(new CircleFragment());
         fragmentList.add(new FriendListFragment());
 //        fragmentList.add(initConversationList());
 //        fragmentList.add();
@@ -143,7 +143,7 @@ public class FriendFragment extends baseFragment {
 
 
         final List<String> mTitleDataList = new ArrayList<String>();
-        mTitleDataList.add("小圈");
+//        mTitleDataList.add("小圈");
         mTitleDataList.add("好友");
         magicIndicator.setBackgroundColor(Color.WHITE);
         CommonNavigator commonNavigator = new CommonNavigator(context);
