@@ -200,6 +200,7 @@
             android:value="x18ywvqfxlw3c" />
 
         <activity android:name=".activity.ReferenceChoiceActivity"></activity>
+        <activity android:name=".activity.AddTopicActivity" />
     </application>
 
 </manifest>

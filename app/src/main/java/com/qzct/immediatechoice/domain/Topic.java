@@ -18,11 +18,16 @@ public class Topic {
         return new Topic(id, title, img_url);
     }
 
-    public JSONObject getJsonObject() throws JSONException {
-        JSONObject object = new JSONObject();
-        object.put("topic_id", topic_id);
-        object.put("topic_title", topic_title);
-        object.put("topic_img_url", topic_img_url);
+    public JSONObject getJsonObject() {
+        JSONObject object = null;
+        try {
+            object = new JSONObject();
+            object.put("topic_id", topic_id);
+            object.put("topic_title", topic_title);
+            object.put("topic_img_url", topic_img_url);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return object;
     }
 
@@ -42,6 +47,9 @@ public class Topic {
         this.topic_img_url = topic_img_url;
     }
 
+    public Topic(String topic_title) {
+        this.topic_title = topic_title;
+    }
     public String getTopic_title() {
         return topic_title;
     }

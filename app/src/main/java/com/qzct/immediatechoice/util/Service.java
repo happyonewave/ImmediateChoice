@@ -6,19 +6,24 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
 
+import com.alipay.security.mobile.module.commonutils.LOG;
+import com.google.gson.JsonObject;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.activity.UserInfoActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.domain.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.xutils.common.Callback;
+import org.xutils.http.HttpMethod;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -97,7 +102,7 @@ public class Service {
     public void getOtherInfo(final MyCallback.OtherInfoCallBack otherInfoCallBack) {
         final List<User> userList = new ArrayList<User>();
         RequestParams entity = new RequestParams(Config.url_search);
-       final String userId =   otherInfoCallBack.getUserId();
+        final String userId = otherInfoCallBack.getUserId();
         entity.addBodyParameter("f_id", otherInfoCallBack.getUserId());
         x.http().post(entity, new Callback.CommonCallback<String>() {
 
@@ -297,18 +302,63 @@ public class Service {
     }
 
 
+    /**
+     * 修改好友
+     */
+    public void addTopic(final MyCallback.AddTopicCallback addTopicCallback) {
+        RequestParams entity = new RequestParams(Config.url_topic_add);
+        Topic topic = addTopicCallback.getTopic();
+        JSONObject topic_json = topic.getJsonObject();
+        File img = addTopicCallback.getImgFile();
+        if (topic_json == null) {
+            addTopicCallback.onTopicInvalid();
+            return;
+        }
+        if (img == null) {
+            addTopicCallback.onImgFileInvalid();
+            return;
+        }
+        entity.addBodyParameter("topic", topic.getJsonObject().toString());
+        Log.d("topic", topic.getJsonObject().toString());
+        entity.addBodyParameter("img", img);
+        x.http().request(HttpMethod.POST, entity, new Callback.CommonCallback<String>() {
+            @Override
+            public void onSuccess(String result) {
+                Log.d("qin", "result: " + result);
+                try {
+                    JSONObject res = new JSONObject(result);
+                    String code = res.getString("code");
+                    addTopicCallback.onSuccess(Integer.parseInt(code));
+                } catch (Exception e) {
+                    addTopicCallback.onError(e);
+                    e.printStackTrace();
+                }
+            }
 
+            @Override
+            public void onError(Throwable ex, boolean isOnCallback) {
+                addTopicCallback.onError(ex);
+            }
 
+            @Override
+            public void onCancelled(CancelledException cex) {
+
+            }
+
+            @Override
+            public void onFinished() {
+            }
+        });
+    }
 
 
     /**
      * 登录
-     *
      */
     public void login(User user, final MyCallback.LoginCallback loginCallback) {
         final RequestParams entity = new RequestParams(Config.url_login);
-        entity.addBodyParameter("name",user.getUsername());
-        entity.addBodyParameter("password",user.getPassword());
+        entity.addBodyParameter("name", user.getUsername());
+        entity.addBodyParameter("password", user.getPassword());
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
@@ -333,10 +383,6 @@ public class Service {
             }
         });
     }
-
-
-
-
 
 
     /**

@@ -74,6 +74,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     final int VIDEO_RIGHT_UPLOAD = 5;
     final int CHOICE_GROUP = 6;
     final int CHOICE_TOPIC = 7;
+    final int ADD_TOPIC = 8;
     final private String url = Config.url_upload;
     public LocationClient mLocationClient = null;
     public BDLocationListener myListener = new MyLocationListener();
@@ -290,6 +291,9 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
 
+                                Intent add = new Intent(PushActivity.this, AddTopicActivity.class);
+                                startActivityForResult(add, ADD_TOPIC);
+                                dialog.cancel();
 //                                Toast.makeText(PushActivity.this, "add", Toast.LENGTH_SHORT).show();
                             }
                         });

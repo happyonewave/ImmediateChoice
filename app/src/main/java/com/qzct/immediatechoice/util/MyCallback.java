@@ -2,10 +2,13 @@ package com.qzct.immediatechoice.util;
 
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.Questionnaire;
+import com.qzct.immediatechoice.domain.Topic;
 import com.qzct.immediatechoice.domain.User;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -114,5 +117,19 @@ public interface MyCallback {
         void onIsNull();
 
         void onError(Throwable ex);
+    }
+
+    public interface AddTopicCallback {
+        Topic getTopic();
+
+        File getImgFile();
+
+        void onTopicInvalid();
+
+        void onImgFileInvalid();
+
+        void onSuccess(int code);
+
+        void onError(Throwable e);
     }
 }

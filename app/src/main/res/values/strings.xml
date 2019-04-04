@@ -52,5 +52,6 @@
     <string name="protocol_name">《隐私权声明》</string>
     <string name="choice_text">选择</string>
     <string name="add_text">添加</string>
+    <string name="topic_title_hint">请输入话题名</string>
 
 </resources>
