@@ -228,7 +228,7 @@ public class HomeFragment extends baseFragment implements View.OnClickListener {
         fragmentList.add(questionFragment);
         fragmentList.add(new VideoFragment());
 //        fragmentList.add(new AttentionFragment());
-        vp_home.setAdapter(new FragmentPagerAdapter(getFragmentManager()) {
+        vp_home.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
 
             @Override
             public Fragment getItem(int position) {

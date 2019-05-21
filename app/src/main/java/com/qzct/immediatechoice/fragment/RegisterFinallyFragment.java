@@ -47,7 +47,6 @@ public class RegisterFinallyFragment extends baseFragment {
     Intent intent;
     ImageView user_portrait;
     String portrait_path;
-    int IMAGE_PORTRAIT_UPLOAD = 0;
     int user_type;
     private View v;
     private AppCompatSpinner spinner;

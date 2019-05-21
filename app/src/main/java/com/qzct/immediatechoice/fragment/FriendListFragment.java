@@ -76,8 +76,6 @@ public class FriendListFragment extends baseFragment {
     private List<String> mStrList = new ArrayList<String>();
     private List<User> queryfriendList;
     private SharedPreferences sharedPreferences;
-    private int ADD_FRIEND = 0;
-    private int START_PRIVATE_CHAT = 1;
     private FriendListFragment Me = this;
     private View view;
     private EditText et_searchView;

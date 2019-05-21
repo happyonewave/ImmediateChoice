@@ -30,7 +30,6 @@ public class QuestionnaireSurveyedFragment extends baseFragment {
     private Questionnaire questionnaire;
     private List<Questionnaire> questionnaireList = new ArrayList<Questionnaire>();
     private List<String> mtitleList = new ArrayList<String>();
-    private int PUSH_QUESTIONNAIRE = 0;
     private SurveyedQuestionnaireAdpter adapter;
 
     @Override

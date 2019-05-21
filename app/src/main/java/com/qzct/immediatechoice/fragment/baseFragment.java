@@ -38,6 +38,14 @@ public abstract class baseFragment extends Fragment {
     MyApplication myApplication;
     public int current_page;
     String TAG = "qin";
+    public final static int GET_QRCODE = 10;
+    public final static int ADD_FRIEND = 11;
+    public final static int START_PRIVATE_CHAT = 12;
+    public final static int INTENT_COMMENT = 13;
+    public final static int INTENT_COMMENT_VIDEO = 14;
+    public final static int PUSH_QUESTIONNAIRE = 15;
+    public final static int PUSH_QUESTIONNAIRE_DOING = 16;
+    public final static int IMAGE_PORTRAIT_UPLOAD = 17;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

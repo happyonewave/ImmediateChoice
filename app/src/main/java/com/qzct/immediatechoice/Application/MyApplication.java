@@ -40,7 +40,7 @@ public class MyApplication extends MultiDexApplication {
         //初始化xUtils
         x.Ext.init(this);
         // 是否输出debug日志, 开启debug会影响性能.
-        x.Ext.setDebug(BuildConfig.DEBUG);
+//        x.Ext.setDebug(BuildConfig.DEBUG);
 
     }
 

@@ -44,7 +44,6 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
     private QuestionVideoAdpter adpter;
     private MKLoader loader;
     private View v;
-    private int INTENT_COMMENT = 0;
 
 
     @Override
@@ -156,8 +155,7 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
         MyApplication.isQuestion = false;
         Intent intent = new Intent(context, CommentActivity.class);
         intent.putExtra("question", question);
-        context.startActivity(intent);
-        context.startActivityForResult(intent,INTENT_COMMENT);
+        startActivityForResult(intent,INTENT_COMMENT_VIDEO);
 //        Toast.makeText(context, "点击了item" + i, Toast.LENGTH_LONG).show();
     }
 

@@ -33,7 +33,6 @@ public class QuestionnaireSurveyingFragment extends baseFragment {
     private List<Questionnaire> questionnaireList = new ArrayList<Questionnaire>();
     private List<String> mtitleList = new ArrayList<String>();
     private ImageView push__questionnaire;
-    private int PUSH_QUESTIONNAIRE = 0;
     private SurveyingQuestionnaireAdpter adapter;
 
     @Override
@@ -59,7 +58,7 @@ public class QuestionnaireSurveyingFragment extends baseFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, PushQuestionnaireActivity.class);
-                startActivityForResult(intent, PUSH_QUESTIONNAIRE);
+                startActivityForResult(intent, PUSH_QUESTIONNAIRE_DOING);
             }
         });
     }
@@ -67,7 +66,7 @@ public class QuestionnaireSurveyingFragment extends baseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == PUSH_QUESTIONNAIRE) {
+            if (requestCode == PUSH_QUESTIONNAIRE_DOING) {
                 questionnaire = (Questionnaire) data.getSerializableExtra("questionnaire");
                 questionnaireList.add(questionnaire);
                 mtitleList.add(questionnaire.getTitle());

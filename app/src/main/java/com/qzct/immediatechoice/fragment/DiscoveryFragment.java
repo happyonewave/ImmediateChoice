@@ -25,6 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.alipay.security.mobile.module.commonutils.LOG;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.EncodeHintType;
 import com.google.zxing.WriterException;
@@ -92,7 +93,6 @@ public class DiscoveryFragment extends baseFragment {
     private List<Question> questionList;
     private ArrayAdapter<String> adapter;
     private List<String> mStrList = new ArrayList<String>();
-    private int GET_QRCODE = 0;
     private ImageView searchButton;
 
 
@@ -324,6 +324,7 @@ public class DiscoveryFragment extends baseFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "discovery onActivityResult: " + requestCode);
         if (requestCode == GET_QRCODE) {
             if (data != null) {
                 String qrResult = data.getStringExtra("qrResult");
@@ -404,6 +405,9 @@ public class DiscoveryFragment extends baseFragment {
     }
 
     public boolean isUrl(String str) {
+        if (str == null) {
+            return false;
+        }
         if (str.contains("http")) {
             return true;
         } else {

@@ -18,17 +18,25 @@ import android.widget.Toast;
 
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
+import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.fragment.DiscoveryFragment;
 import com.qzct.immediatechoice.fragment.FriendFragment;
+import com.qzct.immediatechoice.fragment.FriendListFragment;
 import com.qzct.immediatechoice.fragment.HomeFragment;
+import com.qzct.immediatechoice.fragment.QuestionFragment;
 import com.qzct.immediatechoice.fragment.QuestionnaireFragment;
+import com.qzct.immediatechoice.fragment.QuestionnaireSurveyedFragment;
+import com.qzct.immediatechoice.fragment.QuestionnaireSurveyingFragment;
+import com.qzct.immediatechoice.fragment.RegisterFinallyFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
+import com.qzct.immediatechoice.fragment.VideoFragment;
 import com.qzct.immediatechoice.fragment.baseFragment;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -303,47 +311,91 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     };
 
 
-
-
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d(TAG, "main onActivityResult: " + requestCode);
         super.onActivityResult(requestCode, resultCode, data);
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        for(int indext=0;indext<fragmentManager.getFragments().size();indext++)
-        {
-            Fragment fragment=fragmentManager.getFragments().get(indext); //找到第一层Fragment
-            if(fragment==null)
-                Log.w(TAG, "Activity result no fragment exists for index: 0x"
-                        + Integer.toHexString(requestCode));
-            else
-                handleResult(fragment,requestCode,resultCode,data);
-        }
+//        Fragment fragment = null;
+//        switch (requestCode) {
+//            case baseFragment.GET_QRCODE:
+//                fragment = findFragmentByClass(DiscoveryFragment.class);
+//                break;
+//            case baseFragment.ADD_FRIEND:
+//            case baseFragment.START_PRIVATE_CHAT:
+//                fragment = findFragmentByClass(FriendListFragment.class);
+//                break;
+//            case baseFragment.INTENT_COMMENT:
+//                fragment = findFragmentByClass(QuestionFragment.class);
+//                break;
+//            case baseFragment.INTENT_COMMENT_VIDEO:
+//                fragment = findFragmentByClass(VideoFragment.class);
+//                break;
+//            case baseFragment.PUSH_QUESTIONNAIRE:
+//                fragment = findFragmentByClass(QuestionnaireSurveyedFragment.class);
+//                break;
+//            case baseFragment.PUSH_QUESTIONNAIRE_DOING:
+//                fragment = findFragmentByClass(QuestionnaireSurveyingFragment.class);
+//                break;
+//            case baseFragment.IMAGE_PORTRAIT_UPLOAD:
+//                fragment = findFragmentByClass(RegisterFinallyFragment.class);
+//                break;
+//            default:
+//                break;
+//        }
+//        if (fragment != null)
+//            fragment.onActivityResult(requestCode, resultCode, data);
     }
+
+    private Fragment findFragmentByClass(Class cls) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        for (int indext = 0; indext < fragmentManager.getFragments().size(); indext++) {
+            Fragment fragment = fragmentManager.getFragments().get(indext); //找到第一层Fragment
+            if (fragment == null) {
+                Log.w(TAG, "Activity result no fragment exists for index: 0x");
+                return null;
+            } else {
+                Log.d(TAG, "fragment name1:" + fragment.getClass().getSimpleName());
+                Log.d(TAG, "fragment class1:" + fragment.getClass().getName());
+                Log.d(TAG, "fragment class2:" + cls.getName());
+                if (fragment.getClass().getName().equals(cls.getName())) {
+                    Log.d(TAG, "fragment name2:" + fragment.getClass().getSimpleName());
+                    return fragment;
+                }
+                Fragment f = handleResult(fragment, cls);
+                if (f != null) {
+                    return f;
+                }
+            }
+        }
+        return null;
+    }
+
     /**
      * 递归调用，对所有的子Fragment生效
+     *
      * @param fragment
-     * @param requestCode
-     * @param resultCode
-     * @param data
      */
-    private void handleResult(Fragment fragment,int requestCode,int resultCode,Intent data)
-    {
-        fragment.onActivityResult(requestCode, resultCode, data);//调用每个Fragment的onActivityResult
-        Log.e(TAG, "MyBaseFragmentActivity");
-        List<Fragment> childFragment = fragment.getChildFragmentManager().getFragments(); //找到第二层Fragment
-        if(childFragment!=null)
-            for(Fragment f:childFragment)
-                if(f!=null)
-                {
-                    handleResult(f, requestCode, resultCode, data);
+    private Fragment handleResult(Fragment fragment, Class cls) {
+        Fragment f = null;
+        List<Fragment> childs = fragment.getChildFragmentManager().getFragments(); //找到第二层Fragment
+        if (childs == null || childs.size() == 0) {
+            return f;
+        }
+        for (Fragment child : childs) {
+            if (child != null) {
+                Log.d(TAG, "fragment name1:" + child.getClass().getSimpleName());
+                Log.d(TAG, "fragment class1:" + child.getClass().getName());
+                Log.d(TAG, "fragment class2:" + cls.getName());
+                if (child.getClass().getName().equals(cls.getName())) {
+                    Log.d(TAG, "fragment name2:" + child.getClass().getSimpleName());
+                    f = child;
+                    break;
                 }
-        if(childFragment==null)
-            Log.e(TAG, "MyBaseFragmentActivity1111");
+                f = handleResult(child, cls);
+            }
+        }
+        return f;
     }
-
-
-
 
 
 }
