@@ -379,7 +379,7 @@ public class Service {
 
             @Override
             public void onFinished() {
-
+                loginCallback.onFinished();
             }
         });
     }

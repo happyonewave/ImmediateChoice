@@ -6,6 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +22,7 @@ import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -45,6 +48,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     User user;
     public static LoginActivity loginActivity;
     private String token;
+    private MKLoader loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         TextView tv_register = (TextView) findViewById(R.id.tv_register);
         //返回
         ImageView iv_back = (ImageView) findViewById(R.id.iv_back);
+
+        loader = (MKLoader) findViewById(R.id.loader);
         bt_login.setOnClickListener(this);
         tv_register.setOnClickListener(this);
         iv_back.setOnClickListener(this);
@@ -132,7 +138,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if (isNetworkAvailable(getApplication())) {
 //            LoginTask loginTask = new LoginTask(Config.url_login, user);
 //            loginTask.execute();
-
+            loader.setVisibility(View.VISIBLE);
             Service.getInstance().login(user, new MyCallback.LoginCallback() {
                 @Override
                 public void onError(Throwable ex) {
@@ -160,7 +166,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String phone_number = json.optString("phone_number");
                             String sex = json.optString("sex");
                             String portrait_path = json.optString("portrait_path");
-                                token = json.optString("token");
+                            token = json.optString("token");
                             User user_all = new User(user_id, user_type, user.getUsername(), user.getPassword(), phone_number, portrait_path, sex, token);
                             //存储User到Application
                             MyApplication.user = user_all;
@@ -177,6 +183,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             LoginActivity.this.finish();
                             break;
                     }
+                }
+
+                @Override
+                public void onFinished() {
+//                    loader.setVisibility(View.GONE);
+//                    new Handler() {
+//                        @Override
+//                        public void handleMessage(Message msg) {
+                            loader.setVisibility(View.GONE);
+//                        }
+//                    }.sendEmptyMessageDelayed(0, 2000);
                 }
             });
 

@@ -22,6 +22,7 @@ import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.utils;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -55,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
     private int user_type = 1;
     private RadioGroup rg_user_type;
     private ImageView iv_back;
+    private MKLoader loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,7 @@ public class RegisterActivity extends AppCompatActivity {
         bt_register = (Button) findViewById(R.id.bt_register);
         tv_login = (TextView) findViewById(R.id.tv_login);
         rg_user_type = (RadioGroup) findViewById(R.id.rg_user_type);
+        loader = (MKLoader) findViewById(R.id.loader);
 
 
     }
@@ -218,11 +221,11 @@ public class RegisterActivity extends AppCompatActivity {
             this.phone_number = user.getPhone_number();
             this.sex = user.getSex();
             this.portrait_path = user.getPortrait_path();
+            loader.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected String doInBackground(String... params) {
-
             HttpClient hc = new DefaultHttpClient();
             String url = Config.url_register;
             HttpPost httpPost = new HttpPost(url);
@@ -255,6 +258,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String text) {
+            loader.setVisibility(View.GONE);
             if (text != null) {
                 switch (text) {
                     case "0":

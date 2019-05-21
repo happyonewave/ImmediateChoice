@@ -80,6 +80,8 @@ public interface MyCallback {
         void onError(Throwable ex);
 
         void onSuccess(String result);
+
+        void onFinished();
     }
     interface PushQuestionnaireCallback {
         void onSuccess();
