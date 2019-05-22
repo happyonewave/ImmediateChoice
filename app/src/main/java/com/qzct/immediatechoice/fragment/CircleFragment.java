@@ -136,6 +136,11 @@ public class CircleFragment extends baseFragment implements ZrcListView.OnItemCl
                 }.sendEmptyMessageDelayed(0, 2000);
             }
         }
+
+        @Override
+        public boolean IsNotGroup() {
+            return false;
+        }
     }
 
     /**

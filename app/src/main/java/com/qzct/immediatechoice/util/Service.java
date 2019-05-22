@@ -195,11 +195,17 @@ public class Service {
         RequestParams entity = new RequestParams(Config.url_image_text);
         int page = loadQuestionCallBack.getPage(isRefresh);
         int user_id = loadQuestionCallBack.getUserId();
+        boolean isNotGroup = loadQuestionCallBack.IsNotGroup();
         if (type != null) {
             entity.addBodyParameter("type", type);
         }
         if (user_id != 0) {
             entity.addBodyParameter("user_id", user_id + "");
+        }
+        if (isNotGroup) {
+            entity.addBodyParameter("isNotGroup", 1 + "");
+        } else {
+            entity.addBodyParameter("isNotGroup", 0 + "");
         }
         entity.addBodyParameter("page", page + "");
         x.http().get(entity, new Callback.CommonCallback<String>() {
@@ -228,10 +234,12 @@ public class Service {
                             int share_count = temp.optInt("share_count");
                             int comment_count = temp.optInt("comment_count");
                             String comment = temp.getString("comment");
+                            boolean left_selected = temp.optBoolean("left_selected");
+                            boolean right_selected = temp.optBoolean("right_selected");
                             Question Question = new Question(question_id, question_content,
                                     left_url, right_url, quizzer_name,
                                     portrait_url, share_count,
-                                    comment_count, comment, null, null);
+                                    comment_count, comment, null, null, left_selected, right_selected);
                             tempList.add(Question);
                         }
                         Log.d("loadQuestion_log", "请求更新完成");

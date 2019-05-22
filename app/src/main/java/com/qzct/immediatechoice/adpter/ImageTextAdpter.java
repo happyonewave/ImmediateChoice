@@ -4,20 +4,27 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.daimajia.numberprogressbar.NumberProgressBar;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.activity.CommentActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
@@ -34,12 +41,14 @@ public class ImageTextAdpter extends BaseAdapter {
 
 
     AppCompatActivity context;
+    private MKLoader loader;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
     View v;
 
-    public ImageTextAdpter(AppCompatActivity context, List<Question> questionList) {
+    public ImageTextAdpter(AppCompatActivity context, MKLoader loader, List<Question> questionList) {
         this.context = context;
+        this.loader = loader;
         this.questionList = questionList;
     }
 
@@ -195,19 +204,38 @@ public class ImageTextAdpter extends BaseAdapter {
                         String.valueOf(MyApplication.user.getUser_id()));
 
                 entity.addBodyParameter("left_or_right", "left");
+                loader.setVisibility(View.VISIBLE);
                 x.http().post(entity, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
+                        Log.d("qin", "result:" + result);
                         if (result != null) {
-                            int percent = Integer.parseInt(result);
+                            try {
+                                JSONObject o = new JSONObject(result);
+                                String status = o.optString("status");
+                                Integer percent = o.optInt("percent");
+                                if ("fail".equals(status)) {
+                                    Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                if ("repetition".equals(status)) {
+                                    Toast.makeText(context, "您已选择过", Toast.LENGTH_SHORT).show();
+                                }
+//                                int percent = Integer.parseInt(result);
 //                            Toast.makeText(context, "left:" + percent + "%," +
 //                                    "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
-                            imageView.setColorFilter(Color.parseColor("#99000000"));
-                            image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
-                            left_ProgressBar.setVisibility(View.VISIBLE);
-                            right_ProgressBar.setVisibility(View.VISIBLE);
-                            setProgress(left_ProgressBar, percent);
-                            setProgress(right_ProgressBar, 100 - percent);
+                                imageView.setColorFilter(Color.parseColor("#99000000"));
+                                image_text_item_img_right.setColorFilter(Color.parseColor("#99000000"));
+                                left_ProgressBar.setVisibility(View.VISIBLE);
+                                right_ProgressBar.setVisibility(View.VISIBLE);
+                                setProgress(left_ProgressBar, percent);
+                                setProgress(right_ProgressBar, 100 - percent);
+                            } catch (JSONException e) {
+                                Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+//                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -223,7 +251,7 @@ public class ImageTextAdpter extends BaseAdapter {
 
                     @Override
                     public void onFinished() {
-
+                        loader.setVisibility(View.GONE);
                     }
                 });
             }
@@ -251,19 +279,38 @@ public class ImageTextAdpter extends BaseAdapter {
                         String.valueOf(MyApplication.user.getUser_id()));
 
                 entity.addBodyParameter("left_or_right", "right");
+                loader.setVisibility(View.VISIBLE);
                 x.http().post(entity, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
+                        Log.d("qin", "result:" + result);
                         if (result != null) {
-                            int percent = Integer.parseInt(result);
+                            try {
+                                JSONObject o = new JSONObject(result);
+                                String status = o.optString("status");
+                                Integer percent = o.optInt("percent");
+                                if ("fail".equals(status)) {
+                                    Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+                                    return;
+                                }
+                                if ("repetition".equals(status)) {
+                                    Toast.makeText(context, "您已选择过", Toast.LENGTH_SHORT).show();
+                                }
+//                            int percent = Integer.parseInt(result);
 //                            Toast.makeText(context, "left:" + (100 - percent) + "%," +
 //                                    "right:" + percent + "%", Toast.LENGTH_SHORT).show();
-                            image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
-                            imageView.setColorFilter(Color.parseColor("#99000000"));
-                            left_ProgressBar.setVisibility(View.VISIBLE);
-                            right_ProgressBar.setVisibility(View.VISIBLE);
-                            setProgress(left_ProgressBar, 100 - percent);
-                            setProgress(right_ProgressBar, percent);
+                                image_text_item_img_left.setColorFilter(Color.parseColor("#99000000"));
+                                imageView.setColorFilter(Color.parseColor("#99000000"));
+                                left_ProgressBar.setVisibility(View.VISIBLE);
+                                right_ProgressBar.setVisibility(View.VISIBLE);
+                                setProgress(left_ProgressBar, 100 - percent);
+                                setProgress(right_ProgressBar, percent);
+                            } catch (JSONException e) {
+                                Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+//                                e.printStackTrace();
+                            }
+                        } else {
+                            Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -279,7 +326,7 @@ public class ImageTextAdpter extends BaseAdapter {
 
                     @Override
                     public void onFinished() {
-
+                        loader.setVisibility(View.GONE);
                     }
                 });
             }

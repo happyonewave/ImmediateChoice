@@ -62,7 +62,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
         loader = (MKLoader) v.findViewById(R.id.loader);
         sendFabIsVisible(lv_home);
         lv_home.setOnItemClickListener(this);
-        adpter = new ImageTextAdpter(context, questionList);
+        adpter = new ImageTextAdpter(context,loader, questionList);
 //        lv_home.setTextFilterEnabled();
         lv_home.setAdapter(adpter);
         initRefreshAndLoad(lv_home, new MyCallback.InitRefreshAndLoadCallBack() {
@@ -104,7 +104,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 
         @Override
         public int getUserId() {
-            return 0;
+            return MyApplication.user.getUser_id();
         }
 
         @Override
@@ -141,6 +141,11 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
                     }
                 }.sendEmptyMessageDelayed(0, 2000);
             }
+        }
+
+        @Override
+        public boolean IsNotGroup() {
+            return true;
         }
     }
 

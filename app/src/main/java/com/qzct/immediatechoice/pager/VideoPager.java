@@ -152,7 +152,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
         protected void onPostExecute(String request) {
             if (request != null) {
                 if (!request.equals("-1")) {
-                    adpter = new QuestionVideoAdpter(context, questionList);
+                    adpter = new QuestionVideoAdpter(context,loader, questionList);
                     isFirst = true;
                     refreshquestionList(GET_QUESTION);
                     lv_home_video.setAdapter(adpter);

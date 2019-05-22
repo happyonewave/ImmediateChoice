@@ -154,7 +154,7 @@ public class ImageTextPager extends BasePager implements ZrcListView.OnItemClick
         protected void onPostExecute(String request) {
             if (request != null) {
                 if (!request.equals("-1")) {
-                    adpter = new ImageTextAdpter(context, questionList);
+                    adpter = new ImageTextAdpter(context,null, questionList);
                     isFirst = true;
                     refreshQuestionList(GET_QUESTION);
                     lv_home.setAdapter(adpter);

@@ -38,6 +38,7 @@ public interface MyCallback {
 
         void onFinished();
 
+        boolean IsNotGroup();
     }
 
     interface InitRefreshAndLoadCallBack {

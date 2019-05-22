@@ -12,6 +12,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.ldoublem.thumbUplib.ThumbUpView;
@@ -25,7 +26,10 @@ import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+import com.tuyenmonkey.mkloader.MKLoader;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.image.ImageOptions;
@@ -42,14 +46,16 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
 
     AppCompatActivity context;
+    MKLoader loader;
     List<Question> questionList;
     private String CHOICE_ONE = "1";
 //    View v;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_left;
 //    private StandardGSYVideoPlayer gsyVideoPlayer_right;
 
-    public QuestionVideoAdpter(AppCompatActivity context, List<Question> questionList) {
+    public QuestionVideoAdpter(AppCompatActivity context, MKLoader loader, List<Question> questionList) {
         this.context = context;
+        this.loader = loader;
         this.questionList = questionList;
     }
 
@@ -205,18 +211,36 @@ public class QuestionVideoAdpter extends BaseAdapter {
                             String.valueOf(MyApplication.user.getUser_id()));
 
                     entity.addBodyParameter("left_or_right", "left");
+                    loader.setVisibility(View.VISIBLE);
                     x.http().post(entity, new Callback.CommonCallback<String>() {
                         @Override
                         public void onSuccess(String result) {
                             if (result != null) {
-                                int percent = Integer.parseInt(result);
+                                try {
+                                    JSONObject o = new JSONObject(result);
+                                    String status = o.optString("status");
+                                    Integer percent = o.optInt("percent");
+                                    if ("fail".equals(status)) {
+                                        Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                    if ("repetition".equals(status)) {
+                                        Toast.makeText(context, "您已选择过", Toast.LENGTH_SHORT).show();
+                                    }
+//                                    int percent = Integer.parseInt(result);
 //                                Toast.makeText(context, "left:" + percent + "%," +
 //                                        "right:" + (100 - percent) + "%", Toast.LENGTH_SHORT).show();
 //                            showBar(percent, 100 - percent);
-                                holder.left_ProgressBar.setVisibility(View.VISIBLE);
-                                holder.right_ProgressBar.setVisibility(View.VISIBLE);
-                                setProgress(holder.left_ProgressBar, percent);
-                                setProgress(holder.right_ProgressBar, 100 - percent);
+                                    holder.left_ProgressBar.setVisibility(View.VISIBLE);
+                                    holder.right_ProgressBar.setVisibility(View.VISIBLE);
+                                    setProgress(holder.left_ProgressBar, percent);
+                                    setProgress(holder.right_ProgressBar, 100 - percent);
+                                } catch (JSONException e) {
+                                    Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+//                                e.printStackTrace();
+                                }
+                            } else {
+                                Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -232,7 +256,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
                         @Override
                         public void onFinished() {
-
+                            loader.setVisibility(View.GONE);
                         }
                     });
 
@@ -250,18 +274,36 @@ public class QuestionVideoAdpter extends BaseAdapter {
                             String.valueOf(MyApplication.user.getUser_id()));
 
                     entity.addBodyParameter("left_or_right", "right");
+                    loader.setVisibility(View.VISIBLE);
                     x.http().post(entity, new Callback.CommonCallback<String>() {
                         @Override
                         public void onSuccess(String result) {
                             if (result != null) {
-                                int percent = Integer.parseInt(result);
+                                try {
+                                    JSONObject o = new JSONObject(result);
+                                    String status = o.optString("status");
+                                    Integer percent = o.optInt("percent");
+                                    if ("fail".equals(status)) {
+                                        Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+                                        return;
+                                    }
+                                    if ("repetition".equals(status)) {
+                                        Toast.makeText(context, "您已选择过", Toast.LENGTH_SHORT).show();
+                                    }
+//                                    int percent = Integer.parseInt(result);
 //                                Toast.makeText(context, "left:" + (100 - percent) + "%," +
 //                                        "right:" + (percent) + "%", Toast.LENGTH_SHORT).show();
 //                            showBar(percent, 100 - percent);
-                                holder.left_ProgressBar.setVisibility(View.VISIBLE);
-                                holder.right_ProgressBar.setVisibility(View.VISIBLE);
-                                setProgress(holder.left_ProgressBar, 100 - percent);
-                                setProgress(holder.right_ProgressBar, percent);
+                                    holder.left_ProgressBar.setVisibility(View.VISIBLE);
+                                    holder.right_ProgressBar.setVisibility(View.VISIBLE);
+                                    setProgress(holder.left_ProgressBar, 100 - percent);
+                                    setProgress(holder.right_ProgressBar, percent);
+                                } catch (JSONException e) {
+                                    Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
+//                                e.printStackTrace();
+                                }
+                            } else {
+                                Toast.makeText(context, "选择失败", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -277,7 +319,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
                         @Override
                         public void onFinished() {
-
+                            loader.setVisibility(View.GONE);
                         }
                     });
 

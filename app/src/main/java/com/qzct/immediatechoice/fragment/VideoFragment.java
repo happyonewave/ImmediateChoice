@@ -58,7 +58,7 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
         loader = (MKLoader) v.findViewById(R.id.loader);
         sendFabIsVisible(lv_home_video);
         lv_home_video.setOnItemClickListener(this);
-        adpter = new QuestionVideoAdpter(context, questionList);
+        adpter = new QuestionVideoAdpter(context,loader, questionList);
         lv_home_video.setAdapter(adpter);
         initRefreshAndLoad(lv_home_video, new MyCallback.InitRefreshAndLoadCallBack() {
             @Override
@@ -99,7 +99,7 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
 
         @Override
         public int getUserId() {
-            return 0;
+            return MyApplication.user.getUser_id();
         }
 
         @Override
@@ -136,6 +136,11 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
                     }
                 }.sendEmptyMessageDelayed(0, 2000);
             }
+        }
+
+        @Override
+        public boolean IsNotGroup() {
+            return true;
         }
     }
 

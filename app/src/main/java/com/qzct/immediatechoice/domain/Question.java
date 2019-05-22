@@ -23,6 +23,8 @@ public class Question implements Serializable {
     String comment;
     String location;
     String post_time;
+    boolean left_selected;
+    boolean right_selected;
 
     @Override
     public String toString() {
@@ -42,7 +44,7 @@ public class Question implements Serializable {
                 '}';
     }
 
-    public Question(int question_id, int group_id, int topic_id,String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
+    public Question(int question_id, int group_id, int topic_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
         this.question_id = question_id;
         this.group_id = group_id;
         this.topic_id = topic_id;
@@ -57,7 +59,8 @@ public class Question implements Serializable {
         this.location = location;
         this.post_time = post_time;
     }
-    public Question(int question_id, int group_id,String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
+
+    public Question(int question_id, int group_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time) {
         this.question_id = question_id;
         this.group_id = group_id;
         this.question_content = question_content;
@@ -71,6 +74,7 @@ public class Question implements Serializable {
         this.location = location;
         this.post_time = post_time;
     }
+
     public Question() {
     }
 
@@ -86,6 +90,22 @@ public class Question implements Serializable {
         this.comment = comment;
         this.location = location;
         this.post_time = post_time;
+    }
+
+    public Question(int question_id, String question_content, String left_url, String right_url, String quizzer_name, String portrait_url, int share_count, int comment_count, String comment, String location, String post_time,boolean left_selected,boolean right_selected) {
+        this.question_id = question_id;
+        this.question_content = question_content;
+        this.left_url = left_url;
+        this.right_url = right_url;
+        this.quizzer_name = quizzer_name;
+        this.portrait_url = portrait_url;
+        this.share_count = share_count;
+        this.comment_count = comment_count;
+        this.comment = comment;
+        this.location = location;
+        this.post_time = post_time;
+        this.left_selected = left_selected;
+        this.right_selected = right_selected;
     }
 
 
