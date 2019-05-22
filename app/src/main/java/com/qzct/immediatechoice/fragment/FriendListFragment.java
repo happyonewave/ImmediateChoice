@@ -97,7 +97,7 @@ public class FriendListFragment extends baseFragment {
 //        mSearchSrcTextView = (SearchView.SearchAutoComplete) friendlist_search.findViewById(R.id.search_src_text);
 //        searchButton.setImageResource(R.mipmap.search);
 //        friendlist_search = new SearchView(context);
-        friendlist_search.setQueryHint("用户Id");
+        friendlist_search.setQueryHint("用户名");
         //* 设置true后，右边会出现一个箭头按钮。如果用户没有输入，就不会触发提交（submit）事件
 //        friendlist_search.setSubmitButtonEnabled(true);
         // * 写上此句后searchView初始展开的，也就是是可以点击输入的状态，如果不写，那么就需要点击下放大镜，才能展开出现输入框
@@ -364,7 +364,7 @@ public class FriendListFragment extends baseFragment {
             public boolean onQueryTextChange(String newText) {
                 if (!TextUtils.isEmpty(newText)) {
                     RequestParams entity = new RequestParams(Config.url_search);
-                    entity.addBodyParameter("f_id", newText);
+                    entity.addBodyParameter("name", newText);
                     x.http().get(entity, new Callback.CommonCallback<String>() {
                         @Override
                         public void onSuccess(String result) {

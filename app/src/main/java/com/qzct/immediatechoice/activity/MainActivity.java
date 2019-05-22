@@ -79,22 +79,12 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
         mainActivity = this;
 
         userInfoList = new ArrayList<UserInfo>();
-        Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
-            @Override
-            public void onSuccess(List<User> userList) {
-                MyApplication.userList = userList;
-                userInfoList.add(MyApplication.user.toUserinfo());
-                for (User user : userList) {
-                    Log.d("qin", user.toUserinfo().getPortraitUri().toString());
-                    userInfoList.add(user.toUserinfo());
-                }
-            }
+        userInfoList.add(MyApplication.user.toUserinfo());
+        for (User user : MyApplication.userList) {
+            Log.d("qin", user.toUserinfo().getPortraitUri().toString());
+            userInfoList.add(user.toUserinfo());
+        }
 
-            @Override
-            public void onError(Throwable ex) {
-                Toast.makeText(MainActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
-            }
-        });
 //        getFriendInfo();
 //        RongIM.setUserInfoProvider(this, true);
         RongIM.getInstance().setCurrentUserInfo(MyApplication.user.toUserinfo());

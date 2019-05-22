@@ -31,7 +31,7 @@ import jp.wasabeef.glide.transformations.BlurTransformation;
 public class UserInfoActivity extends Activity {
     private User user;
     private TextView tv_user_name;
-    private TextView tv_user_id;
+//    private TextView tv_user_id;
     private TextView tv_user_sex;
     private TextView tv_user_phone_num;
     private ImageView iv_user_portrait;
@@ -56,7 +56,7 @@ public class UserInfoActivity extends Activity {
         iv_portrait_bg = (ImageView) findViewById(R.id.iv_portrait_bg);
         iv_user_portrait = (ImageView) findViewById(R.id.user_portrait);
         tv_user_name = (TextView) findViewById(R.id.user_name);
-        tv_user_id = (TextView) findViewById(R.id.user_id);
+//        tv_user_id = (TextView) findViewById(R.id.user_id);
         tv_user_sex = (TextView) findViewById(R.id.user_sex);
         tv_user_phone_num = (TextView) findViewById(R.id.user_phone_num);
         btn_add_friend = (Button) findViewById(R.id.btn_add_friend);
@@ -85,7 +85,7 @@ public class UserInfoActivity extends Activity {
                 .into(iv_portrait_bg);
         Glide.with(this).load(user.getPortrait_path()).bitmapTransform(new GlideCircleTransform(this)).into(iv_user_portrait);
 
-        tv_user_id.setText(user.getUser_id() + "");
+//        tv_user_id.setText(user.getUser_id() + "");
         tv_user_name.setText(user.getUsername());
         tv_user_sex.setText(user.getSex());
         tv_user_phone_num.setText(user.getPhone_number());

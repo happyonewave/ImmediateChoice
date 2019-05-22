@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,6 +38,8 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.rong.imageloader.utils.L;
 
 import static com.qzct.immediatechoice.R.id.bt_login;
 
@@ -176,11 +179,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             } else {
                                 MyApplication.isQuestionnaireProvider = false;
                             }
-                            //进入主界面
-                            Intent intent = new Intent();
-                            intent.setClass(getBaseContext(), MainActivity.class);
-                            startActivity(intent);
-                            LoginActivity.this.finish();
+
+                            Service.getInstance().getFriendInfo(new MyCallback.FriendInfoCallBack() {
+                                @Override
+                                public void onSuccess(List<User> userList) {
+                                    loader.setVisibility(View.GONE);
+                                    MyApplication.userList = userList;
+                                    //进入主界面
+                                    Intent intent = new Intent();
+                                    intent.setClass(getBaseContext(), MainActivity.class);
+                                    startActivity(intent);
+                                    LoginActivity.this.finish();
+                                }
+
+                                @Override
+                                public void onError(Throwable ex) {
+                                    ex.printStackTrace();
+                                    loader.setVisibility(View.GONE);
+                                    Toast.makeText(LoginActivity.this, "获取好友列表失败", Toast.LENGTH_SHORT).show();
+                                }
+                            });
                             break;
                     }
                 }
@@ -191,7 +209,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 //                    new Handler() {
 //                        @Override
 //                        public void handleMessage(Message msg) {
-                            loader.setVisibility(View.GONE);
 //                        }
 //                    }.sendEmptyMessageDelayed(0, 2000);
                 }

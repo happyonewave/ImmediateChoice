@@ -9,6 +9,7 @@ import com.qzct.immediatechoice.domain.User;
 
 import org.xutils.x;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.rong.imkit.RongIM;
@@ -27,7 +28,7 @@ public class MyApplication extends MultiDexApplication {
     public static boolean isQuestion = false;
     public static boolean logined = false;
     public static boolean isQuestionnaireProvider = false;
-    public static List<User> userList;
+    public static List<User> userList = new ArrayList<>();
 
     @Override
     public void onCreate() {
