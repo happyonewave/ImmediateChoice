@@ -21,6 +21,7 @@ import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.MyCallback;
+import com.qzct.immediatechoice.util.RSAEncrypt;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.utils;
 import com.tuyenmonkey.mkloader.MKLoader;
@@ -145,7 +146,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             Service.getInstance().login(user, new MyCallback.LoginCallback() {
                 @Override
                 public void onError(Throwable ex) {
-
                     Toast.makeText(LoginActivity.this, "连接网站失败", Toast.LENGTH_SHORT).show();
                 }
 
@@ -170,7 +170,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             String sex = json.optString("sex");
                             String portrait_path = json.optString("portrait_path");
                             token = json.optString("token");
-                            User user_all = new User(user_id, user_type, user.getUsername(), user.getPassword(), phone_number, portrait_path, sex, token);
+                            User user_all = null;
+                            try {
+                                user_all = new User(user_id, user_type, user.getUsername(), user.getPassword(), phone_number, portrait_path, sex, token);
+                            } catch (Exception e) {
+                                Toast.makeText(LoginActivity.this, "帐号或密码错误！请重新登录！", Toast.LENGTH_SHORT).show();
+                                e.printStackTrace();
+                                return;
+                            }
                             //存储User到Application
                             MyApplication.user = user_all;
                             MyApplication.logined = true;

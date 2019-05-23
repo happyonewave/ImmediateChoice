@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.alipay.security.mobile.module.commonutils.LOG;
 import com.google.gson.JsonObject;
@@ -366,7 +367,12 @@ public class Service {
     public void login(User user, final MyCallback.LoginCallback loginCallback) {
         final RequestParams entity = new RequestParams(Config.url_login);
         entity.addBodyParameter("name", user.getUsername());
-        entity.addBodyParameter("password", user.getPassword());
+        try {
+            entity.addBodyParameter("password", RSAEncrypt.encrypt(user.getPassword()));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return;
+        }
         x.http().post(entity, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {

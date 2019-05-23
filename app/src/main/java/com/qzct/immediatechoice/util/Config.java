@@ -5,7 +5,7 @@ package com.qzct.immediatechoice.util;
  */
 
 public class Config {
-//                    public static String url = "http://172.18.1.153:8080/ImmediateChoice_service/";
+    //                    public static String url = "http://172.18.1.153:8080/ImmediateChoice_service/";
     public static String url = "http://15.164.47.218:8080/ImmediateChoice_service/";
 //    public static String url = "http://server.luckboyqin.cn/ImmediateChoice_service/";
 //    public static String url = "http://192.168.1.200:8080/Server/";
@@ -21,8 +21,8 @@ public class Config {
     public static String url_friend = url + "FriendServlet";
     public static String url_group = url + "GroupServlet";
     public static String url_search = url + "SearchServlet";
-        public static String url_questionnaire =url + "QuestionnaireServlet";
-//    public static String url_questionnaire = "http://192.168.1.200:8080/Server/" + "QuestionnaireServlet";
+    public static String url_questionnaire = url + "QuestionnaireServlet";
+    //    public static String url_questionnaire = "http://192.168.1.200:8080/Server/" + "QuestionnaireServlet";
     public static String url_chart = "http://server.luckboyqin.cn/immediatechoiceCharts/";
 
     public static String server_img_url = url + "image/";
