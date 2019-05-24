@@ -35,6 +35,7 @@ import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.PathUtils;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.Utils;
+import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,6 +91,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
     private File flle_left;
     private File file_right;
     private JSONArray json_topics;
+    private MKLoader loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +164,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
         location_hint = (TextView) findViewById(R.id.location_hint);
         et_push_question_content = (EditText) findViewById(R.id.push_question_content);
 
+        loader = (MKLoader) findViewById(R.id.loader);
 
     }
 
@@ -185,7 +188,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 if (!("".equals(question_content))) {
                     //上传
                     uplooad();
-                    PushActivity.this.finish();
+//                    PushActivity.this.finish();
                 } else {
                     Toast.makeText(this, "您还没输入投票题目呢", Toast.LENGTH_SHORT).show();
                 }
@@ -472,6 +475,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
      * 异步上传
      */
     private void uplooad() {
+        loader.setVisibility(View.VISIBLE);
         RequestParams entity = new RequestParams(url);
         String type = "video";
         if (isUploadImage) {
@@ -498,6 +502,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
                 if (result != null) {
                     if (result.equals("1")) {
                         Toast.makeText(PushActivity.this, "发布成功", Toast.LENGTH_SHORT).show();
+                        PushActivity.this.finish();
                     } else {
                         Toast.makeText(PushActivity.this, "发布失败,请重试！", Toast.LENGTH_SHORT).show();
                     }
@@ -516,7 +521,7 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFinished() {
-
+                loader.setVisibility(View.GONE);
             }
         });
     }
