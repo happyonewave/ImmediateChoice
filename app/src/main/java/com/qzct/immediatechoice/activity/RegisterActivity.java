@@ -21,6 +21,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
+import com.qzct.immediatechoice.util.RSAEncrypt;
 import com.qzct.immediatechoice.util.Utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
@@ -80,6 +81,7 @@ public class RegisterActivity extends AppCompatActivity {
 //        transaction.add(R.id.fl_register, (Fragment) fragment);
 //        transaction.commit();
     }
+
     public void initView() {
         iv_sex = (CheckBox) findViewById(R.id.iv_sex);
         user_portrait = (ImageView) findViewById(R.id.user_portrait);
@@ -102,13 +104,13 @@ public class RegisterActivity extends AppCompatActivity {
         iv_sex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sex = sex.equals("男")? "女" : "男";
+                sex = sex.equals("男") ? "女" : "男";
             }
         });
         tv_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,LoginActivity.class);
+                Intent intent = new Intent(context, LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -118,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 RadioButton radioBtn = (RadioButton) group.findViewById(checkedId);
                 String radioBtn_text = radioBtn.getText().toString();
-                user_type =  radioBtn_text.equals("个人")? 1 : 0;
+                user_type = radioBtn_text.equals("个人") ? 1 : 0;
             }
         });
 //        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -160,7 +162,7 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(context, "请上传头像", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (sexIsVerify){
+                if (sexIsVerify) {
                     EditText et_name = (EditText) findViewById(R.id.et_name);
                     String name = et_name.getText().toString();
                     EditText et_password = (EditText) findViewById(R.id.et_password);
@@ -172,7 +174,7 @@ public class RegisterActivity extends AppCompatActivity {
 
 //                    Toast.makeText(context, "性别：" + sex + "用户类型：" + user_type + "用户名：" + name + "密码： " + password, Toast.LENGTH_LONG).show();
 //                    Toast.makeText(context, "下一步已点击", Toast.LENGTH_LONG).show();
-                }else{
+                } else {
                     sexIsVerify = true;
                     Toast.makeText(context, "请确认性别与用户类型后再次点击", Toast.LENGTH_LONG).show();
                 }
@@ -235,7 +237,7 @@ public class RegisterActivity extends AppCompatActivity {
                 FileBody portrait = new FileBody(new File(portrait_path));
                 entity.addPart("name", new StringBody(name, charset));
                 entity.addPart("user_type", new StringBody(user_type + "", charset));
-                entity.addPart("password", new StringBody(password, charset));
+                entity.addPart("password", new StringBody(RSAEncrypt.encrypt(password), charset));
                 entity.addPart("phone_number", new StringBody(phone_number, charset));
                 entity.addPart("sex", new StringBody(sex, charset));
                 entity.addPart("portrait", portrait);
@@ -283,8 +285,6 @@ public class RegisterActivity extends AppCompatActivity {
 
         }
     }
-
-
 
 
     //多步注册
