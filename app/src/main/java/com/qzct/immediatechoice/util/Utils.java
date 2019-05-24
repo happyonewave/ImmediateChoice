@@ -43,7 +43,7 @@ import java.util.Map;
 import wseemann.media.FFmpegMediaMetadataRetriever;
 
 
-public class utils {
+public class Utils {
     private static JSONObject obj;
 
 

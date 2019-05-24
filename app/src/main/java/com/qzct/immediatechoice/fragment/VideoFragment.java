@@ -29,7 +29,7 @@ import zrc.widget.ZrcListView;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class VideoFragment extends baseFragment implements ZrcListView.OnItemClickListener {
+public class VideoFragment extends BaseFragment implements ZrcListView.OnItemClickListener {
 
     //    private static final String GET_QUESTION = "1";
 //    private static final String REFRESH_QUESTION = "2";
@@ -387,7 +387,7 @@ public class VideoFragment extends baseFragment implements ZrcListView.OnItemCli
 //            HttpResponse hr = hc.execute(httpPost);
 //            if (hr.getStatusLine().getStatusCode() == 200) {
 //                InputStream is = hr.getEntity().getContent();
-//                String request = utils.getTextFromStream(is);
+//                String request = Utils.getTextFromStream(is);
 //                return request;
 //            } else {
 //                return "0";

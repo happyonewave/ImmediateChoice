@@ -34,7 +34,7 @@ import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.PathUtils;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -478,8 +478,8 @@ public class PushActivity extends AppCompatActivity implements View.OnClickListe
             type = "image";
         }
         Question question = new Question(0, group_id, topic_id, question_content,
-                utils.getNetUrlFormLocalPath(left_path, type),
-                utils.getNetUrlFormLocalPath(right_path, type),
+                Utils.getNetUrlFormLocalPath(left_path, type),
+                Utils.getNetUrlFormLocalPath(right_path, type),
                 quizzer_name, user.getPortrait_path(), 0, 0, null,
                 locationDescribe, null
         );

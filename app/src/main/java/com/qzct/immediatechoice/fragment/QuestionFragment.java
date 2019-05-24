@@ -31,7 +31,7 @@ import zrc.widget.ZrcListView;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class QuestionFragment extends baseFragment implements ZrcListView.OnItemClickListener {
+public class QuestionFragment extends BaseFragment implements ZrcListView.OnItemClickListener {
 
 
     //    private static final String GET_QUESTION = "1";
@@ -394,7 +394,7 @@ public class QuestionFragment extends baseFragment implements ZrcListView.OnItem
 //            HttpResponse hr = hc.execute(httpPost);
 //            if (hr.getStatusLine().getStatusCode() == 200) {
 //                InputStream is = hr.getEntity().getContent();
-//                String request = utils.getTextFromStream(is);
+//                String request = Utils.getTextFromStream(is);
 //                return request;
 //            } else {
 //                return "0";

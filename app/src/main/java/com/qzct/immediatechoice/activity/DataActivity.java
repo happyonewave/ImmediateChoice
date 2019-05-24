@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 /**
  * Created by tsh2 on 2017/4/21.
@@ -30,7 +30,7 @@ public class DataActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         questionEntity = (Questionnaire.Question) getIntent().getSerializableExtra("questionEntity");
-        setContentView(utils.getUsableView(this, R.layout.activity_data, "问题详情"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_data, "问题详情"));
         initView();
         initData();
     }

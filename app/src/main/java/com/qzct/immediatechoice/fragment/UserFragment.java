@@ -54,7 +54,7 @@ import java.util.List;
 import jp.wasabeef.glide.transformations.BlurTransformation;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
-public class UserFragment extends baseFragment implements View.OnClickListener {
+public class UserFragment extends BaseFragment implements View.OnClickListener {
     private View v;
     List<Question> questionList;
     GridView lv;

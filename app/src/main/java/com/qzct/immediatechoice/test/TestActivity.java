@@ -22,7 +22,7 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.GroupInfo;
 import com.qzct.immediatechoice.domain.User;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -228,7 +228,7 @@ public class TestActivity extends AppCompatActivity {
             public void create(SwipeMenu menu) {
                 SwipeMenuItem openItem = new SwipeMenuItem(context);
                 openItem.setBackground(new ColorDrawable(Color.GREEN));
-                openItem.setWidth(utils.Dp2Px(context, 90));
+                openItem.setWidth(Utils.Dp2Px(context, 90));
                 openItem.setTitle("打开");
                 openItem.setTitleSize(20);
                 openItem.setTitleColor(Color.WHITE);

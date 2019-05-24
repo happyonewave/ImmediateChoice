@@ -7,7 +7,7 @@
 //import android.support.v4.app.FragmentActivity;
 //
 //import com.qzct.immediatechoice.R;
-//import com.qzct.immediatechoice.util.utils;
+//import com.qzct.immediatechoice.util.Utils;
 //
 //import io.rong.imkit.fragment.ConversationListFragment;
 //import io.rong.imlib.model.Conversation;

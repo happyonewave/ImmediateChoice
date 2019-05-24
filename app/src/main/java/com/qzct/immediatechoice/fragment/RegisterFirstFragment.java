@@ -16,7 +16,7 @@ import com.qzct.immediatechoice.R;
 /**
  * Created by Administrator on 2017-02-26.
  */
-public class RegisterFirstFragment extends baseFragment {
+public class RegisterFirstFragment extends BaseFragment {
     View v;
     private int user_type = -1;
 

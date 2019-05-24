@@ -26,7 +26,7 @@ import com.qzct.immediatechoice.domain.Comment;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.shuyu.gsyvideoplayer.GSYVideoPlayer;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
@@ -89,7 +89,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_comment, null));
+        setContentView(Utils.getUsableView(this, R.layout.activity_comment, null));
         title = (TextView) findViewById(R.id.comment_top).findViewById(R.id.top_title);
         title.setText("评论");
 //        question = MyApplication.question;
@@ -170,7 +170,7 @@ public class CommentActivity extends AppCompatActivity implements View.OnClickLi
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            return utils.createVideoThumbnail(url);
+            return Utils.createVideoThumbnail(url);
         }
 
         //        @RequiresApi(api = Build.VERSION_CODES.KITKAT)

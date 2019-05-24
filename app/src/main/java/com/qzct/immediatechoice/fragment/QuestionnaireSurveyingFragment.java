@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by tsh2 on 2017/4/25.
  */
-public class QuestionnaireSurveyingFragment extends baseFragment {
+public class QuestionnaireSurveyingFragment extends BaseFragment {
 
     private ListView lv_questionnaire;
     private Questionnaire questionnaire;

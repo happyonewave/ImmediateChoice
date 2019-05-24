@@ -16,7 +16,7 @@ import com.qzct.immediatechoice.activity.RegisterActivity;
  * Created by Administrator on 2017-02-26.
  */
 @SuppressLint("ValidFragment")
-public class RegisterSecondFragment extends baseFragment {
+public class RegisterSecondFragment extends BaseFragment {
     String phone_number;
     int user_type;
 

@@ -43,7 +43,7 @@ import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,7 +65,7 @@ import static com.jrmf360.rylib.wallet.JrmfWalletClient.getApplicationContext;
 /**
  * Created by qin on 2017/3/28.
  */
-public class FriendListFragment extends baseFragment {
+public class FriendListFragment extends BaseFragment {
 
     private SwipeMenuListView lv_friendlist;
     List<User> userList = MyApplication.userList;
@@ -251,7 +251,7 @@ public class FriendListFragment extends baseFragment {
             public void create(SwipeMenu menu) {
                 SwipeMenuItem openItem = new SwipeMenuItem(context);
                 openItem.setBackground(new ColorDrawable(getResources().getColor(R.color.apporange)));
-                openItem.setWidth(utils.Dp2Px(context, 90));
+                openItem.setWidth(Utils.Dp2Px(context, 90));
                 openItem.setTitle("更多");
                 openItem.setTitleSize(15);
                 openItem.setTitleColor(Color.WHITE);

@@ -29,7 +29,7 @@ import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.PathUtils;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,7 +57,7 @@ public class AddTopicActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getHasTopView(this, R.layout.activity_add_topic, "添加话题"));
+        setContentView(Utils.getHasTopView(this, R.layout.activity_add_topic, "添加话题"));
         initView();
         initData();
 
@@ -108,7 +108,7 @@ public class AddTopicActivity extends AppCompatActivity implements View.OnClickL
                         @Override
                         public Topic getTopic() {
 
-                            return new Topic(topic_title,utils.getNetUrlFormLocalPath(path_topic,"image"));
+                            return new Topic(topic_title,Utils.getNetUrlFormLocalPath(path_topic,"image"));
                         }
 
                         @Override

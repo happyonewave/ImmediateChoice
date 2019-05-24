@@ -36,7 +36,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2017-03-05.
  */
-public class AttentionFragment extends baseFragment {
+public class AttentionFragment extends BaseFragment {
 
     ScrollableGridView lv_home_attention;
     private List<Topic> topicList;

@@ -72,7 +72,7 @@ import cn.bingoogolapple.bgabanner.BGABannerUtil;
 
 
 @ContentView(R.layout.fragment_discovery)
-public class DiscoveryFragment extends baseFragment {
+public class DiscoveryFragment extends BaseFragment {
 
     private View v;
     @ViewInject(R.id.discovery_banner)

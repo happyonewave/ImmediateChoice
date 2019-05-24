@@ -17,7 +17,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +39,7 @@ public class QuestionnaireActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView((Activity) context, R.layout.activity_questionnaire, "查看问卷"));
+        setContentView(Utils.getUsableView((Activity) context, R.layout.activity_questionnaire, "查看问卷"));
         initView();
         initData();
     }

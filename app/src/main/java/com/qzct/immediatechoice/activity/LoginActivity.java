@@ -23,7 +23,7 @@ import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.RSAEncrypt;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
@@ -264,7 +264,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 //返回码
                 if (hr.getStatusLine().getStatusCode() == 200) {
                     InputStream is = hr.getEntity().getContent();
-                    String result = utils.getTextFromStream(is);
+                    String result = Utils.getTextFromStream(is);
                     return result;
                 } else {
                     return "2";

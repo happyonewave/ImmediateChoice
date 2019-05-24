@@ -20,7 +20,7 @@ import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import jp.wasabeef.glide.transformations.BlurTransformation;
 
@@ -45,7 +45,7 @@ public class UserInfoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_userinfo, "个人信息"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_userinfo, "个人信息"));
         user = (User) getIntent().getSerializableExtra("user");
         USER_TYPE = getIntent().getIntExtra("user_type", 0);
         initView();
@@ -156,9 +156,9 @@ public class UserInfoActivity extends Activity {
                 }
             });
         } else {
-//            rl_layout.setBackground(new BitmapDrawable(utils.generateBitmap("id14", 200, 200)));
-//            rl_layout.setBackground(new BitmapDrawable(utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200)));
-            iv_qrcode.setImageBitmap(utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200));
+//            rl_layout.setBackground(new BitmapDrawable(Utils.generateBitmap("id14", 200, 200)));
+//            rl_layout.setBackground(new BitmapDrawable(Utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200)));
+            iv_qrcode.setImageBitmap(Utils.generateBitmap("id" + MyApplication.user.getUser_id(), 200, 200));
         }
     }
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.Uri;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -108,7 +108,7 @@ public class User implements Serializable {
     }
 
     public static User getDefaultUser(Context context) {
-        return new User(0, "游客", utils.getUribyId(context, R.mipmap.default_portrait).toString());
+        return new User(0, "游客", Utils.getUribyId(context, R.mipmap.default_portrait).toString());
     }
 
 

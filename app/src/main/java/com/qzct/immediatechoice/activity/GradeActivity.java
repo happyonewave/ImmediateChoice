@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 /**
  * Created by tsh2 on 2017/4/25.
@@ -25,7 +25,7 @@ public class GradeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_grade, "积分商城"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_grade, "积分商城"));
         SharedPreferences sharedPreferences = getSharedPreferences("grade", Context.MODE_PRIVATE);
         userGrade = sharedPreferences.getInt("grade", 1);
         initView();

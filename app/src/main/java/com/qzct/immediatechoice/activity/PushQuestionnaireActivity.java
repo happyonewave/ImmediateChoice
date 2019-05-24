@@ -25,7 +25,7 @@ import com.qzct.immediatechoice.util.FabSpeedDial;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
 import com.qzct.immediatechoice.util.SimpleMenuListenerAdapter;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class PushQuestionnaireActivity extends AppCompatActivity implements View
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_push_questionnaire);
 //        setContentView(utils.getUsableView(this, R.layout.activity_push_questionnaire, "发布问卷"));
-        setContentView(utils.getUsableView(this, R.layout.activity_push_questionnaire, null));
+        setContentView(Utils.getUsableView(this, R.layout.activity_push_questionnaire, null));
         initView();
         initData();
     }

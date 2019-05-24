@@ -29,7 +29,7 @@ import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.fragment.FriendFragment;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
@@ -454,7 +454,7 @@ public class CircleAdpter extends BaseAdapter {
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            Bitmap videoThumbnail = utils.createVideoThumbnail(url);
+            Bitmap videoThumbnail = Utils.createVideoThumbnail(url);
             return videoThumbnail;
         }
 

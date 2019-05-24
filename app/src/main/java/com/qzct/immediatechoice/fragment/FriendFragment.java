@@ -40,7 +40,7 @@ import io.rong.imlib.model.Conversation;
 /**
  * Created by qin on 2017/3/24.
  */
-public class FriendFragment extends baseFragment {
+public class FriendFragment extends BaseFragment {
 
     public static NoScrollViewPager vp_friend;
     private List<Fragment> fragmentList;

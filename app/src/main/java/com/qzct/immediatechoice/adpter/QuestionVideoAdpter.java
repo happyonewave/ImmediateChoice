@@ -23,7 +23,7 @@ import com.qzct.immediatechoice.activity.LoginActivity;
 import com.qzct.immediatechoice.activity.MainActivity;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import com.tuyenmonkey.mkloader.MKLoader;
@@ -383,7 +383,7 @@ public class QuestionVideoAdpter extends BaseAdapter {
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            return utils.createVideoThumbnail(url);
+            return Utils.createVideoThumbnail(url);
         }
 
         //        @RequiresApi(api = Build.VERSION_CODES.KITKAT)

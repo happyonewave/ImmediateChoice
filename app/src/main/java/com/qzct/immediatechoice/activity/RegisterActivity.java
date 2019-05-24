@@ -21,7 +21,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
 import com.qzct.immediatechoice.util.GlideCircleTransform;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
@@ -187,7 +187,7 @@ public class RegisterActivity extends AppCompatActivity {
         //外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
         if (data != null) {
             Uri originalUri = data.getData();        //获得图片的uri
-            String path = utils.getImageAbsolutePath(context, originalUri);
+            String path = Utils.getImageAbsolutePath(context, originalUri);
             return path;
         } else {
             return "";
@@ -239,13 +239,13 @@ public class RegisterActivity extends AppCompatActivity {
                 entity.addPart("phone_number", new StringBody(phone_number, charset));
                 entity.addPart("sex", new StringBody(sex, charset));
                 entity.addPart("portrait", portrait);
-                entity.addPart("portrait_url", new StringBody(Config.server_img_url + utils.getFileName(portrait_path), charset));
+                entity.addPart("portrait_url", new StringBody(Config.server_img_url + Utils.getFileName(portrait_path), charset));
 //                entity.addPart("portrait_url", new StringBody(utils.getNetUrlFormLocalPath(portrait_path, "image"), charset));
                 httpPost.setEntity(entity);
                 HttpResponse hr = hc.execute(httpPost);
                 if (hr.getStatusLine().getStatusCode() == 200) {
                     InputStream is = hr.getEntity().getContent();
-                    return utils.getTextFromStream(is);
+                    return Utils.getTextFromStream(is);
                 } else {
                     return "2";
                 }

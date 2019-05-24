@@ -25,7 +25,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +55,7 @@ public class CalendarActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_calendar, "每日一问"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_calendar, "每日一问"));
         initView();
         initData();
     }

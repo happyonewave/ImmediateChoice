@@ -33,7 +33,7 @@ import zrc.widget.SimpleHeader;
 import zrc.widget.ZrcAbsListView;
 import zrc.widget.ZrcListView;
 
-public abstract class baseFragment extends Fragment {
+public abstract class BaseFragment extends Fragment {
     AppCompatActivity context;
     MyApplication myApplication;
     public int current_page;

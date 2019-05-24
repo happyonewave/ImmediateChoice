@@ -15,7 +15,7 @@ import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.GlideRoundTransform;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import java.io.ByteArrayOutputStream;
@@ -94,7 +94,7 @@ public class UserAdpter extends BaseAdapter {
 
         @Override
         protected Bitmap doInBackground(String... params) {
-            return utils.createVideoThumbnail(url);
+            return Utils.createVideoThumbnail(url);
         }
 
         @Override

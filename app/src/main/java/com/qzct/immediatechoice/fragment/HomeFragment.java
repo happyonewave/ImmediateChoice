@@ -36,7 +36,7 @@ import java.util.List;
 
 
 @ContentView(R.layout.fragment_home)
-public class HomeFragment extends baseFragment implements View.OnClickListener {
+public class HomeFragment extends BaseFragment implements View.OnClickListener {
 
     private static final int IMAGE_TEXT = 0;
     private static final int VIDEO = 1;

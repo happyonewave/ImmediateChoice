@@ -9,7 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import io.rong.imkit.fragment.ConversationListFragment;
 import io.rong.imlib.model.Conversation;
@@ -22,7 +22,7 @@ public class ConversationListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_conversationlist, "会话列表"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_conversationlist, "会话列表"));
         initView();
         initData();
     }

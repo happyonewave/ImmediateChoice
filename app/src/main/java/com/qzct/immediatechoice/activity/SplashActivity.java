@@ -10,7 +10,7 @@ import android.os.Message;
 import android.widget.Toast;
 
 import com.qzct.immediatechoice.R;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 /**
  * Created by tsh2 on 2017/4/13.
@@ -22,7 +22,7 @@ public class SplashActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activty_splash, null));
+        setContentView(Utils.getUsableView(this, R.layout.activty_splash, null));
         sharedPreferences = getSharedPreferences("config", Context.MODE_PRIVATE);
         new Handler() {
             @Override

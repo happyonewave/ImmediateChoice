@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * Created by qin on 2017/3/24.
  */
-public class QuestionnaireFragment extends baseFragment {
+public class QuestionnaireFragment extends BaseFragment {
 
     public static ViewPager vp_questionnaire;
     private List<Fragment> fragmentList;

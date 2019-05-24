@@ -18,7 +18,7 @@ import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.GroupInfo;
 import com.qzct.immediatechoice.domain.User;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,7 +50,7 @@ public class ChoiceGroupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getHasTopView(this, R.layout.activity_choicegroup, "谁能看见"));
+        setContentView(Utils.getHasTopView(this, R.layout.activity_choicegroup, "谁能看见"));
         initView();
         initData();
 

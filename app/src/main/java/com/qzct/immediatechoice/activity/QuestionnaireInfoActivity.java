@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.qzct.immediatechoice.R;
 import com.qzct.immediatechoice.domain.Questionnaire;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 /**
  * Created by tsh2 on 2017/4/22.
@@ -32,7 +32,7 @@ public class QuestionnaireInfoActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_questionnaire_info, "问卷详情"));
+        setContentView(Utils.getUsableView(this, R.layout.activity_questionnaire_info, "问卷详情"));
         questionnaire = (Questionnaire) getIntent().getSerializableExtra("questionnaire");
         initView();
         initData();

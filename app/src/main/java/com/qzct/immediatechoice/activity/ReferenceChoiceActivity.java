@@ -36,7 +36,7 @@ public class ReferenceChoiceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reference_choice);
-//        setContentView(utils.getHasTopView(this, R.layout.activity_reference_choice, "参考问卷库"));
+//        setContentView(Utils.getHasTopView(this, R.layout.activity_reference_choice, "参考问卷库"));
         initView();
         initData();
     }

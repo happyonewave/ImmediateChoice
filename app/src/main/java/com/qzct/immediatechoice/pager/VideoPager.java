@@ -15,7 +15,7 @@ import com.qzct.immediatechoice.adpter.QuestionVideoAdpter;
 import com.qzct.immediatechoice.Application.MyApplication;
 import com.qzct.immediatechoice.domain.Question;
 import com.qzct.immediatechoice.util.Config;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 import com.tuyenmonkey.mkloader.MKLoader;
 
 import org.apache.http.HttpResponse;
@@ -256,7 +256,7 @@ public class VideoPager extends BasePager implements ZrcListView.OnItemClickList
             HttpResponse hr = hc.execute(httpPost);
             if (hr.getStatusLine().getStatusCode() == 200) {
                 InputStream is = hr.getEntity().getContent();
-                String request = utils.getTextFromStream(is);
+                String request = Utils.getTextFromStream(is);
                 return request;
             } else {
                 return "0";

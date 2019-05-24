@@ -31,10 +31,10 @@ import com.qzct.immediatechoice.fragment.QuestionnaireSurveyingFragment;
 import com.qzct.immediatechoice.fragment.RegisterFinallyFragment;
 import com.qzct.immediatechoice.fragment.UserFragment;
 import com.qzct.immediatechoice.fragment.VideoFragment;
-import com.qzct.immediatechoice.fragment.baseFragment;
+import com.qzct.immediatechoice.fragment.BaseFragment;
 import com.qzct.immediatechoice.util.MyCallback;
 import com.qzct.immediatechoice.util.Service;
-import com.qzct.immediatechoice.util.utils;
+import com.qzct.immediatechoice.util.Utils;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(utils.getUsableView(this, R.layout.activity_main, null));
+        setContentView(Utils.getUsableView(this, R.layout.activity_main, null));
         rg_nav = (RadioGroup) findViewById(R.id.rg_nav);
         RadioButton bt_friend = (RadioButton) findViewById(R.id.bt_friend);
         if (MyApplication.isQuestionnaireProvider) {
@@ -275,7 +275,7 @@ public class MainActivity extends AppCompatActivity implements RongIM.UserInfoPr
 
         @Override
         public Fragment getItem(int arg0) {
-            baseFragment baseFragment = null;
+            BaseFragment baseFragment = null;
             switch (arg0) {
                 case 0:
                     baseFragment = new HomeFragment();
