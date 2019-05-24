@@ -46,6 +46,8 @@ public abstract class baseFragment extends Fragment {
     public final static int PUSH_QUESTIONNAIRE = 15;
     public final static int PUSH_QUESTIONNAIRE_DOING = 16;
     public final static int IMAGE_PORTRAIT_UPLOAD = 17;
+    public boolean viewCreated = false;
+    public boolean inited = false;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -61,19 +63,54 @@ public abstract class baseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View v = initView(inflater, container);
         return v;
     }
 
+    private void load() {
+        Log.d(TAG, "load: viewCreated:" + viewCreated + " " + this.getClass().getSimpleName());
+        Log.d(TAG, "load: getUserVisibleHint():" + getUserVisibleHint() + " " + this.getClass().getSimpleName());
+        Log.d(TAG, "load: inited:" + inited + " " + this.getClass().getSimpleName());
+        if (!inited && getUserVisibleHint() && viewCreated) {
+            Log.d(TAG, "加载 " + this.getClass().getSimpleName());
+            inited = true;
+            initData();
+        }
+    }
+
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        initData();
+        viewCreated = true;
+        super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+//        if (isVisibleToUser && viewCreated && !inited) {
+//            inited = true;
+//            initData();
+//        }
+        super.setUserVisibleHint(isVisibleToUser);
+        Log.d(TAG, "setUserVisibleHint: " + this.getClass().getSimpleName() + " " + isVisibleToUser);
+        load();
+    }
+
+    @Override
+    public void onResume() {
+//        Log.d(TAG, "onResume: " + this.getClass().getSimpleName());
+        super.onResume();
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+//        Log.d(TAG, "onActivityCreated: " + this.getClass().getSimpleName());
+        load();
     }
 
     @Override
